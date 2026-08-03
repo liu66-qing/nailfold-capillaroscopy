@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "MODEL_NOT_READY",
+    "message": "Required model assets are not loaded.",
+    "retryable": true,
+    "details": {}
+  },
+  "request_id": "request-001",
+  "timestamp": "2099-01-01T08:00:00Z"
+}

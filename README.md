@@ -31,7 +31,8 @@
 - [架构与模块职责](docs/ARCHITECTURE.md)
 - [系统集成说明](docs/INTEGRATION.md)
 - [数据隐私边界](docs/DATA_PRIVACY.md)
-- [脱敏输出结构示例](examples/report.schema.example.json)
+- [完整脱敏报告示例](examples/report.full.example.json)
+- [接口契约 Schema](schemas/)
 
 ## 安装
 

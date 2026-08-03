@@ -1,0 +1,11 @@
+{
+  "task_id": "9e929f1f-66f1-4b93-9cb0-3391a247b70d",
+  "client_request_id": "request-001",
+  "status": "running",
+  "progress": {
+    "stage": "video_inference",
+    "percent": 70
+  },
+  "created_at": "2099-01-01T08:00:00Z",
+  "updated_at": "2099-01-01T08:00:30Z"
+}

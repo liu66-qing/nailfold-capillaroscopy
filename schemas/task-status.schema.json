@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nailfold/task-status.schema.json",
+  "title": "Nailfold task status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "client_request_id", "status", "progress", "created_at", "updated_at"],
+  "properties": {
+    "task_id": {"type": "string", "format": "uuid"},
+    "client_request_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["queued", "running", "succeeded", "failed", "cancelled"]},
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "percent"],
+      "properties": {
+        "stage": {"type": "string"},
+        "percent": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

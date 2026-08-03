@@ -1,0 +1,50 @@
+{
+  "schema_version": "nailfold-report/1.0",
+  "model_version": "example-only",
+  "case_id": "synthetic-case-001",
+  "patient": {
+    "name": "",
+    "patient_id": "synthetic-case-001",
+    "sex": "",
+    "age": "",
+    "finger": "",
+    "exam_date": "2099-01-01"
+  },
+  "fields": {
+    "clarity": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "capillary_count": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "afferent_diameter": {"value": 0.0, "confidence": null, "status": "example-only"},
+    "efferent_diameter": {"value": 0.0, "confidence": null, "status": "example-only"},
+    "output_input_ratio": {"value": 0.0, "confidence": null, "status": "example-only"},
+    "apex_diameter": {"value": 0.0, "confidence": null, "status": "example-only"},
+    "loop_length": {"value": 0.0, "confidence": null, "status": "example-only"},
+    "crossing_ratio": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "malformation_ratio": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "flow_state": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "vasomotion": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "rbc_aggregation": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "wbc_count": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "microthrombus": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "blood_color": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "exudation": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "hemorrhage": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "subpapillary_venous_plexus": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "papilla": {"value": "example-category", "confidence": 0.50, "status": "example-only"},
+    "sweat_duct": {"value": "example-category", "confidence": 0.50, "status": "example-only"}
+  },
+  "evidence_images": [],
+  "quality": {
+    "usable_images": 0,
+    "needs_review": true,
+    "warnings": ["Synthetic interface example; not a model result."]
+  },
+  "scores": {
+    "morphology_score": 0.0,
+    "flow_score": 0.0,
+    "periloop_score": 0.0,
+    "total_score": 0.0,
+    "overall_assessment": "example-only",
+    "field_contributions": {}
+  },
+  "recommendations": []
+}

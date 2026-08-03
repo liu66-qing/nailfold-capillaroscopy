@@ -1,0 +1,18 @@
+{
+  "client_request_id": "request-001",
+  "case_id": "synthetic-case-001",
+  "image_paths": [
+    "C:/nailfold/runtime/synthetic-case-001/frame-001.jpg",
+    "C:/nailfold/runtime/synthetic-case-001/frame-002.jpg"
+  ],
+  "video_paths": [
+    "C:/nailfold/runtime/synthetic-case-001/clip-001.avi"
+  ],
+  "patient": {
+    "name": "",
+    "patient_id": "synthetic-case-001",
+    "sex": "",
+    "age": "",
+    "finger": ""
+  }
+}

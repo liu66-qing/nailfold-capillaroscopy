@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nailfold/analysis-request.schema.json",
+  "title": "Nailfold analysis request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["client_request_id", "case_id", "image_paths", "video_paths", "patient"],
+  "properties": {
+    "client_request_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "case_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "image_paths": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "video_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "patient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "patient_id", "sex", "age", "finger"],
+      "properties": {
+        "name": {"type": "string"},
+        "patient_id": {"type": "string", "minLength": 1},
+        "sex": {"type": "string"},
+        "age": {"type": "string"},
+        "finger": {"type": "string"}
+      }
+    }
+  }
+}

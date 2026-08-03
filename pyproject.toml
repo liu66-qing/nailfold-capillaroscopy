@@ -24,7 +24,7 @@ train = [
   "accelerate>=1.0",
   "safetensors>=0.4",
 ]
-dev = ["pytest>=8.0", "ruff>=0.8"]
+dev = ["jsonschema[format]>=4.23", "pytest>=8.0", "ruff>=0.8"]
 deploy = [
   "onnxruntime-gpu>=1.21,<1.27",
   "opencv-python-headless==4.13.0.92",

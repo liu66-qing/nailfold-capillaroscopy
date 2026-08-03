@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nailfold/nailfold-report.schema.json",
+  "title": "Nailfold structured report 1.0",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "model_version", "case_id", "patient", "fields", "evidence_images", "quality"],
+  "properties": {
+    "schema_version": {"const": "nailfold-report/1.0"},
+    "model_version": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "patient": {"$ref": "#/$defs/patient"},
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["clarity", "capillary_count", "afferent_diameter", "efferent_diameter", "output_input_ratio", "apex_diameter", "loop_length", "crossing_ratio", "malformation_ratio", "flow_state", "vasomotion", "rbc_aggregation", "wbc_count", "microthrombus", "blood_color", "exudation", "hemorrhage", "subpapillary_venous_plexus", "papilla", "sweat_duct"],
+      "properties": {
+        "clarity": {"$ref": "#/$defs/categoricalField"},
+        "capillary_count": {"$ref": "#/$defs/categoricalField"},
+        "afferent_diameter": {"$ref": "#/$defs/numericField"},
+        "efferent_diameter": {"$ref": "#/$defs/numericField"},
+        "output_input_ratio": {"$ref": "#/$defs/numericField"},
+        "apex_diameter": {"$ref": "#/$defs/numericField"},
+        "loop_length": {"$ref": "#/$defs/numericField"},
+        "crossing_ratio": {"$ref": "#/$defs/categoricalField"},
+        "malformation_ratio": {"$ref": "#/$defs/categoricalField"},
+        "flow_state": {"$ref": "#/$defs/categoricalField"},
+        "vasomotion": {"$ref": "#/$defs/categoricalField"},
+        "rbc_aggregation": {"$ref": "#/$defs/categoricalField"},
+        "wbc_count": {"$ref": "#/$defs/categoricalField"},
+        "microthrombus": {"$ref": "#/$defs/categoricalField"},
+        "blood_color": {"$ref": "#/$defs/categoricalField"},
+        "exudation": {"$ref": "#/$defs/categoricalField"},
+        "hemorrhage": {"$ref": "#/$defs/categoricalField"},
+        "subpapillary_venous_plexus": {"$ref": "#/$defs/categoricalField"},
+        "papilla": {"$ref": "#/$defs/categoricalField"},
+        "sweat_duct": {"$ref": "#/$defs/categoricalField"}
+      }
+    },
+    "evidence_images": {"type": "array", "items": {"type": "string"}},
+    "quality": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["usable_images", "needs_review", "warnings"],
+      "properties": {
+        "usable_images": {"type": "integer", "minimum": 0},
+        "needs_review": {"type": "boolean"},
+        "warnings": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scores": {"$ref": "#/$defs/scores"},
+    "recommendations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "patient": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["name", "patient_id", "sex", "age", "finger", "exam_date"],
+      "properties": {
+        "name": {"type": "string"},
+        "patient_id": {"type": "string"},
+        "sex": {"type": "string"},
+        "age": {"type": "string"},
+        "finger": {"type": "string"},
+        "exam_date": {"type": "string", "format": "date"}
+      }
+    },
+    "categoricalField": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["value", "confidence", "status"],
+      "properties": {
+        "value": {"type": ["string", "null"]},
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "status": {"type": "string", "minLength": 1}
+      }
+    },
+    "numericField": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["value", "confidence", "status"],
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "status": {"type": "string", "minLength": 1}
+      }
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["morphology_score", "flow_score", "periloop_score", "total_score", "overall_assessment"],
+      "properties": {
+        "morphology_score": {"type": ["number", "null"]},
+        "flow_score": {"type": ["number", "null"]},
+        "periloop_score": {"type": ["number", "null"]},
+        "total_score": {"type": ["number", "null"]},
+        "overall_assessment": {"type": ["string", "null"]},
+        "field_contributions": {"type": "object", "additionalProperties": {"type": ["number", "null"]}}
+      }
+    }
+  }
+}

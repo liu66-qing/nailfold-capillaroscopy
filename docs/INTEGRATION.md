@@ -27,7 +27,17 @@ python scripts/windows_uvc_report.py `
 - `report.json`：结构化字段、模型版本、质量警告、积分、患者上下文和证据图路径；
 - `report_print.html`：可打印报告。
 
-脱敏结构示例见 `examples/report.schema.example.json`。示例值是人为构造的接口占位值，不是患者记录或模型评估样本。
+接口资产位于：
+
+- `examples/analysis-request.example.json`：任务请求；
+- `examples/task-status.example.json`：异步任务状态；
+- `examples/error-response.example.json`：统一错误响应；
+- `examples/report.full.example.json`：当前20项输出字段的完整脱敏报告；
+- `schemas/`：对应的 JSON Schema Draft 2020-12。
+
+所有示例值均为人工构造的接口占位值，不是患者记录或模型评估样本。测试会验证示例与 Schema 一致。
+
+当前标签源定义了 `flow_speed_um_s`，但报告布局将其标记为 `unsupported`，现有推理链也不输出该字段。因此正式报告契约锁定当前20项实际输出，不包含流速字段。
 
 ## 适合封装的内部边界
 
