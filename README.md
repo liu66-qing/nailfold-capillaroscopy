@@ -16,7 +16,7 @@
 - 20项结构化字段、确定性积分、质量警告；
 - 医生式 HTML/A4 打印报告和 Windows 桌面原型。
 
-当前尚未实现正式本地 HTTP API、Windows Service、浏览器直连协议和云端任务同步。接口同事可从真实调用链和输出契约开始研究，详见 [接口通信研究指南](docs/INTEGRATION.md)。
+当前尚未实现正式本地 HTTP API、Windows Service、浏览器直连协议和云端任务同步。现有调用入口、输入输出契约和可选通信架构见 [系统集成说明](docs/INTEGRATION.md)。
 
 ## 快速理解代码
 
@@ -29,7 +29,7 @@
 ```
 
 - [架构与模块职责](docs/ARCHITECTURE.md)
-- [接口通信研究指南](docs/INTEGRATION.md)
+- [系统集成说明](docs/INTEGRATION.md)
 - [数据隐私边界](docs/DATA_PRIVACY.md)
 - [脱敏输出结构示例](examples/report.schema.example.json)
 

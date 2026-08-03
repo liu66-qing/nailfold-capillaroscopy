@@ -1,8 +1,8 @@
-# 接口通信研究指南
+# 系统集成说明
 
-本文供客户端和平台同事基于当前真实代码研究通信方案。仓库当前没有正式 HTTP API。
+本文说明当前推理入口、输入输出契约、可封装边界和候选通信架构。仓库当前没有正式 HTTP API。
 
-## 建议首先阅读
+## 代码入口
 
 1. `scripts/windows_uvc_report.py`：完整单病例编排。
 2. `src/nailfold_report/windows_inference.py`：静态模型初始化和 `predict()`。
@@ -40,7 +40,7 @@ result = engine.analyze_case(image_paths, video_paths, patient_context)
 
 通信层只负责任务、鉴权、状态和序列化，不应复制模型融合与积分逻辑。
 
-## 需要共同决定的通信架构
+## 候选通信架构
 
 ### 方案 A：浏览器直接调用本机服务
 
