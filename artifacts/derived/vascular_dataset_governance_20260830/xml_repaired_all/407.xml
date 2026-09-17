@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<annotation>
+	<folder>annotations</folder>
+	<filename>407.jpg</filename>
+	<path>C:\Users\Nicolas\Desktop\甲襞微循环分析项目\第二次标注\第一组1\cropfromvoc\annotations\94.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>718</width>
+		<height>539</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>malformed_vessel</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>141</xmin>
+			<ymin>184</ymin>
+			<xmax>193</xmax>
+			<ymax>321</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>vessel</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>220</xmin>
+			<ymin>168</ymin>
+			<xmax>273</xmax>
+			<ymax>251</ymax>
+		</bndbox>
+	</object>
+</annotation>

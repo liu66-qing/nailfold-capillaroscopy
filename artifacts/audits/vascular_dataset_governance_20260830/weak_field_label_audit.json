@@ -1,0 +1,75 @@
+{
+  "source": "E:\\甲劈微循环\\data\\血管数据集\\血管分类标注\\血管分类标注.xlsx",
+  "row_count": 582,
+  "unique_image_ids": 582,
+  "image_id_min": 1,
+  "image_id_max": 582,
+  "all_rows_complete": true,
+  "fields": {
+    "乳头下静脉丛": {
+      "nonempty": 582,
+      "unique_values": [
+        "不可见",
+        "扩张",
+        "正常"
+      ],
+      "expected_values_from_pdf": [
+        "不可见",
+        "扩张",
+        "正常"
+      ],
+      "values_match_pdf_set": true
+    },
+    "红细胞聚集": {
+      "nonempty": 582,
+      "unique_values": [
+        "正常",
+        "聚集"
+      ],
+      "expected_values_from_pdf": [
+        "正常",
+        "聚集"
+      ],
+      "values_match_pdf_set": true
+    },
+    "乳头": {
+      "nonempty": 582,
+      "unique_values": [
+        "不可见",
+        "异常",
+        "正常"
+      ],
+      "expected_values_from_pdf": [
+        "不可见",
+        "异常",
+        "正常"
+      ],
+      "values_match_pdf_set": true
+    },
+    "汗腺导管": {
+      "nonempty": 582,
+      "unique_values": [
+        "不可见",
+        "可见"
+      ],
+      "expected_values_from_pdf": [
+        "不可见",
+        "可见"
+      ],
+      "values_match_pdf_set": true
+    },
+    "血管是否出血": {
+      "nonempty": 582,
+      "unique_values": [
+        "出血",
+        "正常"
+      ],
+      "expected_values_from_pdf": [
+        "出血",
+        "正常"
+      ],
+      "values_match_pdf_set": true
+    }
+  },
+  "interpretation": "Excel supplies image-level auxiliary labels; PDF supplies operational descriptions, but clinical acceptance and provenance remain human gates"
+}

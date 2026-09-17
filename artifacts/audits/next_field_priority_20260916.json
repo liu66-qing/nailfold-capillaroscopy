@@ -1,0 +1,43 @@
+{
+  "protocol_source": "artifacts/experiments/full_field_fix_20260916/summary.json",
+  "locked_cases_used": 0,
+  "priorities": [
+    {
+      "field": "exudation",
+      "action": "candidate_only",
+      "reason": "ROI route delta +0.04196 BA vs dual-seg; requires fixed binary endpoint accuracy/sensitivity/specificity and online feature extraction before training"
+    },
+    {
+      "field": "clarity",
+      "action": "retain_existing_candidate",
+      "reason": "binary accuracy delta +0.2973 in dev; no external validation"
+    },
+    {
+      "field": "blood_color",
+      "action": "retain_existing_candidate",
+      "reason": "binary accuracy delta +0.1492 in dev; provenance for A3 not sufficient"
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "action": "manual_review_only",
+      "reason": "raw multiclass severe-class recall failure; binary signal development-only"
+    },
+    {
+      "field": "capillary_count",
+      "action": "unavailable",
+      "reason": "accuracy delta -0.04945 vs majority baseline"
+    },
+    {
+      "field": "hemorrhage",
+      "action": "unavailable",
+      "reason": "rare positive support and negative delta"
+    },
+    {
+      "field": "microthrombus",
+      "action": "closed",
+      "reason": "locked evidence below baseline; no tuning"
+    }
+  ],
+  "next_gpu_job": "none until exudation binary product-metric OOF artifact and online ROI extractor are fixed",
+  "external_validation": false
+}

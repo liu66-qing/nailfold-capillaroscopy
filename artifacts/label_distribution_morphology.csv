@@ -1,0 +1,14 @@
+field,raw_class,count
+crossing_ratio,<=30%,112
+crossing_ratio,30--60%,48
+crossing_ratio,60--80%,12
+crossing_ratio,,7
+crossing_ratio,>80%,5
+crossing_ratio,[<30%],1
+crossing_ratio,10--30%,1
+malformation_ratio,<=10%,92
+malformation_ratio,10--30%,25
+malformation_ratio,>60%,25
+malformation_ratio,,23
+malformation_ratio,30--60%,20
+malformation_ratio,[<10%],1

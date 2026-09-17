@@ -1,0 +1,244 @@
+{
+  "test_fold": 4,
+  "best_val_objective": 0.24280959977443078,
+  "test": {
+    "clarity": {
+      "n": 46,
+      "balanced_accuracy": 0.3494736842105263,
+      "accuracy": 0.5217391304347826
+    },
+    "capillary_count": {
+      "n": 46,
+      "balanced_accuracy": 0.3829423264907136,
+      "accuracy": 0.5869565217391305
+    },
+    "crossing_ratio": {
+      "n": 43,
+      "balanced_accuracy": 0.2836990595611285,
+      "accuracy": 0.6511627906976745
+    },
+    "malformation_ratio": {
+      "n": 40,
+      "balanced_accuracy": 0.40476190476190477,
+      "accuracy": 0.575
+    },
+    "blood_color": {
+      "n": 44,
+      "balanced_accuracy": 0.41687552213868,
+      "accuracy": 0.5681818181818182
+    },
+    "exudation": {
+      "n": 42,
+      "balanced_accuracy": 0.3989938080495356,
+      "accuracy": 0.5
+    },
+    "hemorrhage": {
+      "n": 44,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.9772727272727273
+    },
+    "subpapillary_venous_plexus": {
+      "n": 44,
+      "balanced_accuracy": 0.49873737373737376,
+      "accuracy": 0.5454545454545454
+    },
+    "papilla": {
+      "n": 44,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.5
+    },
+    "sweat_duct": {
+      "n": 37,
+      "balanced_accuracy": 1.0,
+      "accuracy": 1.0
+    },
+    "afferent_diameter": {
+      "n": 40,
+      "mae": 3.2802758377792904,
+      "normalized_mae": 0.8675335408299542
+    },
+    "efferent_diameter": {
+      "n": 41,
+      "mae": 4.334201637423248,
+      "normalized_mae": 0.742613078188863
+    },
+    "output_input_ratio": {
+      "n": 40,
+      "mae": 0.40291949638359437,
+      "normalized_mae": 0.760011583433548
+    },
+    "apex_diameter": {
+      "n": 43,
+      "mae": 5.96837443950234,
+      "normalized_mae": 0.7240009241400468
+    },
+    "loop_length": {
+      "n": 44,
+      "mae": 66.81420740560624,
+      "normalized_mae": 0.6133921328947476
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.6061332032961004,
+      "score": 0.24280959977443078,
+      "val": {
+        "clarity": {
+          "n": 45,
+          "balanced_accuracy": 0.3808446455505279,
+          "accuracy": 0.5777777777777777
+        },
+        "capillary_count": {
+          "n": 46,
+          "balanced_accuracy": 0.44599217986314754,
+          "accuracy": 0.717391304347826
+        },
+        "crossing_ratio": {
+          "n": 42,
+          "balanced_accuracy": 0.3547619047619047,
+          "accuracy": 0.6190476190476191
+        },
+        "malformation_ratio": {
+          "n": 41,
+          "balanced_accuracy": 0.39502164502164505,
+          "accuracy": 0.5609756097560976
+        },
+        "blood_color": {
+          "n": 41,
+          "balanced_accuracy": 0.5160818713450293,
+          "accuracy": 0.6097560975609756
+        },
+        "exudation": {
+          "n": 45,
+          "balanced_accuracy": 0.4251893939393939,
+          "accuracy": 0.6888888888888889
+        },
+        "hemorrhage": {
+          "n": 46,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9565217391304348
+        },
+        "subpapillary_venous_plexus": {
+          "n": 46,
+          "balanced_accuracy": 0.414484126984127,
+          "accuracy": 0.5217391304347826
+        },
+        "papilla": {
+          "n": 45,
+          "balanced_accuracy": 0.4222222222222222,
+          "accuracy": 0.4222222222222222
+        },
+        "sweat_duct": {
+          "n": 40,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0
+        },
+        "afferent_diameter": {
+          "n": 41,
+          "mae": 5.094246481242937,
+          "normalized_mae": 1.3472737983904193
+        },
+        "efferent_diameter": {
+          "n": 41,
+          "mae": 5.236621697634364,
+          "normalized_mae": 0.8972318511011382
+        },
+        "output_input_ratio": {
+          "n": 41,
+          "mae": 0.3509436932437251,
+          "normalized_mae": 0.6619716206143876
+        },
+        "apex_diameter": {
+          "n": 41,
+          "mae": 10.571946498967664,
+          "normalized_mae": 1.2824428347779637
+        },
+        "loop_length": {
+          "n": 44,
+          "mae": 72.33584463671448,
+          "normalized_mae": 0.6640838790034703
+        }
+      }
+    }
+  ],
+  "vocabularies": {
+    "clarity": [
+      "不清",
+      "模糊",
+      "清晰"
+    ],
+    "capillary_count": [
+      "1--2",
+      "3--4",
+      "5--6",
+      "<1",
+      ">=7"
+    ],
+    "crossing_ratio": [
+      "30--60%",
+      "60--80%",
+      "<=30%",
+      ">80%"
+    ],
+    "malformation_ratio": [
+      "10--30%",
+      "30--60%",
+      "<=10%",
+      ">60%"
+    ],
+    "blood_color": [
+      "暗紫",
+      "暗红",
+      "浅红",
+      "淡红"
+    ],
+    "exudation": [
+      "+",
+      "++",
+      "+++",
+      "无"
+    ],
+    "hemorrhage": [
+      "1--2",
+      "无"
+    ],
+    "subpapillary_venous_plexus": [
+      ">2排,扩张",
+      "不见",
+      "可见1排",
+      "可见2排"
+    ],
+    "papilla": [
+      "平坦",
+      "波纹状",
+      "浅波纹状"
+    ],
+    "sweat_duct": [
+      "0--2",
+      "3--4"
+    ]
+  },
+  "scales": {
+    "afferent_diameter": [
+      10.570247933884298,
+      3.7811516020938027
+    ],
+    "efferent_diameter": [
+      14.641666666666667,
+      5.836419751714854
+    ],
+    "output_input_ratio": [
+      1.4608333333333334,
+      0.5301491518896354
+    ],
+    "apex_diameter": [
+      18.504065040650406,
+      8.243600581852089
+    ],
+    "loop_length": [
+      267.1162790697674,
+      108.92576513867833
+    ]
+  }
+}

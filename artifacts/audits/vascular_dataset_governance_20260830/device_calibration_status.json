@@ -1,0 +1,21 @@
+{
+  "status": "UNCALIBRATED_BATCH_CONSISTENCY_ASSUMPTION",
+  "user_statement": "同一数据集大概率使用同一设备/倍率/标尺",
+  "allowed": [
+    "pixel-domain detection",
+    "pixel-domain segmentation",
+    "relative geometry features",
+    "within-batch comparisons"
+  ],
+  "forbidden": [
+    "absolute micron measurements",
+    "cross-device calibration claims",
+    "clinical geometry claims"
+  ],
+  "required_evidence": [
+    "device/camera model",
+    "magnification",
+    "pixel scale or stage micrometer",
+    "resampling/crop history"
+  ]
+}

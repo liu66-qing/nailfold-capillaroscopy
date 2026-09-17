@@ -1,0 +1,10 @@
+field,best_ba,source,dev_or_locked,fold_wins,gate_status
+clarity,0.733228,rank8_lr1e4,development,0,candidate
+blood_color,0.710474,v3_detector,development,0,baseline
+exudation,0.771922,rank4_lr1e4,development,4,candidate_locked_drop
+subpapillary_venous_plexus,0.807598,rank8,development,4,candidate
+papilla,0.660569,rank16,development,0,candidate
+hemorrhage,0.5,dino_et,development,0,fail
+capillary_count,0.528698,v1_detector_gbt,development,0,fail
+crossing_ratio,0.496575,lagging_xgb,development,0,fail
+malformation_ratio,0.610606,lagging_binary_exploratory,development,0,hold

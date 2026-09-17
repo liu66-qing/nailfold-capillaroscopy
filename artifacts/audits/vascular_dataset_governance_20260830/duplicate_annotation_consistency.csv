@@ -1,0 +1,11 @@
+﻿duplicate_group_id,member_paths,member_count,xml_signature_count,xml_signatures_identical,status,errors,decision_rule
+D009,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\292.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\518.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D058,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\403.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\527.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D340,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\354.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\530.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D356,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\337.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\57.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D401,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\388.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\543.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D463,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\190.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\400.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D469,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\124.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\330.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D486,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\522.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\69.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D494,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\364.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\505.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree
+D540,E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\13.jpg;E:\甲劈微循环\data\血管数据集\分类数据集\扩充之前\images\321.jpg,2,2,no,HOLD_DUPLICATE_LABEL_CONFLICT,,canonical image is not train-safe unless all member XML signatures agree

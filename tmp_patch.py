@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('/root/nailfold/scripts/field_labels.py')
+s=p.read_text(); s=s.replace("    'sweat_duct': ['0--2', '3--4'],", "    'sweat_duct': ['0--2', '3--4', '>=5'],\n    'overall_assessment': ['正常', '大致正常', '轻度异常', '中度异常', '重度异常'],"); s=s.replace("    'sweat_duct': {'0--2个/-指甲襞': '0--2'},", "    'sweat_duct': {'0--2个/-指甲襞': '0--2'},\n    'hemorrhage': {'未见': '无', '不见': '无'},\n    'exudation': {'未见': '无', '不见': '无'},\n    'blood_color': {'淡红色': '淡红', '浅红色': '浅红', '暗红色': '暗红'},"); s=s.replace("        'sweat_duct': {'0--2'},", "        'sweat_duct': {'0--2'},\n        'overall_assessment': {'正常', '大致正常'},"); p.write_text(s)

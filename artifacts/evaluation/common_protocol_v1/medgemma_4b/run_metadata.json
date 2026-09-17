@@ -1,0 +1,18 @@
+{
+  "model": "/root/autodl-tmp/vlm_direct_20260827/models/medgemma_4b",
+  "model_sha256": "d718c800cdb5f40322010f57c6489944ab202b4622dc5f63e61b2a57d5df3b8e",
+  "folds": "/root/autodl-tmp/vlm_direct_20260827/manifests/eval_folds_v1_protocol.csv",
+  "image_root": "/root/autodl-tmp/nailfold/data/domain_adapted",
+  "development_cases": 186,
+  "locked_cases_excluded": 47,
+  "load_seconds": 6.445973567664623,
+  "few_shot_demos": 2,
+  "method_note": "No report image or original report text is input. Few-shot context contains only four nailfold images plus normalized fixed-JSON target labels from training-fold cases.",
+  "zero_shot_json_valid_rate": 1.0,
+  "zero_shot_mean_latency_seconds": 5.384439910411515,
+  "zero_shot_stability_exact_rate": 1.0,
+  "few_shot_json_valid_rate": 1.0,
+  "few_shot_mean_latency_seconds": 5.396844047732571,
+  "few_shot_stability_exact_rate": 1.0,
+  "peak_gpu_mb": 5437.7
+}

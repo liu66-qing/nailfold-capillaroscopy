@@ -1,0 +1,7 @@
+﻿model,method,normalized_overall_score
+InternVL3-8B,few_shot,0.24382839770009163
+InternVL3-8B,zero_shot,0.24382839770009163
+MedGemma-4B,few_shot,0.49840683764988813
+MedGemma-4B,zero_shot,0.39894704611775833
+Qwen3-VL-8B,few_shot,0.5050455711169133
+Qwen3-VL-8B,zero_shot,0.34096717404545834

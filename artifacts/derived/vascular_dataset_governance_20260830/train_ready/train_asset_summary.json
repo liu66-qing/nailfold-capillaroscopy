@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-08-30",
+  "gpu_used": false,
+  "raw_data_modified": false,
+  "v1_modified": false,
+  "detection_images": 89,
+  "weak_field_images": 89,
+  "segmentation_pairs": 2332,
+  "all_status": "PASS_AUXILIARY_CONDITIONAL",
+  "locked_assets_included": 0,
+  "augmented_assets_as_independent_samples": 0,
+  "required_before_training": [
+    "human semantic approval",
+    "case-level split and provenance/permission approval",
+    "independent QC",
+    "no locked overlap"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-08-30",
+  "local_sources": [
+    "data/血管数据集/血管分类标注/血管分类标注说明.pdf",
+    "data/血管数据集/血管分类标注/血管分类标注.xlsx",
+    "data/血管数据集/分类数据集/扩充之前/annotations"
+  ],
+  "authoritative_sources": [
+    {
+      "title": "Nailfold videocapillaroscopy reporting in clinical research: international Delphi-based consensus",
+      "doi": "10.1136/annrheumdis-2020-eular.2415",
+      "url": "https://doi.org/10.1136/annrheumdis-2020-eular.2415",
+      "use": "reporting standard and terminology governance"
+    },
+    {
+      "title": "Nailfold videocapillaroscopy micro-haemorrhage and giant capillary counting...",
+      "doi": "10.1186/s13075-014-0462-8",
+      "url": "https://doi.org/10.1186/s13075-014-0462-8",
+      "use": "micro-haemorrhage and capillary morphology terminology"
+    },
+    {
+      "title": "Standardisation of nailfold videocapillaroscopy in clinical research",
+      "url": "https://www.eular.org/clinical-practice-recommendations",
+      "use": "use EULAR recommendations as the governing clinical-method source; exact project label mapping still requires local expert approval"
+    }
+  ],
+  "project_label_candidates": {
+    "vessel": "ordinary visible vessel instance; candidate operational definition only",
+    "malformed_vessel": "morphologically abnormal vessel instance; candidate operational definition only",
+    "cross_vessel": "crossing/anastomotic vessel region detection class (AI working assumption; preserve as separate class)",
+    "corss_vessel": "normalize spelling to cross_vessel only; do not alter semantic class"
+  },
+  "local_weak_fields": {
+    "svp": "normal/dilated/not_visible",
+    "red_cell_aggregation": "normal/aggregation",
+    "papilla": "normal/abnormal/not_visible",
+    "sweat_duct": "visible/not_visible",
+    "hemorrhage": "hemorrhage/normal"
+  },
+  "human_gate": "A qualified reviewer must approve whether project labels operationally match clinical terminology and whether each label is fit for auxiliary supervision; external annotations are not clinical gold standard.",
+  "ai_working_decision": {
+    "cross_vessel": "retain_separate_class",
+    "reason": "most likely an object/region class in a detection dataset; collapsing to vessel would erase positive examples and is harder to recover later",
+    "confidence": "moderate",
+    "clinical_approval_required": true
+  }
+}

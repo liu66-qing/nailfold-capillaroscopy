@@ -1,0 +1,24 @@
+autodl-container-81c742b990-34e91a8c
+PWD=/root
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+bash: line 1: python3: command not found
+/usr/bin/nvidia-smi
+bash: line 1: /usr/bin/nvidia-smi: Permission denied
+GIT_DIRS
+/root/autodl-tmp/nailfold/.git
+/root/autodl-tmp/medprm/v4_work/.git
+/root/autodl-tmp/Med-R1/.git
+/root/autodl-tmp/LLaVA-Med/.git
+DATA_DIRS
+/root/autodl-tmp/nailfold/data
+/root/autodl-tmp/data
+/root/autodl-tmp/PFA-v3/data
+/root/autodl-tmp/LLaVA-Med/data
+/root/miniconda3/pkgs/tzdata-2024a-h04d1e81_0
+/root/miniconda3/pkgs/tzdata-2026c-he532380_0
+/root/miniconda3/share/tessdata
+COMMITS
+/root/autodl-tmp/nailfold/.git/.. 43c6848996db10f00b142e5d911499b21cdad443
+/root/autodl-tmp/medprm/v4_work/.git/.. 0602c498439c854047594c38cf39feedee918cf0
+/root/autodl-tmp/Med-R1/.git/.. 88d76c73e7d21cd958a2b2dc32eca038be766f8f
+/root/autodl-tmp/LLaVA-Med/.git/.. 30697ca50b5c29a8e955c99330b259776aef27b9

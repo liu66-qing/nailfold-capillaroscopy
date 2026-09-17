@@ -1,0 +1,9 @@
+{
+  "selected_cases": 164,
+  "locked_excluded": 0,
+  "locked_ids_found": 77,
+  "seed": 20260916,
+  "external_api_called": false,
+  "requirement": "case-level filter before any image transmission",
+  "sha256": "185a79afd8dd881acd33efee66c1f788c5a9e39244711bec5ed700482d1a0d05"
+}

@@ -1,0 +1,5045 @@
+{
+  "test_fold": 4,
+  "best_val_objective": 0.2354603671057206,
+  "test": {
+    "clarity": {
+      "n": 34,
+      "balanced_accuracy": 0.4259259259259259,
+      "accuracy": 0.6470588235294118,
+      "macro_f1": 0.4090909090909091,
+      "per_class_recall": {
+        "0": 0.3333333333333333,
+        "1": 0.0,
+        "2": 0.9444444444444444
+      },
+      "balanced_accuracy_ci95": [
+        0.3503068190839089,
+        0.7371052631578945
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 2,
+          "prediction": 2
+        }
+      ]
+    },
+    "capillary_count": {
+      "n": 34,
+      "balanced_accuracy": 0.3703703703703704,
+      "accuracy": 0.6764705882352942,
+      "macro_f1": 0.33827160493827163,
+      "per_class_recall": {
+        "1": 0.0,
+        "2": 0.1111111111111111,
+        "4": 1.0
+      },
+      "balanced_accuracy_ci95": [
+        0.3333333333333333,
+        0.5357142857142857
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 1,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 1,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 2,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 4,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 1,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 4,
+          "prediction": 4
+        }
+      ]
+    },
+    "crossing_ratio": {
+      "n": 31,
+      "balanced_accuracy": 0.2638888888888889,
+      "accuracy": 0.5806451612903226,
+      "macro_f1": 0.23023715415019763,
+      "per_class_recall": {
+        "1": 0.1111111111111111,
+        "2": 0.0,
+        "3": 0.9444444444444444,
+        "4": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.21737318840579709,
+        0.43333333333333335
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 2,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 1,
+          "prediction": 4
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 4,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 2,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 2,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 3,
+          "prediction": 3
+        }
+      ]
+    },
+    "malformation_ratio": {
+      "n": 31,
+      "balanced_accuracy": 0.3472222222222222,
+      "accuracy": 0.5806451612903226,
+      "macro_f1": 0.2813852813852814,
+      "per_class_recall": {
+        "0": 0.5,
+        "1": 0.0,
+        "2": 0.8888888888888888,
+        "3": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.20833333333333334,
+        0.5
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 3,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 2,
+          "prediction": 2
+        }
+      ]
+    },
+    "blood_color": {
+      "n": 32,
+      "balanced_accuracy": 0.3653846153846154,
+      "accuracy": 0.46875,
+      "macro_f1": 0.30924630924630925,
+      "per_class_recall": {
+        "1": 0.25,
+        "2": 0.8461538461538461,
+        "3": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.26189309056956117,
+        0.5397321428571428
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 3,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 2,
+          "prediction": 2
+        }
+      ]
+    },
+    "exudation": {
+      "n": 34,
+      "balanced_accuracy": 0.3269230769230769,
+      "accuracy": 0.5,
+      "macro_f1": 0.28114478114478114,
+      "per_class_recall": {
+        "0": 0.5384615384615384,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.7692307692307693
+      },
+      "balanced_accuracy_ci95": [
+        0.24346049783549784,
+        0.5317966075319016
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 3,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 3,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 3,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 3,
+          "prediction": 3
+        }
+      ]
+    },
+    "hemorrhage": {
+      "n": 33,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.9090909090909091,
+      "macro_f1": 0.47619047619047616,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 1.0
+      },
+      "balanced_accuracy_ci95": [
+        0.5,
+        1.0
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 1,
+          "prediction": 1
+        }
+      ]
+    },
+    "subpapillary_venous_plexus": {
+      "n": 34,
+      "balanced_accuracy": 0.3979166666666667,
+      "accuracy": 0.5,
+      "macro_f1": 0.34587780640412213,
+      "per_class_recall": {
+        "0": 0.6,
+        "1": 0.8666666666666667,
+        "2": 0.0,
+        "3": 0.125
+      },
+      "balanced_accuracy_ci95": [
+        0.25,
+        0.5343501984126984
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 3,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 1,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 3,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 3,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 0,
+          "prediction": 3
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 1,
+          "prediction": 1
+        }
+      ]
+    },
+    "papilla": {
+      "n": 33,
+      "balanced_accuracy": 0.48303548303548305,
+      "accuracy": 0.45454545454545453,
+      "macro_f1": 0.44822966507177037,
+      "per_class_recall": {
+        "0": 0.36363636363636365,
+        "1": 0.7777777777777778,
+        "2": 0.3076923076923077
+      },
+      "balanced_accuracy_ci95": [
+        0.3269113756613757,
+        0.6386309523809524
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 1,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 0,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 0,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 2,
+          "prediction": 2
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 2,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1,
+          "prediction": 1
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 2,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 1,
+          "prediction": 1
+        }
+      ]
+    },
+    "sweat_duct": {
+      "n": 26,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.9615384615384616,
+      "macro_f1": 0.49019607843137253,
+      "per_class_recall": {
+        "0": 1.0,
+        "1": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.5,
+        1.0
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/34",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 1,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 0,
+          "prediction": 0
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 0,
+          "prediction": 0
+        }
+      ]
+    },
+    "afferent_diameter": {
+      "n": 29,
+      "mae": 3.313992532168185,
+      "median_absolute_error": 2.1148564102463023,
+      "within_engineering_tolerance": 0.4827586206896552,
+      "engineering_tolerance": 2.0,
+      "normalized_mae": 0.9237258966230137,
+      "mae_ci95": [
+        2.2983543961822894,
+        4.61554173012657
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 6.0,
+          "prediction": 8.114856410246302
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 7.0,
+          "prediction": 7.970034056981881
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 14.0,
+          "prediction": 8.17650150211383
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 8.0,
+          "prediction": 8.543557280221416
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 26.0,
+          "prediction": 10.043446483079684
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 6.0,
+          "prediction": 9.055097972411778
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 8.0,
+          "prediction": 7.642084657341735
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 8.0,
+          "prediction": 7.763358545738561
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 7.0,
+          "prediction": 8.666115062690862
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 20.0,
+          "prediction": 8.685464997208388
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 13.0,
+          "prediction": 9.224569210080388
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 6.0,
+          "prediction": 7.810125093005032
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 8.0,
+          "prediction": 8.258353812199275
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 13.0,
+          "prediction": 9.033558960009273
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 13.0,
+          "prediction": 10.130232504698018
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 11.0,
+          "prediction": 10.010185254771223
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 15.0,
+          "prediction": 10.755333162510075
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 14.0,
+          "prediction": 9.16108220921977
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 4.0,
+          "prediction": 9.851115825792562
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 7.0,
+          "prediction": 8.833683767787171
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 8.0,
+          "prediction": 9.466514707117955
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 13.0,
+          "prediction": 7.461633602042754
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 7.0,
+          "prediction": 8.89348278078579
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 13.0,
+          "prediction": 8.482912530870829
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 8.0,
+          "prediction": 9.127758806993652
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 10.0,
+          "prediction": 10.356046302531087
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 13.0,
+          "prediction": 9.932811070555495
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 11.0,
+          "prediction": 9.663445111652843
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 15.0,
+          "prediction": 10.674338643994512
+        }
+      ]
+    },
+    "efferent_diameter": {
+      "n": 29,
+      "mae": 5.3869060217362215,
+      "median_absolute_error": 2.5503240547480317,
+      "within_engineering_tolerance": 0.3793103448275862,
+      "engineering_tolerance": 2.0,
+      "normalized_mae": 1.281514743338764,
+      "mae_ci95": [
+        3.0674174673963397,
+        8.746375572652802
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 11.0,
+          "prediction": 11.782059378908375
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 10.0,
+          "prediction": 11.333339577208143
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 21.0,
+          "prediction": 12.043466857260555
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 9.0,
+          "prediction": 11.513871743758699
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 49.0,
+          "prediction": 13.29290210541782
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 10.0,
+          "prediction": 12.303779177807707
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 11.0,
+          "prediction": 10.851400740407982
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 8.0,
+          "prediction": 11.122951770289914
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 11.0,
+          "prediction": 12.127166879447419
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 41.0,
+          "prediction": 11.876341416628376
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 20.0,
+          "prediction": 13.072262258447857
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 10.0,
+          "prediction": 11.685572493628491
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 11.0,
+          "prediction": 11.262204680604016
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 19.0,
+          "prediction": 12.49674868900287
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 18.0,
+          "prediction": 12.76675231677914
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 13.0,
+          "prediction": 13.188085656827905
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 26.0,
+          "prediction": 14.82373872001422
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 13.0,
+          "prediction": 12.516785491754156
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 11.0,
+          "prediction": 13.01072809493729
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 11.0,
+          "prediction": 12.085249971274614
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 14.0,
+          "prediction": 12.594740382742373
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 17.0,
+          "prediction": 11.141347214363384
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 7.0,
+          "prediction": 12.212076811732768
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 17.0,
+          "prediction": 12.02937813190377
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 17.0,
+          "prediction": 12.579824338448912
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 10.0,
+          "prediction": 13.111494514165647
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 15.0,
+          "prediction": 12.449675945251968
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 15.0,
+          "prediction": 13.305317652137687
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 19.0,
+          "prediction": 12.677623859679503
+        }
+      ]
+    },
+    "output_input_ratio": {
+      "n": 29,
+      "mae": 0.32535592736803887,
+      "median_absolute_error": 0.24274126336179203,
+      "within_engineering_tolerance": 0.4482758620689655,
+      "engineering_tolerance": 0.2,
+      "normalized_mae": 0.9358276995730508,
+      "mae_ci95": [
+        0.22137163713875296,
+        0.4556947081014264
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 1.8,
+          "prediction": 1.3137242014241206
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 1.4,
+          "prediction": 1.3210669942320215
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 1.5,
+          "prediction": 1.3094241402233402
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 1.1,
+          "prediction": 1.2731905246000732
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 1.9,
+          "prediction": 1.212892644869182
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 1.7,
+          "prediction": 1.2421984157728458
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 1.4,
+          "prediction": 1.4536416754522845
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 1.0,
+          "prediction": 1.3468641079983363
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 1.6,
+          "prediction": 1.284451078878083
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 2.0,
+          "prediction": 1.2762258375388154
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 1.5,
+          "prediction": 1.2850113437596886
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 1.7,
+          "prediction": 1.3826875339459488
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 1.4,
+          "prediction": 1.2736288891555996
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 1.5,
+          "prediction": 1.3395033642924385
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 1.4,
+          "prediction": 1.2137231834444364
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 1.2,
+          "prediction": 1.2215388541938537
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 1.7,
+          "prediction": 1.4121291048176332
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 0.9,
+          "prediction": 1.3174411822296508
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 2.8,
+          "prediction": 1.22895992638667
+        },
+        {
+          "exam_case_id": "recovered_archive2/171",
+          "truth": 1.6,
+          "prediction": 1.2943922499242784
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 1.8,
+          "prediction": 1.2416326490575686
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 1.3,
+          "prediction": 1.4362276310504818
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 1.0,
+          "prediction": 1.245833128105017
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 1.3,
+          "prediction": 1.2893205954057927
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 2.1,
+          "prediction": 1.2297250024663726
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 1.0,
+          "prediction": 1.242741263361792
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 1.2,
+          "prediction": 1.2048221905228
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 1.4,
+          "prediction": 1.2846358099374684
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 1.3,
+          "prediction": 1.1716456983088572
+        }
+      ]
+    },
+    "apex_diameter": {
+      "n": 29,
+      "mae": 6.905009591921566,
+      "median_absolute_error": 3.897504767065829,
+      "within_engineering_tolerance": 0.4482758620689655,
+      "engineering_tolerance": 3.0,
+      "normalized_mae": 0.5514034537155941,
+      "mae_ci95": [
+        4.189678587506933,
+        10.591665058024295
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 13.0,
+          "prediction": 12.99935398454111
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 8.0,
+          "prediction": 14.41224200133296
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 28.0,
+          "prediction": 14.855246060198677
+        },
+        {
+          "exam_case_id": "recovered_archive1/53",
+          "truth": 10.0,
+          "prediction": 12.365992977488421
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 40.0,
+          "prediction": 16.768818683760152
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 16.0,
+          "prediction": 14.203092425321671
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 14.0,
+          "prediction": 11.123193263920008
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 13.0,
+          "prediction": 13.899069095316563
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 22.0,
+          "prediction": 13.648436160238408
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 60.0,
+          "prediction": 14.198611005901268
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 18.0,
+          "prediction": 16.591178434943647
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 6.0,
+          "prediction": 13.715361128508164
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 17.0,
+          "prediction": 12.818711132464538
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 26.0,
+          "prediction": 11.286942717305376
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 25.0,
+          "prediction": 15.117774088646794
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 21.0,
+          "prediction": 16.36766502893132
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 19.0,
+          "prediction": 17.984436170189568
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 13.0,
+          "prediction": 12.801976718173158
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 12.0,
+          "prediction": 14.862920976119778
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 13.0,
+          "prediction": 13.607904841556406
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 15.0,
+          "prediction": 12.98426614107608
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 9.0,
+          "prediction": 13.630966909601362
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 18.0,
+          "prediction": 14.10249523293417
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 17.0,
+          "prediction": 14.679173449812833
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 14.0,
+          "prediction": 15.998690600352864
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 19.0,
+          "prediction": 15.170304624284558
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 20.0,
+          "prediction": 13.990392197714304
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 33.0,
+          "prediction": 15.528648370635317
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 21.0,
+          "prediction": 15.027154473558133
+        }
+      ]
+    },
+    "loop_length": {
+      "n": 31,
+      "mae": 73.49776040340099,
+      "median_absolute_error": 58.565271978106466,
+      "within_engineering_tolerance": 0.25806451612903225,
+      "engineering_tolerance": 30.0,
+      "normalized_mae": 0.6341081098991562,
+      "mae_ci95": [
+        54.64247558256761,
+        93.35165067336196
+      ],
+      "records": [
+        {
+          "exam_case_id": "recovered_archive1/28",
+          "truth": 246.0,
+          "prediction": 178.92112909725884
+        },
+        {
+          "exam_case_id": "recovered_archive1/41",
+          "truth": 171.0,
+          "prediction": 164.5759318656832
+        },
+        {
+          "exam_case_id": "recovered_archive1/52",
+          "truth": 131.0,
+          "prediction": 146.49289143298137
+        },
+        {
+          "exam_case_id": "recovered_archive1/57",
+          "truth": 267.0,
+          "prediction": 320.3975384531972
+        },
+        {
+          "exam_case_id": "recovered_archive1/83",
+          "truth": 270.0,
+          "prediction": 261.4846055669298
+        },
+        {
+          "exam_case_id": "recovered_archive1/86",
+          "truth": 228.0,
+          "prediction": 190.40579414928447
+        },
+        {
+          "exam_case_id": "recovered_archive1/89",
+          "truth": 242.0,
+          "prediction": 138.63492380677155
+        },
+        {
+          "exam_case_id": "recovered_archive1/95",
+          "truth": 264.0,
+          "prediction": 248.56646537412024
+        },
+        {
+          "exam_case_id": "recovered_archive2/104",
+          "truth": 286.0,
+          "prediction": 212.95341211735794
+        },
+        {
+          "exam_case_id": "recovered_archive2/117",
+          "truth": 121.0,
+          "prediction": 263.4981028603509
+        },
+        {
+          "exam_case_id": "recovered_archive2/120",
+          "truth": 293.0,
+          "prediction": 162.56017113773726
+        },
+        {
+          "exam_case_id": "recovered_archive2/121",
+          "truth": 388.0,
+          "prediction": 174.00680427199288
+        },
+        {
+          "exam_case_id": "recovered_archive2/130",
+          "truth": 166.0,
+          "prediction": 279.0100492066823
+        },
+        {
+          "exam_case_id": "recovered_archive2/132",
+          "truth": 296.0,
+          "prediction": 345.0903085729976
+        },
+        {
+          "exam_case_id": "recovered_archive2/135",
+          "truth": 145.0,
+          "prediction": 285.32103576168277
+        },
+        {
+          "exam_case_id": "recovered_archive2/141",
+          "truth": 446.0,
+          "prediction": 387.43472802189353
+        },
+        {
+          "exam_case_id": "recovered_archive2/158",
+          "truth": 297.0,
+          "prediction": 280.9746887848501
+        },
+        {
+          "exam_case_id": "recovered_archive2/163",
+          "truth": 183.0,
+          "prediction": 105.39969789857105
+        },
+        {
+          "exam_case_id": "recovered_archive2/165",
+          "truth": 288.0,
+          "prediction": 323.3192429517108
+        },
+        {
+          "exam_case_id": "recovered_archive2/173",
+          "truth": 242.0,
+          "prediction": 272.66775713281083
+        },
+        {
+          "exam_case_id": "recovered_archive2/180",
+          "truth": 174.0,
+          "prediction": 136.79061414209502
+        },
+        {
+          "exam_case_id": "recovered_archive3/201",
+          "truth": 125.0,
+          "prediction": 143.29862485711607
+        },
+        {
+          "exam_case_id": "recovered_archive3/216",
+          "truth": 181.0,
+          "prediction": 172.16623216726433
+        },
+        {
+          "exam_case_id": "recovered_archive3/220",
+          "truth": 131.0,
+          "prediction": 218.71785911544737
+        },
+        {
+          "exam_case_id": "recovered_archive3/224",
+          "truth": 317.0,
+          "prediction": 245.95431167007743
+        },
+        {
+          "exam_case_id": "recovered_archive3/228",
+          "truth": 335.0,
+          "prediction": 261.0792081219264
+        },
+        {
+          "exam_case_id": "recovered_archive3/237",
+          "truth": 144.0,
+          "prediction": 349.77886681501093
+        },
+        {
+          "exam_case_id": "recovered_archive3/248",
+          "truth": 313.0,
+          "prediction": 317.3637727880736
+        },
+        {
+          "exam_case_id": "recovered_archive3/257",
+          "truth": 547.0,
+          "prediction": 330.4703903223259
+        },
+        {
+          "exam_case_id": "recovered_archive3/261",
+          "truth": 258.0,
+          "prediction": 143.4430286982112
+        },
+        {
+          "exam_case_id": "recovered_archive3/265",
+          "truth": 291.0,
+          "prediction": 343.2966597717194
+        }
+      ]
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.7088694860195291,
+      "score": 0.17216697549925575,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.2298850574712644,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.2631578947368421,
+          "macro_f1": 0.10416666666666667,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.20588235294117646,
+          "macro_f1": 0.08536585365853659,
+          "per_class_recall": {
+            "1": 1.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.6129032258064516,
+          "macro_f1": 0.19,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.30827886710239655,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.2895457033388068,
+          "per_class_recall": {
+            "1": 0.2777777777777778,
+            "2": 0.6470588235294118,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.3888888888888889,
+          "macro_f1": 0.14,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.25595238095238093,
+          "accuracy": 0.1891891891891892,
+          "macro_f1": 0.11904761904761904,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.16666666666666666,
+            "3": 0.8571428571428571
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.32432432432432434,
+          "macro_f1": 0.16326530612244897,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.545236626111259,
+          "median_absolute_error": 2.2891030636113108,
+          "within_engineering_tolerance": 0.30303030303030304,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5456518458386928
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.838388761133542,
+          "median_absolute_error": 3.833078963489206,
+          "within_engineering_tolerance": 0.25,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1510255620532945
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.36932832355704975,
+          "median_absolute_error": 0.18933762930158204,
+          "within_engineering_tolerance": 0.5151515151515151,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.0623063738764937
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.58848148246333,
+          "median_absolute_error": 4.743213933513943,
+          "within_engineering_tolerance": 0.2647058823529412,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.6059824888270252
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 75.74426866252205,
+          "median_absolute_error": 69.31687518434052,
+          "within_engineering_tolerance": 0.1891891891891892,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6534900488622676
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.6654835261147598,
+      "score": 0.11082767624975937,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.23391812865497075,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.6052631578947368,
+          "macro_f1": 0.1885245901639344,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 1.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.19642857142857142,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6451612903225806,
+          "macro_f1": 0.29791666666666666,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.21383647798742136,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.23319327731092437,
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.21370235934664247,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.6470588235294118
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.2702702702702703,
+          "accuracy": 0.2702702702702703,
+          "macro_f1": 0.2127659574468085,
+          "per_class_recall": {
+            "1": 0.2702702702702703
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.1574074074074074,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0,
+            "2": 0.0,
+            "3": 0.0
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.36111111111111116,
+          "accuracy": 0.35135135135135137,
+          "macro_f1": 0.29308565531475744,
+          "per_class_recall": {
+            "0": 0.8333333333333334,
+            "1": 0.25,
+            "2": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.569053649323401,
+          "median_absolute_error": 2.9281835775955525,
+          "within_engineering_tolerance": 0.36363636363636365,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5522904851560642
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.702549334334922,
+          "median_absolute_error": 3.1388040714121406,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1187101239397088
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.3776234922961584,
+          "median_absolute_error": 0.29350245261820396,
+          "within_engineering_tolerance": 0.2727272727272727,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.0861659320578607
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.079606349406243,
+          "median_absolute_error": 4.9555273878145325,
+          "within_engineering_tolerance": 0.3235294117647059,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5653459767205192
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 79.98569073148076,
+          "median_absolute_error": 72.49656384232725,
+          "within_engineering_tolerance": 0.24324324324324326,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6900832745152703
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.6483105112766397,
+      "score": 0.1761778338086059,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.27499999999999997,
+          "accuracy": 0.39473684210526316,
+          "macro_f1": 0.2681318681318681,
+          "per_class_recall": {
+            "0": 0.375,
+            "1": 0.0,
+            "2": 0.45
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.27391304347826084,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.2539130434782609,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.4,
+            "3": 0.0,
+            "4": 0.6956521739130435
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.23863636363636365,
+          "accuracy": 0.6176470588235294,
+          "macro_f1": 0.19090909090909092,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.9545454545454546,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2982456140350877,
+          "accuracy": 0.3870967741935484,
+          "macro_f1": 0.1984126984126984,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.6666666666666666,
+            "2": 0.5263157894736842,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.35294117647058826,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.2658569500674764,
+          "per_class_recall": {
+            "1": 1.0,
+            "2": 0.058823529411764705,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.24474789915966386,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.2136627906976744,
+          "per_class_recall": {
+            "0": 0.21428571428571427,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.7647058823529411
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.1891891891891892,
+          "macro_f1": 0.07954545454545454,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.3696581196581197,
+          "accuracy": 0.3783783783783784,
+          "macro_f1": 0.3050716221447929,
+          "per_class_recall": {
+            "0": 0.4166666666666667,
+            "1": 0.0,
+            "2": 0.6923076923076923
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.872757354168982,
+          "median_absolute_error": 1.9127654645611898,
+          "within_engineering_tolerance": 0.5151515151515151,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.6369433545705503
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.660985439136389,
+          "median_absolute_error": 3.2225215465593493,
+          "within_engineering_tolerance": 0.3125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1088223062810039
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.3738497236512508,
+          "median_absolute_error": 0.23422054121247493,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.0753113665417087
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.047650238203284,
+          "median_absolute_error": 5.3747689935248175,
+          "within_engineering_tolerance": 0.2647058823529412,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5627941033523423
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 81.00258622964405,
+          "median_absolute_error": 74.9783112624915,
+          "within_engineering_tolerance": 0.24324324324324326,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.698856625958445
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.6254393108959856,
+      "score": 0.19970129097242506,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.42083333333333334,
+          "accuracy": 0.5789473684210527,
+          "macro_f1": 0.39384920634920634,
+          "per_class_recall": {
+            "0": 0.8125,
+            "1": 0.0,
+            "2": 0.45
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.3141304347826087,
+          "accuracy": 0.6578947368421053,
+          "macro_f1": 0.29642857142857143,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.3,
+            "3": 0.0,
+            "4": 0.9565217391304348
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.3003246753246753,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.27301790281329924,
+          "per_class_recall": {
+            "1": 0.42857142857142855,
+            "2": 0.0,
+            "3": 0.7727272727272727,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6451612903225806,
+          "macro_f1": 0.2854609929078014,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.3300653594771242,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.28191489361702127,
+          "per_class_recall": {
+            "1": 0.16666666666666666,
+            "2": 0.8235294117647058,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.27521008403361347,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.25491071428571427,
+          "per_class_recall": {
+            "0": 0.5714285714285714,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.5294117647058824
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.1574074074074074,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0,
+            "2": 0.0,
+            "3": 0.0
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.35135135135135137,
+          "macro_f1": 0.17333333333333334,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.556159753518472,
+          "median_absolute_error": 2.371888116322772,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5486965043767593
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.937125077343326,
+          "median_absolute_error": 3.53641985554483,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1745143781594671
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.37970891663423906,
+          "median_absolute_error": 0.25695070908675244,
+          "within_engineering_tolerance": 0.36363636363636365,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.0921642793961959
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.1814151306721214,
+          "median_absolute_error": 4.7209302313552906,
+          "within_engineering_tolerance": 0.2647058823529412,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5734759746388797
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 84.79594539418171,
+          "median_absolute_error": 68.0526818021612,
+          "within_engineering_tolerance": 0.2702702702702703,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.7315841512162393
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.6189217834637083,
+      "score": 0.2221304884354186,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.3541666666666667,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.3362227475702653,
+          "per_class_recall": {
+            "0": 0.3125,
+            "1": 0.0,
+            "2": 0.75
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.275,
+          "accuracy": 0.631578947368421,
+          "macro_f1": 0.23712121212121212,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.1,
+            "3": 0.0,
+            "4": 1.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.19642857142857142,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.30701754385964913,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.24873737373737373,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.8947368421052632,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.34858387799564267,
+          "accuracy": 0.5,
+          "macro_f1": 0.3095652173913044,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.8235294117647058,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2626050420168067,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.23657407407407408,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.7647058823529411
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.33403361344537813,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.29561403508771933,
+          "per_class_recall": {
+            "0": 0.14285714285714285,
+            "1": 0.7647058823529411,
+            "2": 0.0,
+            "3": 0.42857142857142855
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.6047008547008548,
+          "accuracy": 0.5945945945945946,
+          "macro_f1": 0.565917446135232,
+          "per_class_recall": {
+            "0": 0.8333333333333334,
+            "1": 0.75,
+            "2": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.780350540905958,
+          "median_absolute_error": 3.3858750824565345,
+          "within_engineering_tolerance": 0.24242424242424243,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.611186336228805
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.7532056329201815,
+          "median_absolute_error": 3.7477842755408943,
+          "within_engineering_tolerance": 0.3125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1307609733917023
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.3812495040405568,
+          "median_absolute_error": 0.25442573080086506,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.0965955014738398
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.392857217493367,
+          "median_absolute_error": 4.912592880958455,
+          "within_engineering_tolerance": 0.23529411764705882,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5903608022965371
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 69.6257269122109,
+          "median_absolute_error": 65.91884851973927,
+          "within_engineering_tolerance": 0.21621621621621623,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6007018152707397
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.601997033275407,
+      "score": 0.17425743816452766,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.31666666666666665,
+          "accuracy": 0.5,
+          "macro_f1": 0.2261904761904762,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.95
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.2641304347826087,
+          "accuracy": 0.6052631578947368,
+          "macro_f1": 0.22810734463276836,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.1,
+            "3": 0.0,
+            "4": 0.9565217391304348
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.22727272727272727,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.18867924528301888,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.9090909090909091,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6451612903225806,
+          "macro_f1": 0.2779503105590062,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.3257080610021787,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.31677350427350426,
+          "per_class_recall": {
+            "1": 0.3888888888888889,
+            "2": 0.5882352941176471,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.20588235294117646,
+          "accuracy": 0.3888888888888889,
+          "macro_f1": 0.14583333333333334,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.8235294117647058
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.384453781512605,
+          "accuracy": 0.5135135135135135,
+          "macro_f1": 0.30808080808080807,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.8235294117647058,
+            "2": 0.0,
+            "3": 0.7142857142857143
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.3888888888888889,
+          "accuracy": 0.3783783783783784,
+          "macro_f1": 0.2611111111111111,
+          "per_class_recall": {
+            "0": 0.16666666666666666,
+            "1": 1.0,
+            "2": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.9090909090909091,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.9090909090909091
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.860645942237538,
+          "median_absolute_error": 3.47685461127171,
+          "within_engineering_tolerance": 0.15151515151515152,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.633567479478151
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.605434113137624,
+          "median_absolute_error": 3.9218290109093576,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.0956069572490768
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.40006017277924244,
+          "median_absolute_error": 0.27559117799307997,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.1507010006284377
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.325526363719296,
+          "median_absolute_error": 5.2241926189065975,
+          "within_engineering_tolerance": 0.2647058823529412,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5849840588150975
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 88.18761331951394,
+          "median_absolute_error": 75.04507275936027,
+          "within_engineering_tolerance": 0.2972972972972973,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.7608460515208708
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.5841009277721931,
+      "score": 0.22847436371093316,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.375,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.3606237816764133,
+          "per_class_recall": {
+            "0": 0.625,
+            "1": 0.0,
+            "2": 0.5
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.2597826086956522,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.24230072463768115,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.3,
+            "3": 0.0,
+            "4": 0.7391304347826086
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.288961038961039,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.26515151515151514,
+          "per_class_recall": {
+            "1": 0.42857142857142855,
+            "2": 0.0,
+            "3": 0.7272727272727273,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.32456140350877194,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.24358974358974358,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.6666666666666666,
+            "2": 0.631578947368421,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.3986928104575163,
+          "accuracy": 0.5833333333333334,
+          "macro_f1": 0.3923444976076555,
+          "per_class_recall": {
+            "1": 0.6666666666666666,
+            "2": 0.5294117647058824,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2626050420168067,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.2354596622889306,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.7647058823529411
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.4621848739495798,
+          "accuracy": 0.5405405405405406,
+          "macro_f1": 0.4322552447552448,
+          "per_class_recall": {
+            "0": 0.5714285714285714,
+            "1": 0.7058823529411765,
+            "2": 0.0,
+            "3": 0.5714285714285714
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.48931623931623935,
+          "accuracy": 0.4864864864864865,
+          "macro_f1": 0.4633260711692084,
+          "per_class_recall": {
+            "0": 0.8333333333333334,
+            "1": 0.25,
+            "2": 0.38461538461538464
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.9696969696969697,
+          "accuracy": 0.9696969696969697,
+          "macro_f1": 0.49230769230769234,
+          "per_class_recall": {
+            "0": 0.9696969696969697
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.777232183960283,
+          "median_absolute_error": 3.084831567113964,
+          "within_engineering_tolerance": 0.24242424242424243,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.6103171408284915
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.667014790686656,
+          "median_absolute_error": 3.6109592500295387,
+          "within_engineering_tolerance": 0.34375,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1102566552140023
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.3740640719468962,
+          "median_absolute_error": 0.26728587067509135,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.075927900790966
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.200817730135294,
+          "median_absolute_error": 4.8173380517082265,
+          "within_engineering_tolerance": 0.38235294117647056,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5750253802135759
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 83.52136735072641,
+          "median_absolute_error": 86.65565825188935,
+          "within_engineering_tolerance": 0.16216216216216217,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.7205876219394505
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.5738181564314612,
+      "score": 0.2354603671057206,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.5372222222222222,
+          "per_class_recall": {
+            "0": 0.25,
+            "1": 0.5,
+            "2": 0.75
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.2641304347826087,
+          "accuracy": 0.6052631578947368,
+          "macro_f1": 0.22810734463276836,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.1,
+            "3": 0.0,
+            "4": 0.9565217391304348
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.23863636363636365,
+          "accuracy": 0.6176470588235294,
+          "macro_f1": 0.19090909090909092,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.9545454545454546,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2543859649122807,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.2067669172932331,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.0,
+            "2": 0.6842105263157895,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.289760348583878,
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.2771672771672772,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.6470588235294118,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2626050420168067,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.2354596622889306,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.7647058823529411
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.4912464985994398,
+          "accuracy": 0.6216216216216216,
+          "macro_f1": 0.4956709956709957,
+          "per_class_recall": {
+            "0": 0.5714285714285714,
+            "1": 0.9411764705882353,
+            "2": 0.16666666666666666,
+            "3": 0.2857142857142857
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.6025641025641025,
+          "accuracy": 0.5945945945945946,
+          "macro_f1": 0.5829812366544002,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 0.8333333333333334,
+            "2": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.5932747896481345,
+          "median_absolute_error": 2.862762984868997,
+          "within_engineering_tolerance": 0.42424242424242425,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5590417660797595
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.890801461060306,
+          "median_absolute_error": 3.203518032160992,
+          "within_engineering_tolerance": 0.3125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1634942495379688
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.4027621114719259,
+          "median_absolute_error": 0.3290532495787448,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.158472640418793
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.34521605326499,
+          "median_absolute_error": 5.071398973662794,
+          "within_engineering_tolerance": 0.35294117647058826,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5865563901310142
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 73.00828525769515,
+          "median_absolute_error": 67.32505471848373,
+          "within_engineering_tolerance": 0.35135135135135137,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6298851219090109
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "loss": 0.5634090088564774,
+      "score": 0.22461763667170165,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.4041666666666666,
+          "accuracy": 0.5789473684210527,
+          "macro_f1": 0.3931372549019608,
+          "per_class_recall": {
+            "0": 0.5625,
+            "1": 0.0,
+            "2": 0.65
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.32663043478260867,
+          "accuracy": 0.631578947368421,
+          "macro_f1": 0.33132183908045976,
+          "per_class_recall": {
+            "1": 0.25,
+            "2": 0.1,
+            "3": 0.0,
+            "4": 0.9565217391304348
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.25162337662337664,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.22814685314685312,
+          "per_class_recall": {
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "3": 0.8636363636363636,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.293859649122807,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.24047619047619045,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.8421052631578947,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.3191721132897603,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.2957351290684624,
+          "per_class_recall": {
+            "1": 0.7222222222222222,
+            "2": 0.23529411764705882,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.25735294117647056,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.23930481283422458,
+          "per_class_recall": {
+            "0": 0.5,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.5294117647058824
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.3214285714285714,
+          "accuracy": 0.5135135135135135,
+          "macro_f1": 0.2826388888888889,
+          "per_class_recall": {
+            "0": 0.14285714285714285,
+            "1": 1.0,
+            "2": 0.0,
+            "3": 0.14285714285714285
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.576923076923077,
+          "accuracy": 0.5675675675675675,
+          "macro_f1": 0.5432183908045978,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 0.8333333333333334,
+            "2": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "0": 1.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.860348755155531,
+          "median_absolute_error": 3.34340449743895,
+          "within_engineering_tolerance": 0.15151515151515152,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.6334846430199734
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.519278552323966,
+          "median_absolute_error": 3.8327395046250645,
+          "within_engineering_tolerance": 0.3125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.0751110323233737
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.39256977778379487,
+          "median_absolute_error": 0.2892327492395568,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.1291562291094794
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.011912167185791,
+          "median_absolute_error": 4.109302995879419,
+          "within_engineering_tolerance": 0.23529411764705882,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5599402194401123
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 70.9664252211764,
+          "median_absolute_error": 65.75244076094958,
+          "within_engineering_tolerance": 0.2972972972972973,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6122688026997032
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "loss": 0.544627596592081,
+      "score": 0.1989851525143409,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.33749999999999997,
+          "accuracy": 0.5,
+          "macro_f1": 0.32194616977225676,
+          "per_class_recall": {
+            "0": 0.3125,
+            "1": 0.0,
+            "2": 0.7
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.3548913043478261,
+          "accuracy": 0.631578947368421,
+          "macro_f1": 0.37564102564102564,
+          "per_class_recall": {
+            "1": 0.25,
+            "2": 0.3,
+            "3": 0.0,
+            "4": 0.8695652173913043
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.22727272727272727,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.18518518518518517,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.9090909090909091,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2675438596491228,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.2294871794871795,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.7368421052631579,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.289760348583878,
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.2771672771672772,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.6470588235294118,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.23634453781512604,
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.21953405017921146,
+          "per_class_recall": {
+            "0": 0.35714285714285715,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.5882352941176471
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.9459459459459459,
+          "accuracy": 0.9459459459459459,
+          "macro_f1": 0.4861111111111111,
+          "per_class_recall": {
+            "1": 0.9459459459459459
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.39915966386554624,
+          "accuracy": 0.5405405405405406,
+          "macro_f1": 0.38164477798624136,
+          "per_class_recall": {
+            "0": 0.42857142857142855,
+            "1": 0.8823529411764706,
+            "2": 0.0,
+            "3": 0.2857142857142857
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.4658119658119659,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.45787545787545786,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.4166666666666667,
+            "2": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.9393939393939394,
+          "accuracy": 0.9393939393939394,
+          "macro_f1": 0.484375,
+          "per_class_recall": {
+            "0": 0.9393939393939394
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.5719880212310615,
+          "median_absolute_error": 2.861079638076914,
+          "within_engineering_tolerance": 0.42424242424242425,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.55310839747636
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.479759910460287,
+          "median_absolute_error": 3.804100942044493,
+          "within_engineering_tolerance": 0.3125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.0657097689672503
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.38828046501069335,
+          "median_absolute_error": 0.27841214033559036,
+          "within_engineering_tolerance": 0.30303030303030304,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.1168187938038665
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.360458210000796,
+          "median_absolute_error": 5.191882650382016,
+          "within_engineering_tolerance": 0.23529411764705882,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5877735611941841
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 72.34180572056006,
+          "median_absolute_error": 69.23305914114121,
+          "within_engineering_tolerance": 0.21621621621621623,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6241350136436761
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "loss": 0.5147572776366924,
+      "score": 0.21781927636069165,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.37083333333333335,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.35964912280701755,
+          "per_class_recall": {
+            "0": 0.5625,
+            "1": 0.0,
+            "2": 0.55
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.40326086956521734,
+          "accuracy": 0.6578947368421053,
+          "macro_f1": 0.4272798742138365,
+          "per_class_recall": {
+            "1": 0.5,
+            "2": 0.2,
+            "3": 0.0,
+            "4": 0.9130434782608695
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.24188311688311687,
+          "accuracy": 0.5,
+          "macro_f1": 0.22554347826086957,
+          "per_class_recall": {
+            "1": 0.2857142857142857,
+            "2": 0.0,
+            "3": 0.6818181818181818,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2565789473684211,
+          "accuracy": 0.3870967741935484,
+          "macro_f1": 0.24520640649672906,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.5263157894736842,
+            "3": 0.16666666666666666
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.36274509803921573,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.35665076841547433,
+          "per_class_recall": {
+            "1": 0.5,
+            "2": 0.5882352941176471,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2720588235294118,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.2531194295900178,
+          "per_class_recall": {
+            "0": 0.5,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.5882352941176471
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 1.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_class_recall": {
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.45273109243697474,
+          "accuracy": 0.5675675675675675,
+          "macro_f1": 0.44305555555555554,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.8823529411764706,
+            "2": 0.5,
+            "3": 0.14285714285714285
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.4935897435897436,
+          "accuracy": 0.4864864864864865,
+          "macro_f1": 0.4727272727272727,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.5,
+            "2": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.9090909090909091,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.9090909090909091
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.710999355614198,
+          "median_absolute_error": 3.1917668284918363,
+          "within_engineering_tolerance": 0.21212121212121213,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.591855729658733
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.685627084887711,
+          "median_absolute_error": 3.329209973085425,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1146844156630928
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.4245664637107335,
+          "median_absolute_error": 0.3355646541873589,
+          "within_engineering_tolerance": 0.30303030303030304,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.22118893073319
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 6.94421944722648,
+          "median_absolute_error": 3.5639352080931843,
+          "within_engineering_tolerance": 0.4411764705882353,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5545345789293973
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 79.61610997752214,
+          "median_absolute_error": 69.39220961406056,
+          "within_engineering_tolerance": 0.16216216216216217,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6868946854744407
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "loss": 0.5007821496190696,
+      "score": 0.22993932949043516,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.5125000000000001,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.5632360471070148,
+          "per_class_recall": {
+            "0": 0.4375,
+            "1": 0.5,
+            "2": 0.6
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.4173913043478261,
+          "accuracy": 0.6578947368421053,
+          "macro_f1": 0.446078431372549,
+          "per_class_recall": {
+            "1": 0.5,
+            "2": 0.3,
+            "3": 0.0,
+            "4": 0.8695652173913043
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.2305194805194805,
+          "accuracy": 0.47058823529411764,
+          "macro_f1": 0.2117224880382775,
+          "per_class_recall": {
+            "1": 0.2857142857142857,
+            "2": 0.0,
+            "3": 0.6363636363636364,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.22807017543859648,
+          "accuracy": 0.3870967741935484,
+          "macro_f1": 0.2121212121212121,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.5789473684210527,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.36492374727668847,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.36091954022988504,
+          "per_class_recall": {
+            "1": 0.3888888888888889,
+            "2": 0.7058823529411765,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.29516806722689076,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.2675925925925926,
+          "per_class_recall": {
+            "0": 0.35714285714285715,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.8235294117647058
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.8648648648648649,
+          "accuracy": 0.8648648648648649,
+          "macro_f1": 0.463768115942029,
+          "per_class_recall": {
+            "1": 0.8648648648648649
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.36694677871148457,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.3763559969442323,
+          "per_class_recall": {
+            "0": 0.2857142857142857,
+            "1": 0.7058823529411765,
+            "2": 0.3333333333333333,
+            "3": 0.14285714285714285
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.5705128205128206,
+          "accuracy": 0.5675675675675675,
+          "macro_f1": 0.5733333333333334,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.5,
+            "2": 0.46153846153846156
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.8787878787878788,
+          "accuracy": 0.8787878787878788,
+          "macro_f1": 0.46774193548387094,
+          "per_class_recall": {
+            "0": 0.8787878787878788
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.454162738029433,
+          "median_absolute_error": 3.1467329180880235,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5202663604730127
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.4223765048258326,
+          "median_absolute_error": 3.6078857924715155,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.0520585784607117
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.4034586218467781,
+          "median_absolute_error": 0.2782759959002792,
+          "within_engineering_tolerance": 0.24242424242424243,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.1604760270086718
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 6.668708443128962,
+          "median_absolute_error": 4.436646819314419,
+          "within_engineering_tolerance": 0.3235294117647059,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5325334915777219
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 68.99372759978154,
+          "median_absolute_error": 66.73865925998803,
+          "within_engineering_tolerance": 0.32432432432432434,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.5952491880442425
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "loss": 0.4777658088453885,
+      "score": 0.23146895151165017,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.4166666666666667,
+          "accuracy": 0.5789473684210527,
+          "macro_f1": 0.396078431372549,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.0,
+            "2": 0.5
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.40326086956521734,
+          "accuracy": 0.6578947368421053,
+          "macro_f1": 0.4272798742138365,
+          "per_class_recall": {
+            "1": 0.5,
+            "2": 0.2,
+            "3": 0.0,
+            "4": 0.9130434782608695
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.275974025974026,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.25510204081632654,
+          "per_class_recall": {
+            "1": 0.2857142857142857,
+            "2": 0.0,
+            "3": 0.8181818181818182,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.33771929824561403,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.288510101010101,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.3333333333333333,
+            "2": 0.6842105263157895,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.35729847494553374,
+          "accuracy": 0.5277777777777778,
+          "macro_f1": 0.35042735042735046,
+          "per_class_recall": {
+            "1": 0.7777777777777778,
+            "2": 0.29411764705882354,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2510504201680672,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.231981981981982,
+          "per_class_recall": {
+            "0": 0.35714285714285715,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.6470588235294118
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.8918918918918919,
+          "accuracy": 0.8918918918918919,
+          "macro_f1": 0.4714285714285714,
+          "per_class_recall": {
+            "1": 0.8918918918918919
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.3336834733893557,
+          "accuracy": 0.4864864864864865,
+          "macro_f1": 0.3218157181571816,
+          "per_class_recall": {
+            "0": 0.14285714285714285,
+            "1": 0.8823529411764706,
+            "2": 0.16666666666666666,
+            "3": 0.14285714285714285
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.5213675213675214,
+          "accuracy": 0.5135135135135135,
+          "macro_f1": 0.5041407867494824,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.5833333333333334,
+            "2": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.9696969696969697,
+          "accuracy": 0.9696969696969697,
+          "macro_f1": 0.49230769230769234,
+          "per_class_recall": {
+            "0": 0.9696969696969697
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.586598277433052,
+          "median_absolute_error": 2.9205784200165805,
+          "within_engineering_tolerance": 0.21212121212121213,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.557180788068395
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.359340624289995,
+          "median_absolute_error": 3.3621501930081523,
+          "within_engineering_tolerance": 0.34375,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.037062695863157
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.41655669651677507,
+          "median_absolute_error": 0.28124693609706286,
+          "within_engineering_tolerance": 0.18181818181818182,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.1981502786702798
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 6.527897534266725,
+          "median_absolute_error": 4.013211086998286,
+          "within_engineering_tolerance": 0.23529411764705882,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5212889566594349
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 66.54904396137171,
+          "median_absolute_error": 63.796067561347655,
+          "within_engineering_tolerance": 0.2972972972972973,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.5741574743274568
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "loss": 0.4692470400497831,
+      "score": 0.19201579800301877,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.37083333333333335,
+          "accuracy": 0.5526315789473685,
+          "macro_f1": 0.35042735042735046,
+          "per_class_recall": {
+            "0": 0.3125,
+            "1": 0.0,
+            "2": 0.8
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.3407608695652174,
+          "accuracy": 0.631578947368421,
+          "macro_f1": 0.3569367369589345,
+          "per_class_recall": {
+            "1": 0.25,
+            "2": 0.2,
+            "3": 0.0,
+            "4": 0.9130434782608695
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.25162337662337664,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.22814685314685312,
+          "per_class_recall": {
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "3": 0.8636363636363636,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2675438596491228,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.23421052631578948,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.7368421052631579,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.2701525054466231,
+          "accuracy": 0.3888888888888889,
+          "macro_f1": 0.21296296296296297,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.5882352941176471,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2510504201680672,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.231981981981982,
+          "per_class_recall": {
+            "0": 0.35714285714285715,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.6470588235294118
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.9459459459459459,
+          "accuracy": 0.9459459459459459,
+          "macro_f1": 0.4861111111111111,
+          "per_class_recall": {
+            "1": 0.9459459459459459
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.36099439775910364,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.3660310277957337,
+          "per_class_recall": {
+            "0": 0.42857142857142855,
+            "1": 0.7058823529411765,
+            "2": 0.16666666666666666,
+            "3": 0.14285714285714285
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.4615384615384615,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.4727398205659075,
+          "per_class_recall": {
+            "0": 0.5833333333333334,
+            "1": 0.4166666666666667,
+            "2": 0.38461538461538464
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.8787878787878788,
+          "accuracy": 0.8787878787878788,
+          "macro_f1": 0.46774193548387094,
+          "per_class_recall": {
+            "0": 0.8787878787878788
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.376847121513729,
+          "median_absolute_error": 3.330373205955185,
+          "within_engineering_tolerance": 0.3939393939393939,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.4987157877135127
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.722890910013422,
+          "median_absolute_error": 3.150495900074234,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.1235492707578554
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.40244180553767983,
+          "median_absolute_error": 0.2773587379617226,
+          "within_engineering_tolerance": 0.21212121212121213,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.157551338114483
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 7.165429270918211,
+          "median_absolute_error": 4.5354334533686895,
+          "within_engineering_tolerance": 0.38235294117647056,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5721994147497765
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 70.25493097411987,
+          "median_absolute_error": 61.52251081502578,
+          "within_engineering_tolerance": 0.21621621621621623,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6061303262382591
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "loss": 0.4498560993835844,
+      "score": 0.2082364110109682,
+      "val": {
+        "clarity": {
+          "n": 38,
+          "balanced_accuracy": 0.3625,
+          "accuracy": 0.5263157894736842,
+          "macro_f1": 0.3520880220055014,
+          "per_class_recall": {
+            "0": 0.4375,
+            "1": 0.0,
+            "2": 0.65
+          }
+        },
+        "capillary_count": {
+          "n": 38,
+          "balanced_accuracy": 0.3298913043478261,
+          "accuracy": 0.6052631578947368,
+          "macro_f1": 0.34786324786324785,
+          "per_class_recall": {
+            "1": 0.25,
+            "2": 0.2,
+            "3": 0.0,
+            "4": 0.8695652173913043
+          }
+        },
+        "crossing_ratio": {
+          "n": 34,
+          "balanced_accuracy": 0.26461038961038963,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.250392464678179,
+          "per_class_recall": {
+            "1": 0.2857142857142857,
+            "2": 0.0,
+            "3": 0.7727272727272727,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2675438596491228,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.22587719298245612,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.3333333333333333,
+            "2": 0.7368421052631579,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 36,
+          "balanced_accuracy": 0.30718954248366015,
+          "accuracy": 0.4444444444444444,
+          "macro_f1": 0.2549634273772205,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.5882352941176471,
+            "3": 0.0
+          }
+        },
+        "exudation": {
+          "n": 36,
+          "balanced_accuracy": 0.2689075630252101,
+          "accuracy": 0.4722222222222222,
+          "macro_f1": 0.24955197132616488,
+          "per_class_recall": {
+            "0": 0.42857142857142855,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.6470588235294118
+          }
+        },
+        "hemorrhage": {
+          "n": 37,
+          "balanced_accuracy": 0.9459459459459459,
+          "accuracy": 0.9459459459459459,
+          "macro_f1": 0.4861111111111111,
+          "per_class_recall": {
+            "1": 0.9459459459459459
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 37,
+          "balanced_accuracy": 0.4324229691876751,
+          "accuracy": 0.5135135135135135,
+          "macro_f1": 0.433008658008658,
+          "per_class_recall": {
+            "0": 0.5714285714285714,
+            "1": 0.7058823529411765,
+            "2": 0.16666666666666666,
+            "3": 0.2857142857142857
+          }
+        },
+        "papilla": {
+          "n": 37,
+          "balanced_accuracy": 0.4679487179487179,
+          "accuracy": 0.4594594594594595,
+          "macro_f1": 0.45726495726495725,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 0.5833333333333334,
+            "2": 0.15384615384615385
+          }
+        },
+        "sweat_duct": {
+          "n": 33,
+          "balanced_accuracy": 0.8787878787878788,
+          "accuracy": 0.8787878787878788,
+          "macro_f1": 0.46774193548387094,
+          "per_class_recall": {
+            "0": 0.8787878787878788
+          }
+        },
+        "afferent_diameter": {
+          "n": 33,
+          "mae": 5.410498036887693,
+          "median_absolute_error": 2.9599589410891323,
+          "within_engineering_tolerance": 0.3333333333333333,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.5080954775209798
+        },
+        "efferent_diameter": {
+          "n": 32,
+          "mae": 4.443431000119359,
+          "median_absolute_error": 3.4351768233954667,
+          "within_engineering_tolerance": 0.28125,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 1.0570673248586142
+        },
+        "output_input_ratio": {
+          "n": 33,
+          "mae": 0.4264296469879631,
+          "median_absolute_error": 0.3170976252103659,
+          "within_engineering_tolerance": 0.21212121212121213,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 1.2265480417053423
+        },
+        "apex_diameter": {
+          "n": 34,
+          "mae": 6.500913037663345,
+          "median_absolute_error": 4.370043756039367,
+          "within_engineering_tolerance": 0.29411764705882354,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5191340943922936
+        },
+        "loop_length": {
+          "n": 37,
+          "mae": 66.75370252232565,
+          "median_absolute_error": 61.412830694108834,
+          "within_engineering_tolerance": 0.21621621621621623,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.5759231832762587
+        }
+      }
+    }
+  ],
+  "vocabularies": {
+    "clarity": [
+      "不清",
+      "模糊",
+      "清晰"
+    ],
+    "capillary_count": [
+      "1--2",
+      "3--4",
+      "5--6",
+      "<1",
+      ">=7"
+    ],
+    "crossing_ratio": [
+      "10--30%",
+      "30--60%",
+      "60--80%",
+      "<=30%",
+      ">80%"
+    ],
+    "malformation_ratio": [
+      "10--30%",
+      "30--60%",
+      "<=10%",
+      ">60%"
+    ],
+    "blood_color": [
+      "暗紫",
+      "暗红",
+      "浅红",
+      "淡红"
+    ],
+    "exudation": [
+      "+",
+      "++",
+      "+++",
+      "无"
+    ],
+    "hemorrhage": [
+      "1--2",
+      "无"
+    ],
+    "subpapillary_venous_plexus": [
+      ">2排,扩张",
+      "不见",
+      "可见1排",
+      "可见2排"
+    ],
+    "papilla": [
+      "平坦",
+      "波纹状",
+      "浅波纹状"
+    ],
+    "sweat_duct": [
+      "0--2",
+      "3--4"
+    ]
+  },
+  "scales": {
+    "afferent_diameter": [
+      10.928571428571429,
+      3.587636272062506
+    ],
+    "efferent_diameter": [
+      14.87,
+      4.20354588172866
+    ],
+    "output_input_ratio": [
+      1.4121212121212123,
+      0.34766648552556717
+    ],
+    "apex_diameter": [
+      19.57281553398058,
+      12.522608528097956
+    ],
+    "loop_length": [
+      264.61682242990656,
+      115.90730232907684
+    ]
+  }
+}

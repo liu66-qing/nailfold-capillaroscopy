@@ -1,0 +1,3015 @@
+{
+  "test_fold": 3,
+  "best_val_objective": 0.3340545222310397,
+  "test": {
+    "clarity": {
+      "n": 43,
+      "balanced_accuracy": 0.4609250398724083,
+      "accuracy": 0.6744186046511628,
+      "macro_f1": 0.4711879432624113,
+      "per_class_recall": {
+        "0": 0.47368421052631576,
+        "1": 0.0,
+        "2": 0.9090909090909091
+      },
+      "balanced_accuracy_ci95": [
+        0.375811520780561,
+        0.7423793859649123
+      ]
+    },
+    "capillary_count": {
+      "n": 41,
+      "balanced_accuracy": 0.4666666666666666,
+      "accuracy": 0.6829268292682927,
+      "macro_f1": 0.38383838383838387,
+      "per_class_recall": {
+        "1": 0.5,
+        "2": 0.0,
+        "4": 0.9
+      },
+      "balanced_accuracy_ci95": [
+        0.2795698924731183,
+        0.6547619047619048
+      ]
+    },
+    "crossing_ratio": {
+      "n": 40,
+      "balanced_accuracy": 0.4618406285072952,
+      "accuracy": 0.55,
+      "macro_f1": 0.31364468864468864,
+      "per_class_recall": {
+        "1": 0.18181818181818182,
+        "2": 0.5,
+        "3": 0.7037037037037037
+      },
+      "balanced_accuracy_ci95": [
+        0.23968599033816423,
+        0.6973363561725631
+      ]
+    },
+    "malformation_ratio": {
+      "n": 33,
+      "balanced_accuracy": 0.37302631578947365,
+      "accuracy": 0.5757575757575758,
+      "macro_f1": 0.35158730158730156,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.25,
+        "2": 0.8421052631578947,
+        "3": 0.4
+      },
+      "balanced_accuracy_ci95": [
+        0.21582386363636363,
+        0.5834374999999998
+      ]
+    },
+    "blood_color": {
+      "n": 42,
+      "balanced_accuracy": 0.4453781512605042,
+      "accuracy": 0.5952380952380952,
+      "macro_f1": 0.4217948717948718,
+      "per_class_recall": {
+        "4": 0.5714285714285714,
+        "5": 0.7647058823529411,
+        "6": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.34358543417366944,
+        0.5513706140350876
+      ]
+    },
+    "exudation": {
+      "n": 40,
+      "balanced_accuracy": 0.2847985347985348,
+      "accuracy": 0.475,
+      "macro_f1": 0.27042483660130723,
+      "per_class_recall": {
+        "0": 0.6153846153846154,
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.5238095238095238
+      },
+      "balanced_accuracy_ci95": [
+        0.1945669934640523,
+        0.4276558441558441
+      ]
+    },
+    "hemorrhage": {
+      "n": 41,
+      "balanced_accuracy": 0.4861111111111111,
+      "accuracy": 0.8536585365853658,
+      "macro_f1": 0.4605263157894737,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9722222222222222
+      },
+      "balanced_accuracy_ci95": [
+        0.45588235294117646,
+        0.5
+      ]
+    },
+    "subpapillary_venous_plexus": {
+      "n": 42,
+      "balanced_accuracy": 0.296875,
+      "accuracy": 0.3333333333333333,
+      "macro_f1": 0.23609022556390977,
+      "per_class_recall": {
+        "0": 0.5,
+        "2": 0.6875,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.17094298245614037,
+        0.42647058823529416
+      ]
+    },
+    "papilla": {
+      "n": 42,
+      "balanced_accuracy": 0.5715506715506716,
+      "accuracy": 0.5714285714285714,
+      "macro_f1": 0.5705747126436782,
+      "per_class_recall": {
+        "2": 0.6428571428571429,
+        "3": 0.5384615384615384,
+        "4": 0.5333333333333333
+      },
+      "balanced_accuracy_ci95": [
+        0.4078042328042327,
+        0.716978021978022
+      ]
+    },
+    "sweat_duct": {
+      "n": 36,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.9722222222222222,
+      "macro_f1": 0.49295774647887325,
+      "per_class_recall": {
+        "0": 1.0,
+        "2": 0.0
+      },
+      "balanced_accuracy_ci95": [
+        0.5,
+        1.0
+      ]
+    },
+    "afferent_diameter": {
+      "n": 37,
+      "mae": 2.6341750975810236,
+      "median_absolute_error": 2.0250678960515422,
+      "within_engineering_tolerance": 0.4864864864864865,
+      "engineering_tolerance": 2.0,
+      "normalized_mae": 0.35440647957409516,
+      "mae_ci95": [
+        1.9240409102754135,
+        3.3764859896191526
+      ]
+    },
+    "efferent_diameter": {
+      "n": 38,
+      "mae": 3.160423044394229,
+      "median_absolute_error": 2.212387618752363,
+      "within_engineering_tolerance": 0.42105263157894735,
+      "engineering_tolerance": 2.0,
+      "normalized_mae": 0.3447040763810639,
+      "mae_ci95": [
+        2.3807853735057676,
+        3.973017595891989
+      ]
+    },
+    "output_input_ratio": {
+      "n": 37,
+      "mae": 0.34991610309817994,
+      "median_absolute_error": 0.34079999502638003,
+      "within_engineering_tolerance": 0.32432432432432434,
+      "engineering_tolerance": 0.2,
+      "normalized_mae": 0.87025226843131,
+      "mae_ci95": [
+        0.28682379524027957,
+        0.41996734158969373
+      ]
+    },
+    "apex_diameter": {
+      "n": 39,
+      "mae": 6.158646301350539,
+      "median_absolute_error": 4.885238734315909,
+      "within_engineering_tolerance": 0.41025641025641024,
+      "engineering_tolerance": 3.0,
+      "normalized_mae": 0.4418249629697301,
+      "mae_ci95": [
+        4.168405166002757,
+        8.332963984815958
+      ]
+    },
+    "loop_length": {
+      "n": 40,
+      "mae": 58.31654625822099,
+      "median_absolute_error": 41.71354477238637,
+      "within_engineering_tolerance": 0.45,
+      "engineering_tolerance": 30.0,
+      "normalized_mae": 0.5432787379604836,
+      "mae_ci95": [
+        43.39661282343294,
+        75.20764748540104
+      ]
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.5821152956862199,
+      "score": 0.16777652874696983,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.23076923076923075,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.2619047619047619,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.1836734693877551,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2375,
+          "accuracy": 0.12903225806451613,
+          "macro_f1": 0.1039426523297491,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.75,
+            "2": 0.0,
+            "3": 0.2
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5,
+          "macro_f1": 0.2222222222222222,
+          "per_class_recall": {
+            "4": 1.0,
+            "5": 0.0,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.38235294117647056,
+          "macro_f1": 0.13829787234042554,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.15306122448979592,
+          "per_class_recall": {
+            "0": 0.0,
+            "2": 1.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.2727272727272727,
+          "macro_f1": 0.14285714285714285,
+          "per_class_recall": {
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.8051301470016528,
+          "median_absolute_error": 3.5235965003411387,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5119487998191566
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.565915227578121,
+          "median_absolute_error": 3.5149059976129013,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6070686236580584
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.30383889883806614,
+          "median_absolute_error": 0.22734997135353985,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7556568234795071
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 7.717507181749801,
+          "median_absolute_error": 4.460455714190978,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5536585733211362
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 92.07819239848757,
+          "median_absolute_error": 85.04353306372303,
+          "within_engineering_tolerance": 0.16129032258064516,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.857803271449412
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.5285191081072155,
+      "score": 0.18358546160028438,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.20408163265306123,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.2619047619047619,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.1836734693877551,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.1836734693877551,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.40625,
+          "macro_f1": 0.19259259259259257,
+          "per_class_recall": {
+            "4": 0.0,
+            "5": 1.0,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.38235294117647056,
+          "macro_f1": 0.16666666666666666,
+          "per_class_recall": {
+            "0": 0.9230769230769231,
+            "1": 0.0,
+            "2": 0.0,
+            "4": 0.07692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.15306122448979592,
+          "per_class_recall": {
+            "0": 0.0,
+            "2": 1.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.2727272727272727,
+          "macro_f1": 0.14285714285714285,
+          "per_class_recall": {
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.6329759674596955,
+          "median_absolute_error": 3.011467341286272,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4887868783616727
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.555158420062978,
+          "median_absolute_error": 2.7753423534964643,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6058953897753687
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.2945050074925137,
+          "median_absolute_error": 0.23082215110246773,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7324431444151879
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 7.170859400068933,
+          "median_absolute_error": 3.864765757197146,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5144417350614572
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 70.13612393945236,
+          "median_absolute_error": 56.49102641306223,
+          "within_engineering_tolerance": 0.2903225806451613,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.653390287047293
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.5273331152765375,
+      "score": 0.18932713552455477,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.46296296296296297,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.42476190476190484,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.3888888888888889
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.2647058823529412,
+          "macro_f1": 0.13953488372093023,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 0.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2777777777777778,
+          "accuracy": 0.41935483870967744,
+          "macro_f1": 0.2247596153846154,
+          "per_class_recall": {
+            "1": 0.7777777777777778,
+            "2": 0.0,
+            "3": 0.3333333333333333,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.1875,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5,
+          "macro_f1": 0.2222222222222222,
+          "per_class_recall": {
+            "4": 1.0,
+            "5": 0.0,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.2692307692307692,
+          "accuracy": 0.4117647058823529,
+          "macro_f1": 0.17701863354037267,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "4": 0.07692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.15306122448979592,
+          "per_class_recall": {
+            "0": 0.0,
+            "2": 1.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.344988344988345,
+          "accuracy": 0.36363636363636365,
+          "macro_f1": 0.2746071133167907,
+          "per_class_recall": {
+            "2": 0.7272727272727273,
+            "3": 0.0,
+            "4": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.6316430332106697,
+          "median_absolute_error": 3.2260413074403367,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.48860754307939225
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.521356239150451,
+          "median_absolute_error": 3.605840856582807,
+          "within_engineering_tolerance": 0.13793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6022086208246786
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.3380459985052892,
+          "median_absolute_error": 0.24494229564941183,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.8407309478718453
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.616391931395757,
+          "median_absolute_error": 4.269339323549168,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4746639077878363
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 91.29417198785228,
+          "median_absolute_error": 80.69994770394251,
+          "within_engineering_tolerance": 0.0967741935483871,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.8504993131981952
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.4988303106082113,
+      "score": 0.2004227099449832,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.337037037037037,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.26832955404383974,
+          "per_class_recall": {
+            "0": 0.06666666666666667,
+            "1": 0.0,
+            "2": 0.9444444444444444
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.2619047619047619,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.1836734693877551,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2986111111111111,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.2562111801242236,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.9444444444444444,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.40625,
+          "macro_f1": 0.19259259259259257,
+          "per_class_recall": {
+            "4": 0.0,
+            "5": 1.0,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.38235294117647056,
+          "macro_f1": 0.21717171717171718,
+          "per_class_recall": {
+            "0": 0.5384615384615384,
+            "1": 0.0,
+            "2": 0.0,
+            "4": 0.46153846153846156
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.34375,
+          "accuracy": 0.4117647058823529,
+          "macro_f1": 0.3114973262032086,
+          "per_class_recall": {
+            "0": 0.4,
+            "2": 0.6,
+            "3": 0.0,
+            "4": 0.375
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.3833203833203833,
+          "accuracy": 0.36363636363636365,
+          "macro_f1": 0.37121212121212127,
+          "per_class_recall": {
+            "2": 0.36363636363636365,
+            "3": 0.5555555555555556,
+            "4": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.328488127531046,
+          "median_absolute_error": 2.5899612682730027,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4478205570562554
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.557814311595251,
+          "median_absolute_error": 3.697572984561363,
+          "within_engineering_tolerance": 0.13793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6061850651209604
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.27640077936233626,
+          "median_absolute_error": 0.21640631646079722,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.6874173640667361
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 7.0195147884667195,
+          "median_absolute_error": 3.741937198576114,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5035841822576612
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 86.44336314450969,
+          "median_absolute_error": 74.06119151382174,
+          "within_engineering_tolerance": 0.12903225806451613,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.8053090288691193
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.4946514038663161,
+      "score": 0.23517341381579254,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.6777777777777777,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.4658914728682171,
+          "per_class_recall": {
+            "0": 0.2,
+            "1": 1.0,
+            "2": 0.8333333333333334
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.3383838383838384,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.329004329004329,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.3333333333333333,
+            "4": 0.6818181818181818
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3055555555555556,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.2806372549019608,
+          "per_class_recall": {
+            "1": 0.5555555555555556,
+            "2": 0.0,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2638888888888889,
+          "accuracy": 0.3870967741935484,
+          "macro_f1": 0.1996904024767802,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.5555555555555556,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.391025641025641,
+          "accuracy": 0.5,
+          "macro_f1": 0.326984126984127,
+          "per_class_recall": {
+            "4": 0.25,
+            "5": 0.9230769230769231,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.2857142857142857,
+          "accuracy": 0.4117647058823529,
+          "macro_f1": 0.2801470588235294,
+          "per_class_recall": {
+            "0": 0.6153846153846154,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.38461538461538464
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.35833333333333334,
+          "accuracy": 0.4117647058823529,
+          "macro_f1": 0.3211722488038278,
+          "per_class_recall": {
+            "0": 0.4,
+            "2": 0.5333333333333333,
+            "3": 0.0,
+            "4": 0.5
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.3006993006993007,
+          "accuracy": 0.3333333333333333,
+          "macro_f1": 0.2545454545454546,
+          "per_class_recall": {
+            "2": 0.36363636363636365,
+            "3": 0.0,
+            "4": 0.5384615384615384
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.997259664605694,
+          "median_absolute_error": 2.9744256525756096,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.537798237853419
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.4737254207541355,
+          "median_absolute_error": 3.392529015057562,
+          "within_engineering_tolerance": 0.13793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5970135766701632
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.3062625677536748,
+          "median_absolute_error": 0.25441489760124103,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7616845637094075
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.5126284346307495,
+          "median_absolute_error": 3.750641448139895,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.46721985257301485
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 83.25141433675215,
+          "median_absolute_error": 75.73391416638941,
+          "within_engineering_tolerance": 0.25806451612903225,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.7755727356353868
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.4762538232301411,
+      "score": 0.2563410754800838,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.4222222222222222,
+          "accuracy": 0.6176470588235294,
+          "macro_f1": 0.4157706093189964,
+          "per_class_recall": {
+            "0": 0.6,
+            "1": 0.0,
+            "2": 0.6666666666666666
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.44276094276094274,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.4581415174765558,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.2222222222222222,
+            "4": 0.7727272727272727
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.2335907335907336,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.0,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3694444444444444,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.33204633204633205,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.7777777777777778,
+            "3": 0.2
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.4663461538461539,
+          "accuracy": 0.65625,
+          "macro_f1": 0.43707093821510296,
+          "per_class_recall": {
+            "4": 0.9375,
+            "5": 0.46153846153846156,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.32417582417582413,
+          "accuracy": 0.47058823529411764,
+          "macro_f1": 0.2768939393939394,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.15384615384615385
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.33125,
+          "accuracy": 0.5,
+          "macro_f1": 0.29545454545454547,
+          "per_class_recall": {
+            "0": 0.2,
+            "2": 1.0,
+            "3": 0.0,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4343434343434343,
+          "accuracy": 0.3939393939393939,
+          "macro_f1": 0.3294685990338164,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.457286365626635,
+          "median_absolute_error": 2.981231219208496,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4651492950663906
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.578844473329257,
+          "median_absolute_error": 3.827718375065526,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6084788031347755
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.3020816743173182,
+          "median_absolute_error": 0.21179103666017762,
+          "within_engineering_tolerance": 0.4827586206896552,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7512865512577256
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.897324003855411,
+          "median_absolute_error": 4.839836976418148,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4948181424098631
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 68.1118127875019,
+          "median_absolute_error": 46.69320118230968,
+          "within_engineering_tolerance": 0.3225806451612903,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6345317421156143
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.47835904202963175,
+      "score": 0.21807431477443107,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.3814814814814815,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.34137426900584794,
+          "per_class_recall": {
+            "0": 0.2,
+            "1": 0.0,
+            "2": 0.9444444444444444
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.35521885521885527,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.3247570040022871,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.1111111111111111,
+            "4": 0.9545454545454546
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.311046511627907,
+          "per_class_recall": {
+            "1": 0.1111111111111111,
+            "2": 0.3333333333333333,
+            "3": 0.8888888888888888,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3055555555555556,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.23771929824561405,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.7222222222222222,
+            "3": 0.0
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3445512820512821,
+          "accuracy": 0.4375,
+          "macro_f1": 0.2833333333333334,
+          "per_class_recall": {
+            "4": 0.1875,
+            "5": 0.8461538461538461,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.3626373626373627,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.3378623188405797,
+          "per_class_recall": {
+            "0": 0.38461538461538464,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.9230769230769231
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.3333333333333333,
+          "accuracy": 0.29411764705882354,
+          "macro_f1": 0.19490254872563717,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.3333333333333333,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.3356643356643357,
+          "accuracy": 0.36363636363636365,
+          "macro_f1": 0.2814814814814815,
+          "per_class_recall": {
+            "2": 0.5454545454545454,
+            "3": 0.0,
+            "4": 0.46153846153846156
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.5580748082885627,
+          "median_absolute_error": 2.630431344200092,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.47870954669065474
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.711069097924886,
+          "median_absolute_error": 3.362340543091072,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6229004063365727
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.28661612580106655,
+          "median_absolute_error": 0.260354856115268,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7128232494558473
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.871941627736103,
+          "median_absolute_error": 3.3395911622515175,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4929971955913166
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 89.59120120102826,
+          "median_absolute_error": 84.30792365025815,
+          "within_engineering_tolerance": 0.1935483870967742,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.8346343849880664
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.4440976679325104,
+      "score": 0.30034368714349985,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.7851851851851852,
+          "accuracy": 0.7058823529411765,
+          "macro_f1": 0.7817460317460317,
+          "per_class_recall": {
+            "0": 0.4666666666666667,
+            "1": 1.0,
+            "2": 0.8888888888888888
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.39730639730639733,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.36653116531165314,
+          "per_class_recall": {
+            "1": 0.0,
+            "2": 0.5555555555555556,
+            "4": 0.6363636363636364
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.36111111111111105,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.3492063492063492,
+          "per_class_recall": {
+            "1": 0.4444444444444444,
+            "2": 0.3333333333333333,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3652777777777778,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.3180147058823529,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.6111111111111112,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3974358974358974,
+          "accuracy": 0.53125,
+          "macro_f1": 0.3793490460157127,
+          "per_class_recall": {
+            "4": 0.5,
+            "5": 0.6923076923076923,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.3626373626373626,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.33214769647696474,
+          "per_class_recall": {
+            "0": 1.0,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.3076923076923077
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.31666666666666665,
+          "accuracy": 0.38235294117647056,
+          "macro_f1": 0.24080882352941177,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.6666666666666666,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4788914788914789,
+          "accuracy": 0.45454545454545453,
+          "macro_f1": 0.4290060851926978,
+          "per_class_recall": {
+            "2": 0.7272727272727273,
+            "3": 0.5555555555555556,
+            "4": 0.15384615384615385
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.5771264450505127,
+          "median_absolute_error": 2.820318383835261,
+          "within_engineering_tolerance": 0.20689655172413793,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.48127278689481867
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.634862222424523,
+          "median_absolute_error": 3.691457607916524,
+          "within_engineering_tolerance": 0.20689655172413793,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6145886011559868
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.2843606736561485,
+          "median_absolute_error": 0.25726209699077573,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7072138695842884
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.855104718667691,
+          "median_absolute_error": 4.652763194108438,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4917893056814765
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 67.33398213453896,
+          "median_absolute_error": 49.431953296306034,
+          "within_engineering_tolerance": 0.25806451612903225,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6272854478371852
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "loss": 0.4416417730482001,
+      "score": 0.30160506702297885,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.762962962962963,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.650103519668737,
+          "per_class_recall": {
+            "0": 0.4,
+            "1": 1.0,
+            "2": 0.8888888888888888
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4663299663299663,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.4631701631701632,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9545454545454546
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2777777777777778,
+          "accuracy": 0.5161290322580645,
+          "macro_f1": 0.26666666666666666,
+          "per_class_recall": {
+            "1": 0.4444444444444444,
+            "2": 0.0,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3069444444444444,
+          "accuracy": 0.5161290322580645,
+          "macro_f1": 0.29258241758241754,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.7777777777777778,
+            "3": 0.2
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.4230769230769231,
+          "accuracy": 0.5625,
+          "macro_f1": 0.4012066365007542,
+          "per_class_recall": {
+            "4": 0.5,
+            "5": 0.7692307692307693,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.3626373626373627,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.34647550776583036,
+          "per_class_recall": {
+            "0": 0.5384615384615384,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.7692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.4395833333333334,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.42876984126984125,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.8666666666666667,
+            "3": 0.16666666666666666,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4674954674954675,
+          "accuracy": 0.45454545454545453,
+          "macro_f1": 0.4360902255639097,
+          "per_class_recall": {
+            "2": 0.7272727272727273,
+            "3": 0.4444444444444444,
+            "4": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.679396266446322,
+          "median_absolute_error": 3.5058673935036335,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4950323457794366
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.618423956017998,
+          "median_absolute_error": 4.31662653475489,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6127956964215976
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.283172974152497,
+          "median_absolute_error": 0.2175443255766547,
+          "within_engineering_tolerance": 0.4827586206896552,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7042600238535093
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.755601640678312,
+          "median_absolute_error": 3.9310900281287324,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.484650895453503
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 73.50514320916392,
+          "median_absolute_error": 58.00626674850696,
+          "within_engineering_tolerance": 0.25806451612903225,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6847761741488533
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "loss": 0.40329355158303914,
+      "score": 0.3340545222310397,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.8074074074074074,
+          "accuracy": 0.7352941176470589,
+          "macro_f1": 0.7022222222222222,
+          "per_class_recall": {
+            "0": 0.5333333333333333,
+            "1": 1.0,
+            "2": 0.8888888888888888
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.6363636363636364,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.49433106575963714,
+          "per_class_recall": {
+            "1": 1.0,
+            "2": 0.0,
+            "4": 0.9090909090909091
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3055555555555556,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.28487886382623223,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.3333333333333333,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.39305555555555555,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.35149572649572647,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.7222222222222222,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.4230769230769231,
+          "accuracy": 0.5625,
+          "macro_f1": 0.4012066365007542,
+          "per_class_recall": {
+            "4": 0.5,
+            "5": 0.7692307692307693,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.42032967032967034,
+          "accuracy": 0.6176470588235294,
+          "macro_f1": 0.4030797101449275,
+          "per_class_recall": {
+            "0": 0.9230769230769231,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.6153846153846154
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.35833333333333334,
+          "accuracy": 0.4117647058823529,
+          "macro_f1": 0.3001792114695341,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.6666666666666666,
+            "3": 0.16666666666666666,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4628334628334629,
+          "accuracy": 0.45454545454545453,
+          "macro_f1": 0.45091437248299987,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.4444444444444444,
+            "4": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.4927948888464444,
+          "median_absolute_error": 3.1231662119261445,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4699266732751376
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.671804440337864,
+          "median_absolute_error": 3.9264594933754253,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6186178506983456
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.2860003348833153,
+          "median_absolute_error": 0.2339464521683663,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7112917582260707
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 7.032058685629331,
+          "median_absolute_error": 4.270130799538482,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5044840889300336
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 67.46438373545705,
+          "median_absolute_error": 46.567209712952945,
+          "within_engineering_tolerance": 0.3225806451612903,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6285002731607069
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "loss": 0.3947198790939231,
+      "score": 0.31836013063725327,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.7888888888888889,
+          "accuracy": 0.7058823529411765,
+          "macro_f1": 0.6837606837606837,
+          "per_class_recall": {
+            "0": 0.5333333333333333,
+            "1": 1.0,
+            "2": 0.8333333333333334
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4511784511784511,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.4503267973856209,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9090909090909091
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2361111111111111,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.23123123123123124,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.0,
+            "3": 0.7222222222222222,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.4194444444444444,
+          "accuracy": 0.5806451612903226,
+          "macro_f1": 0.43421052631578944,
+          "per_class_recall": {
+            "0": 0.25,
+            "1": 0.25,
+            "2": 0.7777777777777778,
+            "3": 0.4
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.4647435897435897,
+          "accuracy": 0.625,
+          "macro_f1": 0.44642857142857145,
+          "per_class_recall": {
+            "4": 0.625,
+            "5": 0.7692307692307693,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.3626373626373627,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.3380952380952381,
+          "per_class_recall": {
+            "0": 0.38461538461538464,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.9230769230769231
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.6333333333333333,
+          "accuracy": 0.8787878787878788,
+          "macro_f1": 0.6333333333333333,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.9333333333333333
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.31666666666666665,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.2867867867867868,
+          "per_class_recall": {
+            "0": 0.4,
+            "2": 0.8666666666666667,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.5226625226625227,
+          "accuracy": 0.48484848484848486,
+          "macro_f1": 0.46363929146537847,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.7777777777777778,
+            "4": 0.15384615384615385
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.4503533964476487,
+          "median_absolute_error": 2.9526257346082723,
+          "within_engineering_tolerance": 0.20689655172413793,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.46421652138632025
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.147202666802634,
+          "median_absolute_error": 3.2957863928889424,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5614000772312526
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.3408358451318236,
+          "median_absolute_error": 0.24332395950627994,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.8476693834963291
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.9331483725817415,
+          "median_absolute_error": 4.444094051690829,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4973882040129225
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 70.14317151318262,
+          "median_absolute_error": 45.273960047263245,
+          "within_engineering_tolerance": 0.3225806451612903,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6534559424608509
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "loss": 0.39712491474653544,
+      "score": 0.2930284270016335,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.7814814814814813,
+          "accuracy": 0.7058823529411765,
+          "macro_f1": 0.7727272727272728,
+          "per_class_recall": {
+            "0": 0.4,
+            "1": 1.0,
+            "2": 0.9444444444444444
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4511784511784511,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.4512820512820513,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9090909090909091
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.25,
+          "accuracy": 0.5161290322580645,
+          "macro_f1": 0.23831070889894418,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.0,
+            "3": 0.7777777777777778,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.37916666666666665,
+          "accuracy": 0.5161290322580645,
+          "macro_f1": 0.33392857142857146,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.6666666666666666,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3814102564102564,
+          "accuracy": 0.5,
+          "macro_f1": 0.35185185185185186,
+          "per_class_recall": {
+            "4": 0.375,
+            "5": 0.7692307692307693,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.38186813186813184,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.36400462962962965,
+          "per_class_recall": {
+            "0": 0.5384615384615384,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.8461538461538461
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.33125,
+          "accuracy": 0.38235294117647056,
+          "macro_f1": 0.2773809523809524,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.6,
+            "3": 0.0,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4371924371924372,
+          "accuracy": 0.42424242424242425,
+          "macro_f1": 0.41622574955908287,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.4444444444444444,
+            "4": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.3936226083155785,
+          "median_absolute_error": 3.187578182843298,
+          "within_engineering_tolerance": 0.3448275862068966,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4565838629029058
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.534926771063696,
+          "median_absolute_error": 3.890953871943225,
+          "within_engineering_tolerance": 0.13793103448275862,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6036887447205767
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.28869287730720194,
+          "median_absolute_error": 0.23641054257559468,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7179881952619435
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.47528362678956,
+          "median_absolute_error": 4.399614019545414,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.46454071376000544
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 73.39228599982921,
+          "median_absolute_error": 56.19530304491866,
+          "within_engineering_tolerance": 0.3548387096774194,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6837247929167478
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "loss": 0.36442666304738897,
+      "score": 0.28309778861355833,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.7592592592592592,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.5625,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 1.0,
+            "2": 0.6111111111111112
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4663299663299663,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.4633986928104575,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9545454545454546
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.19444444444444442,
+          "accuracy": 0.3548387096774194,
+          "macro_f1": 0.19021739130434784,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.0,
+            "3": 0.4444444444444444,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.41388888888888886,
+          "accuracy": 0.4838709677419355,
+          "macro_f1": 0.3485576923076923,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.5555555555555556,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3766025641025641,
+          "accuracy": 0.5,
+          "macro_f1": 0.3559577677224736,
+          "per_class_recall": {
+            "4": 0.4375,
+            "5": 0.6923076923076923,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.38186813186813184,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.37142857142857144,
+          "per_class_recall": {
+            "0": 0.6153846153846154,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.7692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.48333333333333334,
+          "accuracy": 0.8787878787878788,
+          "macro_f1": 0.46774193548387094,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.9666666666666667
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.4395833333333334,
+          "accuracy": 0.5294117647058824,
+          "macro_f1": 0.4141414141414142,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.8666666666666667,
+            "3": 0.16666666666666666,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4371924371924372,
+          "accuracy": 0.42424242424242425,
+          "macro_f1": 0.42282430213464695,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.4444444444444444,
+            "4": 0.23076923076923078
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.590899584608481,
+          "median_absolute_error": 3.313426075583817,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4831258489436949
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.6791893966434435,
+          "median_absolute_error": 3.991817649558568,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6194233202531082
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.30484759589135657,
+          "median_absolute_error": 0.25287058456600464,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7581654845300095
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 8.699923184563735,
+          "median_absolute_error": 5.41984533158403,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.624137683960913
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 81.38622855508912,
+          "median_absolute_error": 64.71442223217934,
+          "within_engineering_tolerance": 0.2903225806451613,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.7581966075458245
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "loss": 0.3634800205105229,
+      "score": 0.2899205519695337,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.47407407407407404,
+          "accuracy": 0.7058823529411765,
+          "macro_f1": 0.46730158730158733,
+          "per_class_recall": {
+            "0": 0.5333333333333333,
+            "1": 0.0,
+            "2": 0.8888888888888888
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4663299663299663,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.4631701631701632,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9545454545454546
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2777777777777778,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.2912280701754386,
+          "per_class_recall": {
+            "1": 0.1111111111111111,
+            "2": 0.3333333333333333,
+            "3": 0.6666666666666666,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.44166666666666665,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.3873376623376623,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.6666666666666666,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3557692307692308,
+          "accuracy": 0.46875,
+          "macro_f1": 0.3364705882352941,
+          "per_class_recall": {
+            "4": 0.375,
+            "5": 0.6923076923076923,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.42032967032967034,
+          "accuracy": 0.6176470588235294,
+          "macro_f1": 0.40419653524492233,
+          "per_class_recall": {
+            "0": 0.6153846153846154,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.9230769230769231
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.4375,
+          "accuracy": 0.5,
+          "macro_f1": 0.4142325416518965,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.7333333333333333,
+            "3": 0.16666666666666666,
+            "4": 0.25
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4998704998704999,
+          "accuracy": 0.48484848484848486,
+          "macro_f1": 0.48161143599740086,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.5555555555555556,
+            "4": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.479712153574615,
+          "median_absolute_error": 3.2236710021029626,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4681664994145819
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.485396797047303,
+          "median_absolute_error": 4.332362079332212,
+          "within_engineering_tolerance": 0.20689655172413793,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5982865616246199
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.2980044775345963,
+          "median_absolute_error": 0.2260225441894399,
+          "within_engineering_tolerance": 0.4827586206896552,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7411464356197522
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 7.334262412581449,
+          "median_absolute_error": 6.34650588909,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.5261643647465964
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 65.95736827968331,
+          "median_absolute_error": 52.123554535059725,
+          "within_engineering_tolerance": 0.3548387096774194,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6144608708395469
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "loss": 0.3406797474936435,
+      "score": 0.2814579690243622,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.4666666666666666,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.4577380952380952,
+          "per_class_recall": {
+            "0": 0.7333333333333333,
+            "1": 0.0,
+            "2": 0.6666666666666666
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.5387205387205387,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.3643578643578643,
+          "per_class_recall": {
+            "1": 0.6666666666666666,
+            "2": 0.2222222222222222,
+            "4": 0.7272727272727273
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3194444444444444,
+          "accuracy": 0.5161290322580645,
+          "macro_f1": 0.3096042471042471,
+          "per_class_recall": {
+            "1": 0.2222222222222222,
+            "2": 0.3333333333333333,
+            "3": 0.7222222222222222,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.35138888888888886,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.31875,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.25,
+            "2": 0.5555555555555556,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3717948717948718,
+          "accuracy": 0.5,
+          "macro_f1": 0.26696329254727474,
+          "per_class_recall": {
+            "4": 0.5,
+            "5": 0.6153846153846154,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.3434065934065934,
+          "accuracy": 0.5,
+          "macro_f1": 0.3318236714975845,
+          "per_class_recall": {
+            "0": 0.7692307692307693,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.46153846153846156
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.3645833333333333,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.2539835164835165,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.7333333333333333,
+            "3": 0.0,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.5255115255115256,
+          "accuracy": 0.5151515151515151,
+          "macro_f1": 0.5136559347085662,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.5555555555555556,
+            "4": 0.38461538461538464
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.3999434889388285,
+          "median_absolute_error": 2.8153711503604093,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4574342851286536
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.405655976867552,
+          "median_absolute_error": 3.919999921164395,
+          "within_engineering_tolerance": 0.27586206896551724,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5895893127488137
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.31013838672840516,
+          "median_absolute_error": 0.2582147922567828,
+          "within_engineering_tolerance": 0.4482758620689655,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.771323846454397
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.8105458930919704,
+          "median_absolute_error": 4.6620592280578546,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4885926289287215
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 67.29628624657398,
+          "median_absolute_error": 56.25425042883933,
+          "within_engineering_tolerance": 0.41935483870967744,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6269342717858939
+        }
+      }
+    },
+    {
+      "epoch": 16,
+      "loss": 0.33040922958599894,
+      "score": 0.2657910455878326,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.45925925925925926,
+          "accuracy": 0.6764705882352942,
+          "macro_f1": 0.4615384615384615,
+          "per_class_recall": {
+            "0": 0.6,
+            "1": 0.0,
+            "2": 0.7777777777777778
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.42087542087542085,
+          "accuracy": 0.5882352941176471,
+          "macro_f1": 0.3086734693877551,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.8181818181818182
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.3194444444444444,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.29836309523809523,
+          "per_class_recall": {
+            "1": 0.4444444444444444,
+            "2": 0.3333333333333333,
+            "3": 0.5,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.4,
+          "accuracy": 0.45161290322580644,
+          "macro_f1": 0.35627240143369177,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.5,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3509615384615385,
+          "accuracy": 0.46875,
+          "macro_f1": 0.2583333333333333,
+          "per_class_recall": {
+            "4": 0.4375,
+            "5": 0.6153846153846154,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.38186813186813184,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.37205801860974275,
+          "per_class_recall": {
+            "0": 0.6153846153846154,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.7692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.4666666666666667,
+          "accuracy": 0.8484848484848485,
+          "macro_f1": 0.30601092896174864,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.9333333333333333
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.38958333333333334,
+          "accuracy": 0.4411764705882353,
+          "macro_f1": 0.2861111111111111,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.6666666666666666,
+            "3": 0.16666666666666666,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4628334628334629,
+          "accuracy": 0.45454545454545453,
+          "macro_f1": 0.34523809523809523,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.4444444444444444,
+            "4": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.5696972569347847,
+          "median_absolute_error": 3.215518710217596,
+          "within_engineering_tolerance": 0.2413793103448276,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.4802732510596319
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.360315452137114,
+          "median_absolute_error": 3.745385703412648,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.5846440685583056
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.32831446675396114,
+          "median_absolute_error": 0.2897645088492813,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.8165283247089772
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.802513980762637,
+          "median_absolute_error": 6.319637932505827,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4880164147423823
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 66.30522821137167,
+          "median_absolute_error": 44.83314110819134,
+          "within_engineering_tolerance": 0.3870967741935484,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.6177015446585666
+        }
+      }
+    },
+    {
+      "epoch": 17,
+      "loss": 0.3127793661857906,
+      "score": 0.2695852346404125,
+      "val": {
+        "clarity": {
+          "n": 34,
+          "balanced_accuracy": 0.4407407407407407,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.43496672716273443,
+          "per_class_recall": {
+            "0": 0.6,
+            "1": 0.0,
+            "2": 0.7222222222222222
+          }
+        },
+        "capillary_count": {
+          "n": 34,
+          "balanced_accuracy": 0.4511784511784511,
+          "accuracy": 0.6470588235294118,
+          "macro_f1": 0.4331550802139037,
+          "per_class_recall": {
+            "1": 0.3333333333333333,
+            "2": 0.1111111111111111,
+            "4": 0.9090909090909091
+          }
+        },
+        "crossing_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.2638888888888889,
+          "accuracy": 0.41935483870967744,
+          "macro_f1": 0.24448198198198198,
+          "per_class_recall": {
+            "1": 0.1111111111111111,
+            "2": 0.3333333333333333,
+            "3": 0.6111111111111112,
+            "4": 0.0
+          }
+        },
+        "malformation_ratio": {
+          "n": 31,
+          "balanced_accuracy": 0.44166666666666665,
+          "accuracy": 0.5483870967741935,
+          "macro_f1": 0.3896825396825397,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 0.5,
+            "2": 0.6666666666666666,
+            "3": 0.6
+          }
+        },
+        "blood_color": {
+          "n": 32,
+          "balanced_accuracy": 0.3557692307692308,
+          "accuracy": 0.46875,
+          "macro_f1": 0.33031674208144796,
+          "per_class_recall": {
+            "4": 0.375,
+            "5": 0.6923076923076923,
+            "6": 0.0
+          }
+        },
+        "exudation": {
+          "n": 34,
+          "balanced_accuracy": 0.38186813186813184,
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.3744047619047619,
+          "per_class_recall": {
+            "0": 0.6153846153846154,
+            "1": 0.14285714285714285,
+            "2": 0.0,
+            "4": 0.7692307692307693
+          }
+        },
+        "hemorrhage": {
+          "n": 33,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9090909090909091,
+          "macro_f1": 0.47619047619047616,
+          "per_class_recall": {
+            "0": 0.0,
+            "1": 1.0
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "n": 34,
+          "balanced_accuracy": 0.40625,
+          "accuracy": 0.47058823529411764,
+          "macro_f1": 0.36909722222222224,
+          "per_class_recall": {
+            "0": 0.6,
+            "2": 0.7333333333333333,
+            "3": 0.16666666666666666,
+            "4": 0.125
+          }
+        },
+        "papilla": {
+          "n": 33,
+          "balanced_accuracy": 0.4628334628334629,
+          "accuracy": 0.45454545454545453,
+          "macro_f1": 0.45111561866125766,
+          "per_class_recall": {
+            "2": 0.6363636363636364,
+            "3": 0.4444444444444444,
+            "4": 0.3076923076923077
+          }
+        },
+        "sweat_duct": {
+          "n": 26,
+          "balanced_accuracy": 0.5,
+          "accuracy": 0.9615384615384616,
+          "macro_f1": 0.49019607843137253,
+          "per_class_recall": {
+            "0": 1.0,
+            "2": 0.0
+          }
+        },
+        "afferent_diameter": {
+          "n": 29,
+          "mae": 3.5580614061435387,
+          "median_absolute_error": 3.1569114695157836,
+          "within_engineering_tolerance": 0.20689655172413793,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.478707743542853
+        },
+        "efferent_diameter": {
+          "n": 29,
+          "mae": 5.611944359703932,
+          "median_absolute_error": 4.701470403721778,
+          "within_engineering_tolerance": 0.3103448275862069,
+          "engineering_tolerance": 2.0,
+          "normalized_mae": 0.6120889735457711
+        },
+        "output_input_ratio": {
+          "n": 29,
+          "mae": 0.31413742673365824,
+          "median_absolute_error": 0.27852558292298446,
+          "within_engineering_tolerance": 0.41379310344827586,
+          "engineering_tolerance": 0.2,
+          "normalized_mae": 0.7812695837477235
+        },
+        "apex_diameter": {
+          "n": 29,
+          "mae": 6.711065060074415,
+          "median_absolute_error": 5.723295683147729,
+          "within_engineering_tolerance": 0.3793103448275862,
+          "engineering_tolerance": 3.0,
+          "normalized_mae": 0.4814558145683091
+        },
+        "loop_length": {
+          "n": 31,
+          "mae": 71.18528864243633,
+          "median_absolute_error": 54.893633501847546,
+          "within_engineering_tolerance": 0.3225806451612903,
+          "engineering_tolerance": 30.0,
+          "normalized_mae": 0.66316433767824
+        }
+      }
+    }
+  ],
+  "vocabularies": {
+    "clarity": [
+      "不清",
+      "模糊",
+      "清晰"
+    ],
+    "capillary_count": [
+      "1--2",
+      "3--4",
+      "5--6",
+      "<1",
+      ">=7",
+      "条/mm"
+    ],
+    "crossing_ratio": [
+      "10--30%",
+      "30--60%",
+      "60--80%",
+      "<=30%",
+      ">80%",
+      "[<30%]"
+    ],
+    "malformation_ratio": [
+      "10--30%",
+      "30--60%",
+      "<=10%",
+      ">60%",
+      "[<10%]"
+    ],
+    "blood_color": [
+      "+",
+      "+++",
+      "[淡红色]",
+      "暗紫",
+      "暗红",
+      "浅红",
+      "淡红"
+    ],
+    "exudation": [
+      "+",
+      "++",
+      "+++",
+      "[无]",
+      "无"
+    ],
+    "hemorrhage": [
+      "1--2",
+      "无",
+      "管袢/一指甲襞"
+    ],
+    "subpapillary_venous_plexus": [
+      ">2排,扩张",
+      "[不见]",
+      "不见",
+      "可见1排",
+      "可见2排"
+    ],
+    "papilla": [
+      "0--2",
+      "[波纹状]",
+      "平坦",
+      "波纹状",
+      "浅波纹状"
+    ],
+    "sweat_duct": [
+      "0--2",
+      "0--2个/-指甲襞",
+      "3--4",
+      "个/-指甲襞"
+    ]
+  },
+  "scales": {
+    "afferent_diameter": [
+      11.638297872340425,
+      7.432638084796362
+    ],
+    "efferent_diameter": [
+      16.210526315789473,
+      9.168510792139402
+    ],
+    "output_input_ratio": [
+      1.488421052631579,
+      0.40208582705441026
+    ],
+    "apex_diameter": [
+      20.102040816326532,
+      13.939108962868797
+    ],
+    "loop_length": [
+      257.3076923076923,
+      107.34185268716101
+    ]
+  }
+}

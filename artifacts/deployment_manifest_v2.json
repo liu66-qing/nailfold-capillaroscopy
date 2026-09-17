@@ -1,0 +1,152 @@
+﻿{
+    "created_at":  "2026-08-03",
+    "model_version":  "siglip2-base-naflex-multisource-hybrid-mil-20260803",
+    "clinical_gate":  "NO-GO",
+    "files":  [
+                  {
+                      "path":  "artifacts/windows_model_hybrid/case_head.onnx",
+                      "bytes":  709361,
+                      "sha256":  "017f9661440efb0f35760e16cb71244d6cc15dead81df293e5af4b4a183521ff"
+                  },
+                  {
+                      "path":  "artifacts/windows_model_hybrid/case_head.onnx.data",
+                      "bytes":  29818880,
+                      "sha256":  "0b6f93a9b9e9217d5ca0e5ad9a9cb3dd0c9190a6fb4feaf7d9ad18b1c8170988"
+                  },
+                  {
+                      "path":  "artifacts/windows_model_hybrid/model_metadata.json",
+                      "bytes":  2535,
+                      "sha256":  "a197469470e36a4e6eac63b5f0af695a19d2a97b106367cb4a2f4816dc8a59cc"
+                  },
+                  {
+                      "path":  "artifacts/windows_model_hybrid/score_rules.json",
+                      "bytes":  9961,
+                      "sha256":  "78d2765e1ee71fbb7f85a5e2d7f5a0f6b2db8b08a6fc3d1332655bbd61ad00f7"
+                  },
+                  {
+                      "path":  "artifacts/windows_model_hybrid/siglip2_vision.onnx",
+                      "bytes":  1386230,
+                      "sha256":  "ad7d110d8b06d9fe96262e315bcc6e6b6767e98f3cc89f232f1e7f12e6e3193f"
+                  },
+                  {
+                      "path":  "artifacts/windows_model_hybrid/siglip2_vision.onnx.data",
+                      "bytes":  371851264,
+                      "sha256":  "3faedf2eec03c0197e1fa688eb81cd7f725afeb02028839e97b1641b5f17ffd3"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/afferent_diameter_extra_trees.joblib",
+                      "bytes":  2008650,
+                      "sha256":  "812c87706e0ef80b95b48f813197d0d3dffb0c6f08f3ea24d4c284d2b9763fd7"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/apex_diameter_extra_trees.joblib",
+                      "bytes":  2054586,
+                      "sha256":  "f9507fa529b88775fff54238e9bb4ae65ccd04bcc2f141ba33dcd62fcdc65df4"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/blood_color_logistic.joblib",
+                      "bytes":  40729,
+                      "sha256":  "65f94568c4ad0858656b1922696e3cfe2eaaa0389714ff45caae4239b58c1139"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/efferent_diameter_extra_trees.joblib",
+                      "bytes":  2021898,
+                      "sha256":  "6e05c0a89ee8de956c1b1f5437bbc2e14ba80fc40512ebde593ed2b285cb2506"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/exudation_extra_trees.joblib",
+                      "bytes":  3290194,
+                      "sha256":  "bc4a27b9fa067f7adddf76f6d0ef9ddb8e9efd733ae8fb462384960f25d58cbf"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/exudation_logistic.joblib",
+                      "bytes":  40713,
+                      "sha256":  "5b5775423c1b999d7d540918475f9e29c05a2ae411cd8b57b02ee2cd7dffdf69"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/metadata.json",
+                      "bytes":  1567,
+                      "sha256":  "3bdd36c9865e0c5eb927f50d391724e4af3abbacf4442c473fb00a584a995a7f"
+                  },
+                  {
+                      "path":  "artifacts/geometry_final/sweat_duct_logistic.joblib",
+                      "bytes":  37613,
+                      "sha256":  "2ec30b599c0c1cecfe7b3825991d25d34023ef53f2ec6461495ad9aed6756cb4"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/flow_state_extra_trees.joblib",
+                      "bytes":  7484402,
+                      "sha256":  "5ab3df780f7ac3f43b029fe352e3177b2584acf202056f5dc03261ce5693710e"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/flow_state_pca_logistic.joblib",
+                      "bytes":  6049889,
+                      "sha256":  "7f0a6eb71b53ebeeade1c77c25739ca671069e5c7ee319ef575cca3cccd9c28a"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/metadata.json",
+                      "bytes":  1925,
+                      "sha256":  "4371ba4a6dfef33cb656fe7f020ea091babb27f480b5dbb2f43f37e6afcc9d15"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/microthrombus_extra_trees.joblib",
+                      "bytes":  5174458,
+                      "sha256":  "c224f9fea4c021098634b9fa75e6849830c58ed64054d5836c220c47d371495a"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/microthrombus_pca_logistic.joblib",
+                      "bytes":  5992149,
+                      "sha256":  "9acf9fa874d368041ee85e04350ebcba12ed22567005dab771e9af8ab4dcf28e"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/rbc_aggregation_extra_trees.joblib",
+                      "bytes":  5775986,
+                      "sha256":  "ffa47f4547c76b1e0a10aab86f0f5b65257dd8d10e966362481c8eeb511325b8"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/rbc_aggregation_pca_logistic.joblib",
+                      "bytes":  5992553,
+                      "sha256":  "0076e22c0bd15c5d561d6d8351c0397fa06a459899df44e351d8780eab56e9df"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/vasomotion_extra_trees.joblib",
+                      "bytes":  1305874,
+                      "sha256":  "b63ae2d5b85c3f5f7493bbb71b129aea540769692952cb9a13830f95bf0e731f"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/vasomotion_pca_logistic.joblib",
+                      "bytes":  5991341,
+                      "sha256":  "e99197046a531bc021f109b68ccc9bda50086c76c9bc32cf717a98eb0bfb6413"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/wbc_count_extra_trees.joblib",
+                      "bytes":  1124578,
+                      "sha256":  "5be469368b7fef362a3fdd02bb6d6de7fc00c2c63e1db5fe52e7d91ea2c9fa58"
+                  },
+                  {
+                      "path":  "artifacts/video_hybrid_final/wbc_count_pca_logistic.joblib",
+                      "bytes":  5934861,
+                      "sha256":  "81159da2c2d8d1dfa714e10c1b02cd2c5494c7024173a7fb95c86c71538b6a5d"
+                  },
+                  {
+                      "path":  "artifacts/labels/multisource_confidence_v1.csv",
+                      "bytes":  228473,
+                      "sha256":  "bb595004559fb5c165ed609e81ad1993c9567cc97e46bfd31c9191cb9aef16f5"
+                  },
+                  {
+                      "path":  "artifacts/labels/score_rules_v1.json",
+                      "bytes":  9961,
+                      "sha256":  "78d2765e1ee71fbb7f85a5e2d7f5a0f6b2db8b08a6fc3d1332655bbd61ad00f7"
+                  },
+                  {
+                      "path":  "artifacts/hybrid_base_locked_metrics.json",
+                      "bytes":  91542,
+                      "sha256":  "025d31c48ce4b7371a402faf804245f55362f6e2135b8d2299985a52c48b07cf"
+                  },
+                  {
+                      "path":  "artifacts/geometry_deploy_v2_locked/metrics.json",
+                      "bytes":  96122,
+                      "sha256":  "ce62d598fff3b5f42ed43631fd8a5a18cdf4fc008a74d08f7770822a0958a81f"
+                  }
+              ]
+}

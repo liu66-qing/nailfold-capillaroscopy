@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-08-30",
+  "raw_xml_sources_unchanged": true,
+  "checks": [
+    {
+      "path": "E:\\甲劈微循环\\data\\血管数据集\\分类数据集\\扩充之前\\annotations\\100.xml",
+      "md5_now": "7b33f2205dbc7e19495fdfd816e0e8fa",
+      "md5_recorded": "7b33f2205dbc7e19495fdfd816e0e8fa",
+      "unchanged": true
+    },
+    {
+      "path": "E:\\甲劈微循环\\data\\血管数据集\\分类数据集\\扩充之前\\annotations\\143.xml",
+      "md5_now": "80dc5c9f92e99fcf6ebc198f03287cb9",
+      "md5_recorded": "80dc5c9f92e99fcf6ebc198f03287cb9",
+      "unchanged": true
+    },
+    {
+      "path": "E:\\甲劈微循环\\data\\血管数据集\\分类数据集\\扩充之前\\annotations\\200.xml",
+      "md5_now": "835fc5693b3703de0498b9f88881b72b",
+      "md5_recorded": "835fc5693b3703de0498b9f88881b72b",
+      "unchanged": true
+    },
+    {
+      "path": "E:\\甲劈微循环\\data\\血管数据集\\分类数据集\\扩充之前\\annotations\\300.xml",
+      "md5_now": "da0b3c1b2b02e8f39b84bd680a1720d7",
+      "md5_recorded": "da0b3c1b2b02e8f39b84bd680a1720d7",
+      "unchanged": true
+    },
+    {
+      "path": "E:\\甲劈微循环\\data\\血管数据集\\分类数据集\\扩充之前\\annotations\\315.xml",
+      "md5_now": "b8fc39bc1152cf1370b519964236aafb",
+      "md5_recorded": "b8fc39bc1152cf1370b519964236aafb",
+      "unchanged": true
+    }
+  ],
+  "note": "Derived XML only; raw files were not overwritten by governance script"
+}

@@ -1,0 +1,12 @@
+{
+  "api_provider": "not configured",
+  "endpoint": "not configured",
+  "model": "not configured",
+  "token_source": "absent",
+  "image_transmission": "disabled",
+  "cost_estimate": "unavailable until provider pricing supplied",
+  "rate_limit": "unavailable until provider docs supplied",
+  "status": "do_not_call",
+  "reason": "no API key/endpoint/pricing/rate-limit evidence in workspace",
+  "sha256": "fc6ff560fda6fdeb394f3bd6ce37e3240350f18c8daa44a990d1679c5f324238"
+}

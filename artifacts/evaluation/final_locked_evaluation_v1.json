@@ -1,0 +1,157 @@
+{
+  "schema_version": "step14-final-locked-evaluation/1.0",
+  "evaluation_role": "locked_test",
+  "locked_cases_seen": 47,
+  "locked_cases": [
+    "recovered_archive1/23",
+    "recovered_archive1/36",
+    "recovered_archive1/39",
+    "recovered_archive1/55",
+    "recovered_archive1/63",
+    "recovered_archive1/65",
+    "recovered_archive1/73",
+    "recovered_archive1/75",
+    "recovered_archive1/77",
+    "recovered_archive1/79",
+    "recovered_archive1/88",
+    "recovered_archive1/91",
+    "recovered_archive1/93",
+    "recovered_archive1/98",
+    "recovered_archive2/102",
+    "recovered_archive2/131",
+    "recovered_archive2/134",
+    "recovered_archive2/138",
+    "recovered_archive2/140",
+    "recovered_archive2/143",
+    "recovered_archive2/153",
+    "recovered_archive2/154",
+    "recovered_archive2/156",
+    "recovered_archive2/157",
+    "recovered_archive2/166",
+    "recovered_archive2/177",
+    "recovered_archive2/182",
+    "recovered_archive2/185",
+    "recovered_archive2/187",
+    "recovered_archive2/190",
+    "recovered_archive2/192",
+    "recovered_archive2/193",
+    "recovered_archive2/195",
+    "recovered_archive2/196",
+    "recovered_archive3/203",
+    "recovered_archive3/205",
+    "recovered_archive3/208",
+    "recovered_archive3/217",
+    "recovered_archive3/219",
+    "recovered_archive3/226",
+    "recovered_archive3/230",
+    "recovered_archive3/236",
+    "recovered_archive3/244",
+    "recovered_archive3/247",
+    "recovered_archive3/249",
+    "recovered_archive3/255",
+    "recovered_archive3/258"
+  ],
+  "field_count": 17,
+  "mean_balanced_accuracy": 0.690198981931691,
+  "target": 0.75,
+  "result": "FAIL",
+  "fields": {
+    "sweat_duct": {
+      "kind": "compatibility",
+      "default": "0--2",
+      "cases": 44,
+      "score": 1.0
+    },
+    "vasomotion": {
+      "kind": "compatibility",
+      "default": "0--1",
+      "cases": 47,
+      "score": 0.9148936170212766
+    },
+    "wbc_count": {
+      "kind": "compatibility",
+      "default": "1--30",
+      "cases": 46,
+      "score": 0.9782608695652174
+    },
+    "flow_velocity": {
+      "kind": "compatibility",
+      "default": null,
+      "cases": 0,
+      "score": 1.0
+    },
+    "clarity": {
+      "kind": "categorical",
+      "cases": 46,
+      "score": 0.5158730158730159
+    },
+    "blood_color": {
+      "kind": "categorical",
+      "cases": 44,
+      "score": 0.48370927318295737
+    },
+    "crossing_ratio": {
+      "kind": "categorical",
+      "cases": 45,
+      "score": 0.5949197860962567
+    },
+    "malformation_ratio": {
+      "kind": "categorical",
+      "cases": 39,
+      "score": 0.4357142857142857
+    },
+    "exudation": {
+      "kind": "categorical",
+      "cases": 47,
+      "score": 0.3267045454545454
+    },
+    "hemorrhage": {
+      "kind": "categorical",
+      "cases": 47,
+      "score": 0.5
+    },
+    "subpapillary_venous_plexus": {
+      "kind": "categorical",
+      "cases": 47,
+      "score": 0.4058035714285714
+    },
+    "papilla": {
+      "kind": "categorical",
+      "cases": 46,
+      "score": 0.4721418931945247
+    },
+    "capillary_count": {
+      "kind": "categorical",
+      "cases": 46,
+      "score": 0.38911290322580644
+    },
+    "afferent_diameter": {
+      "kind": "continuous",
+      "cases": 44,
+      "mae": 3.0909430943894347,
+      "scale": 0.9938985054376773,
+      "score": 0.9904894058634172
+    },
+    "efferent_diameter": {
+      "kind": "continuous",
+      "cases": 44,
+      "mae": 4.6978012876057225,
+      "scale": 1.6087600887684457,
+      "score": 0.9427097403950522
+    },
+    "apex_diameter": {
+      "kind": "continuous",
+      "cases": 44,
+      "mae": 5.08394587904896,
+      "scale": 1.1874968574659681,
+      "score": 0.9524864871116919
+    },
+    "loop_length": {
+      "kind": "continuous",
+      "cases": 45,
+      "mae": 103.35638778560313,
+      "scale": 1.7832836597742645,
+      "score": 0.830563298712126
+    }
+  }
+}

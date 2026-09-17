@@ -1,0 +1,59 @@
+{
+  "source_layers": {
+    "colleague_annotation_package": "data/血管数据集 (absolute paths in XML are source-machine metadata)",
+    "local_raw_case_archives": "data/recovered_archive1,2,3",
+    "local_anfc": "data/ANFC-THU.v1i.coco (Roboflow export, CC BY 4.0)"
+  },
+  "anfc": {
+    "train": {
+      "images": 257,
+      "files": 257,
+      "annotations": 5363,
+      "categories": {
+        "0": "capillary",
+        "1": "abnormal",
+        "2": "aggregation",
+        "3": "blur",
+        "4": "hemo",
+        "5": "normal"
+      },
+      "category_counts": {
+        "aggregation": 356,
+        "normal": 2418,
+        "blur": 2130,
+        "abnormal": 57,
+        "hemo": 402
+      },
+      "all_640x640": true,
+      "segmentation_annotations": 5363,
+      "bbox_invalid": 0
+    },
+    "valid": {
+      "images": 64,
+      "files": 64,
+      "annotations": 1392,
+      "categories": {
+        "0": "capillary",
+        "1": "abnormal",
+        "2": "aggregation",
+        "3": "blur",
+        "4": "hemo",
+        "5": "normal"
+      },
+      "category_counts": {
+        "normal": 677,
+        "blur": 535,
+        "hemo": 95,
+        "aggregation": 76,
+        "abnormal": 9
+      },
+      "all_640x640": true,
+      "segmentation_annotations": 1392,
+      "bbox_invalid": 0
+    }
+  },
+  "anfc_source_groups": 321,
+  "anfc_cross_split_source_groups": 0,
+  "anfc_exact_overlap_file_count_with_vascular_dataset": 0,
+  "anfc_exact_overlap_file_count_with_recovered": 0
+}

@@ -1,0 +1,8 @@
+system,method,mean_ba,fields,min_n
+our_v1,structured_oof,0.39997329095326556,9,159
+qwen3_vl_8b,few_shot,0.32328449828560074,9,163
+qwen3_vl_8b,zero_shot,0.3187249952447559,9,163
+medgemma_4b,few_shot,0.31820296664824027,9,163
+medgemma_4b,zero_shot,0.312710053406825,9,163
+internvl3_8b,zero_shot,0.031313096888766184,9,163
+internvl3_8b,few_shot,0.031313096888766184,9,163

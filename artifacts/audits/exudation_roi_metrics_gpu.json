@@ -1,0 +1,19 @@
+{
+  "n": 186,
+  "accuracy": 0.7096774193548387,
+  "baseline": 0.543010752688172,
+  "accuracy_delta": 0.16666666666666674,
+  "balanced_accuracy": 0.702853814793244,
+  "confusion_matrix": [
+    [
+      53,
+      32
+    ],
+    [
+      22,
+      79
+    ]
+  ],
+  "locked_cases_seen": 0,
+  "protocol": "ROI concat, ExtraTrees fixed 300/min_leaf2/class_weight balanced, seed 20260828+fold"
+}

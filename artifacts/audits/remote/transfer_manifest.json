@@ -1,0 +1,18 @@
+{
+  "source_server": {
+    "ssh_port": 12956,
+    "path": "/root/autodl-tmp/nailfold",
+    "commit": "43c6848996db10f00b142e5d911499b21cdad443",
+    "manifest": "artifacts\\audits\\remote\\main_repo_data_hashes.txt",
+    "manifest_sha256": "00c1f2c5d1ffc9d6c7ca15ecdcc906c0b943d1ea79833f8e01731a4e7c75bd1d"
+  },
+  "target_server": {
+    "ssh_port": 14170,
+    "path": "/root/autodl-tmp/nailfold",
+    "commit": "181374cebd3ffa91c42af7f5b97d93da9dc29a38",
+    "manifest": "artifacts\\audits\\remote\\gpu_repo_data_hashes.txt",
+    "manifest_sha256": "1063204473e9230a95f1b2671047b30e361cae1c486469691dfac13e3477d7f9"
+  },
+  "transfer_performed": false,
+  "reason": "commits and working trees differ; no safe artifact selected for transfer"
+}

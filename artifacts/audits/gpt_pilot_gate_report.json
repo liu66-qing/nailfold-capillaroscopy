@@ -1,0 +1,13 @@
+{
+  "stage": "4_gpt_pilot_gate",
+  "locked_case_filter": "passed",
+  "locked_cases_found": 77,
+  "development_cases_available": 164,
+  "requested_pilot_cases": 300,
+  "api_calls": 0,
+  "status": "blocked_before_api",
+  "reason": "not enough development cases for 300-case pilot; no external API key/endpoint used",
+  "next_allowed_action": "only proceed with <=164 development cases after explicit provider/fee/rate audit",
+  "evidence_level": "L1",
+  "sha256": "c7968ce15705044ed88e4b8a24bed815aeed1fa9ed69706967d114c077a8a531"
+}

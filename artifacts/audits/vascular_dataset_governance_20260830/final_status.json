@@ -1,0 +1,87 @@
+{
+  "as_of": "2026-08-30",
+  "overall": "HOLD_NO_UNCONDITIONAL_TRAIN_ASSETS",
+  "unconditional_safe_train_assets": 0,
+  "auto_confirmed": {
+    "segmentation_pairs": 2332,
+    "segmentation_sequence_offset_pairs": 84,
+    "xml_metadata_repairs": 582,
+    "xml_manual_confirmed_repairs": 5,
+    "yolo_invalid_rows_quarantined": 7,
+    "weak_field_label_table_structural_audit": true,
+    "locked_exclusion_complete_for_detected_overlap": true
+  },
+  "human_confirmed": {
+    "locked_overlap_cases": 17,
+    "locked_case_manifest_total": 47,
+    "classification_visual_samples": 6,
+    "xml_pair_samples": 5,
+    "segmentation_visual_samples_hold": 4
+  },
+  "still_hold": {
+    "segmentation_pairing": 829,
+    "source_case_unknown_or_unlisted": 454,
+    "duplicate_annotation_conflict_groups": 0,
+    "label_semantics_and_clinical_acceptance": true,
+    "physical_calibration": true
+  },
+  "permanent_exclusion": {
+    "locked_assets": 1344,
+    "locked_overlap_cases": 17,
+    "locked_case_manifest_total": 47
+  },
+  "pass_auxiliary_conditions": [
+    "exclude locked and all derivatives",
+    "canonical deduplication",
+    "case-level split with development-only role",
+    "human provenance/permission and semantic QC",
+    "independent validation; external labels are not clinical gold standard"
+  ],
+  "allowed_now": [
+    "read-only audit and error analysis",
+    "candidate visual representation pretraining only with explicit HOLD provenance",
+    "machine pairing investigation"
+  ],
+  "forbidden_now": [
+    "training on locked overlap",
+    "random file-level split",
+    "independent augmented samples",
+    "clinical gold-standard claims",
+    "direct use for weak-field labels or micron geometry without calibration"
+  ],
+  "ai_working_decisions": {
+    "cross_vessel": "retain_separate_class; normalize typo corss_vessel only",
+    "duplicate_groups": "all 10 HOLD pending human conflict resolution",
+    "device_calibration": "uncalibrated batch-consistency assumption; pixel-only use"
+  },
+  "human_required_minimum": [
+    "source/provenance and permission for 454 original images",
+    "final clinical acceptance of cross_vessel semantics",
+    "resolve 10 duplicate-group XML conflicts",
+    "clinical acceptance of weak-field definitions",
+    "provide calibration evidence or keep geometry pixel-only",
+    "review 829 unresolved segmentation pairs"
+  ],
+  "duplicate_adjudication": {
+    "A": [
+      "D009",
+      "D058",
+      "D463",
+      "D469",
+      "D540",
+      "D486"
+    ],
+    "B": [
+      "D356",
+      "D401",
+      "D340"
+    ],
+    "HOLD": [],
+    "MERGE": [
+      "D494"
+    ],
+    "locked_selected_members_excluded": [
+      "D540:A=13"
+    ]
+  }
+}

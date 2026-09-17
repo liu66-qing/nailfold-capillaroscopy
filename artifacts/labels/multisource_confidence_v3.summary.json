@@ -1,0 +1,189 @@
+{
+  "cases": 241,
+  "mean_case_confidence": 0.8752796721991701,
+  "fields_below_0.55": 726,
+  "per_field": {
+    "clarity": {
+      "non_missing": 232,
+      "mean_confidence_non_missing": 0.9889507629310345,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "capillary_count": {
+      "non_missing": 229,
+      "mean_confidence_non_missing": 0.9881992969432315,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "afferent_diameter": {
+      "non_missing": 210,
+      "mean_confidence_non_missing": 0.9606249666666667,
+      "below_0.55": 6,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "efferent_diameter": {
+      "non_missing": 209,
+      "mean_confidence_non_missing": 0.9762093827751196,
+      "below_0.55": 2,
+      "engine_conflicts": 2,
+      "redundancy_corrections": 1
+    },
+    "output_input_ratio": {
+      "non_missing": 217,
+      "mean_confidence_non_missing": 0.9544525806451613,
+      "below_0.55": 12,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "apex_diameter": {
+      "non_missing": 214,
+      "mean_confidence_non_missing": 0.9754877289719627,
+      "below_0.55": 2,
+      "engine_conflicts": 3,
+      "redundancy_corrections": 0
+    },
+    "loop_length": {
+      "non_missing": 222,
+      "mean_confidence_non_missing": 0.9835636621621622,
+      "below_0.55": 0,
+      "engine_conflicts": 2,
+      "redundancy_corrections": 0
+    },
+    "crossing_ratio": {
+      "non_missing": 224,
+      "mean_confidence_non_missing": 0.96225565625,
+      "below_0.55": 7,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "malformation_ratio": {
+      "non_missing": 202,
+      "mean_confidence_non_missing": 0.9736360495049505,
+      "below_0.55": 3,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "flow_state": {
+      "non_missing": 226,
+      "mean_confidence_non_missing": 0.9885323584070796,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "flow_speed_um_s": {
+      "non_missing": 0,
+      "mean_confidence_non_missing": 0.0,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "vasomotion": {
+      "non_missing": 230,
+      "mean_confidence_non_missing": 0.9782472217391304,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "rbc_aggregation": {
+      "non_missing": 229,
+      "mean_confidence_non_missing": 0.9877540480349345,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "wbc_count": {
+      "non_missing": 230,
+      "mean_confidence_non_missing": 0.9855219652173913,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "microthrombus": {
+      "non_missing": 229,
+      "mean_confidence_non_missing": 0.9858423755458515,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "blood_color": {
+      "non_missing": 219,
+      "mean_confidence_non_missing": 0.9804235844748858,
+      "below_0.55": 2,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "exudation": {
+      "non_missing": 230,
+      "mean_confidence_non_missing": 0.9558631565217391,
+      "below_0.55": 5,
+      "engine_conflicts": 6,
+      "redundancy_corrections": 0
+    },
+    "hemorrhage": {
+      "non_missing": 228,
+      "mean_confidence_non_missing": 0.9882522280701754,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "subpapillary_venous_plexus": {
+      "non_missing": 229,
+      "mean_confidence_non_missing": 0.9884441353711789,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "papilla": {
+      "non_missing": 228,
+      "mean_confidence_non_missing": 0.9886489429824561,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "sweat_duct": {
+      "non_missing": 206,
+      "mean_confidence_non_missing": 0.9344679902912622,
+      "below_0.55": 10,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "morphology_score": {
+      "non_missing": 233,
+      "mean_confidence_non_missing": 0.9919087725321889,
+      "below_0.55": 2,
+      "engine_conflicts": 2,
+      "redundancy_corrections": 0
+    },
+    "flow_score": {
+      "non_missing": 231,
+      "mean_confidence_non_missing": 0.999858038961039,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "periloop_score": {
+      "non_missing": 230,
+      "mean_confidence_non_missing": 0.9648888130434783,
+      "below_0.55": 10,
+      "engine_conflicts": 2,
+      "redundancy_corrections": 0
+    },
+    "total_score": {
+      "non_missing": 233,
+      "mean_confidence_non_missing": 0.9922357553648069,
+      "below_0.55": 2,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    },
+    "overall_assessment": {
+      "non_missing": 233,
+      "mean_confidence_non_missing": 0.9879508412017167,
+      "below_0.55": 0,
+      "engine_conflicts": 0,
+      "redundancy_corrections": 0
+    }
+  }
+}

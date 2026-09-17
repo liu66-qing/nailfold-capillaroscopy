@@ -1,0 +1,185 @@
+{
+  "created_at": "2026-08-02",
+  "model_version": "siglip2-naflex-multisource-v3-20260802",
+  "label_version": "multisource_confidence_v3",
+  "deployment": "Windows PC + USB Type-C/UVC",
+  "clinical_gate": "NO-GO",
+  "reason": "回顾性算法锁定集未达到医生一致性门禁；缺少前瞻盲法验证",
+  "files": [
+    {
+      "path": "artifacts/windows_model_v3/case_head.onnx",
+      "bytes": 709308,
+      "sha256": "7687684a0abaac3df448ea29cd135dcc1ce54116a0a31875f1b8b07332eb3abc"
+    },
+    {
+      "path": "artifacts/windows_model_v3/case_head.onnx.data",
+      "bytes": 29753344,
+      "sha256": "6246fe5c597079abb8dc8ed0a6e046914b22b01ab5e7498654557cd3497da2d0"
+    },
+    {
+      "path": "artifacts/windows_model_v3/model_metadata.json",
+      "bytes": 2331,
+      "sha256": "659044dfa048675e1e9174f4a1729180b9460962dfb5cc869c2972223da450c1"
+    },
+    {
+      "path": "artifacts/windows_model_v3/score_rules.json",
+      "bytes": 9961,
+      "sha256": "031b202ac178b52678dced356058d47a7e818085bfb3333b2cd7e9dacb244cff"
+    },
+    {
+      "path": "artifacts/windows_model_v3/siglip2_vision.onnx",
+      "bytes": 1386230,
+      "sha256": "ad7d110d8b06d9fe96262e315bcc6e6b6767e98f3cc89f232f1e7f12e6e3193f"
+    },
+    {
+      "path": "artifacts/windows_model_v3/siglip2_vision.onnx.data",
+      "bytes": 371851264,
+      "sha256": "97147ea36dfe5466f84cc2e3a13d9cf1949a480d7a05a450fbdffa70550cf248"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/afferent_diameter_extra_trees.joblib",
+      "bytes": 2008650,
+      "sha256": "812c87706e0ef80b95b48f813197d0d3dffb0c6f08f3ea24d4c284d2b9763fd7"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/apex_diameter_extra_trees.joblib",
+      "bytes": 2054586,
+      "sha256": "f9507fa529b88775fff54238e9bb4ae65ccd04bcc2f141ba33dcd62fcdc65df4"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/blood_color_extra_trees.joblib",
+      "bytes": 3115282,
+      "sha256": "1697d1c930dd78427bfa58fbf2e76e008a6b09df8a60c9f5829fa164f72dac45"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/efferent_diameter_extra_trees.joblib",
+      "bytes": 2021898,
+      "sha256": "6e05c0a89ee8de956c1b1f5437bbc2e14ba80fc40512ebde593ed2b285cb2506"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/exudation_extra_trees.joblib",
+      "bytes": 3290194,
+      "sha256": "bc4a27b9fa067f7adddf76f6d0ef9ddb8e9efd733ae8fb462384960f25d58cbf"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/metadata.json",
+      "bytes": 1573,
+      "sha256": "86e35432a0c80b0deb539f9c2e417087c0db9ce602b7a9cd55e94dda1be07a73"
+    },
+    {
+      "path": "artifacts/geometry_final_v3/sweat_duct_logistic.joblib",
+      "bytes": 37613,
+      "sha256": "2ec30b599c0c1cecfe7b3825991d25d34023ef53f2ec6461495ad9aed6756cb4"
+    },
+    {
+      "path": "artifacts/video_v3_final/flow_state_extra_trees.joblib",
+      "bytes": 7483058,
+      "sha256": "34bb65dd971ab9eddc0e93507acdc5980430a2f67c55afa040433296cbe4b6d0"
+    },
+    {
+      "path": "artifacts/video_v3_final/flow_state_pca_logistic.joblib",
+      "bytes": 6049889,
+      "sha256": "d5bad30df66d410efccf6fb737b70e8af604fe13faf0f102ad666b6675d55878"
+    },
+    {
+      "path": "artifacts/video_v3_final/metadata.json",
+      "bytes": 1926,
+      "sha256": "b3caa9c7098908fb866334391ee0330f42e5bfd81e1e7b5709233fa05aeb66cc"
+    },
+    {
+      "path": "artifacts/video_v3_final/microthrombus_extra_trees.joblib",
+      "bytes": 5203146,
+      "sha256": "0a8b1b09ce736aa6377cf7ef82fa262bcfc05a87b64b5369a379148f93359156"
+    },
+    {
+      "path": "artifacts/video_v3_final/microthrombus_pca_logistic.joblib",
+      "bytes": 6048661,
+      "sha256": "fd7afe5b81fbe42125c50b75325ecfb2c817db50db99e6b639f057d8a36b0a86"
+    },
+    {
+      "path": "artifacts/video_v3_final/rbc_aggregation_extra_trees.joblib",
+      "bytes": 5809202,
+      "sha256": "75a8fa68dc3167813c8b41844542068fe38198ecdb26baaf59815328e5ddd1f4"
+    },
+    {
+      "path": "artifacts/video_v3_final/rbc_aggregation_pca_logistic.joblib",
+      "bytes": 6049065,
+      "sha256": "43e7a634100a16400ccdc672befbb7d5d75bbdda018e9bf57e0fb5285b005e47"
+    },
+    {
+      "path": "artifacts/video_v3_final/vasomotion_extra_trees.joblib",
+      "bytes": 1305234,
+      "sha256": "a46cfaa4a3c0285d3e36f93dd1fd50592755de777218e6d307952a08f4bd6756"
+    },
+    {
+      "path": "artifacts/video_v3_final/vasomotion_pca_logistic.joblib",
+      "bytes": 5991341,
+      "sha256": "b6f95bcba644a3d4d42eb3d2df8c1cc099201d8873419f5729c9688bb1b9dd1b"
+    },
+    {
+      "path": "artifacts/video_v3_final/wbc_count_extra_trees.joblib",
+      "bytes": 1153234,
+      "sha256": "39e9701acbd9574d4711c10ac606969a6f822eebd0dd9d6c0ff6b1a62130ac3f"
+    },
+    {
+      "path": "artifacts/video_v3_final/wbc_count_pca_logistic.joblib",
+      "bytes": 5991341,
+      "sha256": "bbbe59014d9e10cbad4acba747de5ddceda71707b8693343f080773b474626c3"
+    },
+    {
+      "path": "artifacts/labels/multisource_confidence_v3.csv",
+      "bytes": 217372,
+      "sha256": "8914464981fff81733311789b0280e2576c6b756528336704ff8d0a1c39a28a9"
+    },
+    {
+      "path": "artifacts/labels/multisource_confidence_v3.summary.json",
+      "bytes": 5461,
+      "sha256": "a4eb6924c8043a2cfabbdfb3acf4a9964f22fb5f557422d85a60d6265a9ff8b0"
+    },
+    {
+      "path": "artifacts/labels/score_rules_v3.json",
+      "bytes": 9961,
+      "sha256": "031b202ac178b52678dced356058d47a7e818085bfb3333b2cd7e9dacb244cff"
+    },
+    {
+      "path": "artifacts/labelv2_locked_metrics.json",
+      "bytes": 91727,
+      "sha256": "b33ab1c51aee20c971d07e61e3f360368e276edeb6462979265dcd2def7e8342"
+    },
+    {
+      "path": "artifacts/geometry_deploy_v3_locked/metrics.json",
+      "bytes": 96681,
+      "sha256": "1bc0b83eb1bbe72e90b814af652b53f42279a72907fac8a744adf5d5694dd69f"
+    },
+    {
+      "path": "artifacts/video_v3_cv_metrics.json",
+      "bytes": 72942,
+      "sha256": "a4dd4cfe2a97a33966fe83d0dd8146d322110f73db724161db36c16d99a8d1ad"
+    },
+    {
+      "path": "scripts/windows_uvc_report.py",
+      "bytes": 7299,
+      "sha256": "51d33946e05e162e53166bb007652277b6f6287290f67227adf7948a7da12b76"
+    },
+    {
+      "path": "scripts/windows_report_app.py",
+      "bytes": 10751,
+      "sha256": "31e6b79dbd4dbcdd3bdf1491d060a629c2fd0e7437297ece08bd2b85dec84f23"
+    },
+    {
+      "path": "scripts/render_print_report.py",
+      "bytes": 552,
+      "sha256": "fbf278cecf999db1c0a886ac265a9d4e16714568c90b60c066e7427ee164f7da"
+    },
+    {
+      "path": "src/nailfold_report/print_report.py",
+      "bytes": 7498,
+      "sha256": "74eaa2e39541aa689bcf86624eedafdd82e9123c1c2508753b5b5342665f2fa0"
+    },
+    {
+      "path": "启动甲襞分析系统.bat",
+      "bytes": 138,
+      "sha256": "a9b70d0b64513fd3e5412eb166583a37c25baeb3a02a1b8ac0e929c14ad37390"
+    }
+  ]
+}

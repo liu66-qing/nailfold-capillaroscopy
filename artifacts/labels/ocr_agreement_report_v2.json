@@ -1,0 +1,153 @@
+{
+  "rapidocr_rows": 978,
+  "qwen_rows": 978,
+  "common_rows": 978,
+  "field_status_counts": {
+    "clarity": {
+      "agreement": 934,
+      "both_blank": 44
+    },
+    "capillary_count": {
+      "agreement": 921,
+      "both_blank": 57
+    },
+    "afferent_diameter": {
+      "agreement": 832,
+      "both_blank": 89,
+      "qwen_on_rapid_blank": 57
+    },
+    "efferent_diameter": {
+      "agreement": 824,
+      "both_blank": 93,
+      "qwen_on_rapid_blank": 52,
+      "disagreement": 9
+    },
+    "output_input_ratio": {
+      "agreement": 828,
+      "both_blank": 68,
+      "qwen_on_rapid_blank": 82
+    },
+    "apex_diameter": {
+      "agreement": 841,
+      "both_blank": 84,
+      "disagreement": 13,
+      "qwen_on_rapid_blank": 40
+    },
+    "loop_length": {
+      "agreement": 882,
+      "both_blank": 67,
+      "disagreement": 9,
+      "qwen_on_rapid_blank": 16,
+      "rapid_only": 4
+    },
+    "crossing_ratio": {
+      "agreement": 869,
+      "both_blank": 71,
+      "qwen_on_rapid_blank": 33,
+      "disagreement": 5
+    },
+    "malformation_ratio": {
+      "agreement": 790,
+      "both_blank": 158,
+      "qwen_on_rapid_blank": 17,
+      "rapid_only": 13
+    },
+    "flow_state": {
+      "agreement": 905,
+      "qwen_on_rapid_blank": 60,
+      "both_blank": 8,
+      "disagreement": 5
+    },
+    "flow_speed_um_s": {
+      "both_blank": 683,
+      "qwen_on_rapid_blank": 295
+    },
+    "vasomotion": {
+      "agreement": 918,
+      "both_blank": 50,
+      "qwen_on_rapid_blank": 5,
+      "disagreement": 5
+    },
+    "rbc_aggregation": {
+      "agreement": 910,
+      "both_blank": 45,
+      "qwen_on_rapid_blank": 13,
+      "disagreement": 10
+    },
+    "wbc_count": {
+      "agreement": 905,
+      "both_blank": 50,
+      "disagreement": 18,
+      "qwen_on_rapid_blank": 5
+    },
+    "microthrombus": {
+      "agreement": 905,
+      "both_blank": 53,
+      "qwen_on_rapid_blank": 5,
+      "disagreement": 10,
+      "rapid_only": 5
+    },
+    "blood_color": {
+      "agreement": 862,
+      "both_blank": 56,
+      "qwen_on_rapid_blank": 50,
+      "disagreement": 10
+    },
+    "exudation": {
+      "agreement": 878,
+      "both_blank": 47,
+      "qwen_on_rapid_blank": 27,
+      "disagreement": 26
+    },
+    "hemorrhage": {
+      "agreement": 912,
+      "both_blank": 61,
+      "rapid_only": 5
+    },
+    "subpapillary_venous_plexus": {
+      "agreement": 921,
+      "both_blank": 44,
+      "qwen_on_rapid_blank": 13
+    },
+    "papilla": {
+      "agreement": 919,
+      "both_blank": 40,
+      "qwen_on_rapid_blank": 19
+    },
+    "sweat_duct": {
+      "agreement": 786,
+      "both_blank": 155,
+      "qwen_on_rapid_blank": 37
+    },
+    "morphology_score": {
+      "agreement": 930,
+      "both_blank": 40,
+      "qwen_on_rapid_blank": 8
+    },
+    "flow_score": {
+      "agreement": 928,
+      "both_blank": 50
+    },
+    "periloop_score": {
+      "agreement": 875,
+      "both_blank": 53,
+      "disagreement": 9,
+      "qwen_on_rapid_blank": 41
+    },
+    "total_score": {
+      "agreement": 928,
+      "both_blank": 40,
+      "qwen_on_rapid_blank": 8,
+      "disagreement": 2
+    },
+    "overall_assessment": {
+      "agreement": 940,
+      "both_blank": 38
+    }
+  },
+  "policy": {
+    "blank_gate": "RapidOCR/fixed-layout blank always remains null",
+    "training_label": "RapidOCR cleaned consensus remains primary",
+    "qwen_role": "independent disagreement audit; no automatic blank filling"
+  }
+}

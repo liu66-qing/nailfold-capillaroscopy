@@ -1,0 +1,4 @@
+﻿duplicate_group_id,decision,source_xmls,derived_xml,source_box_count,derived_box_count,merge_removed_overlap_boxes,reason,status,raw_overwritten
+D340,B,530,E:\甲劈微循环\artifacts\derived\vascular_dataset_governance_20260830\xml_adjudicated_final\D340.xml,8,8,0,B真实可见血管，但新增框较模糊；保留并标记低质量风险,FINAL_ADJUDICATION_DERIVED,no
+D486,A,522,E:\甲劈微循环\artifacts\derived\vascular_dataset_governance_20260830\xml_adjudicated_final\D486.xml,6,6,0,交叉血管语义确认，采用 A,FINAL_ADJUDICATION_DERIVED,no
+D494,MERGE,364;505,E:\甲劈微循环\artifacts\derived\vascular_dataset_governance_20260830\xml_adjudicated_final\D494.xml,16,9,7,两份框互补，合并并按 IoU 去重,FINAL_ADJUDICATION_DERIVED,no

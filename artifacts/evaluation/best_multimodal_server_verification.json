@@ -1,0 +1,126 @@
+{
+  "schema_version": "best-multimodal-server-verification/1.0",
+  "selection_metric": "mean pooled Exact Accuracy across fields",
+  "selection_tiebreakers": [
+    "mean pooled Balanced Accuracy",
+    "mean pooled Macro-F1"
+  ],
+  "best": {
+    "model": "medgemma_4b",
+    "method": "few_shot",
+    "fields": 10,
+    "mean_exact_accuracy": 0.6040807526871144,
+    "mean_balanced_accuracy": 0.37117272907970583,
+    "mean_macro_f1": 0.31589776428517674,
+    "json_valid_rate": 1.0,
+    "mean_latency_seconds": 5.1155899164238665,
+    "locked_cases_excluded": 35,
+    "development_cases": 198,
+    "model_sha256": "d718c800cdb5f40322010f57c6489944ab202b4622dc5f63e61b2a57d5df3b8e"
+  },
+  "all_candidates": [
+    {
+      "model": "medgemma_4b",
+      "method": "few_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.6040807526871144,
+      "mean_balanced_accuracy": 0.37117272907970583,
+      "mean_macro_f1": 0.31589776428517674,
+      "json_valid_rate": 1.0,
+      "mean_latency_seconds": 5.1155899164238665,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "d718c800cdb5f40322010f57c6489944ab202b4622dc5f63e61b2a57d5df3b8e"
+    },
+    {
+      "model": "qwen3_vl_8b",
+      "method": "few_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.5709986741092316,
+      "mean_balanced_accuracy": 0.3801276055393867,
+      "mean_macro_f1": 0.31780843259686575,
+      "json_valid_rate": 1.0,
+      "mean_latency_seconds": 4.132893363710004,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661"
+    },
+    {
+      "model": "qwen3_vl_8b",
+      "method": "zero_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.34144751489296704,
+      "mean_balanced_accuracy": 0.38520618226826137,
+      "mean_macro_f1": 0.25893304073476364,
+      "json_valid_rate": 1.0,
+      "mean_latency_seconds": 3.7264878651447066,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661"
+    },
+    {
+      "model": "medgemma_4b",
+      "method": "zero_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.3248182868371677,
+      "mean_balanced_accuracy": 0.40479647411435893,
+      "mean_macro_f1": 0.22458506763777858,
+      "json_valid_rate": 1.0,
+      "mean_latency_seconds": 5.314699887947151,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "d718c800cdb5f40322010f57c6489944ab202b4622dc5f63e61b2a57d5df3b8e"
+    },
+    {
+      "model": "internvl3_8b",
+      "method": "few_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.2739814868567292,
+      "mean_balanced_accuracy": 0.23466641019253293,
+      "mean_macro_f1": 0.2038297849849619,
+      "json_valid_rate": 0.6818181818181818,
+      "mean_latency_seconds": 1.8014297946121054,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "cd0c54d0aa85fcd979cd2af524c0c08e26cdca278f05e96b635f298e34afae39"
+    },
+    {
+      "model": "internvl3_8b",
+      "method": "zero_shot",
+      "fields": 10,
+      "mean_exact_accuracy": 0.2739814868567292,
+      "mean_balanced_accuracy": 0.23466641019253293,
+      "mean_macro_f1": 0.2038297849849619,
+      "json_valid_rate": 0.6818181818181818,
+      "mean_latency_seconds": 1.8070590999730007,
+      "locked_cases_excluded": 35,
+      "development_cases": 198,
+      "model_sha256": "cd0c54d0aa85fcd979cd2af524c0c08e26cdca278f05e96b635f298e34afae39"
+    }
+  ],
+  "run_audits": [
+    {
+      "run": "internvl3_8b",
+      "model": "/root/autodl-tmp/vlm_direct_20260827/models/internvl3_8b",
+      "model_sha256": "cd0c54d0aa85fcd979cd2af524c0c08e26cdca278f05e96b635f298e34afae39",
+      "development_cases": 198,
+      "locked_cases_excluded": 35
+    },
+    {
+      "run": "medgemma_4b",
+      "model": "/root/autodl-tmp/vlm_direct_20260827/models/medgemma_4b",
+      "model_sha256": "d718c800cdb5f40322010f57c6489944ab202b4622dc5f63e61b2a57d5df3b8e",
+      "development_cases": 198,
+      "locked_cases_excluded": 35
+    },
+    {
+      "run": "qwen3_vl_8b",
+      "model": "/root/autodl-tmp/vlm_direct_20260827/models/qwen3_vl_8b",
+      "model_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+      "development_cases": 198,
+      "locked_cases_excluded": 35
+    }
+  ],
+  "locked_cases_opened": 0,
+  "note": "Recomputed from server-side all_metrics.csv; no image inference, training, or checkpoint modification."
+}

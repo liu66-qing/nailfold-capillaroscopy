@@ -1,0 +1,28 @@
+{
+  "stage": "2a_anfc_cls_recovery_source_audit",
+  "source": "/root/autodl-tmp/nailfold/artifacts/pseudo_labels/round1_multiclass_domain_adapted.json",
+  "cases": 2207,
+  "instance_keys": [
+    "bbox",
+    "polygon",
+    "class",
+    "class_name",
+    "confidence"
+  ],
+  "has_class": true,
+  "case_id_format": "archive/case/image.jpg",
+  "mapping_to_instance_npz": "exact basename overlap 1687/1687 via slash-to-double-underscore normalization",
+  "status": "auxiliary_candidate_mapped",
+  "evidence_level": "L2",
+  "limitation": "mapping exact but pseudo-label provenance/semantic validity not clinical gold; must remain auxiliary",
+  "sha256": "c484787ea0980865e8300476788b3b9a03441f7714749bf0d975e5f3ac18e08a",
+  "instances": 17107,
+  "class_distribution": {
+    "normal": 8913,
+    "hemo": 6453,
+    "aggregation": 985,
+    "blur": 553,
+    "abnormal": 203
+  },
+  "mapped_npz": 1687
+}

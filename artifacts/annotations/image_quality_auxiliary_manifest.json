@@ -1,0 +1,7 @@
+{
+  "n_images": 582,
+  "source": "data\\血管数据集\\分类数据集\\扩充之前\\images",
+  "clinical_gold_standard": false,
+  "rule_version": "quality_triage_v1",
+  "sha256": "12f793a6ac325669a337832ab5a0734cc4d9c70fbc83d71249ad9d45f41e36c6"
+}

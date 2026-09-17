@@ -1,0 +1,126 @@
+{
+  "schema_version": "nailfold-report/1.0",
+  "model_version": "siglip2-case-full15-onnx",
+  "fields": {
+    "clarity": {
+      "value": "清晰",
+      "confidence": 0.6911648511886597,
+      "status": "predicted"
+    },
+    "capillary_count": {
+      "value": ">=7",
+      "confidence": 0.541041374206543,
+      "status": "predicted"
+    },
+    "crossing_ratio": {
+      "value": "<=30%",
+      "confidence": 0.5372664332389832,
+      "status": "predicted"
+    },
+    "malformation_ratio": {
+      "value": "<=10%",
+      "confidence": 0.4783243238925934,
+      "status": "predicted"
+    },
+    "blood_color": {
+      "value": "浅红",
+      "confidence": 0.6049407124519348,
+      "status": "predicted"
+    },
+    "exudation": {
+      "value": "无",
+      "confidence": 0.5836427807807922,
+      "status": "predicted"
+    },
+    "hemorrhage": {
+      "value": "无",
+      "confidence": 0.8328517079353333,
+      "status": "predicted"
+    },
+    "subpapillary_venous_plexus": {
+      "value": ">2排,扩张",
+      "confidence": 0.46950340270996094,
+      "status": "predicted"
+    },
+    "papilla": {
+      "value": "浅波纹状",
+      "confidence": 0.5707477927207947,
+      "status": "predicted"
+    },
+    "sweat_duct": {
+      "value": "0--2",
+      "confidence": 0.7982403635978699,
+      "status": "predicted"
+    },
+    "afferent_diameter": {
+      "value": 10.720804882294022,
+      "confidence": null,
+      "status": "predicted_uncalibrated"
+    },
+    "efferent_diameter": {
+      "value": 16.204081275882093,
+      "confidence": null,
+      "status": "predicted_uncalibrated"
+    },
+    "output_input_ratio": {
+      "value": 1.511461261891259,
+      "confidence": null,
+      "status": "derived"
+    },
+    "apex_diameter": {
+      "value": 19.055267535282283,
+      "confidence": null,
+      "status": "predicted_uncalibrated"
+    },
+    "loop_length": {
+      "value": 198.62258233858978,
+      "confidence": null,
+      "status": "predicted_uncalibrated"
+    },
+    "flow_state": {
+      "value": "粒流",
+      "confidence": 0.6478656465040894,
+      "status": "predicted_low_support",
+      "cv_balanced_accuracy": 0.3550252525252525
+    },
+    "vasomotion": {
+      "value": "0--1",
+      "confidence": 0.9634341383467873,
+      "status": "predicted_low_support",
+      "cv_balanced_accuracy": 0.7
+    },
+    "rbc_aggregation": {
+      "value": "中度",
+      "confidence": 0.7111526706336537,
+      "status": "predicted_low_support",
+      "cv_balanced_accuracy": 0.2721448921448921
+    },
+    "wbc_count": {
+      "value": "1--30",
+      "confidence": 0.980700771478044,
+      "status": "predicted_low_support",
+      "cv_balanced_accuracy": 0.9855072463768115
+    },
+    "microthrombus": {
+      "value": "1--2",
+      "confidence": 0.6479123892029405,
+      "status": "predicted",
+      "cv_balanced_accuracy": 0.43356717356717356
+    }
+  },
+  "evidence_images": [
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg6.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg2.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg3.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg1.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg9.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg7.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg12.jpg",
+    "E:\\甲劈微循环\\data\\recovered_archive1\\29\\CAPorg8.jpg"
+  ],
+  "quality": {
+    "usable_images": 8,
+    "needs_review": false
+  },
+  "case_id": "20260802_070410"
+}

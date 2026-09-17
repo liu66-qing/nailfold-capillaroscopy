@@ -1,0 +1,19 @@
+{
+  "old_conclusions_voided": [
+    {
+      "claim": "clarity accuracy 0.7729",
+      "reason": "v2 cherry-pick bias approx +0.021"
+    },
+    {
+      "claim": "clarity/exudation prior baseline table",
+      "reason": "baseline underreported and delta inflated"
+    },
+    {
+      "claim": "all enabled routes",
+      "reason": "development-only evidence lacks external validation"
+    }
+  ],
+  "replacement": "Use canonical labels, case-level OOF and full-training majority baseline only",
+  "evidence_level": "L1",
+  "sha256": "fd24b5919e7bd427fef8177916aa2b4a361ef4d34fc7a16d0f087103d5b3189d"
+}

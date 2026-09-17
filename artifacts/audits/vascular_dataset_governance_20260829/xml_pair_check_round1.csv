@@ -1,0 +1,7 @@
+image_id,image_path,image_size,xml_path,xml_filename,xml_declared_size,filename_match,size_match,governance_action
+1,data/血管数据集/分类数据集/扩充之前/images/1.jpg,844x617,data/血管数据集/分类数据集/扩充之前/annotations/1.xml,1.jpg,844x617,yes,yes,HOLD_for_source_and_semantics
+100,data/血管数据集/分类数据集/扩充之前/images/100.jpg,921x691,data/血管数据集/分类数据集/扩充之前/annotations/100.xml,143.jpg,921x691,no,yes,PAIR_CONFIRMED_REPAIR_FILENAME_IN_DERIVED_COPY
+143,data/血管数据集/分类数据集/扩充之前/images/143.jpg,939x703,data/血管数据集/分类数据集/扩充之前/annotations/143.xml,178.jpg,939x703,no,yes,PAIR_CONFIRMED_REPAIR_FILENAME_IN_DERIVED_COPY
+200,data/血管数据集/分类数据集/扩充之前/images/200.jpg,1024x768,data/血管数据集/分类数据集/扩充之前/annotations/200.xml,26.jpg,1024x768,no,yes,PAIR_CONFIRMED_REPAIR_FILENAME_IN_DERIVED_COPY
+300,data/血管数据集/分类数据集/扩充之前/images/300.jpg,1024x768,data/血管数据集/分类数据集/扩充之前/annotations/300.xml,340.jpg,1024x768,no,yes,PAIR_CONFIRMED_REPAIR_FILENAME_IN_DERIVED_COPY
+315,data/血管数据集/分类数据集/扩充之前/images/315.jpg,781x585,data/血管数据集/分类数据集/扩充之前/annotations/315.xml,351.jpg,0x0,no,no,PAIR_CONFIRMED_REPAIR_FILENAME_AND_SIZE_IN_DERIVED_COPY

@@ -1,0 +1,243 @@
+{
+  "schema_version": "capillary-count-attribution-development/1.0",
+  "evaluation_role": "development_oof",
+  "locked_cases_seen": 0,
+  "locked_cases_in_source_manifest": 47,
+  "development_cases_in_source_manifest": 186,
+  "cases_in_count_oof_after_development_filter": 181,
+  "oof_errors": 60,
+  "error_direction_counts": {
+    "correct": 121,
+    "overcount": 36,
+    "undercount": 24
+  },
+  "flag_counts": {
+    "candidate_missed_detection": 14,
+    "candidate_adhesion": 0,
+    "candidate_threshold_shift": 39,
+    "candidate_fragmentation_or_fp": 15,
+    "candidate_frame_instability": 53
+  },
+  "flag_by_error_direction_false_true": {
+    "candidate_missed_detection": [
+      [
+        121,
+        0
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        36,
+        0
+      ]
+    ],
+    "candidate_adhesion": [
+      [
+        121,
+        0
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        36,
+        0
+      ]
+    ],
+    "candidate_threshold_shift": [
+      [
+        105,
+        16
+      ],
+      [
+        13,
+        11
+      ],
+      [
+        24,
+        12
+      ]
+    ],
+    "candidate_fragmentation_or_fp": [
+      [
+        121,
+        0
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        21,
+        15
+      ]
+    ],
+    "candidate_frame_instability": [
+      [
+        92,
+        29
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        22,
+        14
+      ]
+    ]
+  },
+  "feature_distributions": {
+    "mask_count_proxy": {
+      "n": 181,
+      "mean": 30.868746290843795,
+      "median": 29.16666666666666,
+      "p10": 17.142857142857142,
+      "p25": 21.18181818181818,
+      "p75": 38.375,
+      "p90": 49.125,
+      "min": 5.0,
+      "max": 79.0
+    },
+    "mask_area_fraction": {
+      "n": 181,
+      "mean": 0.017328251153230667,
+      "median": 0.015359101817011833,
+      "p10": 0.006450653076171875,
+      "p25": 0.00936126708984375,
+      "p75": 0.022663505747914314,
+      "p90": 0.031252287328243256,
+      "min": 0.0014770508278161287,
+      "max": 0.07262992858886719
+    },
+    "connected_component_proxy": {
+      "n": 181,
+      "mean": 30.868746290843795,
+      "median": 29.16666666666666,
+      "p10": 17.142857142857142,
+      "p25": 21.18181818181818,
+      "p75": 38.375,
+      "p90": 49.125,
+      "min": 5.0,
+      "max": 79.0
+    },
+    "skeleton_count": {
+      "n": 181,
+      "mean": 11.166193207954645,
+      "median": 10.076923076923077,
+      "p10": 5.0,
+      "p25": 6.888888888888889,
+      "p75": 14.3,
+      "p90": 18.666666666666668,
+      "min": 1.8,
+      "max": 34.5
+    },
+    "skeleton_to_mask_ratio": {
+      "n": 181,
+      "mean": 0.3562311617079755,
+      "median": 0.36,
+      "p10": 0.2530487804878048,
+      "p25": 0.30588235294117644,
+      "p75": 0.40804597701149425,
+      "p90": 0.4662162162162163,
+      "min": 0.14130434782608695,
+      "max": 0.5233644859813084
+    },
+    "threshold_span": {
+      "n": 181,
+      "mean": 27.739596932194864,
+      "median": 25.764705882352942,
+      "p10": 15.0,
+      "p25": 19.0,
+      "p75": 34.25,
+      "p90": 44.25,
+      "min": 5.0,
+      "max": 68.83333333333333
+    },
+    "threshold_relative_span": {
+      "n": 181,
+      "mean": 3.2136196217116457,
+      "median": 2.9197080291970803,
+      "p10": 2.0467289719626165,
+      "p25": 2.4029850746268657,
+      "p75": 3.7941176470588243,
+      "p90": 4.82258064516129,
+      "min": 1.5145631067961167,
+      "max": 7.9117647058823515
+    },
+    "frame_count_cv": {
+      "n": 181,
+      "mean": 0.5626547848832902,
+      "median": 0.5466517401417469,
+      "p10": 0.30983866769659335,
+      "p25": 0.4110295761864346,
+      "p75": 0.7035207742953339,
+      "p90": 0.8402444359591354,
+      "min": 0.12069862537980455,
+      "max": 1.2069579134519524
+    },
+    "video_stability_median": {
+      "n": 94,
+      "mean": 0.14413719031542785,
+      "median": 0.1193310272596452,
+      "p10": 0.031154044336922773,
+      "p25": 0.05175167261420378,
+      "p75": 0.2074734238583756,
+      "p90": 0.2990621508949477,
+      "min": 0.0,
+      "max": 0.525280161396317
+    },
+    "anchor_instances_median": {
+      "n": 94,
+      "mean": 19.26063829787234,
+      "median": 18.0,
+      "p10": 10.65,
+      "p25": 14.25,
+      "p75": 24.25,
+      "p90": 28.5,
+      "min": 0.0,
+      "max": 46.0
+    }
+  },
+  "archive_error_rates": {
+    "recovered_archive1": {
+      "correct": 36,
+      "undercount": 11,
+      "overcount": 9
+    },
+    "recovered_archive2": {
+      "correct": 51,
+      "overcount": 18,
+      "undercount": 7
+    },
+    "recovered_archive3": {
+      "correct": 34,
+      "overcount": 9,
+      "undercount": 6
+    }
+  },
+  "device": {
+    "status": "unavailable_in_supplied_manifest",
+    "used_value": "unavailable_in_manifest"
+  },
+  "quality_proxies": [
+    "video stability median/std",
+    "anchor instance median",
+    "decoded/used frame counts",
+    "Laplacian focus proxy"
+  ],
+  "limitations": [
+    "mask_count_proxy and connected_component_proxy are detector instance counts, not validated capillary masks",
+    "mask area is a feature summary proxy; no per-instance area/connected-domain table was supplied",
+    "skeleton branch count is unavailable from the aggregate artifacts and is emitted as null",
+    "flags are candidate mechanisms requiring visual/manual review and do not prove causality",
+    "OOF target/prediction is development-only; locked cases were excluded before merge"
+  ],
+  "next_step_judgement": {
+    "evidence_supported": "Threshold sensitivity and frame instability are measurable; missed-detection/fragmentation candidates can be prioritized by OOF direction.",
+    "cannot_determine": "Whether adhesion or missed detection dominates without instance-level masks, connected components, skeleton branches, device IDs, and manual adjudication."
+  }
+}

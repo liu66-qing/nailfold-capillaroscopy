@@ -1,0 +1,18 @@
+{
+  "field": "overall_assessment",
+  "n_nonunknown": 233,
+  "n_total": 241,
+  "source_fields": [
+    "morphology_score",
+    "flow_score",
+    "periloop_score",
+    "total_score"
+  ],
+  "derivation_evidence": "overall_assessment co-occurs with score fields; rows with assessment have score values and missing assessment rows are generally score-missing",
+  "endpoint": "不可定义（派生汇总，不是独立观察 endpoint）",
+  "status": "unavailable",
+  "evidence_level": "L1",
+  "decision": "exclude from model to prevent leakage and product architecture conflict",
+  "limitation": "exact scoring rule not reconstructed; conclusion would change only if independent raw assessment labels are proven",
+  "sha256": "e2929e5ff1dbfad03db6d9cd2e0170441c8daba51322608ff58f22ac9f2ec7ff"
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-30",
+  "reference_model": "v1_structured_dinov2_hulumed_segstats_extratrees_gbt",
+  "reference_protected": true,
+  "development_cases": 186,
+  "locked_cases": 47,
+  "locked_used_for_training_or_selection": false,
+  "dev_oof_mean_balanced_accuracy": 0.4000,
+  "locked_retest_mean_balanced_accuracy": 0.4582199194,
+  "geometry_mean_normalized_score": 0.9291,
+  "geometry_mean_tolerance_accuracy": 0.3968,
+  "loop_length_tolerance_accuracy": 0.1556,
+  "auxiliary_assets": {"detection_images": 89, "segmentation_pairs": 2332},
+  "excluded_assets": {"unresolved_segmentation_pairs": 829, "unknown_or_unpermissioned": 454, "locked_overlap": true},
+  "gpu_used": false,
+  "recommended_first_experiment": "frozen_v1_features_plus_vascular_auxiliary_statistics_case_level_oof",
+  "acceptance_gate": "both BA and macro-F1 improve in >=3/5 folds without material regression",
+  "90_percent_all_fields_supported_by_current_evidence": false
+}

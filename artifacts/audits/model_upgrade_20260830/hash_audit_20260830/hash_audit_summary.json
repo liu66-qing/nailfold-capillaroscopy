@@ -1,0 +1,9 @@
+{
+  "manifest_rows": 3429,
+  "missing_hash_before": 244,
+  "missing_hash_after": 244,
+  "missing_files": 1222,
+  "duplicate_hash_groups": 1,
+  "cross_fold_hash_groups": 0,
+  "gpu_used": false
+}

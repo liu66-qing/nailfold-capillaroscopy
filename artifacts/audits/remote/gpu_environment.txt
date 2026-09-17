@@ -1,0 +1,15 @@
+autodl-container-b322478f1d-6caaa7b4
+PWD=/root
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+bash: line 1: python3: command not found
+/usr/bin/nvidia-smi
+NVIDIA GeForce RTX 4090, 24564 MiB, 1 MiB
+NVIDIA GeForce RTX 4090, 24564 MiB, 1 MiB
+GIT_DIRS
+/root/autodl-tmp/nailfold/.git
+DATA_DIRS
+/root/autodl-tmp/nailfold/data
+/root/miniconda3/pkgs/tzdata-2024a-h04d1e81_0
+/root/miniconda3/pkgs/tzdata-2026c-he532380_0
+COMMITS
+/root/autodl-tmp/nailfold/.git/.. 181374cebd3ffa91c42af7f5b97d93da9dc29a38

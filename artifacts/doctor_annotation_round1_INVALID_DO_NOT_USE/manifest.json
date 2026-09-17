@@ -1,0 +1,130 @@
+{
+  "schema_version": "doctor-annotation-round/1.0",
+  "round": 1,
+  "evaluation_role": "development",
+  "locked_cases_included": 0,
+  "draft_source": "existing MedSAM audit overlay; candidate only",
+  "measurement_units": "unknown until calibrated scale is confirmed",
+  "cases": [
+    {
+      "exam_case_id": "recovered/archive1/100",
+      "original_image": "original/recovered_archive1__100__CAPorg5.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__100__CAPorg5.jpg",
+      "corrections_file": "corrections/recovered_archive1__100__CAPorg5.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/1",
+      "original_image": "original/recovered_archive1__1__CAPorg3.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__1__CAPorg3.jpg",
+      "corrections_file": "corrections/recovered_archive1__1__CAPorg3.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/24",
+      "original_image": "original/recovered_archive1__24__CAPorg4.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__24__CAPorg4.jpg",
+      "corrections_file": "corrections/recovered_archive1__24__CAPorg4.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/28",
+      "original_image": "original/CAPorg5.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__28__CAPorg5.jpg",
+      "corrections_file": "corrections/CAPorg5.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/29",
+      "original_image": "original/recovered_archive1__29__CAPorg4.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__29__CAPorg4.jpg",
+      "corrections_file": "corrections/recovered_archive1__29__CAPorg4.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/30",
+      "original_image": "original/recovered_archive1__30__CAPorg5.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__30__CAPorg5.jpg",
+      "corrections_file": "corrections/recovered_archive1__30__CAPorg5.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/31",
+      "original_image": "original/CAPorg3.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__31__CAPorg3.jpg",
+      "corrections_file": "corrections/CAPorg3.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/32",
+      "original_image": "original/CAPorg5.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__32__CAPorg5.jpg",
+      "corrections_file": "corrections/CAPorg5.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/33",
+      "original_image": "original/recovered_archive1__33__CAPorg5.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__33__CAPorg5.jpg",
+      "corrections_file": "corrections/recovered_archive1__33__CAPorg5.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    },
+    {
+      "exam_case_id": "recovered/archive1/34",
+      "original_image": "original/recovered_archive1__34__CAPorg4.jpg",
+      "draft_overlay": "draft_overlay/recovered_archive1__34__CAPorg4.jpg",
+      "corrections_file": "corrections/recovered_archive1__34__CAPorg4.json",
+      "draft_is_gold": false,
+      "corrections": {
+        "instances": [],
+        "unusable_regions": [],
+        "view_id": null
+      }
+    }
+  ]
+}

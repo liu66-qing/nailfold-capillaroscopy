@@ -1,0 +1,148 @@
+{
+  "files": [
+    {
+      "path": "artifacts\\diagnostics_level_merging\\oof_predictions.csv",
+      "rows": 3285,
+      "key": "exam_case_id",
+      "duplicate_rows": 3099,
+      "classification": "frame-level/duplicate",
+      "sha256": "018f2be834d07d9e38a64fcd1cb479eec0269b768371dad9c73096ec84e5a733"
+    },
+    {
+      "path": "artifacts\\diagnostics_ocr_confidence\\oof_group_predictions.csv",
+      "rows": 1095,
+      "key": "exam_case_id",
+      "duplicate_rows": 909,
+      "classification": "frame-level/duplicate",
+      "sha256": "81bd4a552e7523abc757e4efefe7ec26d3d47ec1b7bc647a60fc3f0ef9b75551"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v3-20260901_formal_oof.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "de8ce06c3261cb1c6b38fb4b97ee246a2c72c34b5b3d1a5736d7be7b337f7722"
+    },
+    {
+      "path": "artifacts\\experiment_weak_fields_binary_gbt\\oof_predictions.csv",
+      "rows": 918,
+      "key": "exam_case_id",
+      "duplicate_rows": 732,
+      "classification": "frame-level/duplicate",
+      "sha256": "80fa392918a59e90cefa7e0013e2b9287bbacbcbccba69f03d037b60fb6a934a"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\rank16_oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "4089352d7ced5b2bc147af1abccd00ce308e2a95e8cd1fbd9697ce950c78d64d"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\rank4_lr1e4_oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "9a2c8994a122ac15c832c7bb157373531a6b36981565d76fb1d0a21eb44e4499"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\rank8_lr1e4_oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "6bc5142c04368ea713ceb4c85d90a855dc8f97e1ffae5848138b0c4eb0c566d8"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\rank8_oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "9cc71d61023caa7013e2105f8a8451b12c8c27261d1be64267d63a778ca8abc2"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v8-20260901\\exudation_E1\\oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "781633eab765a23d9224a92e93134970ecd67c19a846e99396e07eee018023b4"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v8-20260901\\exudation_E2\\oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "138222b6ea65ad54d32ad82afaa7c5f7289e7e57def721984f6c3a2978fcce9c"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\lagging_experts\\capillary_count_oof.csv",
+      "rows": 226,
+      "key": "exam_case_id",
+      "duplicate_rows": 0,
+      "classification": "valid-case-level-OOF",
+      "sha256": "a76e6bde31ca107e0d9c3fe85b18d1ef2630c4474bb5ccfaeb6fafef3e05f0e6"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\lagging_experts\\crossing_ratio_oof.csv",
+      "rows": 151,
+      "key": "exam_case_id",
+      "duplicate_rows": 0,
+      "classification": "valid-case-level-OOF",
+      "sha256": "32d15dee4b90963d001f271fc2efc9111c44b2b26c6d5181e12ae538dc254ec3"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\lagging_experts\\crossing_ratio_proxy_oof.csv",
+      "rows": 222,
+      "key": "exam_case_id",
+      "duplicate_rows": 0,
+      "classification": "valid-case-level-OOF",
+      "sha256": "4ef679383047f293f0f82a765cbadfb4aec3e7270bc7377fbdb65ba42a68e753"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\lagging_experts\\malformation_ratio_oof.csv",
+      "rows": 140,
+      "key": "exam_case_id",
+      "duplicate_rows": 0,
+      "classification": "valid-case-level-OOF",
+      "sha256": "be477a5dc235ba87310d46b5ea551e71edff960709fee07c1386173254ae6470"
+    },
+    {
+      "path": "artifacts\\experiments\\model-v6-20260901\\lagging_experts\\malformation_ratio_proxy_oof.csv",
+      "rows": 201,
+      "key": "exam_case_id",
+      "duplicate_rows": 0,
+      "classification": "valid-case-level-OOF",
+      "sha256": "aef70857a97f501c38929be1019e10c5e768db4170952a820974d3a133ea885e"
+    },
+    {
+      "path": "artifacts\\evaluation\\current_dual_seg_binary_v1_retest_20260827\\oof_predictions.csv",
+      "rows": 903,
+      "key": "exam_case_id",
+      "duplicate_rows": 717,
+      "classification": "frame-level/duplicate",
+      "sha256": "27aa6e6eb26d67bf4729b129dff1ba3f9f4eb3eee4e7b1e099bfbe785636b805"
+    },
+    {
+      "path": "artifacts\\evaluation\\common_protocol_v1\\summary\\common_protocol_oof_metrics.csv",
+      "rows": null,
+      "key": null,
+      "duplicate_rows": null,
+      "classification": "provenance-unknown",
+      "sha256": "5654cf881143db01efa2b723187799a5efa0ebaaf4a0ac8f7957fd270e2dcccd"
+    },
+    {
+      "path": "artifacts\\evaluation\\common_protocol_v1\\summary\\common_protocol_oof_summary.csv",
+      "rows": null,
+      "key": null,
+      "duplicate_rows": null,
+      "classification": "provenance-unknown",
+      "sha256": "6c616d25c0e3564a38d5d5e3af6ea24ba551152d3e89a2a96b44c3baa7742e08"
+    }
+  ]
+}

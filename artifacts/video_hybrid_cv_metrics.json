@@ -1,0 +1,277 @@
+{
+  "flow_state": {
+    "folds": [
+      {
+        "fold": 0,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.3068181818181818,
+          "extra_trees": 0.3920454545454546
+        },
+        "test_balanced_accuracy": 0.22727272727272727,
+        "n_test": 24
+      },
+      {
+        "fold": 1,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.37410714285714286,
+          "extra_trees": 0.2642857142857143
+        },
+        "test_balanced_accuracy": 0.5113636363636364,
+        "n_test": 27
+      },
+      {
+        "fold": 2,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.30833333333333335,
+          "extra_trees": 0.3380952380952381
+        },
+        "test_balanced_accuracy": 0.2955357142857143,
+        "n_test": 23
+      },
+      {
+        "fold": 3,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.4166666666666667,
+          "extra_trees": 0.3375
+        },
+        "test_balanced_accuracy": 0.3321428571428572,
+        "n_test": 27
+      },
+      {
+        "fold": 4,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.1414141414141414,
+          "extra_trees": 0.21464646464646464
+        },
+        "test_balanced_accuracy": 0.3625,
+        "n_test": 22
+      }
+    ],
+    "mean_test_balanced_accuracy": 0.3457629870129871
+  },
+  "vasomotion": {
+    "folds": [
+      {
+        "fold": 0,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.5,
+          "extra_trees": 0.5
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 24
+      },
+      {
+        "fold": 1,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 1.0,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 0.5,
+        "n_test": 27
+      },
+      {
+        "fold": 2,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.9629629629629629,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 24
+      },
+      {
+        "fold": 3,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.5,
+          "extra_trees": 0.5
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 27
+      },
+      {
+        "fold": 4,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 1.0,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 0.5,
+        "n_test": 22
+      }
+    ],
+    "mean_test_balanced_accuracy": 0.8
+  },
+  "rbc_aggregation": {
+    "folds": [
+      {
+        "fold": 0,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.25,
+          "extra_trees": 0.2638888888888889
+        },
+        "test_balanced_accuracy": 0.3076923076923077,
+        "n_test": 24
+      },
+      {
+        "fold": 1,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.4148148148148148,
+          "extra_trees": 0.25925925925925924
+        },
+        "test_balanced_accuracy": 0.3194444444444444,
+        "n_test": 27
+      },
+      {
+        "fold": 2,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.3185185185185185,
+          "extra_trees": 0.3333333333333333
+        },
+        "test_balanced_accuracy": 0.3296296296296296,
+        "n_test": 24
+      },
+      {
+        "fold": 3,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.3333333333333333,
+          "extra_trees": 0.25
+        },
+        "test_balanced_accuracy": 0.2962962962962963,
+        "n_test": 27
+      },
+      {
+        "fold": 4,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.16524216524216526,
+          "extra_trees": 0.3333333333333333
+        },
+        "test_balanced_accuracy": 0.4583333333333333,
+        "n_test": 22
+      }
+    ],
+    "mean_test_balanced_accuracy": 0.3422792022792022
+  },
+  "wbc_count": {
+    "folds": [
+      {
+        "fold": 0,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.5,
+          "extra_trees": 0.5
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 24
+      },
+      {
+        "fold": 1,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 1.0,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 0.5,
+        "n_test": 26
+      },
+      {
+        "fold": 2,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.4807692307692308,
+          "extra_trees": 0.5
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 24
+      },
+      {
+        "fold": 3,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 1.0,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 0.5,
+        "n_test": 27
+      },
+      {
+        "fold": 4,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 1.0,
+          "extra_trees": 1.0
+        },
+        "test_balanced_accuracy": 1.0,
+        "n_test": 22
+      }
+    ],
+    "mean_test_balanced_accuracy": 0.8
+  },
+  "microthrombus": {
+    "folds": [
+      {
+        "fold": 0,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.395959595959596,
+          "extra_trees": 0.4454545454545455
+        },
+        "test_balanced_accuracy": 0.4287878787878788,
+        "n_test": 24
+      },
+      {
+        "fold": 1,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.5,
+          "extra_trees": 0.5
+        },
+        "test_balanced_accuracy": 0.2909090909090909,
+        "n_test": 27
+      },
+      {
+        "fold": 2,
+        "selected": "extra_trees",
+        "validation_scores": {
+          "pca_logistic": 0.4068376068376069,
+          "extra_trees": 0.4621082621082621
+        },
+        "test_balanced_accuracy": 0.5416666666666666,
+        "n_test": 24
+      },
+      {
+        "fold": 3,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.6238095238095238,
+          "extra_trees": 0.5761904761904761
+        },
+        "test_balanced_accuracy": 0.4917378917378918,
+        "n_test": 27
+      },
+      {
+        "fold": 4,
+        "selected": "pca_logistic",
+        "validation_scores": {
+          "pca_logistic": 0.4409090909090909,
+          "extra_trees": 0.3742424242424242
+        },
+        "test_balanced_accuracy": 0.5904761904761905,
+        "n_test": 22
+      }
+    ],
+    "mean_test_balanced_accuracy": 0.4687155437155437
+  }
+}

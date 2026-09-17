@@ -1,0 +1,14 @@
+{
+  "schema_version": "controlled-weak-fields-classifier/1.0",
+  "evaluation_role": "development_oof",
+  "locked_cases_seen": 0,
+  "gpu_used": false,
+  "v1_modified": false,
+  "cases": 186,
+  "decision": "rejected",
+  "summary": {
+    "baseline": {"clarity": 0.7204879258, "blood_color": 0.6339644454, "exudation": 0.7014273145, "subpapillary_venous_plexus": 0.7125500119, "papilla": 0.5902770563},
+    "optimized": {"clarity": 0.6855465003, "blood_color": 0.6495888619, "exudation": 0.6863164368, "subpapillary_venous_plexus": 0.6412679606, "papilla": 0.6645822511}
+  },
+  "gate": {"delivery_mean_delta": -0.0264274845, "positive_delivery_fields": 1, "folds_positive": 1, "required_delivery_delta": 0.015, "required_positive_fields": 3, "required_positive_folds": 3}
+}

@@ -1,0 +1,179 @@
+{
+  "schema_version": "dinov2-lora-binary-development-oof/1.0",
+  "evaluation_role": "development_oof",
+  "locked_cases_seen": 0,
+  "gpu_used": true,
+  "rank": 4,
+  "supervision": "case labels replicated to frames",
+  "selections": [
+    {
+      "fold": 0,
+      "epoch": 12,
+      "validation_delivery_ba": 0.7481971153846154,
+      "validation_fields": {
+        "clarity": 0.7948717948717949,
+        "blood_color": 0.7833333333333333,
+        "exudation": 0.7145833333333333,
+        "subpapillary_venous_plexus": 0.7,
+        "papilla": 0.6815476190476191
+      }
+    },
+    {
+      "fold": 1,
+      "epoch": 4,
+      "validation_delivery_ba": 0.7248081140350877,
+      "validation_fields": {
+        "clarity": 0.6894736842105263,
+        "blood_color": 0.6430921052631579,
+        "exudation": 0.7583333333333333,
+        "subpapillary_venous_plexus": 0.8083333333333333,
+        "papilla": 0.5863095238095238
+      }
+    },
+    {
+      "fold": 2,
+      "epoch": 11,
+      "validation_delivery_ba": 0.772958812021312,
+      "validation_fields": {
+        "clarity": 0.7673160173160173,
+        "blood_color": 0.7380952380952381,
+        "exudation": 0.7619047619047619,
+        "subpapillary_venous_plexus": 0.8245192307692308,
+        "papilla": 0.6071428571428572
+      }
+    },
+    {
+      "fold": 3,
+      "epoch": 13,
+      "validation_delivery_ba": 0.7188514744629296,
+      "validation_fields": {
+        "clarity": 0.6527777777777778,
+        "blood_color": 0.6985294117647058,
+        "exudation": 0.8223443223443223,
+        "subpapillary_venous_plexus": 0.7017543859649122,
+        "papilla": 0.5681818181818181
+      }
+    },
+    {
+      "fold": 4,
+      "epoch": 20,
+      "validation_delivery_ba": 0.7265931372549019,
+      "validation_fields": {
+        "clarity": 0.6277777777777778,
+        "blood_color": 0.6388888888888888,
+        "exudation": 0.723529411764706,
+        "subpapillary_venous_plexus": 0.9161764705882353,
+        "papilla": 0.585
+      }
+    }
+  ],
+  "peak_vram_gib": 2.6547837257385254,
+  "fields": {
+    "clarity": {
+      "n": 185,
+      "accuracy": 0.7189189189189189,
+      "balanced_accuracy": 0.7179216514191884,
+      "macro_f1": 0.7179216514191884,
+      "class_recall": [
+        0.7346938775510204,
+        0.7011494252873564
+      ],
+      "confusion_matrix": [
+        [
+          72,
+          26
+        ],
+        [
+          26,
+          61
+        ]
+      ],
+      "exploratory": false
+    },
+    "blood_color": {
+      "n": 174,
+      "accuracy": 0.6839080459770115,
+      "balanced_accuracy": 0.6843886897650338,
+      "macro_f1": 0.6833956396599067,
+      "class_recall": [
+        0.691358024691358,
+        0.6774193548387096
+      ],
+      "confusion_matrix": [
+        [
+          56,
+          25
+        ],
+        [
+          30,
+          63
+        ]
+      ],
+      "exploratory": false
+    },
+    "exudation": {
+      "n": 182,
+      "accuracy": 0.7197802197802198,
+      "balanced_accuracy": 0.7123711340206185,
+      "macro_f1": 0.7124802527646129,
+      "class_recall": [
+        0.6,
+        0.8247422680412371
+      ],
+      "confusion_matrix": [
+        [
+          51,
+          34
+        ],
+        [
+          17,
+          80
+        ]
+      ],
+      "exploratory": false
+    },
+    "subpapillary_venous_plexus": {
+      "n": 181,
+      "accuracy": 0.7679558011049724,
+      "balanced_accuracy": 0.7691172854684042,
+      "macro_f1": 0.7673806609547124,
+      "class_recall": [
+        0.7831325301204819,
+        0.7551020408163265
+      ],
+      "confusion_matrix": [
+        [
+          65,
+          18
+        ],
+        [
+          24,
+          74
+        ]
+      ],
+      "exploratory": false
+    },
+    "papilla": {
+      "n": 181,
+      "accuracy": 0.7237569060773481,
+      "balanced_accuracy": 0.6327446033081021,
+      "macro_f1": 0.6407589711019371,
+      "class_recall": [
+        0.3793103448275862,
+        0.8861788617886179
+      ],
+      "confusion_matrix": [
+        [
+          22,
+          36
+        ],
+        [
+          14,
+          109
+        ]
+      ],
+      "exploratory": true
+    }
+  },
+  "delivery_mean_ba": 0.7209496901683112
+}

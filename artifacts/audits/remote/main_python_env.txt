@@ -1,0 +1,31 @@
+ENV
+/root/miniconda3/envs/lmed
+/root/miniconda3/envs/nfc
+Error while loading conda entry point: conda-libmamba-solver (module 'libmambapy' has no attribute 'QueryFormat')
+
+# conda environments:
+#
+base                   /root/miniconda3
+lmed                   /root/miniconda3/envs/lmed
+nfc                    /root/miniconda3/envs/nfc
+
+/root/autodl-tmp/nailfold/.git/COMMIT_EDITMSG
+/root/autodl-tmp/nailfold/.git/HEAD
+/root/autodl-tmp/nailfold/.git/config
+/root/autodl-tmp/nailfold/.git/description
+/root/autodl-tmp/nailfold/.git/index
+/root/autodl-tmp/nailfold/artifacts/seg_data_governance_approval.json
+/root/autodl-tmp/nailfold/artifacts/count_aggregation_candidates_round0_multiclass_v1_reflection.md
+/root/autodl-tmp/nailfold/artifacts/dinov2_multitask_augmented.log
+/root/autodl-tmp/nailfold/artifacts/dinov2_multitask_e4.log
+/root/autodl-tmp/nailfold/artifacts/baseline_v2_reviewed_20260905.json
+/root/autodl-tmp/nailfold/artifacts/dinov2_multitask_nested.log
+/root/autodl-tmp/nailfold/artifacts/field_independent_all.log
+/root/autodl-tmp/nailfold/artifacts/dual_seg_roi_binary_v1_reflection.md
+/root/autodl-tmp/nailfold/artifacts/seg_vessel_fold_dataset_summary.json
+/root/autodl-tmp/nailfold/artifacts/exudation_frame_consistency_v1_reflection.md
+/root/autodl-tmp/nailfold/artifacts/field_group_experiment_inventory.md
+/root/autodl-tmp/nailfold/artifacts/frame_mil.log
+/root/autodl-tmp/nailfold/artifacts/field_routing_status_v2.csv
+/root/autodl-tmp/nailfold/artifacts/frame_mil_calibrated.log
+/root/autodl-tmp/nailfold/artifacts/hulu_aria2.log

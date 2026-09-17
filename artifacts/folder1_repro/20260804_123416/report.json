@@ -1,0 +1,140 @@
+{
+  "schema_version": "nailfold-report/1.0",
+  "model_version": "siglip2-naflex-multisource-v3-20260802",
+  "fields": {
+    "clarity": {
+      "value": "清晰",
+      "confidence": 0.5824445486068726,
+      "status": "predicted"
+    },
+    "capillary_count": {
+      "value": ">=7",
+      "confidence": 0.641511082649231,
+      "status": "predicted"
+    },
+    "crossing_ratio": {
+      "value": "<=30%",
+      "confidence": 0.5936744213104248,
+      "status": "predicted"
+    },
+    "malformation_ratio": {
+      "value": "<=10%",
+      "confidence": 0.6796262860298157,
+      "status": "predicted"
+    },
+    "blood_color": {
+      "value": "浅红",
+      "confidence": 0.8201774183266921,
+      "status": "predicted_geometry_route"
+    },
+    "exudation": {
+      "value": "无",
+      "confidence": 0.8289750339822068,
+      "status": "predicted_geometry_route"
+    },
+    "hemorrhage": {
+      "value": "无",
+      "confidence": 0.6555196046829224,
+      "status": "predicted"
+    },
+    "subpapillary_venous_plexus": {
+      "value": "不见",
+      "confidence": 0.7137917280197144,
+      "status": "predicted"
+    },
+    "papilla": {
+      "value": "波纹状",
+      "confidence": 0.6048650741577148,
+      "status": "predicted"
+    },
+    "sweat_duct": {
+      "value": "0--2",
+      "confidence": 0.9999945759773254,
+      "status": "predicted_geometry_route"
+    },
+    "afferent_diameter": {
+      "value": 10.165625,
+      "confidence": null,
+      "status": "predicted_geometry_route"
+    },
+    "efferent_diameter": {
+      "value": 13.337986111111114,
+      "confidence": null,
+      "status": "predicted_geometry_route"
+    },
+    "output_input_ratio": {
+      "value": 1.3120674932540906,
+      "confidence": null,
+      "status": "derived_from_geometry_routed_diameters"
+    },
+    "apex_diameter": {
+      "value": 23.48368055555554,
+      "confidence": null,
+      "status": "predicted_geometry_route"
+    },
+    "loop_length": {
+      "value": 270.2551158079174,
+      "confidence": null,
+      "status": "predicted_uncalibrated"
+    }
+  },
+  "evidence_images": [
+    "data\\recovered_archive1\\1\\CAPorg1.jpg",
+    "data\\recovered_archive1\\1\\CAPorg2.jpg",
+    "data\\recovered_archive1\\1\\CAPorg3.jpg",
+    "data\\recovered_archive1\\1\\CAPorg4.jpg",
+    "data\\recovered_archive1\\1\\CAPorg1.jpg",
+    "data\\recovered_archive1\\1\\CAPorg2.jpg",
+    "data\\recovered_archive1\\1\\CAPorg3.jpg",
+    "data\\recovered_archive1\\1\\CAPorg4.jpg"
+  ],
+  "quality": {
+    "usable_images": 4,
+    "needs_review": false,
+    "warnings": []
+  },
+  "scores": {
+    "morphology_score": 0.5,
+    "flow_score": null,
+    "periloop_score": 0.0,
+    "total_score": null,
+    "overall_assessment": null,
+    "field_contributions": {
+      "clarity": 0.0,
+      "capillary_count": 0.0,
+      "afferent_diameter": 0.0,
+      "efferent_diameter": 0.0,
+      "output_input_ratio": 0.0,
+      "apex_diameter": 0.4,
+      "loop_length": 0.1,
+      "crossing_ratio": 0.0,
+      "malformation_ratio": 0.0,
+      "flow_state": null,
+      "flow_speed_um_s": 0.0,
+      "vasomotion": null,
+      "rbc_aggregation": null,
+      "wbc_count": null,
+      "microthrombus": null,
+      "blood_color": 0.2,
+      "exudation": 0.0,
+      "hemorrhage": 0.0,
+      "subpapillary_venous_plexus": 0.0,
+      "papilla": 0.0,
+      "sweat_duct": 0.0
+    },
+    "status": "deterministic_from_predicted_fields"
+  },
+  "recommendations": [
+    "建议检查期间保持手部温暖，避免寒冷、剧烈运动及吸烟饮酒等短时因素影响观察。",
+    "以上为基于本次图像指标的通用健康提示，不构成诊断、处方或保健品推荐。"
+  ],
+  "case_id": "20260804_123416",
+  "patient": {
+    "name": "",
+    "patient_id": "REPRO-1",
+    "sex": "",
+    "age": "",
+    "finger": "",
+    "exam_date": "2026-08-04"
+  }
+}

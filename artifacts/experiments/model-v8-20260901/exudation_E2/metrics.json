@@ -1,0 +1,231 @@
+{
+  "schema_version": "dinov2-lora-oof/1.0",
+  "locked_cases_seen": 0,
+  "fields": {
+    "clarity": {
+      "n": 185,
+      "balanced_accuracy": 0.6873094065212292,
+      "class_recall": [
+        0.673469387755102,
+        0.7011494252873564
+      ],
+      "confusion_matrix": [
+        [
+          66,
+          32
+        ],
+        [
+          26,
+          61
+        ]
+      ],
+      "folds": [
+        {
+          "fold": 0,
+          "n": 38,
+          "balanced_accuracy": 0.5472222222222223
+        },
+        {
+          "fold": 1,
+          "n": 31,
+          "balanced_accuracy": 0.7286324786324787
+        },
+        {
+          "fold": 2,
+          "n": 39,
+          "balanced_accuracy": 0.6631578947368422
+        },
+        {
+          "fold": 3,
+          "n": 43,
+          "balanced_accuracy": 0.8138528138528138
+        },
+        {
+          "fold": 4,
+          "n": 34,
+          "balanced_accuracy": 0.6909722222222222
+        }
+      ]
+    },
+    "blood_color": {
+      "n": 174,
+      "balanced_accuracy": 0.6636798088410991,
+      "class_recall": [
+        0.7037037037037037,
+        0.6236559139784946
+      ],
+      "confusion_matrix": [
+        [
+          57,
+          24
+        ],
+        [
+          35,
+          58
+        ]
+      ],
+      "folds": [
+        {
+          "fold": 0,
+          "n": 36,
+          "balanced_accuracy": 0.6666666666666667
+        },
+        {
+          "fold": 1,
+          "n": 28,
+          "balanced_accuracy": 0.7555555555555555
+        },
+        {
+          "fold": 2,
+          "n": 35,
+          "balanced_accuracy": 0.5394736842105263
+        },
+        {
+          "fold": 3,
+          "n": 42,
+          "balanced_accuracy": 0.7142857142857143
+        },
+        {
+          "fold": 4,
+          "n": 33,
+          "balanced_accuracy": 0.6691176470588236
+        }
+      ]
+    },
+    "exudation": {
+      "n": 182,
+      "balanced_accuracy": 0.7218920557913887,
+      "class_recall": [
+        0.6705882352941176,
+        0.7731958762886598
+      ],
+      "confusion_matrix": [
+        [
+          57,
+          28
+        ],
+        [
+          22,
+          75
+        ]
+      ],
+      "folds": [
+        {
+          "fold": 0,
+          "n": 37,
+          "balanced_accuracy": 0.7691176470588235
+        },
+        {
+          "fold": 1,
+          "n": 31,
+          "balanced_accuracy": 0.7166666666666667
+        },
+        {
+          "fold": 2,
+          "n": 38,
+          "balanced_accuracy": 0.6916666666666667
+        },
+        {
+          "fold": 3,
+          "n": 42,
+          "balanced_accuracy": 0.6904761904761905
+        },
+        {
+          "fold": 4,
+          "n": 34,
+          "balanced_accuracy": 0.7509157509157509
+        }
+      ]
+    },
+    "subpapillary_venous_plexus": {
+      "n": 181,
+      "balanced_accuracy": 0.751475288910745,
+      "class_recall": [
+        0.8192771084337349,
+        0.6836734693877551
+      ],
+      "confusion_matrix": [
+        [
+          68,
+          15
+        ],
+        [
+          31,
+          67
+        ]
+      ],
+      "folds": [
+        {
+          "fold": 0,
+          "n": 37,
+          "balanced_accuracy": 0.7735294117647059
+        },
+        {
+          "fold": 1,
+          "n": 30,
+          "balanced_accuracy": 0.7
+        },
+        {
+          "fold": 2,
+          "n": 38,
+          "balanced_accuracy": 0.6694444444444444
+        },
+        {
+          "fold": 3,
+          "n": 42,
+          "balanced_accuracy": 0.8173076923076923
+        },
+        {
+          "fold": 4,
+          "n": 34,
+          "balanced_accuracy": 0.7228070175438597
+        }
+      ]
+    },
+    "papilla": {
+      "n": 181,
+      "balanced_accuracy": 0.6322539949537427,
+      "class_recall": [
+        0.3620689655172414,
+        0.9024390243902439
+      ],
+      "confusion_matrix": [
+        [
+          21,
+          37
+        ],
+        [
+          12,
+          111
+        ]
+      ],
+      "folds": [
+        {
+          "fold": 0,
+          "n": 37,
+          "balanced_accuracy": 0.6699999999999999
+        },
+        {
+          "fold": 1,
+          "n": 31,
+          "balanced_accuracy": 0.7232142857142857
+        },
+        {
+          "fold": 2,
+          "n": 38,
+          "balanced_accuracy": 0.5505952380952381
+        },
+        {
+          "fold": 3,
+          "n": 42,
+          "balanced_accuracy": 0.6607142857142857
+        },
+        {
+          "fold": 4,
+          "n": 33,
+          "balanced_accuracy": 0.6136363636363636
+        }
+      ]
+    }
+  }
+}
