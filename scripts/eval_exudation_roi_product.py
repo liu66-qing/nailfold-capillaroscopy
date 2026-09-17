@@ -1,0 +1,12 @@
+import numpy as np,pandas as pd,json
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.metrics import accuracy_score,balanced_accuracy_score,confusion_matrix
+from pathlib import Path
+root=Path('/root/autodl-tmp/nailfold'); R=pd.read_csv(root/'artifacts/manifest/locked_evaluation_v1.csv');R.exam_case_id=R.exam_case_id.astype(str);dev=R[R.evaluation_role=='development']
+def agg(p,i):
+ x=np.load(root/p,mmap_mode='r');z=pd.read_csv(root/i);z.exam_case_id=z.exam_case_id.astype(str);return {c:np.asarray(x[list(pos)],np.float32).mean(0) for c,pos in z.groupby('exam_case_id').indices.items()}
+d=agg('artifacts/features/dinov2/features.npy','artifacts/features/dinov2/index.csv');h=agg('artifacts/features/hulumed_visual/vision_mean.npy','artifacts/features/hulumed_visual/vision_mean.csv');r=agg('artifacts/features/roi_quality_dev_v1/features.npy','artifacts/features/roi_quality_dev_v1/index.csv');s=pd.read_parquet(root/'artifacts/classification/seg_features.parquet').rename(columns={'case_id':'exam_case_id'});s.exam_case_id=s.exam_case_id.astype(str);cols=[c for c in s if c.startswith('feature_')]+['frame_count'];sv=s.set_index('exam_case_id')[cols];ids=sorted(set(dev.exam_case_id)&set(d)&set(h)&set(r)&set(sv.index));X=np.stack([np.r_[d[c],h[c],sv.loc[c].to_numpy(),r[c]] for c in ids]);t=R.set_index('exam_case_id').loc[ids];y=np.array([0 if t.loc[c,'exudation']=='无' else 1 for c in ids]);folds=t.development_fold.to_numpy();pred=np.zeros(len(y),int);prob=np.zeros(len(y),float)
+for f in range(5):
+ tr=folds!=f;te=folds==f;m=ExtraTreesClassifier(n_estimators=300,min_samples_leaf=2,class_weight='balanced',random_state=20260828+f,n_jobs=1).fit(X[tr],y[tr]);pred[te]=m.predict(X[te]);prob[te]=m.predict_proba(X[te])[:,1]
+base=max((y==0).mean(),(y==1).mean());metrics={'n':len(y),'accuracy':float(accuracy_score(y,pred)),'baseline':float(base),'accuracy_delta':float(accuracy_score(y,pred)-base),'balanced_accuracy':float(balanced_accuracy_score(y,pred)),'confusion_matrix':confusion_matrix(y,pred).tolist(),'locked_cases_seen':0,'protocol':'ROI concat, ExtraTrees fixed 300/min_leaf2/class_weight balanced, seed 20260828+fold'}
+out=pd.DataFrame({'exam_case_id':ids,'field':'exudation','fold':folds,'y_true':y,'y_pred':pred,'probability':prob});Path('/tmp/exudation_roi_oof.csv').write_text(out.to_csv(index=False));Path('/tmp/exudation_roi_metrics.json').write_text(json.dumps(metrics,ensure_ascii=False,indent=2));print(json.dumps(metrics,ensure_ascii=False))
