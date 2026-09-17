@@ -1,0 +1,123 @@
+{
+  "config": {
+    "C": 0.03,
+    "pca_dim": 64,
+    "ridge_alpha": 10.0,
+    "n_boot": 2000,
+    "seed": 20260917,
+    "members": [
+      "mean",
+      "topk_mean",
+      "max",
+      "cls",
+      "std"
+    ],
+    "weights": "equal",
+    "level": "image",
+    "selection": "none",
+    "feat_dir": "artifacts/features_spatial/native"
+  },
+  "locked_cases_seen": 0,
+  "fields": {
+    "papilla": {
+      "kind": "classification",
+      "n": 185,
+      "n_classes": 3,
+      "accuracy": 0.4648648648648649,
+      "baseline_constant": 0.41621621621621624,
+      "delta_vs_constant": 0.04864864864864865,
+      "delta_ci95": [
+        -0.04864864864864865,
+        0.12432432432432433
+      ],
+      "passes": false,
+      "class_distribution": {
+        "浅波纹状": 0.41621621621621624,
+        "波纹状": 0.3567567567567568,
+        "平坦": 0.22702702702702704
+      },
+      "verdict": "NOT_USABLE"
+    },
+    "afferent_diameter": {
+      "kind": "regression",
+      "n": 165,
+      "mae_model": 8.47108981224198,
+      "mae_fixed_median_baseline": 5.739393939393939,
+      "mae_improvement": -2.7316958728480403,
+      "mae_improvement_ci95": [
+        -3.6076812118509065,
+        -1.9742711005093285
+      ],
+      "passes": false,
+      "r2": -0.0729848660485668,
+      "label_distinct_values": 24,
+      "label_granularity_note": "labels are quantised; distinct values vs n bounds achievable MAE",
+      "no_micron_claim": true,
+      "verdict": "NOT_USABLE"
+    },
+    "efferent_diameter": {
+      "kind": "regression",
+      "n": 164,
+      "mae_model": 4.265645095984485,
+      "mae_fixed_median_baseline": 4.371951219512195,
+      "mae_improvement": 0.10630612352770985,
+      "mae_improvement_ci95": [
+        -0.3699389534997136,
+        0.6418663394250226
+      ],
+      "passes": false,
+      "r2": 0.20951601680178567,
+      "label_distinct_values": 25,
+      "label_granularity_note": "labels are quantised; distinct values vs n bounds achievable MAE",
+      "no_micron_claim": true,
+      "verdict": "NOT_USABLE"
+    },
+    "apex_diameter": {
+      "kind": "regression",
+      "n": 169,
+      "mae_model": 7.194167765882122,
+      "mae_fixed_median_baseline": 7.088757396449704,
+      "mae_improvement": -0.105410369432418,
+      "mae_improvement_ci95": [
+        -0.7353755780422997,
+        0.5501541774214083
+      ],
+      "passes": false,
+      "r2": 0.09997307164223224,
+      "label_distinct_values": 38,
+      "label_granularity_note": "labels are quantised; distinct values vs n bounds achievable MAE",
+      "no_micron_claim": true,
+      "verdict": "NOT_USABLE"
+    },
+    "loop_length": {
+      "kind": "regression",
+      "n": 176,
+      "mae_model": 66.39555492953211,
+      "mae_fixed_median_baseline": 87.02272727272727,
+      "mae_improvement": 20.627172343195156,
+      "mae_improvement_ci95": [
+        13.454909806242878,
+        27.426020200099327
+      ],
+      "passes": true,
+      "r2": 0.33519782286472577,
+      "label_distinct_values": 135,
+      "label_granularity_note": "labels are quantised; distinct values vs n bounds achievable MAE",
+      "no_micron_claim": true,
+      "verdict": "USABLE"
+    },
+    "flow_velocity": {
+      "kind": "placeholder",
+      "verdict": "NO_LABEL",
+      "reason": "v1_field_specification.csv records this field as a fixed compatibility rule with default=None and 'placeholder has no visual measurement basis'. There is no label column to score. flow_state exists but is a different 7-class variable and is not a substitute."
+    }
+  },
+  "limitations": [
+    "development set only (186 cases); not product capability",
+    "regression fields: no external micron calibration exists; no absolute micron accuracy is claimed and calibration_factors.json is NOT used as evidence (it is back-fitted from labels and holds four inconsistent values)",
+    "regression labels are quantised to whole units, which bounds achievable MAE independently of the model",
+    "case labels broadcast to images are noisy by construction",
+    "papilla is scored on the original 3 classes; no class merging was applied",
+    "flow_velocity is unevaluable from data, not measured-and-failed"
+  ]
+}
