@@ -1,0 +1,26 @@
+{
+  "generated_utc": "2026-09-17T03:37:16+00:00",
+  "script": "scripts/recover_unmapped_provenance.py",
+  "method": "normalised 32x32 grayscale cosine similarity vs 2207 recovered_archive CAPorg originals",
+  "thresholds": {
+    "min_similarity": 0.9,
+    "min_margin_vs_other_case": 0.05
+  },
+  "validation_on_md5_known_cases": {
+    "md5_known_images": 133,
+    "matched_by_method": 123,
+    "agreed_with_md5_case": 123,
+    "agreement_rate": 1.0
+  },
+  "unmapped_input": 449,
+  "unmapped_resolved": 123,
+  "unmapped_still_undecidable": 326,
+  "unmapped_resolved_roles": {
+    "unlisted": 59,
+    "development": 47,
+    "locked": 17
+  },
+  "file_sha256": {
+    "provenance_recovery.csv": "96d91610ec5a93ee99c68c0357366ae036ab089855538de2119eed3a9d2da2d0"
+  }
+}

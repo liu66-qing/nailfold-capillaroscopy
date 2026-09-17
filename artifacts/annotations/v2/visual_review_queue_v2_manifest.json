@@ -1,0 +1,145 @@
+{
+  "protocol_version": "auxiliary_visual_review_v2",
+  "rule_version": "quality_triage_v2",
+  "generated_utc": "2026-09-17T09:30:08+00:00",
+  "seed": 20260917,
+  "script": "scripts/rebuild_visual_review_queue.py",
+  "source_images_considered": 582,
+  "admitted": 129,
+  "admitted_unique_cases": 49,
+  "rejected": 453,
+  "reject_reason_counts": {
+    "source case unknown; locked status undecidable": 326,
+    "matched case not on any roster": 59,
+    "locked-47 derivative (case-level, md5)": 32,
+    "locked-47 derivative (case-level, perceptual match)": 17,
+    "governance HOLD_DUPLICATE_LABEL_CONFLICT": 14,
+    "source case not on any roster": 5
+  },
+  "admission_tiers": {
+    "tier1_md5_exact": {
+      "images": 82,
+      "cases": 49,
+      "provenance_evidence": "byte-exact MD5 match to archive original"
+    },
+    "tier2_perceptual": {
+      "images": 47,
+      "cases": 25,
+      "provenance_evidence": "32x32 normalised grayscale cosine match, validated 123/123 against MD5-known cases",
+      "locked_safety_gate": "tier2_locked_safety.json, locked-specific margin >= 0.02, calibrated AUC 1.000 (32 locked positives vs 82 development negatives, empty gap -0.0434..+0.0434); 47/47 pass",
+      "authorization": {
+        "scope": "auxiliary AI-assisted annotation",
+        "granted_by": "data owner (project user)",
+        "granted_date": "2026-09-17",
+        "record": "user instruction in session, transcript 8dc541f7-5eeb-4136-bd78-de4d27140847",
+        "verbatim": "可以用于AI辅助标注",
+        "does_not_cover": [
+          "clinical gold-standard status for any produced label",
+          "locked-47 case images (excluded at case level regardless)",
+          "transmission of patient images to third-party APIs"
+        ]
+      }
+    }
+  },
+  "authorization": {
+    "scope": "auxiliary AI-assisted annotation",
+    "granted_by": "data owner (project user)",
+    "granted_date": "2026-09-17",
+    "record": "user instruction in session, transcript 8dc541f7-5eeb-4136-bd78-de4d27140847",
+    "verbatim": "可以用于AI辅助标注",
+    "does_not_cover": [
+      "clinical gold-standard status for any produced label",
+      "locked-47 case images (excluded at case level regardless)",
+      "transmission of patient images to third-party APIs"
+    ]
+  },
+  "near_duplicate_groups": {
+    "threshold_cosine": 0.98,
+    "clusters": [
+      [
+        170,
+        470
+      ],
+      [
+        187,
+        445
+      ],
+      [
+        189,
+        496
+      ],
+      [
+        200,
+        458
+      ],
+      [
+        208,
+        507
+      ],
+      [
+        264,
+        266
+      ]
+    ],
+    "edges": [
+      {
+        "a": 170,
+        "b": 470,
+        "similarity": 0.9943
+      },
+      {
+        "a": 187,
+        "b": 445,
+        "similarity": 0.9987
+      },
+      {
+        "a": 189,
+        "b": 496,
+        "similarity": 0.9982
+      },
+      {
+        "a": 200,
+        "b": 458,
+        "similarity": 0.9946
+      },
+      {
+        "a": 208,
+        "b": 507,
+        "similarity": 0.9999
+      },
+      {
+        "a": 264,
+        "b": 266,
+        "similarity": 0.9941
+      }
+    ],
+    "all_within_single_case": true,
+    "note": "SHA-256 dedup catches only byte-identical files; these are resized siblings. Kept in the pool (a reviewer scoring both is reliability signal) but tagged in near_duplicate_group so no agreement statistic counts them as independent observations."
+  },
+  "locked_derivatives_found": {
+    "by_md5_exact": 32,
+    "by_perceptual_match": 17
+  },
+  "heuristic_strata_heldback": {
+    "uncertain": 73,
+    "usable": 56
+  },
+  "clinical_gold_standard": false,
+  "locked47_derivatives_admitted": 0,
+  "blinded_review": true,
+  "file_sha256": {
+    "queue_disposition.csv": "56ae90b0ec218e8b3c7e38e831ed8fb0c527ada8cd8a26146de718b2a552c388",
+    "visual_review_queue_v2.csv": "7a460633182181a2b653e856907e5e96111aff855470260d91b1c4d2fc4b1726",
+    "heuristic_predictions_heldback.csv": "ad1f9de8ec7d480d37b1c19cf85add8798fe09321e42fa3706db9a853e2ab094"
+  },
+  "supersedes": "artifacts/annotations/visual_review_queue.csv (sha256 b435d785efa77c4fdd4752646e398b90d128a403a899b3cde9b6858b0c115f43)",
+  "limitations": [
+    "129 images / 49 development cases is the admissible pool. Perceptual provenance recovery resolved 123 of the 449 unmapped images: 17 were locked derivatives (rejected), 59 matched unlisted cases (rejected), and 47 matched development cases and are admitted as tier 2. 326 images remain provenance-undecidable and can never be admitted without new evidence, so a 300-image pilot is still out of reach.",
+    "TIER 2 ADDS NO NEW PATIENTS. All 25 tier-2 cases are already among the 49 tier-1 cases, so the pool goes 82 -> 129 images while case count stays at 49. Images per case rises from mean 1.67 (max 4) to mean 2.63 (max 9). Because agreement statistics are only independent at the case level, the extra images tighten within-case reliability but do NOT widen the confidence interval basis: the kappa CI is still governed by 49 cases, roughly +/-0.15. An earlier estimate of '74 cases' in this project's notes was arithmetic error (49 + 25 double-counted a subset) and is retracted here.",
+    "Tier-2 provenance is perceptual, not byte-exact. Its contamination risk is bounded by a gate calibrated to AUC 1.000 on 114 labelled images, which bounds the per-group error rate at roughly <3% at 95% confidence -- not at zero. Any result that depends on tier 2 must be reported with the tier-1-only value alongside it; admission_tier is in the queue for exactly that recomputation.",
+    "Owner authorisation covers auxiliary AI annotation only. Governance status remains auxiliary-use; clinical_gold_standard is False for every row, and no produced label may be used as ground truth.",
+    "Authorisation to annotate is not authorisation to transmit. Sending any of these images to a third-party API is a separate decision and is not granted by this manifest.",
+    "Labels are image-level aggregates over 2-13 vessel boxes; per-vessel judgements are out of scope for this queue.",
+    "6 near-duplicate clusters exist in the pool (cosine >=0.98), all within a single case. Effective independent sample size is therefore below 129."
+  ]
+}

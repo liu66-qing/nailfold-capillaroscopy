@@ -1,0 +1,24 @@
+{
+  "scored_utc": "2026-09-17T09:31:41+00:00",
+  "queue": "artifacts\\annotations\\v2\\visual_review_queue_v2.csv",
+  "queue_rows": 129,
+  "reviewed_rows": 0,
+  "thresholds": {
+    "count_spearman": 0.7,
+    "count_within1_fraction": 0.6,
+    "cross_vessel_kappa": 0.5,
+    "iou": 0.5,
+    "iou_fraction": 0.8
+  },
+  "reference": "existing human XML boxes: total box count (2-13, all 12 values present across the 129-image pool) and cross_vessel presence (72/129 = 55.8%). Auxiliary reference only, never a clinical gold standard.",
+  "unvalidated_fields": [
+    "measurable_vessel_fraction",
+    "apex_visible_fraction",
+    "image_usable_for_measurement",
+    "clarity_review"
+  ],
+  "unvalidated_note": "No valid reference exists in this dataset for these fields: box presence is 82/82 usable and in-frame fraction is 76 all / 6 majority, both too degenerate to gate on. They are collected but may not justify any downstream claim; validating them needs a second independent human reviewer.",
+  "independence_note": "129 images rest on 49 cases and include 6 near-duplicate clusters, so per-image n overstates the evidence. Every statistic is reported on four slices (per-image, case-collapsed, near-duplicate-removed, tier-1-only) and the gate verdict requires the case-collapsed slice to pass.",
+  "gate": "NOT_EVALUABLE",
+  "reason": "no reviewed rows yet"
+}

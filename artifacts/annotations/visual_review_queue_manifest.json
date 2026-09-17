@@ -1,0 +1,12 @@
+{
+  "rows": 582,
+  "reviewed_rows": 31,
+  "sha256": "b435d785efa77c4fdd4752646e398b90d128a403a899b3cde9b6858b0c115f43",
+  "clinical_gold_standard": false,
+  "VOID": true,
+  "void_date": "2026-09-17",
+  "void_reason": "REJECTED: contains locked-47 derivatives (ids 13,179 reviewed); 14/16 reviewed rows under governance HOLD; selection deterministic and circular; no case linkage. See artifacts/annotations/v2/visual_review_audit_v1_findings.json",
+  "reviewed_rows_claimed": 31,
+  "reviewed_rows_measured": 16,
+  "superseded_by": "artifacts/annotations/v2/visual_review_queue_v2.csv"
+}
