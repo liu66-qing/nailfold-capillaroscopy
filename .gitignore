@@ -1,0 +1,79 @@
+# The repo root holds 81GB, of which 71GB is data/ containing patient images.
+# Bulk directories are excluded wholesale, then binary/patient formats are
+# excluded by extension everywhere else, so a stray image cannot be committed
+# even from a directory that is otherwise tracked.
+data/
+tmp/
+output/
+Hulu-Med/
+甲劈微循环hf_biomedclip/
+sam_audit_preview/
+seg_visual_check/
+captures_app/
+人工核对/
+.transfer/
+.verify/
+.tmp_probe/
+.codex_tmp_ppt_inspect/
+server_code_audit/
+github_nailfold_capillaroscopy/
+
+# Binary, patient-facing, and bulky formats: never committed.
+*.jpg
+*.jpeg
+*.png
+*.tar.gz
+*.zip
+*.pptx
+*.pdf
+*.rtf
+*.xlsx
+*.html
+*.pkl
+*.npz
+*.pt
+*.pth
+*.safetensors
+*.jsonl
+*.joblib
+*.onnx
+*.bin
+*.ckpt
+*.h5
+*.log
+
+*.npy
+*.parquet
+*.docx
+
+# ONNX external-data blobs and the chunked splits used to ship them.
+# 4 x 354MB of siglip2 weights plus part.NN splits: regenerable, not source.
+*.onnx.data
+*.delta
+artifacts/windows_model*/
+**/*_chunks/
+**/chunks/
+*.part.[0-9][0-9]
+*part.[0-9][0-9][0-9]
+
+# Trained model binaries and per-fold dumps: regenerable, not source.
+artifacts/geometry_*/
+artifacts/video_*/
+**/checkpoints/
+**/*_locked/*.joblib
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Prediction dumps and per-frame tables: bulky and regenerable.
+*_pred.jsonl
+*.csv.bak
+
+# Secrets. .env holds an API key; it must never enter git history.
+.env
+.env.*
+*.pem
+*.key
+.netrc
+secrets*
+credential*
