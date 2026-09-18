@@ -1,0 +1,34 @@
+{
+  "human_fullfield_images": 321,
+  "ai_augmented_images": 1680,
+  "ai_miss_polygons_added": 10166,
+  "yolo_pseudo_polygons_kept": 27456,
+  "ai_miss_per_image_mean": 6.05,
+  "yolo_per_image_mean": 16.34,
+  "target_definition": "per dev image: confident YOLO conf=0.25 detections UNION class-agnostic SAM misses; both are pseudo-labels",
+  "locked_cases_seen": 0,
+  "provenance": "AI proposals written ONLY into this new tree; no existing annotation file modified or overwritten",
+  "fold_rule": "a dev case in fold k is EXCLUDED from fold k's train set; AI pseudo-labels never appear in any val set",
+  "val_set": "human full-field valid split only (no AI labels in validation)",
+  "min_area_px": 150.0,
+  "max_per_image": 25,
+  "train_counts": {
+    "fold0": 1587,
+    "fold1": 1644,
+    "fold2": 1587,
+    "fold3": 1558,
+    "fold4": 1629
+  },
+  "val_counts": {
+    "fold0": 64,
+    "fold1": 64,
+    "fold2": 64,
+    "fold3": 64,
+    "fold4": 64
+  },
+  "limitations": [
+    "AI proposals are NOT gold standard and are not human verified",
+    "AI labels may include non-vessel structures that passed the colour/size filter",
+    "development set only; no locked-47 data anywhere in this tree"
+  ]
+}

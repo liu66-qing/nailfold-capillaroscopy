@@ -1,0 +1,607 @@
+{
+  "config": {
+    "tag": "c05_plus_miss_sam",
+    "C": 0.03,
+    "n_boot": 2000,
+    "seed": 20260918,
+    "level": "image",
+    "geom_dims": 99,
+    "dino_dims": 768,
+    "n_images": 1708,
+    "n_cases": 186,
+    "locked_cases_seen": 0,
+    "prespecified_arm": "concat",
+    "geom_source": "/root/autodl-tmp/segmiss_v1/features/c05_plus_miss_sam.csv"
+  },
+  "fields": {
+    "clarity": {
+      "labelled_cases": 185,
+      "deliverable": {
+        "n": 185,
+        "accuracy": 0.8054,
+        "baseline": 0.5081,
+        "delta": 0.2973,
+        "ci95": [
+          0.1946,
+          0.3405
+        ],
+        "usable": true,
+        "abnormal_share": 0.5081
+      },
+      "arms": {
+        "geom": {
+          "n": 185,
+          "accuracy": 0.7622,
+          "baseline": 0.5081,
+          "delta": 0.2541,
+          "ci95": [
+            0.1514,
+            0.3027
+          ],
+          "usable": true,
+          "abnormal_share": 0.5081
+        },
+        "dino": {
+          "n": 185,
+          "accuracy": 0.7946,
+          "baseline": 0.5081,
+          "delta": 0.2865,
+          "ci95": [
+            0.1838,
+            0.3351
+          ],
+          "usable": true,
+          "abnormal_share": 0.5081
+        },
+        "concat": {
+          "n": 185,
+          "accuracy": 0.8054,
+          "baseline": 0.5081,
+          "delta": 0.2973,
+          "ci95": [
+            0.1946,
+            0.3405
+          ],
+          "usable": true,
+          "abnormal_share": 0.5081
+        }
+      }
+    },
+    "capillary_count": {
+      "labelled_cases": 182,
+      "deliverable": {
+        "n": 182,
+        "accuracy": 0.7308,
+        "baseline": 0.6868,
+        "delta": 0.044,
+        "ci95": [
+          -0.0275,
+          0.1209
+        ],
+        "usable": false,
+        "abnormal_share": 0.3132
+      },
+      "arms": {
+        "geom": {
+          "n": 182,
+          "accuracy": 0.7363,
+          "baseline": 0.6868,
+          "delta": 0.0495,
+          "ci95": [
+            -0.0055,
+            0.1044
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        },
+        "dino": {
+          "n": 182,
+          "accuracy": 0.6978,
+          "baseline": 0.6868,
+          "delta": 0.011,
+          "ci95": [
+            -0.0604,
+            0.0824
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        },
+        "concat": {
+          "n": 182,
+          "accuracy": 0.7308,
+          "baseline": 0.6868,
+          "delta": 0.044,
+          "ci95": [
+            -0.0275,
+            0.1209
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        }
+      }
+    },
+    "crossing_ratio": {
+      "labelled_cases": 179,
+      "deliverable": {
+        "n": 179,
+        "accuracy": 0.648,
+        "baseline": 0.6313,
+        "delta": 0.0168,
+        "ci95": [
+          -0.0559,
+          0.0894
+        ],
+        "usable": false,
+        "abnormal_share": 0.3687
+      },
+      "arms": {
+        "geom": {
+          "n": 179,
+          "accuracy": 0.6313,
+          "baseline": 0.6313,
+          "delta": 0.0,
+          "ci95": [
+            -0.0447,
+            0.0447
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        },
+        "dino": {
+          "n": 179,
+          "accuracy": 0.6089,
+          "baseline": 0.6313,
+          "delta": -0.0223,
+          "ci95": [
+            -0.095,
+            0.0503
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        },
+        "concat": {
+          "n": 179,
+          "accuracy": 0.648,
+          "baseline": 0.6313,
+          "delta": 0.0168,
+          "ci95": [
+            -0.0559,
+            0.0894
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        }
+      }
+    },
+    "malformation_ratio": {
+      "labelled_cases": 163,
+      "deliverable": {
+        "n": 163,
+        "accuracy": 0.6687,
+        "baseline": 0.5706,
+        "delta": 0.0982,
+        "ci95": [
+          0.0,
+          0.1902
+        ],
+        "usable": false,
+        "abnormal_share": 0.4294
+      },
+      "arms": {
+        "geom": {
+          "n": 163,
+          "accuracy": 0.6258,
+          "baseline": 0.5706,
+          "delta": 0.0552,
+          "ci95": [
+            -0.0368,
+            0.1411
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        },
+        "dino": {
+          "n": 163,
+          "accuracy": 0.6687,
+          "baseline": 0.5706,
+          "delta": 0.0982,
+          "ci95": [
+            0.0,
+            0.1903
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        },
+        "concat": {
+          "n": 163,
+          "accuracy": 0.6687,
+          "baseline": 0.5706,
+          "delta": 0.0982,
+          "ci95": [
+            0.0,
+            0.1902
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        }
+      }
+    },
+    "papilla": {
+      "labelled_cases": 185,
+      "deliverable": {
+        "n": 185,
+        "accuracy": 0.7351,
+        "baseline": 0.773,
+        "delta": -0.0378,
+        "ci95": [
+          -0.0865,
+          0.0054
+        ],
+        "usable": false,
+        "abnormal_share": 0.227
+      },
+      "arms": {
+        "geom": {
+          "n": 185,
+          "accuracy": 0.7351,
+          "baseline": 0.773,
+          "delta": -0.0378,
+          "ci95": [
+            -0.0703,
+            -0.0162
+          ],
+          "usable": false,
+          "abnormal_share": 0.227
+        },
+        "dino": {
+          "n": 185,
+          "accuracy": 0.773,
+          "baseline": 0.773,
+          "delta": 0.0,
+          "ci95": [
+            -0.0432,
+            0.0432
+          ],
+          "usable": false,
+          "abnormal_share": 0.227
+        },
+        "concat": {
+          "n": 185,
+          "accuracy": 0.7351,
+          "baseline": 0.773,
+          "delta": -0.0378,
+          "ci95": [
+            -0.0865,
+            0.0054
+          ],
+          "usable": false,
+          "abnormal_share": 0.227
+        }
+      }
+    },
+    "blood_color": {
+      "labelled_cases": 114,
+      "deliverable": {
+        "n": 114,
+        "accuracy": 0.7281,
+        "baseline": 0.693,
+        "delta": 0.0351,
+        "ci95": [
+          -0.0526,
+          0.1228
+        ],
+        "usable": false,
+        "abnormal_share": 0.693
+      },
+      "arms": {
+        "geom": {
+          "n": 114,
+          "accuracy": 0.693,
+          "baseline": 0.693,
+          "delta": 0.0,
+          "ci95": [
+            -0.0439,
+            0.0439
+          ],
+          "usable": false,
+          "abnormal_share": 0.693
+        },
+        "dino": {
+          "n": 114,
+          "accuracy": 0.6842,
+          "baseline": 0.693,
+          "delta": -0.0088,
+          "ci95": [
+            -0.0965,
+            0.0702
+          ],
+          "usable": false,
+          "abnormal_share": 0.693
+        },
+        "concat": {
+          "n": 114,
+          "accuracy": 0.7281,
+          "baseline": 0.693,
+          "delta": 0.0351,
+          "ci95": [
+            -0.0526,
+            0.1228
+          ],
+          "usable": false,
+          "abnormal_share": 0.693
+        }
+      }
+    },
+    "exudation": {
+      "labelled_cases": 183,
+      "deliverable": {
+        "n": 183,
+        "accuracy": 0.7377,
+        "baseline": 0.5082,
+        "delta": 0.2295,
+        "ci95": [
+          0.1257,
+          0.2842
+        ],
+        "usable": true,
+        "abnormal_share": 0.4918
+      },
+      "arms": {
+        "geom": {
+          "n": 183,
+          "accuracy": 0.7268,
+          "baseline": 0.5082,
+          "delta": 0.2186,
+          "ci95": [
+            0.1146,
+            0.2732
+          ],
+          "usable": true,
+          "abnormal_share": 0.4918
+        },
+        "dino": {
+          "n": 183,
+          "accuracy": 0.7268,
+          "baseline": 0.5082,
+          "delta": 0.2186,
+          "ci95": [
+            0.1148,
+            0.2732
+          ],
+          "usable": true,
+          "abnormal_share": 0.4918
+        },
+        "concat": {
+          "n": 183,
+          "accuracy": 0.7377,
+          "baseline": 0.5082,
+          "delta": 0.2295,
+          "ci95": [
+            0.1257,
+            0.2842
+          ],
+          "usable": true,
+          "abnormal_share": 0.4918
+        }
+      }
+    },
+    "afferent_diameter": {
+      "labelled_cases": 165,
+      "deliverable": {
+        "n": 165,
+        "accuracy": 0.7818,
+        "baseline": 0.7939,
+        "delta": -0.0121,
+        "ci95": [
+          -0.0667,
+          0.0365
+        ],
+        "usable": false,
+        "abnormal_share": 0.2061
+      },
+      "arms": {
+        "geom": {
+          "n": 165,
+          "accuracy": 0.7697,
+          "baseline": 0.7939,
+          "delta": -0.0242,
+          "ci95": [
+            -0.0788,
+            0.0242
+          ],
+          "usable": false,
+          "abnormal_share": 0.2061
+        },
+        "dino": {
+          "n": 165,
+          "accuracy": 0.7576,
+          "baseline": 0.7939,
+          "delta": -0.0364,
+          "ci95": [
+            -0.0788,
+            0.0061
+          ],
+          "usable": false,
+          "abnormal_share": 0.2061
+        },
+        "concat": {
+          "n": 165,
+          "accuracy": 0.7818,
+          "baseline": 0.7939,
+          "delta": -0.0121,
+          "ci95": [
+            -0.0667,
+            0.0365
+          ],
+          "usable": false,
+          "abnormal_share": 0.2061
+        }
+      }
+    },
+    "efferent_diameter": {
+      "labelled_cases": 164,
+      "deliverable": {
+        "n": 164,
+        "accuracy": 0.8232,
+        "baseline": 0.8049,
+        "delta": 0.0183,
+        "ci95": [
+          -0.0305,
+          0.0671
+        ],
+        "usable": false,
+        "abnormal_share": 0.1951
+      },
+      "arms": {
+        "geom": {
+          "n": 164,
+          "accuracy": 0.7927,
+          "baseline": 0.8049,
+          "delta": -0.0122,
+          "ci95": [
+            -0.0427,
+            0.0183
+          ],
+          "usable": false,
+          "abnormal_share": 0.1951
+        },
+        "dino": {
+          "n": 164,
+          "accuracy": 0.811,
+          "baseline": 0.8049,
+          "delta": 0.0061,
+          "ci95": [
+            -0.0366,
+            0.0488
+          ],
+          "usable": false,
+          "abnormal_share": 0.1951
+        },
+        "concat": {
+          "n": 164,
+          "accuracy": 0.8232,
+          "baseline": 0.8049,
+          "delta": 0.0183,
+          "ci95": [
+            -0.0305,
+            0.0671
+          ],
+          "usable": false,
+          "abnormal_share": 0.1951
+        }
+      }
+    },
+    "apex_diameter": {
+      "labelled_cases": 169,
+      "deliverable": {
+        "n": 169,
+        "accuracy": 0.7692,
+        "baseline": 0.7811,
+        "delta": -0.0118,
+        "ci95": [
+          -0.0592,
+          0.0355
+        ],
+        "usable": false,
+        "abnormal_share": 0.2189
+      },
+      "arms": {
+        "geom": {
+          "n": 169,
+          "accuracy": 0.7811,
+          "baseline": 0.7811,
+          "delta": 0.0,
+          "ci95": [
+            -0.0237,
+            0.0237
+          ],
+          "usable": false,
+          "abnormal_share": 0.2189
+        },
+        "dino": {
+          "n": 169,
+          "accuracy": 0.7633,
+          "baseline": 0.7811,
+          "delta": -0.0178,
+          "ci95": [
+            -0.0592,
+            0.0237
+          ],
+          "usable": false,
+          "abnormal_share": 0.2189
+        },
+        "concat": {
+          "n": 169,
+          "accuracy": 0.7692,
+          "baseline": 0.7811,
+          "delta": -0.0118,
+          "ci95": [
+            -0.0592,
+            0.0355
+          ],
+          "usable": false,
+          "abnormal_share": 0.2189
+        }
+      }
+    },
+    "loop_length": {
+      "labelled_cases": 176,
+      "deliverable": {
+        "n": 176,
+        "accuracy": 0.7727,
+        "baseline": 0.75,
+        "delta": 0.0227,
+        "ci95": [
+          -0.0398,
+          0.0852
+        ],
+        "usable": false,
+        "abnormal_share": 0.25
+      },
+      "arms": {
+        "geom": {
+          "n": 176,
+          "accuracy": 0.7443,
+          "baseline": 0.75,
+          "delta": -0.0057,
+          "ci95": [
+            -0.0568,
+            0.0455
+          ],
+          "usable": false,
+          "abnormal_share": 0.25
+        },
+        "dino": {
+          "n": 176,
+          "accuracy": 0.7557,
+          "baseline": 0.75,
+          "delta": 0.0057,
+          "ci95": [
+            -0.0625,
+            0.0682
+          ],
+          "usable": false,
+          "abnormal_share": 0.25
+        },
+        "concat": {
+          "n": 176,
+          "accuracy": 0.7727,
+          "baseline": 0.75,
+          "delta": 0.0227,
+          "ci95": [
+            -0.0398,
+            0.0852
+          ],
+          "usable": false,
+          "abnormal_share": 0.25
+        }
+      }
+    }
+  },
+  "limitations": [
+    "development set only (n<=186); NOT product capability, no locked-47 result",
+    "measurement fields binarised at the upper quartile, NOT a micron value",
+    "geometry is pixel-scale; calibration_factors.json deliberately unused",
+    "only the prespecified 'concat' arm is a deliverable number"
+  ]
+}

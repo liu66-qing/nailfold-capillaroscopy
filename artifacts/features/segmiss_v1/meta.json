@@ -1,0 +1,23 @@
+{
+  "proposer": "sam",
+  "ran_locally": true,
+  "third_party_api_used": false,
+  "yolo_conf_for_occupancy": 0.05,
+  "iou_miss": 0.1,
+  "imgsz": 1024,
+  "device": 1,
+  "n_images": 1708,
+  "n_cases": 186,
+  "locked_cases_seen": 0,
+  "miss_per_image_mean": 6.674473067915691,
+  "yolo_per_image_mean": 51.538056206088996,
+  "total_misses": 11400,
+  "n_failures": 0,
+  "failures": [],
+  "circularity_guard": "proposals from class-agnostic sam; YOLO masks used only subtractively",
+  "limitations": [
+    "AI proposals are NOT gold standard; stored separately from human annotations",
+    "development set only (186 cases); NOT product capability",
+    "pixel-scale geometry only; calibration_factors.json unused"
+  ]
+}

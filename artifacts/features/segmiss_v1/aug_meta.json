@@ -1,0 +1,49 @@
+{
+  "purpose": "instance-level vessel geometry, recovering the topology and per-vessel shape that seg_vessel_v2_handoff.md section 5.3 discarded when it passed 13 scalars downstream",
+  "n_cases": 186,
+  "n_images": 1708,
+  "n_features_case": 209,
+  "instances_per_image_mean": 20.451990632318502,
+  "instances_per_image_median": 18.0,
+  "instances_total": 34932,
+  "locked_cases_seen": 0,
+  "fold_matched_inference": true,
+  "fold_rule": "case with development_fold==k inferred with seg_vessel_fold{k} (held it out)",
+  "weights": {
+    "fold0": {
+      "path": "/root/autodl-tmp/segmiss_v1/models/aug_fold0/weights/best.pt",
+      "sha256": "9952b59e52622a7d78e174516d064fa398c8e317d8c2735144ef80acda27fdc3",
+      "bytes": 45156982
+    },
+    "fold1": {
+      "path": "/root/autodl-tmp/segmiss_v1/models/aug_fold1/weights/best.pt",
+      "sha256": "31e00f57eae49910bfd1e53991a3209a55379228028836c724cd7edf8442c96d",
+      "bytes": 45156982
+    },
+    "fold2": {
+      "path": "/root/autodl-tmp/segmiss_v1/models/aug_fold2/weights/best.pt",
+      "sha256": "bf645eb9f02a2f9a16501cf7b03a5a61e487b7a9e6d7d33024d2379d2676b4af",
+      "bytes": 45156982
+    },
+    "fold3": {
+      "path": "/root/autodl-tmp/segmiss_v1/models/aug_fold3/weights/best.pt",
+      "sha256": "4f229ae2972bda71dede0c1e22c813be1ceb6bf39f8af5ceb6ca5f489d95ccc1",
+      "bytes": 45156982
+    },
+    "fold4": {
+      "path": "/root/autodl-tmp/segmiss_v1/models/aug_fold4/weights/best.pt",
+      "sha256": "934c65f452cec4615f0fca75692dd48308b0f8e8cc3c4717059e2e773383143a",
+      "bytes": 45156982
+    }
+  },
+  "conf_threshold": 0.25,
+  "imgsz": 1024,
+  "failures": [],
+  "n_failures": 0,
+  "limitations": [
+    "geometry is in pixels and scale-free ratios; no micron claim, calibration_factors.json deliberately unused (label back-fitted, four inconsistent values)",
+    "crossing is a geometric proxy (mask IoU > 0.10 and centroid proximity), not a validated clinical crossing definition",
+    "malformation proxies use fixed thresholds (circularity<0.30, solidity<0.80, elongation>4.0) chosen a priori, not tuned on labels",
+    "features only; whether they raise any field is decided by the unchanged downstream ruler, not by this file"
+  ]
+}
