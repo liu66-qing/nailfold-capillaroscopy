@@ -50,9 +50,15 @@ FIELDS = {
     "crossing_ratio":     {"normal": ["<=30%", "[<30%]", "10--30%"]},
     "malformation_ratio": {"normal": ["<=10%", "[<10%]"]},
     "papilla":            {"normal": ["波纹状", "浅波纹状"], "abnormal": ["平坦"]},
-    "blood_color":        {"normal": ["红润", "淡红"]},
+    # blood_color has NO 红润 value in this manifest: the four real values are
+    # 浅红/淡红 (pale, normal end) and 暗红/暗紫 (dark, stasis end). Listing
+    # 红润 and omitting 浅红 silently dropped 65 of 181 cases to NaN, which is
+    # what produced the crippled n=114 in the first selective run.
+    "blood_color":        {"normal": ["浅红", "淡红"],
+                           "abnormal": ["暗红", "暗紫", "紫红"]},
     "exudation":          {"normal": ["无", "０", "0"]},
-    "microthrombus":      {"normal": ["无"]},
+    # ">2" is absent from ABNORMAL_STR, so it fell through and cost 29 cases
+    "microthrombus":      {"normal": ["无"], "abnormal": ["1--2", ">2"]},
     "rbc_aggregation":    {"normal": ["无", "轻度"], "abnormal": ["中度", "重度"]},
     "afferent_diameter":  {"numeric_q": 0.75},
     "efferent_diameter":  {"numeric_q": 0.75},

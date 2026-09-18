@@ -1,0 +1,61 @@
+{
+  "config": {
+    "n_perm": 200,
+    "seed": 20260918,
+    "coverages": [
+      1.0,
+      0.9,
+      0.8,
+      0.7,
+      0.6,
+      0.5
+    ],
+    "statistic": "longest run of consecutive usable coverages",
+    "locked_cases_seen": 0,
+    "geom_source": "artifacts/features/seg_instance_c05/image_geometry.csv"
+  },
+  "fields": {
+    "microthrombus": {
+      "observed_longest_run": 4,
+      "observed_n_passing": 4,
+      "null_longest_run_mean": 0.01,
+      "null_longest_run_p95": 0,
+      "null_longest_run_max": 2,
+      "p_longest_run": 0.0,
+      "null_n_passing_mean": 0.015,
+      "p_n_passing": 0.0,
+      "minority_share_by_coverage": [
+        0.4066,
+        0.4146,
+        0.3973,
+        0.378,
+        0.3761,
+        0.3516
+      ]
+    },
+    "blood_color": {
+      "observed_longest_run": 6,
+      "observed_n_passing": 6,
+      "null_longest_run_mean": 0.015,
+      "null_longest_run_p95": 0,
+      "null_longest_run_max": 2,
+      "p_longest_run": 0.0,
+      "null_n_passing_mean": 0.015,
+      "p_n_passing": 0.0,
+      "minority_share_by_coverage": [
+        0.4475,
+        0.4417,
+        0.4276,
+        0.4094,
+        0.3761,
+        0.3556
+      ]
+    }
+  },
+  "limitations": [
+    "development set only; NOT product capability",
+    "the null permutes labels only; it does not create new cases, so it tests information content, not generalisation to a new cohort",
+    "200 permutations bound the smallest resolvable p at 0.0050",
+    "a small p means the pattern is not multiplicity; it does NOT mean the coverage point is calibrated for shipping, which needs held-out data"
+  ]
+}
