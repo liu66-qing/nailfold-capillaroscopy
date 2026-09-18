@@ -1,0 +1,49 @@
+{
+  "purpose": "instance-level vessel geometry, recovering the topology and per-vessel shape that seg_vessel_v2_handoff.md section 5.3 discarded when it passed 13 scalars downstream",
+  "n_cases": 186,
+  "n_images": 1708,
+  "n_features_case": 209,
+  "instances_per_image_mean": 16.125292740046838,
+  "instances_per_image_median": 15.0,
+  "instances_total": 27542,
+  "locked_cases_seen": 0,
+  "fold_matched_inference": true,
+  "fold_rule": "case with development_fold==k inferred with seg_vessel_fold{k} (held it out)",
+  "weights": {
+    "fold0": {
+      "path": "/root/autodl-tmp/nailfold/artifacts/models/seg_vessel_fold0/weights/best.pt",
+      "sha256": "baee61d6a439fe03c8649d79a1f96efb81ac05d857eea476dbe9ff58e79fac2c",
+      "bytes": 45116662
+    },
+    "fold1": {
+      "path": "/root/autodl-tmp/nailfold/artifacts/models/seg_vessel_fold1/weights/best.pt",
+      "sha256": "2aa9317263fd2ad6322fd3e833304b216abb108226c82bb1f7a98283eee7638f",
+      "bytes": 45126582
+    },
+    "fold2": {
+      "path": "/root/autodl-tmp/nailfold/artifacts/models/seg_vessel_fold2/weights/best.pt",
+      "sha256": "2d83c7f2290d67a24242faf3bb6fbb08042f1c57c7c441fba31c1cdcdffb4ce9",
+      "bytes": 134910211
+    },
+    "fold3": {
+      "path": "/root/autodl-tmp/nailfold/artifacts/models/seg_vessel_fold3/weights/best.pt",
+      "sha256": "4c3a612cbf53c01f2c5ed7d1ea6e6e3d4202012011784d7f5b92bcab5b39f269",
+      "bytes": 45131574
+    },
+    "fold4": {
+      "path": "/root/autodl-tmp/nailfold/artifacts/models/seg_vessel_fold4/weights/best.pt",
+      "sha256": "f262aaf780d61e46e2e3818891d176b8664d479d8f1857f109c209c6748b1113",
+      "bytes": 45122550
+    }
+  },
+  "conf_threshold": 0.25,
+  "imgsz": 1024,
+  "failures": [],
+  "n_failures": 0,
+  "limitations": [
+    "geometry is in pixels and scale-free ratios; no micron claim, calibration_factors.json deliberately unused (label back-fitted, four inconsistent values)",
+    "crossing is a geometric proxy (mask IoU > 0.10 and centroid proximity), not a validated clinical crossing definition",
+    "malformation proxies use fixed thresholds (circularity<0.30, solidity<0.80, elongation>4.0) chosen a priori, not tuned on labels",
+    "features only; whether they raise any field is decided by the unchanged downstream ruler, not by this file"
+  ]
+}

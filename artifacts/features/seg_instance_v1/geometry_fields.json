@@ -1,0 +1,249 @@
+{
+  "config": {
+    "C": 0.03,
+    "n_boot": 2000,
+    "seed": 20260918,
+    "locked_cases_seen": 0,
+    "n_cases": 186,
+    "blocks": {
+      "topology": 30,
+      "shape_spread": 45,
+      "abnormal_frac": 18,
+      "density": 31
+    },
+    "ensemble": "fixed equal weights over all 4 blocks, no block selected after seeing results"
+  },
+  "fields": {
+    "crossing_ratio": {
+      "labelled_cases": 179,
+      "label_raw_top": {
+        "<=30%": 112,
+        "30--60%": 48,
+        "60--80%": 12,
+        "nan": 7,
+        ">80%": 5,
+        "[<30%]": 1
+      },
+      "ensemble": {
+        "n": 179,
+        "accuracy": 0.6369,
+        "majority_baseline": 0.6313,
+        "delta": 0.0056,
+        "delta_ci95": [
+          -0.0616,
+          0.0782
+        ],
+        "usable": false,
+        "abnormal_share": 0.3687
+      },
+      "members": {
+        "topology": {
+          "n": 179,
+          "accuracy": 0.5419,
+          "majority_baseline": 0.6313,
+          "delta": -0.0894,
+          "delta_ci95": [
+            -0.162,
+            -0.0168
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        },
+        "shape_spread": {
+          "n": 179,
+          "accuracy": 0.5866,
+          "majority_baseline": 0.6313,
+          "delta": -0.0447,
+          "delta_ci95": [
+            -0.1229,
+            0.0391
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        },
+        "abnormal_frac": {
+          "n": 179,
+          "accuracy": 0.6201,
+          "majority_baseline": 0.6313,
+          "delta": -0.0112,
+          "delta_ci95": [
+            -0.0782,
+            0.0559
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        },
+        "density": {
+          "n": 179,
+          "accuracy": 0.6089,
+          "majority_baseline": 0.6313,
+          "delta": -0.0223,
+          "delta_ci95": [
+            -0.095,
+            0.0503
+          ],
+          "usable": false,
+          "abnormal_share": 0.3687
+        }
+      },
+      "members_passing_alone": 0,
+      "note": "only 'ensemble' is a deliverable number; a member that passes alone was found by looking at all members, which is the refuted selection bias"
+    },
+    "malformation_ratio": {
+      "labelled_cases": 163,
+      "label_raw_top": {
+        "<=10%": 92,
+        "10--30%": 25,
+        ">60%": 25,
+        "nan": 23,
+        "30--60%": 20,
+        "[<10%]": 1
+      },
+      "ensemble": {
+        "n": 163,
+        "accuracy": 0.5644,
+        "majority_baseline": 0.5706,
+        "delta": -0.0061,
+        "delta_ci95": [
+          -0.0982,
+          0.0798
+        ],
+        "usable": false,
+        "abnormal_share": 0.4294
+      },
+      "members": {
+        "topology": {
+          "n": 163,
+          "accuracy": 0.5399,
+          "majority_baseline": 0.5706,
+          "delta": -0.0307,
+          "delta_ci95": [
+            -0.1227,
+            0.0554
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        },
+        "shape_spread": {
+          "n": 163,
+          "accuracy": 0.5828,
+          "majority_baseline": 0.5706,
+          "delta": 0.0123,
+          "delta_ci95": [
+            -0.0859,
+            0.1043
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        },
+        "abnormal_frac": {
+          "n": 163,
+          "accuracy": 0.5276,
+          "majority_baseline": 0.5706,
+          "delta": -0.0429,
+          "delta_ci95": [
+            -0.135,
+            0.0429
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        },
+        "density": {
+          "n": 163,
+          "accuracy": 0.5644,
+          "majority_baseline": 0.5706,
+          "delta": -0.0061,
+          "delta_ci95": [
+            -0.1043,
+            0.0859
+          ],
+          "usable": false,
+          "abnormal_share": 0.4294
+        }
+      },
+      "members_passing_alone": 0,
+      "note": "only 'ensemble' is a deliverable number; a member that passes alone was found by looking at all members, which is the refuted selection bias"
+    },
+    "capillary_count": {
+      "labelled_cases": 182,
+      "label_raw_top": {
+        ">=7": 125,
+        "5--6": 42,
+        "3--4": 14,
+        "nan": 3,
+        "<1": 1,
+        "条/mm": 1
+      },
+      "ensemble": {
+        "n": 182,
+        "accuracy": 0.7143,
+        "majority_baseline": 0.6868,
+        "delta": 0.0275,
+        "delta_ci95": [
+          -0.044,
+          0.1044
+        ],
+        "usable": false,
+        "abnormal_share": 0.3132
+      },
+      "members": {
+        "topology": {
+          "n": 182,
+          "accuracy": 0.7033,
+          "majority_baseline": 0.6868,
+          "delta": 0.0165,
+          "delta_ci95": [
+            -0.0604,
+            0.0935
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        },
+        "shape_spread": {
+          "n": 182,
+          "accuracy": 0.6923,
+          "majority_baseline": 0.6868,
+          "delta": 0.0055,
+          "delta_ci95": [
+            -0.0714,
+            0.0824
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        },
+        "abnormal_frac": {
+          "n": 182,
+          "accuracy": 0.7418,
+          "majority_baseline": 0.6868,
+          "delta": 0.0549,
+          "delta_ci95": [
+            -0.022,
+            0.1319
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        },
+        "density": {
+          "n": 182,
+          "accuracy": 0.7582,
+          "majority_baseline": 0.6868,
+          "delta": 0.0714,
+          "delta_ci95": [
+            0.0,
+            0.1484
+          ],
+          "usable": false,
+          "abnormal_share": 0.3132
+        }
+      },
+      "members_passing_alone": 0,
+      "note": "only 'ensemble' is a deliverable number; a member that passes alone was found by looking at all members, which is the refuted selection bias"
+    }
+  },
+  "limitations": [
+    "development set only (n<=186); NOT product capability and NOT a locked-47 result",
+    "labels are ordinal interval strings binarised at the normal-band boundary; a finer ordinal target was not attempted here",
+    "crossing/malformation proxies are geometric (mask IoU, circularity, solidity) with a-priori thresholds, not validated clinical definitions",
+    "no micron claim; calibration_factors.json unused"
+  ]
+}
