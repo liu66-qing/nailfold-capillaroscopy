@@ -1,0 +1,209 @@
+{
+  "malformation_ratio": {
+    "n": 163,
+    "geom": {
+      "ensemble": {
+        "n": 163,
+        "accuracy": 0.6074,
+        "baseline": 0.5706,
+        "delta": 0.0368,
+        "ci95": [
+          -0.0615,
+          0.135
+        ],
+        "usable": false,
+        "abnormal_share": 0.4294
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.0798,
+        "max": -0.0123,
+        "min": 0.0061,
+        "topk2_mean": 0.0123,
+        "median": 0.0613
+      }
+    },
+    "dino": {
+      "ensemble": {
+        "n": 163,
+        "accuracy": 0.6074,
+        "baseline": 0.5706,
+        "delta": 0.0368,
+        "ci95": [
+          -0.0798,
+          0.1411
+        ],
+        "usable": false,
+        "abnormal_share": 0.4294
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.0982,
+        "max": -0.092,
+        "min": 0.0245,
+        "topk2_mean": -0.0675,
+        "median": 0.0552
+      }
+    },
+    "concat": {
+      "ensemble": {
+        "n": 163,
+        "accuracy": 0.6135,
+        "baseline": 0.5706,
+        "delta": 0.0429,
+        "ci95": [
+          -0.0736,
+          0.1534
+        ],
+        "usable": false,
+        "abnormal_share": 0.4294
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.092,
+        "max": -0.0552,
+        "min": 0.0184,
+        "topk2_mean": -0.0552,
+        "median": 0.0798
+      }
+    }
+  },
+  "capillary_count": {
+    "n": 182,
+    "geom": {
+      "ensemble": {
+        "n": 182,
+        "accuracy": 0.7582,
+        "baseline": 0.6868,
+        "delta": 0.0714,
+        "ci95": [
+          0.0,
+          0.1429
+        ],
+        "usable": false,
+        "abnormal_share": 0.3132
+      },
+      "members_passing": 2,
+      "member_deltas": {
+        "mean": 0.0604,
+        "max": -0.1209,
+        "min": 0.0,
+        "topk2_mean": -0.0879,
+        "median": 0.0714
+      }
+    },
+    "dino": {
+      "ensemble": {
+        "n": 182,
+        "accuracy": 0.7088,
+        "baseline": 0.6868,
+        "delta": 0.022,
+        "ci95": [
+          -0.0549,
+          0.1044
+        ],
+        "usable": false,
+        "abnormal_share": 0.3132
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.011,
+        "max": -0.2857,
+        "min": 0.0,
+        "topk2_mean": -0.2308,
+        "median": 0.0275
+      }
+    },
+    "concat": {
+      "ensemble": {
+        "n": 182,
+        "accuracy": 0.7033,
+        "baseline": 0.6868,
+        "delta": 0.0165,
+        "ci95": [
+          -0.0659,
+          0.1044
+        ],
+        "usable": false,
+        "abnormal_share": 0.3132
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.044,
+        "max": -0.2582,
+        "min": 0.0055,
+        "topk2_mean": -0.2088,
+        "median": 0.033
+      }
+    }
+  },
+  "crossing_ratio": {
+    "n": 179,
+    "geom": {
+      "ensemble": {
+        "n": 179,
+        "accuracy": 0.6257,
+        "baseline": 0.6369,
+        "delta": -0.0112,
+        "ci95": [
+          -0.0615,
+          0.0391
+        ],
+        "usable": false,
+        "abnormal_share": 0.3631
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": 0.0,
+        "max": -0.1173,
+        "min": 0.0,
+        "topk2_mean": -0.0838,
+        "median": 0.0
+      }
+    },
+    "dino": {
+      "ensemble": {
+        "n": 179,
+        "accuracy": 0.5698,
+        "baseline": 0.6369,
+        "delta": -0.067,
+        "ci95": [
+          -0.1508,
+          0.0223
+        ],
+        "usable": false,
+        "abnormal_share": 0.3631
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": -0.0559,
+        "max": -0.1955,
+        "min": 0.0112,
+        "topk2_mean": -0.1844,
+        "median": -0.0615
+      }
+    },
+    "concat": {
+      "ensemble": {
+        "n": 179,
+        "accuracy": 0.5251,
+        "baseline": 0.6369,
+        "delta": -0.1117,
+        "ci95": [
+          -0.2013,
+          -0.0223
+        ],
+        "usable": false,
+        "abnormal_share": 0.3631
+      },
+      "members_passing": 0,
+      "member_deltas": {
+        "mean": -0.0447,
+        "max": -0.2179,
+        "min": 0.0112,
+        "topk2_mean": -0.2067,
+        "median": -0.0335
+      }
+    }
+  }
+}
