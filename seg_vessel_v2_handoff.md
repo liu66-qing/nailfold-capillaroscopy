@@ -20,7 +20,16 @@
 > 0.952 度量的是"标了的都找到了"，不是"该找的都找到了"。
 >
 > **② §9.1「用 `case_features.csv` (233 例) 训练分类模型」——禁止执行。**
-> 该文件含 **47 例 locked_test**。照此执行即在最终测试集上训练。
+> 该文件含 **47 例 locked_test**。照此执行即在最终测试集上训练。实测：
+>
+> ```
+> case_features rows: 233
+> LOCKED cases present in this file: 47
+> ```
+>
+> 误导的机制在 §5.1 自身就自相矛盾：它写「行数 233 例（与 evaluation_role="development" 对应）」，
+> 但 development **只有 186 例**。233 = 186 + 47，即该文件装的是**全部**病例，
+> 而说明文字称它是开发集。读者照 §9.1 执行就会静默地把 locked-47 拉进训练。
 > 正确做法：只用 `evaluation_role == "development"` 的 186 例，
 > 且只用 `development_fold` 划分折（NaN 即 locked47），不要用 `split` 列。
 >
@@ -95,7 +104,11 @@
 ### 5.1 开发集特征 (用于训练分类模型)
 
 - **路径**: `/root/nailfold/artifacts/features/seg_vessel_v2/case_features.csv`
-- **行数**: 233 例 (与 `locked_evaluation_v1.csv` 中 evaluation_role="development" 对应)
+- ~~**行数**: 233 例 (与 `locked_evaluation_v1.csv` 中 evaluation_role="development" 对应)~~
+
+> ⚠️ **这一行是错的，是本文档最危险的一处。** development 只有 **186** 例；
+> 233 = 186 + 47，该文件装的是**全部**病例，含 47 例 locked_test（已实测确认）。
+> 它不是开发集特征文件。要用它必须先按 `evaluation_role == "development"` 过滤。
 
 ### 5.2 锁定测试集特征 (用于最终评估)
 
