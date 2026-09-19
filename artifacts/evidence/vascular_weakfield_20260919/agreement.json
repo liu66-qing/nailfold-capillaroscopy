@@ -1,0 +1,119 @@
+{
+  "question": "are the 血管数据集 weak-field labels the same supervision as our clinical labels, on the same images?",
+  "n_external_rows": 582,
+  "n_images_hash_matched_to_our_development_cases": 96,
+  "n_images_hash_matched_to_locked_cases_EXCLUDED": 32,
+  "locked_truth_read": false,
+  "results": [
+    {
+      "field": "subpapillary_venous_plexus",
+      "external_column": "乳头下静脉丛",
+      "n_development_cases_comparable": 49,
+      "n_agree": 24,
+      "case_level_agreement": 0.4898,
+      "chance_agreement": 0.3186,
+      "cohen_kappa": 0.2512,
+      "confusion": {
+        "ext=abnormal|ours=normal": 10,
+        "ext=normal|ours=not_visible": 1,
+        "ext=not_visible|ours=normal": 12,
+        "ext=not_visible|ours=not_visible": 18,
+        "ext=abnormal|ours=abnormal": 5,
+        "ext=normal|ours=normal": 1,
+        "ext=abnormal|ours=not_visible": 1,
+        "ext=normal|ours=abnormal": 1
+      },
+      "external_abnormal_share_all_582": 0.2079,
+      "our_abnormal_share_development": 0.1492,
+      "external_not_visible_share_all_582": 0.6203,
+      "our_not_visible_share_development": 0.4586,
+      "this_projects_measured_status": "FAIL LOAO archive2",
+      "label_space_note": "ours counts rows of vessels (不见/可见1排/可见2排/>2排,扩张); external is 不可见/正常/扩张. Mapped 可见1排+可见2排 -> normal."
+    },
+    {
+      "field": "rbc_aggregation",
+      "external_column": "红细胞聚集",
+      "n_development_cases_comparable": 49,
+      "n_agree": 32,
+      "case_level_agreement": 0.6531,
+      "chance_agreement": 0.5656,
+      "cohen_kappa": 0.2013,
+      "confusion": {
+        "ext=abnormal|ours=abnormal": 27,
+        "ext=normal|ours=abnormal": 15,
+        "ext=normal|ours=normal": 5,
+        "ext=abnormal|ours=normal": 2
+      },
+      "external_abnormal_share_all_582": 0.6271,
+      "our_abnormal_share_development": 0.8287,
+      "external_not_visible_share_all_582": 0.0,
+      "our_not_visible_share_development": 0.0,
+      "this_projects_measured_status": "FAIL delta -0.011",
+      "label_space_note": "ours is severity (无/轻度/中度/重度); external is binary 正常/聚集. Any severity -> abnormal."
+    },
+    {
+      "field": "papilla",
+      "external_column": "乳头",
+      "n_development_cases_comparable": 48,
+      "n_agree": 28,
+      "case_level_agreement": 0.5833,
+      "chance_agreement": 0.4813,
+      "cohen_kappa": 0.1967,
+      "confusion": {
+        "ext=abnormal|ours=abnormal": 22,
+        "ext=abnormal|ours=normal": 11,
+        "ext=not_visible|ours=abnormal": 5,
+        "ext=normal|ours=normal": 6,
+        "ext=not_visible|ours=normal": 2,
+        "ext=normal|ours=abnormal": 2
+      },
+      "external_abnormal_share_all_582": 0.4794,
+      "our_abnormal_share_development": 0.6906,
+      "external_not_visible_share_all_582": 0.1701,
+      "our_not_visible_share_development": 0.0,
+      "this_projects_measured_status": "FAIL 3-class CI includes 0",
+      "label_space_note": "ours is morphology (波纹状/浅波纹状/平坦); external is 正常/异常/不可见. 波纹状 -> normal."
+    },
+    {
+      "field": "sweat_duct",
+      "external_column": "汗腺导管",
+      "n_development_cases_comparable": 0,
+      "n_agree": 0,
+      "case_level_agreement": null,
+      "chance_agreement": null,
+      "cohen_kappa": null,
+      "confusion": {},
+      "external_abnormal_share_all_582": 0.1392,
+      "our_abnormal_share_development": 0.0,
+      "external_not_visible_share_all_582": 0.8608,
+      "our_not_visible_share_development": 0.0,
+      "this_projects_measured_status": "FAIL 2 positives, arithmetically impossible",
+      "label_space_note": "NOT COMPARABLE. Ours is a count range per nailfold (0--2, 3--4); external is visible/not_visible. 0--2 spans both, so no mapping exists without inventing a cut. Excluded rather than guessed."
+    },
+    {
+      "field": "hemorrhage",
+      "external_column": "血管是否出血",
+      "n_development_cases_comparable": 49,
+      "n_agree": 17,
+      "case_level_agreement": 0.3469,
+      "chance_agreement": 0.4594,
+      "cohen_kappa": -0.208,
+      "confusion": {
+        "ext=normal|ours=abnormal": 5,
+        "ext=normal|ours=normal": 17,
+        "ext=abnormal|ours=normal": 27
+      },
+      "external_abnormal_share_all_582": 0.2285,
+      "our_abnormal_share_development": 0.0667,
+      "external_not_visible_share_all_582": 0.0,
+      "our_not_visible_share_development": 0.0,
+      "this_projects_measured_status": "FAIL collapsed to one class, AUROC 0.331",
+      "label_space_note": "ours counts haemorrhagic loops (无/1--2/>2); external is binary 出血/正常."
+    }
+  ],
+  "how_to_read_this": [
+    "case_level_agreement is generous to the dataset: an exam counts as externally abnormal if ANY of its matched images is, and unmappable label text is dropped rather than guessed.",
+    "a large gap between external_abnormal_share and our share on the same field is evidence of a different operational definition, independent of the agreement number.",
+    "this is not an inter-rater reliability study. The external annotator labelled crops; our label is an exam-level clinical answer. Low agreement means they are not interchangeable, not that either is wrong."
+  ]
+}
