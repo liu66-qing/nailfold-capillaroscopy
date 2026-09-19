@@ -1,0 +1,69 @@
+{
+  "source": {
+    "doi": "10.17632/8wrjdknb5k.1",
+    "licence": "CC BY 4.0",
+    "root": "data/The number of nail fold capillaries/The number of nail fold capillaries and nail fold bleedings reflects the clinical manifestations of systemic sclerosis"
+  },
+  "inventory": {
+    "png_files": 578,
+    "zero_byte_at_source": [
+      "170117takagaki asuka4.png",
+      "170622sumiya harumi2.png"
+    ],
+    "images_decoded": 576,
+    "control_images_excluded_from_cohort": [
+      "control fukasawa takemichi.png",
+      "control shishido naomi.png"
+    ],
+    "patient_images": 574,
+    "patient_exams": 78,
+    "patient_persons": 35,
+    "persons_with_multiple_exams": 19,
+    "images_with_two_panels": 243
+  },
+  "correction_to_my_earlier_exact_colour_scan": {
+    "earlier_red_components_exact_255_0_0": 13834,
+    "now_red_components_tolerant": 18289,
+    "earlier_yellow": 2979,
+    "now_yellow": 2894,
+    "white_channel_dropped": "the 6499 'white' components I listed are solid unsaturated blobs -- specular highlights in the photograph, not markers. A hue histogram over saturated pixels has exactly two peaks, red and yellow, and no third."
+  },
+  "red_dots_per_image": {
+    "median": 28.0,
+    "mean": 31.83,
+    "min": 0,
+    "max": 115,
+    "images_with_zero": 3,
+    "total": 18272
+  },
+  "yellow_strokes_per_image": {
+    "median": 5.0,
+    "min": 1,
+    "max": 11,
+    "total": 2885,
+    "correlation_with_red_count": -0.012
+  },
+  "what_the_red_dots_mark": {
+    "median_nearest_neighbour_px": 16.1,
+    "median_y_std_over_height": 0.137,
+    "mean_luminance_above_marker": 138.9,
+    "mean_luminance_below_marker": 126.1,
+    "below_minus_above": -12.8,
+    "reading": "dots lie in a band (y_std/H ~0.14) at ~15 px spacing across most of the width, and the dark structure is BELOW each dot. That is one row of capillary loops with the dot on each tip."
+  },
+  "UNRESOLVED_nfc_vs_nfb": {
+    "problem": "the paper annotates BOTH capillaries (NFC) and bleedings (NFB), but only ONE dot colour exists.",
+    "consequence": "red cannot be assigned to capillary_count without external confirmation. Output is named n_red_dots, not capillary_count.",
+    "how_to_resolve": "read the source publication's figure legend, or ask the depositors. Not answerable from pixels."
+  },
+  "hard_constraints_for_any_use": [
+    "no clean frame exists: markers cover pixels in every decoded image (median marker fraction 0.0069), so appearance fields (clarity, blood_color, exudation) cannot be read off these images without inpainting, and inpainting itself changes clarity statistics.",
+    "243 images are 2-panel composites (a large field plus a ~340x240 inset). A per-image dot count mixes two fields of view; panel_rank is emitted per dot so counts can be restricted to the largest panel.",
+    "cohort is 35 persons over 78 exams -- repeat visits, not new people. Any split must be BY PERSON.",
+    "two files are 0 bytes at source, not a broken download.",
+    "the two `control <name>.png` files are healthy controls with no date and no image index; excluded from the patient cohort here."
+  ],
+  "images_opened_from_our_cohort": 0,
+  "locked_cases_seen": 0,
+  "models_run": 0
+}
