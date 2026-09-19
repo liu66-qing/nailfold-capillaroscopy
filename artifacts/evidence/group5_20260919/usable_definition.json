@@ -1,0 +1,328 @@
+{
+  "which_five_fields": {
+    "the_five_fields_named_in_the_delivery_form": [
+      "clarity",
+      "subpapillary_venous_plexus",
+      "exudation",
+      "blood_color",
+      "malformation_ratio"
+    ],
+    "but_that_list_was_never_one_configuration": "The delivery form's A1 table mixed two pipelines: clarity, exudation, blood_color and malformation_ratio came from a geometry+DINOv2 concat run, while subpapillary_venous_plexus came from the 5-pooling ensemble. SVP is not even a field in the concat run. Under ONE configuration the development count is FOUR, not five, because malformation_ratio's development CI already covered zero.",
+    "count_by_ruler": {
+      "development_OOF_single_configuration": 4,
+      "locked_ruler_A_frozen_dev_majority": 1,
+      "locked_ruler_B_stricter": 0
+    },
+    "honest_answer": "On the held-out cohort, under the stricter of the two baselines, ZERO of the five fields pass. The '5 usable fields' number came from development OOF on a mixed configuration and must not be reported as product capability."
+  },
+  "what_usable_meant": {
+    "the_standard_actually_used_in_this_project": {
+      "definition": "case-level OOF accuracy minus the accuracy of a single constant answer (the frozen development majority class), with a 2000-sample bootstrap 95% CI whose lower bound must exceed 0",
+      "it_is_NOT": [
+        "not an F1 threshold",
+        "not a doctor's acceptability judgement -- no clinician has reviewed these outputs",
+        "not stability across hospitals -- all data is the same three archives from the same source, and no device metadata exists",
+        "not 90% accuracy or any absolute number"
+      ],
+      "it_IS_mostly": "validation-set (development OOF) accuracy above a constant-answer baseline. Which is exactly the weak reading: it is a development-set number."
+    },
+    "why_the_baseline_matters_more_than_the_accuracy": "A field with 5% prevalence gets 95% accuracy from always answering 'normal'. Accuracy alone is meaningless here, which is why every number in this project is reported as a delta against a constant answer. Group 3 adds balanced accuracy, macro-F1, AUROC/AUPRC and PPV/NPV so the user can apply their own ruler.",
+    "two_baselines_and_why": "The protocol baseline is the FROZEN development majority answer. When prevalence flips between cohorts that frozen answer can be the WRONG answer on the new cohort, which drops the baseline and inflates the delta with no model improvement. clarity is exactly this: ruler A gives +0.3913, ruler B gives +0.0870 with a CI covering zero. Rule: record both, report the stricter one, never use either to select a configuration.",
+    "no_clinical_acceptability_standard_exists_here": "UNVERIFIED and honestly UNDEFINED. No clinician has set a numeric threshold for this product, no regulator sets one, and this project has never asked a doctor whether any of these outputs is acceptable. Any 'usable' claim is currently an engineering statement only."
+  },
+  "per_field_all_rulers": {
+    "clarity": {
+      "development_oof": {
+        "accuracy": 0.8378,
+        "delta": 0.3297,
+        "baseline": 0.5081,
+        "n": 185,
+        "passes_on_development": true
+      },
+      "locked_ruler_A_frozen_dev_majority": {
+        "delta": 0.3913,
+        "ci95": [
+          0.1957,
+          0.587
+        ],
+        "passes": true
+      },
+      "locked_ruler_B_locked_own_majority": {
+        "delta": 0.087,
+        "ci95": [
+          -0.0875,
+          0.2609
+        ],
+        "passes": false,
+        "is_the_stricter_ruler": true
+      },
+      "locked_auroc": 0.7521,
+      "locked_balanced_accuracy": 0.7271,
+      "locked_ppv": 0.6111,
+      "cnn_backbone_delta_on_development": 0.2216,
+      "best_human_feature_delta_on_development": 0.0486,
+      "beaten_by_a_simple_feature_model_on_locked": false,
+      "verdict_under_the_strict_ruler": "FAIL -- CI covers zero"
+    },
+    "subpapillary_venous_plexus": {
+      "development_oof": {
+        "accuracy": 0.837,
+        "delta": 0.2663,
+        "baseline": 0.5707,
+        "n": 184,
+        "passes_on_development": true
+      },
+      "locked_ruler_A_frozen_dev_majority": {
+        "delta": 0.1277,
+        "ci95": [
+          -0.0426,
+          0.2979
+        ],
+        "passes": false
+      },
+      "locked_ruler_B_locked_own_majority": {
+        "delta": 0.1277,
+        "ci95": [
+          -0.0426,
+          0.2979
+        ],
+        "passes": false,
+        "is_the_stricter_ruler": false
+      },
+      "locked_auroc": 0.8105,
+      "locked_balanced_accuracy": 0.7782,
+      "locked_ppv": 0.8621,
+      "cnn_backbone_delta_on_development": 0.0761,
+      "best_human_feature_delta_on_development": -0.0326,
+      "beaten_by_a_simple_feature_model_on_locked": false,
+      "verdict_under_the_strict_ruler": "FAIL -- CI covers zero"
+    },
+    "exudation": {
+      "development_oof": {
+        "accuracy": 0.7486,
+        "delta": 0.2404,
+        "baseline": 0.5082,
+        "n": 183,
+        "passes_on_development": true
+      },
+      "locked_ruler_A_frozen_dev_majority": {
+        "delta": 0.0638,
+        "ci95": [
+          -0.1277,
+          0.2553
+        ],
+        "passes": false
+      },
+      "locked_ruler_B_locked_own_majority": {
+        "delta": 0.0,
+        "ci95": [
+          -0.1915,
+          0.2128
+        ],
+        "passes": false,
+        "is_the_stricter_ruler": true
+      },
+      "locked_auroc": 0.5855,
+      "locked_balanced_accuracy": 0.5355,
+      "locked_ppv": 0.5714,
+      "cnn_backbone_delta_on_development": 0.2186,
+      "best_human_feature_delta_on_development": 0.0383,
+      "beaten_by_a_simple_feature_model_on_locked": true,
+      "verdict_under_the_strict_ruler": "FAIL -- CI covers zero"
+    },
+    "blood_color": {
+      "development_oof": {
+        "accuracy": 0.6851,
+        "delta": 0.1326,
+        "baseline": 0.5525,
+        "n": 181,
+        "passes_on_development": true
+      },
+      "locked_ruler_A_frozen_dev_majority": {
+        "delta": 0.1136,
+        "ci95": [
+          -0.0909,
+          0.3182
+        ],
+        "passes": false
+      },
+      "locked_ruler_B_locked_own_majority": {
+        "delta": 0.1136,
+        "ci95": [
+          -0.0909,
+          0.3182
+        ],
+        "passes": false,
+        "is_the_stricter_ruler": false
+      },
+      "locked_auroc": 0.7081,
+      "locked_balanced_accuracy": 0.6356,
+      "locked_ppv": 0.619,
+      "cnn_backbone_delta_on_development": 0.1381,
+      "best_human_feature_delta_on_development": 0.1381,
+      "beaten_by_a_simple_feature_model_on_locked": true,
+      "verdict_under_the_strict_ruler": "FAIL -- CI covers zero"
+    },
+    "malformation_ratio": {
+      "development_oof": {
+        "accuracy": 0.6481,
+        "delta": 0.0802,
+        "baseline": 0.5679,
+        "n": 162,
+        "passes_on_development": false
+      },
+      "locked_ruler_A_frozen_dev_majority": {
+        "delta": 0.1026,
+        "ci95": [
+          -0.0513,
+          0.2564
+        ],
+        "passes": false
+      },
+      "locked_ruler_B_locked_own_majority": {
+        "delta": 0.0256,
+        "ci95": [
+          -0.2308,
+          0.3077
+        ],
+        "passes": false,
+        "is_the_stricter_ruler": true
+      },
+      "locked_auroc": 0.6561,
+      "locked_balanced_accuracy": 0.5833,
+      "locked_ppv": 0.7,
+      "cnn_backbone_delta_on_development": 0.0062,
+      "best_human_feature_delta_on_development": 0.0247,
+      "beaten_by_a_simple_feature_model_on_locked": true,
+      "verdict_under_the_strict_ruler": "FAIL -- CI covers zero"
+    }
+  },
+  "measurement_fields": {
+    "q_can_the_target_be_localised_in_the_image": {
+      "answer": "The loops are visible and a segmenter does find instances, but the segmenter systematically MISSES the abnormal vessels. The correlation between segmenter-derived geometry and the clinical label has the WRONG SIGN (frac_low_circ vs malformation rho=-0.257; n_inst vs capillary_count rho=-0.382). So localisation exists but is biased against exactly the cases that matter.",
+      "source": "nailfold-seg-misses-abnormal; SEG_RETRAIN_MISSES_20260918"
+    },
+    "q_are_there_pixel_or_keypoint_annotations": {
+      "answer": "NO. ZERO human annotations exist.",
+      "annotation_template_files": 43,
+      "status_counts": {
+        "needs_annotation": 43
+      },
+      "reviewer_counts": {
+        "<empty>": 43
+      },
+      "total_annotated_instances": 0,
+      "files_with_a_um_per_pixel": 0,
+      "what_this_means": "The annotation round was prepared -- 43 case templates with polygon/centerline/apex/afferent-base/efferent-base slots and a MedSAM draft overlay -- and never filled in. Every file is status=needs_annotation with an empty reviewer and zero instances. There is no pixel-level, keypoint-level or mask-level human ground truth anywhere in this project."
+    },
+    "q_is_there_a_reliable_micron_scale": {
+      "answer": "NO. There is no calibration.",
+      "detail": "calibration_factors.json holds per-fold-per-archive coef/intercept pairs BACK-FITTED from the labels themselves, with four mutually inconsistent values. That is label regression, not calibration. The annotation schema itself records scale.source='missing', um_per_pixel=null, magnification=null on all 43 files, and the round manifest states absolute_measurement_status='blocked until scale.um_per_pixel is externally calibrated'.",
+      "no_acquisition_metadata": "device, magnification and protocol are recorded nowhere (group 2); EXIF is empty; so the scale cannot be recovered after the fact either",
+      "hard_rule": "no micron value may be output for any field, and um_per_pixel must never be cited as calibration evidence"
+    },
+    "q_continuous_regression_or_pre_discretised": {
+      "answer": "PRE-DISCRETISED, and coarsely. The labels are a handful of round numbers per field, so the label granularity is the ceiling, not the model. Measured consequence: 4 of 5 measurement targets do not beat a median-constant baseline, and the spacing between adjacent label levels is SMALLER than the model's MAE -- the target is unresolvable at this granularity.",
+      "per_field": {
+        "afferent_diameter": {
+          "n_labelled": 209,
+          "n_missing": 24,
+          "n_distinct_values": 26,
+          "most_common_values": {
+            "10.0": 31,
+            "8.0": 30,
+            "13.0": 27,
+            "11.0": 26,
+            "7.0": 22,
+            "14.0": 16,
+            "6.0": 11,
+            "9.0": 9
+          },
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 26 distinct values over 209 exams, and the top values carry most of the mass."
+        },
+        "efferent_diameter": {
+          "n_labelled": 208,
+          "n_missing": 25,
+          "n_distinct_values": 28,
+          "most_common_values": {
+            "14.0": 28,
+            "11.0": 25,
+            "13.0": 23,
+            "15.0": 19,
+            "10.0": 17,
+            "18.0": 14,
+            "17.0": 13,
+            "19.0": 11
+          },
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 28 distinct values over 208 exams, and the top values carry most of the mass."
+        },
+        "apex_diameter": {
+          "n_labelled": 213,
+          "n_missing": 20,
+          "n_distinct_values": 40,
+          "most_common_values": {
+            "13.0": 24,
+            "14.0": 19,
+            "19.0": 16,
+            "18.0": 13,
+            "11.0": 13,
+            "17.0": 13,
+            "21.0": 12,
+            "10.0": 12
+          },
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 40 distinct values over 213 exams, and the top values carry most of the mass."
+        },
+        "loop_length": {
+          "n_labelled": 221,
+          "n_missing": 12,
+          "n_distinct_values": 161,
+          "most_common_values": {
+            "316.0": 4,
+            "125.0": 4,
+            "228.0": 4,
+            "143.0": 4,
+            "288.0": 3,
+            "131.0": 3,
+            "120.0": 3,
+            "242.0": 3
+          },
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 161 distinct values over 221 exams, and the top values carry most of the mass."
+        },
+        "flow_speed_um_s": {
+          "n_labelled": 0,
+          "n_missing": 233,
+          "n_distinct_values": 0,
+          "most_common_values": {},
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 0 distinct values over 0 exams, and the top values carry most of the mass."
+        },
+        "output_input_ratio": {
+          "n_labelled": 216,
+          "n_missing": 17,
+          "n_distinct_values": 24,
+          "most_common_values": {
+            "1.3": 40,
+            "1.4": 30,
+            "1.6": 19,
+            "1.1": 17,
+            "1.5": 15,
+            "1.0": 15,
+            "1.2": 14,
+            "1.7": 10
+          },
+          "continuous_or_discretised": "PRE-DISCRETISED by the reporting doctor -- the report records a small number of round values, not a measured continuum. 24 distinct values over 216 exams, and the top values carry most of the mass."
+        }
+      },
+      "source": "nailfold-measurement-reality; nailfold-label-granularity-ceiling"
+    },
+    "q_inter_doctor_agreement": {
+      "answer": "UNKNOWN AND UNCOMPUTABLE. Every field in this dataset has exactly ONE reading, transcribed from one clinical report. There is no second reader for any exam, so no kappa, no ICC, no agreement statistic of any kind can be computed. A decision was previously taken not to run a two-reader re-annotation.",
+      "consequence": "the irreducible label noise is unmeasured, so there is no known ceiling to compare model performance against -- a model at 0.74 accuracy cannot be said to be near or far from the human ceiling"
+    },
+    "which_measurement_field_is_deliverable": "NONE as a micron value. The only measurement-derived output that was ever defensible is a BINARY 'is it dilated' recast, and even that has not been validated on the held-out cohort under the strict ruler. output_input_ratio must not be modelled at all: it is efferent/afferent, an arithmetic identity of two other fields."
+  },
+  "limitations": [
+    "every 'passes' flag here is a delta-vs-constant-answer test at n<=47 on locked, where the CI half-width is about +-0.14 to +-0.21; a FAIL means UNRESOLVED, not proven-zero",
+    "locked-47 is the same sites and the same capture pipeline as development: internal held-out, NOT external validation. This project has zero external validation.",
+    "the cohort's one-shot budget was already spent at least five times with model selection performed on it in three runs"
+  ]
+}

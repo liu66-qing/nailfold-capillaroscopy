@@ -1,0 +1,474 @@
+{
+  "part1_configuration": {
+    "encoder": {
+      "model": "timm vit_base_patch14_dinov2.lvd142m",
+      "family": "DINOv2 ViT-B/14, LVD-142M pretraining",
+      "parameters": 86579712,
+      "parameters_m": 86.6,
+      "embed_dim": 768,
+      "depth": 12,
+      "patch_size": [
+        14,
+        14
+      ],
+      "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "weights_identical_dev_and_locked": true,
+      "frozen_or_finetuned": "FROZEN. model.eval(), no gradient, no LoRA, no unfrozen blocks. The only trained parameters in the delivered configuration are the PCA basis and one logistic regression per field.",
+      "trainable_parameter_count_in_delivery": "PCA(64) basis + LogisticRegression on 64 dims = 65 trainable numbers per field (64 coefficients + 1 intercept), plus the unsupervised PCA/scaler fit"
+    },
+    "preprocessing": {
+      "resize": "bicubic to 518x686 (NOT square; square_center_crop=false)",
+      "patch_grid": [
+        37,
+        49
+      ],
+      "normalisation": "ImageNet mean/std",
+      "pos_embed": "bicubically resampled from the 37x37 pretrain grid",
+      "augmentation": "NONE. No flip, no rotation, no colour jitter, no crop jitter. Features are extracted once per image and reused.",
+      "tta": "NONE in the delivered configuration"
+    },
+    "input_unit": {
+      "what_the_model_sees": "ONE STILL IMAGE at a time",
+      "training_rows": "image rows; the exam-level label is broadcast to every image of that exam",
+      "inference_aggregation": "mean of the 5 pooling probabilities, then mean over a case's images -> one probability per case",
+      "multi_crop": "NO",
+      "video_frames": "NOT USED. 242 videos exist and are unused by the delivered configuration.",
+      "patient_level_aggregation": "IMPOSSIBLE -- patient_id is null for all rows; aggregation is at exam level"
+    },
+    "poolings": {
+      "members": [
+        "mean",
+        "topk_mean",
+        "max",
+        "cls",
+        "std"
+      ],
+      "topk": 16,
+      "what_they_are": "statistics over the 37x49 patch tokens of a frozen encoder, plus the CLS token. They are not learned detectors and imply no lesion localisation."
+    },
+    "estimator": {
+      "pipeline": "StandardScaler -> PCA(64, random_state=20260917) -> LogisticRegression(C=0.03, max_iter=4000)",
+      "loss": "L2-regularised logistic loss (sklearn default lbfgs), one BINARY problem per field",
+      "class_weights": "NONE. class_weight=None deliberately -- balanced weights were tested and refuted (nailfold-perfield-selection-refuted)",
+      "sampling": "NONE. No oversampling, no undersampling, no focal loss in the delivered configuration.",
+      "multi_task_loss_weighting": "NOT APPLICABLE -- there is no multi-task model. Each field is an independent logistic regression on the same frozen features. No shared head, no shared trunk beyond the frozen encoder, no loss balancing.",
+      "one_head_per_field": "Each field has its own independent estimator. They share the features, nothing else.",
+      "threshold": 0.5,
+      "per_field_selection": "NONE -- one fixed configuration for all fields. Per-field selection was tested and shown to be negative-value (nailfold-perfield-selection-refuted)."
+    },
+    "cross_validation": {
+      "unit": "exam (exam_case_id)",
+      "column": "development_fold ONLY; the `split` column must never be used (it yields the opposite conclusion)",
+      "locked_cases_in_any_training_fold": 0
+    }
+  },
+  "part2_controls": {
+    "already_in_repository": {
+      "1_dinov2_frozen_plus_linear_classifier": {
+        "status": "THIS IS THE DELIVERED CONFIGURATION ITSELF -- no separate run is needed. The delivery is a frozen DINOv2 + PCA + linear (logistic) classifier. There is no finetuned model to compare it against in the delivered line.",
+        "numbers": "development OOF: clarity +0.3297, SVP +0.2663, exudation +0.2404, blood_color +0.1326, malformation +0.0802; locked: see group 3",
+        "source": "artifacts/experiments/variance_20260918/imagelevel_ensemble.json"
+      },
+      "4_label_randomization_sanity_check": {
+        "status": "ALREADY RUN -- 20 label shuffles per field, same pipeline",
+        "source": "artifacts/experiments/variance_20260918/imagelevel_ensemble.json keys shuffled_null_mean / shuffled_null_p95",
+        "results": {
+          "clarity": {
+            "null_mean": -0.0043,
+            "null_p95": 0.0649,
+            "real_delta": 0.3297,
+            "verdict": "real >> null"
+          },
+          "subpapillary_venous_plexus": {
+            "null_mean": -0.0448,
+            "null_p95": 0.0223,
+            "real_delta": 0.2663,
+            "verdict": "real >> null"
+          },
+          "exudation": {
+            "null_mean": -0.0134,
+            "null_p95": 0.0721,
+            "real_delta": 0.2404,
+            "verdict": "real >> null"
+          },
+          "blood_color": {
+            "null_mean": -0.0478,
+            "null_p95": 0.0235,
+            "real_delta": 0.1326,
+            "verdict": "real > null"
+          },
+          "malformation_ratio": {
+            "null_mean": -0.054,
+            "null_p95": -0.0056,
+            "real_delta": 0.0802,
+            "verdict": "real > null, but the real delta's own CI covers zero"
+          }
+        },
+        "interpretation": "The pipeline does NOT manufacture signal from noise: under shuffled labels it lands at or below zero. So the development deltas are not a leakage artifact. This says nothing about whether they generalise."
+      },
+      "6_case_level_cross_validation": {
+        "status": "ALREADY THE DEFAULT -- every number in this project uses case-level (exam-level) folds from development_fold. There is no image-level-random-split number anywhere in the delivered line.",
+        "verified": "artifacts/experiments/split_integrity_20260919/split_integrity.json: 0 exams and 0 duplicate_groups span the split; 0 of 2089 image hashes shared across it",
+        "caveat": "case-level, NOT patient-level. patient_id is null for all 233 rows, so if one person was examined twice their exams could straddle the split undetected. UNQUANTIFIED."
+      }
+    },
+    "run_by_this_script": {
+      "_scope": "DEVELOPMENT ONLY. locked-47 is not read by this script. All numbers below are case-level OOF on the 186 development exams.",
+      "clarity": {
+        "reference_delivered_config": {
+          "n": 185,
+          "accuracy": 0.8378,
+          "baseline": 0.5081,
+          "delta": 0.3297,
+          "ci95": [
+            0.2378,
+            0.4216
+          ],
+          "balanced_accuracy": 0.8376,
+          "passes": true
+        },
+        "control3_human_features_logreg": {
+          "n": 185,
+          "accuracy": 0.5189,
+          "baseline": 0.5081,
+          "delta": 0.0108,
+          "ci95": [
+            -0.0919,
+            0.1136
+          ],
+          "balanced_accuracy": 0.5189,
+          "passes": false,
+          "features": [
+            "gray_mean_mean",
+            "gray_mean_std",
+            "gray_std_mean",
+            "gray_std_std",
+            "n_images"
+          ]
+        },
+        "control3_human_features_randomforest": {
+          "n": 185,
+          "accuracy": 0.5568,
+          "baseline": 0.5081,
+          "delta": 0.0486,
+          "ci95": [
+            -0.0486,
+            0.1514
+          ],
+          "balanced_accuracy": 0.5561,
+          "passes": false
+        },
+        "control2_imagenet_cnn_backbone": {
+          "n": 185,
+          "accuracy": 0.7297,
+          "baseline": 0.5081,
+          "delta": 0.2216,
+          "ci95": [
+            0.135,
+            0.3081
+          ],
+          "balanced_accuracy": 0.7284,
+          "passes": true,
+          "backbone": "artifacts/features_cnn/yolo11m_trunk_dev"
+        },
+        "control5_small_sample_overfit": {
+          "n_cases": 20,
+          "train_equals_test": true,
+          "in_sample_accuracy": 1.0,
+          "class_balance": {
+            "n_abnormal": 7,
+            "n_normal": 13
+          },
+          "interpretation_rule": "if this is not near 1.0, the failure is in labels/preprocessing/implementation, not in sample size. If it IS near 1.0, the pipeline can fit the data and the problem is generalisation.",
+          "in_sample_accuracy_unregularised": 1.0
+        }
+      },
+      "subpapillary_venous_plexus": {
+        "reference_delivered_config": {
+          "n": 184,
+          "accuracy": 0.837,
+          "baseline": 0.5707,
+          "delta": 0.2663,
+          "ci95": [
+            0.1793,
+            0.3533
+          ],
+          "balanced_accuracy": 0.8321,
+          "passes": true
+        },
+        "control3_human_features_logreg": {
+          "n": 184,
+          "accuracy": 0.538,
+          "baseline": 0.5707,
+          "delta": -0.0326,
+          "ci95": [
+            -0.0817,
+            0.0163
+          ],
+          "balanced_accuracy": 0.484,
+          "passes": false,
+          "features": [
+            "gray_mean_mean",
+            "gray_mean_std",
+            "gray_std_mean",
+            "gray_std_std",
+            "n_images"
+          ]
+        },
+        "control3_human_features_randomforest": {
+          "n": 184,
+          "accuracy": 0.4783,
+          "baseline": 0.5707,
+          "delta": -0.0924,
+          "ci95": [
+            -0.1793,
+            -0.0054
+          ],
+          "balanced_accuracy": 0.4567,
+          "passes": false
+        },
+        "control2_imagenet_cnn_backbone": {
+          "n": 184,
+          "accuracy": 0.6467,
+          "baseline": 0.5707,
+          "delta": 0.0761,
+          "ci95": [
+            -0.0109,
+            0.163
+          ],
+          "balanced_accuracy": 0.6294,
+          "passes": false,
+          "backbone": "artifacts/features_cnn/yolo11m_trunk_dev"
+        },
+        "control5_small_sample_overfit": {
+          "n_cases": 20,
+          "train_equals_test": true,
+          "in_sample_accuracy": 1.0,
+          "class_balance": {
+            "n_abnormal": 13,
+            "n_normal": 7
+          },
+          "interpretation_rule": "if this is not near 1.0, the failure is in labels/preprocessing/implementation, not in sample size. If it IS near 1.0, the pipeline can fit the data and the problem is generalisation.",
+          "in_sample_accuracy_unregularised": 1.0
+        }
+      },
+      "exudation": {
+        "reference_delivered_config": {
+          "n": 183,
+          "accuracy": 0.7486,
+          "baseline": 0.5082,
+          "delta": 0.2404,
+          "ci95": [
+            0.1421,
+            0.3443
+          ],
+          "balanced_accuracy": 0.7493,
+          "passes": true
+        },
+        "control3_human_features_logreg": {
+          "n": 183,
+          "accuracy": 0.5464,
+          "baseline": 0.5082,
+          "delta": 0.0383,
+          "ci95": [
+            -0.0601,
+            0.1311
+          ],
+          "balanced_accuracy": 0.5457,
+          "passes": false,
+          "features": [
+            "gray_mean_mean",
+            "gray_mean_std",
+            "gray_std_mean",
+            "gray_std_std",
+            "n_images"
+          ]
+        },
+        "control3_human_features_randomforest": {
+          "n": 183,
+          "accuracy": 0.5301,
+          "baseline": 0.5082,
+          "delta": 0.0219,
+          "ci95": [
+            -0.082,
+            0.1257
+          ],
+          "balanced_accuracy": 0.5303,
+          "passes": false
+        },
+        "control2_imagenet_cnn_backbone": {
+          "n": 183,
+          "accuracy": 0.7268,
+          "baseline": 0.5082,
+          "delta": 0.2186,
+          "ci95": [
+            0.1148,
+            0.3171
+          ],
+          "balanced_accuracy": 0.7271,
+          "passes": true,
+          "backbone": "artifacts/features_cnn/yolo11m_trunk_dev"
+        },
+        "control5_small_sample_overfit": {
+          "n_cases": 20,
+          "train_equals_test": true,
+          "in_sample_accuracy": 1.0,
+          "class_balance": {
+            "n_abnormal": 13,
+            "n_normal": 7
+          },
+          "interpretation_rule": "if this is not near 1.0, the failure is in labels/preprocessing/implementation, not in sample size. If it IS near 1.0, the pipeline can fit the data and the problem is generalisation.",
+          "in_sample_accuracy_unregularised": 1.0
+        }
+      },
+      "blood_color": {
+        "reference_delivered_config": {
+          "n": 181,
+          "accuracy": 0.6851,
+          "baseline": 0.5525,
+          "delta": 0.1326,
+          "ci95": [
+            0.0331,
+            0.232
+          ],
+          "balanced_accuracy": 0.6904,
+          "passes": true
+        },
+        "control3_human_features_logreg": {
+          "n": 181,
+          "accuracy": 0.6409,
+          "baseline": 0.5525,
+          "delta": 0.0884,
+          "ci95": [
+            0.0055,
+            0.1768
+          ],
+          "balanced_accuracy": 0.6246,
+          "passes": true,
+          "features": [
+            "gray_mean_mean",
+            "gray_mean_std",
+            "gray_std_mean",
+            "gray_std_std",
+            "n_images"
+          ]
+        },
+        "control3_human_features_randomforest": {
+          "n": 181,
+          "accuracy": 0.6906,
+          "baseline": 0.5525,
+          "delta": 0.1381,
+          "ci95": [
+            0.0442,
+            0.232
+          ],
+          "balanced_accuracy": 0.6883,
+          "passes": true
+        },
+        "control2_imagenet_cnn_backbone": {
+          "n": 181,
+          "accuracy": 0.6906,
+          "baseline": 0.5525,
+          "delta": 0.1381,
+          "ci95": [
+            0.0496,
+            0.2376
+          ],
+          "balanced_accuracy": 0.6883,
+          "passes": true,
+          "backbone": "artifacts/features_cnn/yolo11m_trunk_dev"
+        },
+        "control5_small_sample_overfit": {
+          "n_cases": 20,
+          "train_equals_test": true,
+          "in_sample_accuracy": 1.0,
+          "class_balance": {
+            "n_abnormal": 12,
+            "n_normal": 8
+          },
+          "interpretation_rule": "if this is not near 1.0, the failure is in labels/preprocessing/implementation, not in sample size. If it IS near 1.0, the pipeline can fit the data and the problem is generalisation.",
+          "in_sample_accuracy_unregularised": 1.0
+        }
+      },
+      "malformation_ratio": {
+        "reference_delivered_config": {
+          "n": 162,
+          "accuracy": 0.6481,
+          "baseline": 0.5679,
+          "delta": 0.0802,
+          "ci95": [
+            -0.0123,
+            0.1728
+          ],
+          "balanced_accuracy": 0.6304,
+          "passes": false
+        },
+        "control3_human_features_logreg": {
+          "n": 162,
+          "accuracy": 0.5926,
+          "baseline": 0.5679,
+          "delta": 0.0247,
+          "ci95": [
+            -0.0309,
+            0.0802
+          ],
+          "balanced_accuracy": 0.5439,
+          "passes": false,
+          "features": [
+            "gray_mean_mean",
+            "gray_mean_std",
+            "gray_std_mean",
+            "gray_std_std",
+            "n_images"
+          ]
+        },
+        "control3_human_features_randomforest": {
+          "n": 162,
+          "accuracy": 0.5741,
+          "baseline": 0.5679,
+          "delta": 0.0062,
+          "ci95": [
+            -0.0802,
+            0.0864
+          ],
+          "balanced_accuracy": 0.5464,
+          "passes": false
+        },
+        "control2_imagenet_cnn_backbone": {
+          "n": 162,
+          "accuracy": 0.5741,
+          "baseline": 0.5679,
+          "delta": 0.0062,
+          "ci95": [
+            -0.0802,
+            0.0866
+          ],
+          "balanced_accuracy": 0.5464,
+          "passes": false,
+          "backbone": "artifacts/features_cnn/yolo11m_trunk_dev"
+        },
+        "control5_small_sample_overfit": {
+          "n_cases": 20,
+          "train_equals_test": true,
+          "in_sample_accuracy": 1.0,
+          "class_balance": {
+            "n_abnormal": 10,
+            "n_normal": 10
+          },
+          "interpretation_rule": "if this is not near 1.0, the failure is in labels/preprocessing/implementation, not in sample size. If it IS near 1.0, the pipeline can fit the data and the problem is generalisation.",
+          "in_sample_accuracy_unregularised": 1.0
+        }
+      }
+    }
+  },
+  "locked_cases_seen": 0,
+  "missing_controls": [
+    "control 2 (conventional supervised CNN/ViT baseline) is MISSING unless --resnet-store was supplied. Without it I cannot say whether DINOv2 beats an ordinary ImageNet backbone on this data."
+  ],
+  "limitations": [
+    "every number here is DEVELOPMENT OOF and must never be reported as product capability",
+    "the human-measurable-feature control uses grey mean/std only, which is a weak stand-in for a clinical hand-crafted feature set; it bounds the trivial-signal floor and no more",
+    "the overfit test trains and tests on the same 20 cases on purpose; the number is diagnostic only and is not a performance claim",
+    "the reference row recomputes the delivered development OOF; small differences from the frozen numbers would indicate a reimplementation drift and should be checked before reading anything else"
+  ]
+}

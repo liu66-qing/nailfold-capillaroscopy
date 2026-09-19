@@ -1,0 +1,152 @@
+{
+  "what": "21 all-black placeholder images are training rows in the delivered configuration's development store; locked has none",
+  "evidence": {
+    "blank_images_in_dev_store": 21,
+    "dev_images_total": 1708,
+    "blank_frac_of_images": 0.0123,
+    "dev_cases_total": 186,
+    "dev_cases_touched": 21,
+    "blank_images_in_locked_store": 0,
+    "distinct_sha256_among_placeholders": 3,
+    "pixel_check": "mean 0.0, std 0.0, 1 unique grey value",
+    "note": "identical black inputs do NOT give identical feature vectors (max pairwise L2 15.14 on mean-pooling), so the encoder emits position/padding-dependent noise rather than one constant vector -- i.e. these rows carry spurious variance, not a single harmless duplicate"
+  },
+  "fields": {
+    "clarity": {
+      "as_delivered": {
+        "n": 185,
+        "accuracy": 0.8378,
+        "baseline": 0.5081,
+        "delta": 0.3297,
+        "ci95": [
+          0.2378,
+          0.4216
+        ],
+        "passes": true
+      },
+      "blank_dropped": {
+        "n": 185,
+        "accuracy": 0.8324,
+        "baseline": 0.5081,
+        "delta": 0.3243,
+        "ci95": [
+          0.2324,
+          0.4162
+        ],
+        "passes": true
+      },
+      "delta_change": -0.0054,
+      "cases_with_blank_and_label": 21
+    },
+    "subpapillary_venous_plexus": {
+      "as_delivered": {
+        "n": 184,
+        "accuracy": 0.837,
+        "baseline": 0.5707,
+        "delta": 0.2663,
+        "ci95": [
+          0.1793,
+          0.3533
+        ],
+        "passes": true
+      },
+      "blank_dropped": {
+        "n": 184,
+        "accuracy": 0.8315,
+        "baseline": 0.5707,
+        "delta": 0.2609,
+        "ci95": [
+          0.1739,
+          0.3478
+        ],
+        "passes": true
+      },
+      "delta_change": -0.0054,
+      "cases_with_blank_and_label": 21
+    },
+    "exudation": {
+      "as_delivered": {
+        "n": 183,
+        "accuracy": 0.7486,
+        "baseline": 0.5082,
+        "delta": 0.2404,
+        "ci95": [
+          0.1419,
+          0.3388
+        ],
+        "passes": true
+      },
+      "blank_dropped": {
+        "n": 183,
+        "accuracy": 0.7596,
+        "baseline": 0.5082,
+        "delta": 0.2514,
+        "ci95": [
+          0.1585,
+          0.3443
+        ],
+        "passes": true
+      },
+      "delta_change": 0.011,
+      "cases_with_blank_and_label": 21
+    },
+    "blood_color": {
+      "as_delivered": {
+        "n": 181,
+        "accuracy": 0.6851,
+        "baseline": 0.5525,
+        "delta": 0.1326,
+        "ci95": [
+          0.0331,
+          0.2376
+        ],
+        "passes": true
+      },
+      "blank_dropped": {
+        "n": 181,
+        "accuracy": 0.6961,
+        "baseline": 0.5525,
+        "delta": 0.1436,
+        "ci95": [
+          0.0442,
+          0.2486
+        ],
+        "passes": true
+      },
+      "delta_change": 0.011,
+      "cases_with_blank_and_label": 21
+    },
+    "malformation_ratio": {
+      "as_delivered": {
+        "n": 162,
+        "accuracy": 0.6481,
+        "baseline": 0.5679,
+        "delta": 0.0802,
+        "ci95": [
+          -0.0123,
+          0.1728
+        ],
+        "passes": false
+      },
+      "blank_dropped": {
+        "n": 162,
+        "accuracy": 0.6543,
+        "baseline": 0.5679,
+        "delta": 0.0864,
+        "ci95": [
+          -0.0062,
+          0.179
+        ],
+        "passes": false
+      },
+      "delta_change": 0.0062,
+      "cases_with_blank_and_label": 15
+    }
+  },
+  "limitations": [
+    "development only: locked has no blank rows to drop, and re-scoring locked after a change would be test-set tuning",
+    "this is a defect fix, not a tuning knob, but both numbers are reported so the change is visible rather than silently improving the record",
+    "21 of 186 cases are touched; each affected case has exactly 1 blank image out of 8-15, so per-case dilution is 7-13% of that case's images",
+    "a delta that improves here is still a development number and still not product capability"
+  ]
+}
