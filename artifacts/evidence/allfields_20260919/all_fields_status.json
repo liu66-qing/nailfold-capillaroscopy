@@ -1,0 +1,818 @@
+{
+  "what_this_is": "all 21 fields under ONE fixed configuration, DEVELOPMENT OOF only",
+  "why_it_differs_from_full_field_fix_20260916": "that run selected source (instance vs dino) and model (trees vs linear) PER FOLD by validation score, which inflates every delta and makes fields mutually incomparable. This run fixes one configuration for all fields.",
+  "config": {
+    "encoder": "frozen DINOv2 ViT-B/14, sha256 0b8b82f8...",
+    "poolings": [
+      "mean",
+      "topk_mean",
+      "max",
+      "cls",
+      "std"
+    ],
+    "estimator": "StandardScaler->PCA(64)->LogisticRegression(C=0.03); Ridge(alpha=10) for numeric",
+    "threshold": 0.5,
+    "n_boot": 2000,
+    "seed": 20260917,
+    "selection": "none"
+  },
+  "locked_cases_seen": 0,
+  "n_fields": 22,
+  "n_passing_on_development": 4,
+  "fields": {
+    "clarity": {
+      "field": "clarity",
+      "kind": "binary",
+      "n": 185,
+      "n_labelled_of_186": 185,
+      "n_dropped_unmapped_or_missing": 1,
+      "accuracy": 0.8378,
+      "baseline_constant": 0.5081,
+      "delta": 0.3297,
+      "ci95_lo": 0.2378,
+      "ci95_hi": 0.4216,
+      "passes": true,
+      "balanced_accuracy": 0.8376,
+      "macro_f1": 0.8377,
+      "auroc": 0.8903,
+      "abnormal_share": 0.5081,
+      "predicted_abnormal_share": 0.5189,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 3,
+      "unmapped_raw_values": "",
+      "binary_scheme": {
+        "0": [
+          "清晰"
+        ],
+        "1": [
+          "不清",
+          "模糊"
+        ]
+      },
+      "raw_distribution_dev": {
+        "清晰": 91,
+        "不清": 70,
+        "模糊": 24
+      }
+    },
+    "capillary_count": {
+      "field": "capillary_count",
+      "kind": "binary",
+      "n": 182,
+      "n_labelled_of_186": 182,
+      "n_dropped_unmapped_or_missing": 4,
+      "accuracy": 0.7363,
+      "baseline_constant": 0.6868,
+      "delta": 0.0495,
+      "ci95_lo": -0.011,
+      "ci95_hi": 0.1099,
+      "passes": false,
+      "balanced_accuracy": 0.6362,
+      "macro_f1": 0.6457,
+      "auroc": 0.6894,
+      "abnormal_share": 0.3132,
+      "predicted_abnormal_share": 0.1813,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 5,
+      "unmapped_raw_values": "条/mm",
+      "binary_scheme": {
+        "0": [
+          ">=7"
+        ],
+        "1": [
+          "5--6",
+          "3--4",
+          "<1"
+        ]
+      },
+      "raw_distribution_dev": {
+        ">=7": 125,
+        "5--6": 42,
+        "3--4": 14,
+        "<1": 1,
+        "条/mm": 1
+      }
+    },
+    "crossing_ratio": {
+      "field": "crossing_ratio",
+      "kind": "binary",
+      "n": 177,
+      "n_labelled_of_186": 177,
+      "n_dropped_unmapped_or_missing": 9,
+      "accuracy": 0.6215,
+      "baseline_constant": 0.6328,
+      "delta": -0.0113,
+      "ci95_lo": -0.0678,
+      "ci95_hi": 0.0452,
+      "passes": false,
+      "balanced_accuracy": 0.5298,
+      "macro_f1": 0.5045,
+      "auroc": 0.6279,
+      "abnormal_share": 0.3672,
+      "predicted_abnormal_share": 0.1469,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 6,
+      "unmapped_raw_values": "10--30%,[<30%]",
+      "binary_scheme": {
+        "0": [
+          "<=30%"
+        ],
+        "1": [
+          "30--60%",
+          "60--80%",
+          ">80%"
+        ]
+      },
+      "raw_distribution_dev": {
+        "<=30%": 112,
+        "30--60%": 48,
+        "60--80%": 12,
+        ">80%": 5,
+        "[<30%]": 1,
+        "10--30%": 1
+      }
+    },
+    "malformation_ratio": {
+      "field": "malformation_ratio",
+      "kind": "binary",
+      "n": 162,
+      "n_labelled_of_186": 162,
+      "n_dropped_unmapped_or_missing": 24,
+      "accuracy": 0.6481,
+      "baseline_constant": 0.5679,
+      "delta": 0.0802,
+      "ci95_lo": -0.0123,
+      "ci95_hi": 0.1728,
+      "passes": false,
+      "balanced_accuracy": 0.6304,
+      "macro_f1": 0.6309,
+      "auroc": 0.7068,
+      "abnormal_share": 0.4321,
+      "predicted_abnormal_share": 0.3519,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 5,
+      "unmapped_raw_values": "[<10%]",
+      "binary_scheme": {
+        "0": [
+          "<=10%"
+        ],
+        "1": [
+          "10--30%",
+          "30--60%",
+          ">60%"
+        ]
+      },
+      "raw_distribution_dev": {
+        "<=10%": 92,
+        "10--30%": 25,
+        ">60%": 25,
+        "30--60%": 20,
+        "[<10%]": 1
+      }
+    },
+    "vasomotion": {
+      "field": "vasomotion",
+      "kind": "binary",
+      "n": 182,
+      "n_labelled_of_186": 182,
+      "n_dropped_unmapped_or_missing": 4,
+      "accuracy": 0.9835,
+      "baseline_constant": 0.9835,
+      "delta": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4958,
+      "auroc": 0.1173,
+      "abnormal_share": 0.0165,
+      "predicted_abnormal_share": 0.0,
+      "collapsed_to_one_class": true,
+      "raw_classes_dev": 4,
+      "unmapped_raw_values": "中度,次/min",
+      "binary_scheme": {
+        "0": [
+          "0--1"
+        ],
+        "1": [
+          "2--4"
+        ]
+      },
+      "raw_distribution_dev": {
+        "0--1": 179,
+        "2--4": 3,
+        "次/min": 1,
+        "中度": 1
+      }
+    },
+    "rbc_aggregation": {
+      "field": "rbc_aggregation",
+      "kind": "binary",
+      "n": 182,
+      "n_labelled_of_186": 182,
+      "n_dropped_unmapped_or_missing": 4,
+      "accuracy": 0.8132,
+      "baseline_constant": 0.8242,
+      "delta": -0.011,
+      "ci95_lo": -0.0275,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.4933,
+      "macro_f1": 0.4485,
+      "auroc": 0.6417,
+      "abnormal_share": 0.8242,
+      "predicted_abnormal_share": 0.989,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 6,
+      "unmapped_raw_values": "1--30",
+      "binary_scheme": {
+        "0": [
+          "无",
+          "[无]"
+        ],
+        "1": [
+          "轻度",
+          "中度",
+          "重度"
+        ]
+      },
+      "raw_distribution_dev": {
+        "中度": 77,
+        "轻度": 60,
+        "无": 31,
+        "重度": 13,
+        "1--30": 2,
+        "[无]": 1
+      }
+    },
+    "wbc_count": {
+      "field": "wbc_count",
+      "kind": "binary",
+      "n": 183,
+      "n_labelled_of_186": 183,
+      "n_dropped_unmapped_or_missing": 3,
+      "accuracy": 0.9836,
+      "baseline_constant": 0.9836,
+      "delta": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4959,
+      "auroc": 0.2759,
+      "abnormal_share": 0.0164,
+      "predicted_abnormal_share": 0.0,
+      "collapsed_to_one_class": true,
+      "raw_classes_dev": 3,
+      "unmapped_raw_values": "个/15s",
+      "binary_scheme": {
+        "0": [
+          "1--30"
+        ],
+        "1": [
+          ">30"
+        ]
+      },
+      "raw_distribution_dev": {
+        "1--30": 180,
+        ">30": 3,
+        "个/15s": 1
+      }
+    },
+    "microthrombus": {
+      "field": "microthrombus",
+      "kind": "binary",
+      "n": 182,
+      "n_labelled_of_186": 182,
+      "n_dropped_unmapped_or_missing": 4,
+      "accuracy": 0.6703,
+      "baseline_constant": 0.5934,
+      "delta": 0.0769,
+      "ci95_lo": -0.0165,
+      "ci95_hi": 0.1703,
+      "passes": false,
+      "balanced_accuracy": 0.6542,
+      "macro_f1": 0.6553,
+      "auroc": 0.7611,
+      "abnormal_share": 0.4066,
+      "predicted_abnormal_share": 0.3846,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 5,
+      "unmapped_raw_values": "[未见],个/min",
+      "binary_scheme": {
+        "0": [
+          "无"
+        ],
+        "1": [
+          "1--2",
+          ">2"
+        ]
+      },
+      "raw_distribution_dev": {
+        "无": 108,
+        "1--2": 45,
+        ">2": 29,
+        "[未见]": 1,
+        "个/min": 1
+      }
+    },
+    "blood_color": {
+      "field": "blood_color",
+      "kind": "binary",
+      "n": 181,
+      "n_labelled_of_186": 181,
+      "n_dropped_unmapped_or_missing": 5,
+      "accuracy": 0.6851,
+      "baseline_constant": 0.5525,
+      "delta": 0.1326,
+      "ci95_lo": 0.0331,
+      "ci95_hi": 0.232,
+      "passes": true,
+      "balanced_accuracy": 0.6904,
+      "macro_f1": 0.6849,
+      "auroc": 0.7894,
+      "abnormal_share": 0.4475,
+      "predicted_abnormal_share": 0.5304,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 4,
+      "unmapped_raw_values": "",
+      "binary_scheme": {
+        "0": [
+          "浅红",
+          "淡红"
+        ],
+        "1": [
+          "暗红",
+          "暗紫"
+        ]
+      },
+      "raw_distribution_dev": {
+        "暗红": 79,
+        "浅红": 65,
+        "淡红": 35,
+        "暗紫": 2
+      }
+    },
+    "exudation": {
+      "field": "exudation",
+      "kind": "binary",
+      "n": 183,
+      "n_labelled_of_186": 183,
+      "n_dropped_unmapped_or_missing": 3,
+      "accuracy": 0.7486,
+      "baseline_constant": 0.5082,
+      "delta": 0.2404,
+      "ci95_lo": 0.1421,
+      "ci95_hi": 0.3443,
+      "passes": true,
+      "balanced_accuracy": 0.7493,
+      "macro_f1": 0.7484,
+      "auroc": 0.8418,
+      "abnormal_share": 0.4918,
+      "predicted_abnormal_share": 0.5355,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 4,
+      "unmapped_raw_values": "",
+      "binary_scheme": {
+        "0": [
+          "无"
+        ],
+        "1": [
+          "+",
+          "++",
+          "+++"
+        ]
+      },
+      "raw_distribution_dev": {
+        "无": 93,
+        "+": 63,
+        "++": 23,
+        "+++": 4
+      }
+    },
+    "hemorrhage": {
+      "field": "hemorrhage",
+      "kind": "binary",
+      "n": 180,
+      "n_labelled_of_186": 180,
+      "n_dropped_unmapped_or_missing": 6,
+      "accuracy": 0.9333,
+      "baseline_constant": 0.9333,
+      "delta": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4828,
+      "auroc": 0.3313,
+      "abnormal_share": 0.0667,
+      "predicted_abnormal_share": 0.0,
+      "collapsed_to_one_class": true,
+      "raw_classes_dev": 3,
+      "unmapped_raw_values": "管袢/一指甲襞",
+      "binary_scheme": {
+        "0": [
+          "无"
+        ],
+        "1": [
+          "1--2"
+        ]
+      },
+      "raw_distribution_dev": {
+        "无": 168,
+        "1--2": 12,
+        "管袢/一指甲襞": 5
+      }
+    },
+    "subpapillary_venous_plexus": {
+      "field": "subpapillary_venous_plexus",
+      "kind": "binary",
+      "n": 184,
+      "n_labelled_of_186": 184,
+      "n_dropped_unmapped_or_missing": 2,
+      "accuracy": 0.837,
+      "baseline_constant": 0.5707,
+      "delta": 0.2663,
+      "ci95_lo": 0.1793,
+      "ci95_hi": 0.3533,
+      "passes": true,
+      "balanced_accuracy": 0.8321,
+      "macro_f1": 0.8331,
+      "auroc": 0.8966,
+      "abnormal_share": 0.5707,
+      "predicted_abnormal_share": 0.5815,
+      "collapsed_to_one_class": false,
+      "raw_classes_dev": 4,
+      "unmapped_raw_values": "",
+      "binary_scheme": {
+        "0": [
+          "不见"
+        ],
+        "1": [
+          "可见1排",
+          "可见2排",
+          ">2排,扩张"
+        ]
+      },
+      "raw_distribution_dev": {
+        "不见": 79,
+        "可见1排": 42,
+        "可见2排": 36,
+        ">2排,扩张": 27
+      }
+    },
+    "sweat_duct": {
+      "field": "sweat_duct",
+      "kind": "binary",
+      "n": 160,
+      "n_labelled_of_186": 160,
+      "n_dropped_unmapped_or_missing": 26,
+      "accuracy": 0.9875,
+      "baseline_constant": 0.9875,
+      "delta": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4969,
+      "auroc": 0.7627,
+      "abnormal_share": 0.0125,
+      "predicted_abnormal_share": 0.0,
+      "collapsed_to_one_class": true,
+      "raw_classes_dev": 4,
+      "unmapped_raw_values": "个/-指甲襞",
+      "binary_scheme": {
+        "0": [
+          "0--2",
+          "0--2个/-指甲襞"
+        ],
+        "1": [
+          "3--4"
+        ]
+      },
+      "raw_distribution_dev": {
+        "0--2": 152,
+        "个/-指甲襞": 20,
+        "0--2个/-指甲襞": 6,
+        "3--4": 2
+      }
+    },
+    "overall_assessment": {
+      "field": "overall_assessment",
+      "kind": "binary",
+      "n": 185,
+      "n_labelled_of_186": 185,
+      "n_dropped_unmapped_or_missing": 1,
+      "accuracy": 0.8649,
+      "baseline_constant": 0.8649,
+      "delta": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.0,
+      "passes": false,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4638,
+      "auroc": 0.6325,
+      "abnormal_share": 0.8649,
+      "predicted_abnormal_share": 1.0,
+      "collapsed_to_one_class": true,
+      "raw_classes_dev": 5,
+      "unmapped_raw_values": "",
+      "binary_scheme": {
+        "0": [
+          "正常",
+          "大致正常"
+        ],
+        "1": [
+          "轻度异常",
+          "中度异常",
+          "重度异常"
+        ]
+      },
+      "raw_distribution_dev": {
+        "中度异常": 76,
+        "重度异常": 60,
+        "轻度异常": 24,
+        "大致正常": 16,
+        "正常": 9
+      }
+    },
+    "flow_state": {
+      "field": "flow_state",
+      "kind": "multiclass_7",
+      "n": 179,
+      "n_labelled_of_186": 179,
+      "n_dropped_unmapped_or_missing": 7,
+      "accuracy": 0.3296,
+      "baseline_constant": 0.3408,
+      "delta": -0.0112,
+      "ci95_lo": -0.095,
+      "ci95_hi": 0.0728,
+      "passes": false,
+      "balanced_accuracy": 0.1424,
+      "macro_f1": 0.1285,
+      "auroc": null,
+      "raw_classes_dev": 7,
+      "collapsed_to_one_class": false,
+      "unmapped_raw_values": "[线流、线粒流]",
+      "classes": [
+        "全停",
+        "粒摆流",
+        "粒流",
+        "粒线流",
+        "粒缓流",
+        "线流",
+        "线粒流"
+      ],
+      "raw_distribution_dev": {
+        "粒线流": 61,
+        "粒流": 61,
+        "线粒流": 38,
+        "粒缓流": 13,
+        "[线流、线粒流]": 5,
+        "线流": 3,
+        "粒摆流": 2,
+        "全停": 1
+      }
+    },
+    "papilla": {
+      "field": "papilla",
+      "kind": "multiclass_3",
+      "n": 185,
+      "n_labelled_of_186": 185,
+      "n_dropped_unmapped_or_missing": 1,
+      "accuracy": 0.4432,
+      "baseline_constant": 0.4162,
+      "delta": 0.027,
+      "ci95_lo": -0.0703,
+      "ci95_hi": 0.1297,
+      "passes": false,
+      "balanced_accuracy": 0.4185,
+      "macro_f1": 0.4223,
+      "auroc": null,
+      "raw_classes_dev": 3,
+      "collapsed_to_one_class": false,
+      "unmapped_raw_values": "",
+      "classes": [
+        "平坦",
+        "波纹状",
+        "浅波纹状"
+      ],
+      "raw_distribution_dev": {
+        "浅波纹状": 77,
+        "波纹状": 66,
+        "平坦": 42
+      }
+    },
+    "afferent_diameter": {
+      "field": "afferent_diameter",
+      "kind": "numeric",
+      "n": 165,
+      "n_labelled_of_186": 165,
+      "n_dropped_unmapped_or_missing": 21,
+      "mae": 8.4711,
+      "mae_median_baseline": 5.697,
+      "mae_improvement": -2.7741,
+      "beats_median_baseline": false,
+      "n_distinct_label_values": 24,
+      "median_gap_between_adjacent_labels": 1.0,
+      "mae_exceeds_median_label_gap": true,
+      "passes": false,
+      "label_values": [
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        26.0,
+        28.0,
+        36.0,
+        67.0,
+        90.0,
+        325.0
+      ]
+    },
+    "efferent_diameter": {
+      "field": "efferent_diameter",
+      "kind": "numeric",
+      "n": 164,
+      "n_labelled_of_186": 164,
+      "n_dropped_unmapped_or_missing": 22,
+      "mae": 4.2656,
+      "mae_median_baseline": 4.311,
+      "mae_improvement": 0.0453,
+      "beats_median_baseline": true,
+      "n_distinct_label_values": 25,
+      "median_gap_between_adjacent_labels": 1.0,
+      "mae_exceeds_median_label_gap": true,
+      "passes": false,
+      "label_values": [
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        22.0,
+        24.0,
+        25.0,
+        26.0,
+        27.0,
+        35.0,
+        40.0,
+        41.0,
+        49.0,
+        89.0
+      ]
+    },
+    "apex_diameter": {
+      "field": "apex_diameter",
+      "kind": "numeric",
+      "n": 169,
+      "n_labelled_of_186": 169,
+      "n_dropped_unmapped_or_missing": 17,
+      "mae": 7.1942,
+      "mae_median_baseline": 7.0888,
+      "mae_improvement": -0.1054,
+      "beats_median_baseline": false,
+      "n_distinct_label_values": 38,
+      "median_gap_between_adjacent_labels": 1.0,
+      "mae_exceeds_median_label_gap": true,
+      "passes": false,
+      "label_values": [
+        6.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        22.0,
+        23.0,
+        24.0,
+        25.0,
+        26.0,
+        27.0,
+        28.0,
+        30.0,
+        32.0,
+        33.0,
+        35.0,
+        36.0,
+        39.0,
+        40.0,
+        42.0,
+        43.0,
+        46.0,
+        47.0,
+        48.0,
+        53.0,
+        60.0,
+        82.0,
+        113.0
+      ]
+    },
+    "loop_length": {
+      "field": "loop_length",
+      "kind": "numeric",
+      "n": 176,
+      "n_labelled_of_186": 176,
+      "n_dropped_unmapped_or_missing": 10,
+      "mae": 66.3954,
+      "mae_median_baseline": 86.4091,
+      "mae_improvement": 20.0137,
+      "beats_median_baseline": true,
+      "n_distinct_label_values": 135,
+      "median_gap_between_adjacent_labels": 2.0,
+      "mae_exceeds_median_label_gap": true,
+      "passes": false,
+      "label_values": [
+        38.0,
+        53.0,
+        76.0,
+        82.0,
+        90.0,
+        96.0,
+        99.0,
+        104.0,
+        107.0,
+        120.0,
+        121.0,
+        123.0,
+        125.0,
+        126.0,
+        128.0,
+        131.0,
+        133.0,
+        138.0,
+        143.0,
+        144.0,
+        145.0,
+        148.0,
+        150.0,
+        154.0,
+        156.0,
+        164.0,
+        165.0,
+        166.0,
+        169.0,
+        170.0,
+        171.0,
+        174.0,
+        175.0,
+        177.0,
+        181.0,
+        183.0,
+        184.0,
+        185.0,
+        186.0,
+        189.0
+      ]
+    },
+    "flow_speed_um_s": {
+      "n_labelled": 0,
+      "status": "NOT_TESTABLE"
+    },
+    "output_input_ratio": {
+      "n_labelled": 171,
+      "status": "MUST_NOT_BE_MODELLED",
+      "why": "arithmetic identity of efferent/afferent"
+    }
+  },
+  "limitations": [
+    "DEVELOPMENT OOF. These are NOT product capability. The only held-out numbers in this project are in group 3, where 0 of 5 fields pass under the stricter baseline.",
+    "a 'PASS' here means only: OOF accuracy beat a single constant answer with a bootstrap CI lower bound above zero, on 186 internal exams from the same three same-source archives",
+    "the binary cuts are recovered from the delivered pipeline, not clinically sanctioned; several merge three ordinal levels into one 'abnormal' class and that merge is what makes the task easier",
+    "numeric fields are scored in RAW LABEL UNITS. No micron claim is made or possible: there is no calibration (see group 5).",
+    "no field here has any human pixel-level ground truth, and no field has a second reader, so label noise is unmeasured for all 21."
+  ]
+}
