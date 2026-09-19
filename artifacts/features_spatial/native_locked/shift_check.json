@@ -1,0 +1,112 @@
+{
+  "purpose": "prove locked spatial features are comparable to development, using no labels, before spending the locked budget",
+  "dev_store": "artifacts/features_spatial/native",
+  "locked_store": "artifacts/features_spatial/native_locked",
+  "dev_images": 1708,
+  "dev_cases": 186,
+  "locked_images": 402,
+  "locked_cases": 47,
+  "locked_cases_in_dev_store": 0,
+  "dev_cases_in_locked_store": 0,
+  "poolings": {
+    "mean": {
+      "dev_dim": 768,
+      "locked_dim": 768,
+      "dim_match": true,
+      "nan_inf_dev": 0,
+      "nan_inf_locked": 0,
+      "mean_l2_dev": 28.5515,
+      "mean_l2_locked": 28.3643,
+      "norm_ratio": 0.9934,
+      "dims_out_of_dev_p1_p99": 0,
+      "dims_out_of_dev_p1_p99_frac": 0.0,
+      "pass": true
+    },
+    "topk_mean": {
+      "dev_dim": 768,
+      "locked_dim": 768,
+      "dim_match": true,
+      "nan_inf_dev": 0,
+      "nan_inf_locked": 0,
+      "mean_l2_dev": 91.1707,
+      "mean_l2_locked": 91.1605,
+      "norm_ratio": 0.9999,
+      "dims_out_of_dev_p1_p99": 0,
+      "dims_out_of_dev_p1_p99_frac": 0.0,
+      "pass": true
+    },
+    "max": {
+      "dev_dim": 768,
+      "locked_dim": 768,
+      "dim_match": true,
+      "nan_inf_dev": 0,
+      "nan_inf_locked": 0,
+      "mean_l2_dev": 105.327,
+      "mean_l2_locked": 105.4191,
+      "norm_ratio": 1.0009,
+      "dims_out_of_dev_p1_p99": 0,
+      "dims_out_of_dev_p1_p99_frac": 0.0,
+      "pass": true
+    },
+    "cls": {
+      "dev_dim": 768,
+      "locked_dim": 768,
+      "dim_match": true,
+      "nan_inf_dev": 0,
+      "nan_inf_locked": 0,
+      "mean_l2_dev": 45.1598,
+      "mean_l2_locked": 45.0889,
+      "norm_ratio": 0.9984,
+      "dims_out_of_dev_p1_p99": 0,
+      "dims_out_of_dev_p1_p99_frac": 0.0,
+      "pass": true
+    },
+    "std": {
+      "dev_dim": 768,
+      "locked_dim": 768,
+      "dim_match": true,
+      "nan_inf_dev": 0,
+      "nan_inf_locked": 0,
+      "mean_l2_dev": 35.3767,
+      "mean_l2_locked": 35.3856,
+      "norm_ratio": 1.0003,
+      "dims_out_of_dev_p1_p99": 0,
+      "dims_out_of_dev_p1_p99_frac": 0.0,
+      "pass": true
+    }
+  },
+  "config_match": {
+    "preset": {
+      "dev": "native",
+      "locked": "native",
+      "same": true
+    },
+    "resize": {
+      "dev": null,
+      "locked": null,
+      "same": true
+    },
+    "topk": {
+      "dev": 16,
+      "locked": 16,
+      "same": true
+    },
+    "weights_sha256": {
+      "dev": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "locked": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "same": true
+    },
+    "model": {
+      "dev": null,
+      "locked": null,
+      "same": true
+    }
+  },
+  "encoder_hash_matches_delivered": true,
+  "verdict": "USABLE",
+  "limitations": [
+    "this proves the FEATURES are comparable; it says nothing about whether the classifier generalises",
+    "distribution overlap is not distribution identity: a real cohort difference in prevalence or image quality will still move results",
+    "no labels were read by this script"
+  ]
+}
