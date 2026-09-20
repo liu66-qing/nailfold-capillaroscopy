@@ -112,5 +112,9 @@
     "file_level_random_split": false,
     "images_transmitted": 0
   },
-  "staged": false
+  "staged": true,
+  "stage_root": "E:\\甲劈微循环\\data\\det_stage_lockedsafe",
+  "link_modes": {
+    "hardlink": 104800
+  }
 }

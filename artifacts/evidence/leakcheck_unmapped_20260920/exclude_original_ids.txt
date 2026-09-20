@@ -1,0 +1,34 @@
+# Near-duplicate-of-locked exclusions.
+# Source: scripts/leakcheck_unmapped_vs_locked.py, 48x48 contrast-normalised
+# signature. Gate is d1 < 175 in squared-Euclidean signature distance.
+# CALIBRATION (step2 control, 128 known md5 pairs): known-TRUE pairs have
+# d1 = 0.00 at every percentile; known-UNRELATED pairs have min d1 = 175.15.
+# The two distributions do not overlap, so this cut is not tuned.
+# LIMITATION: only the pre-augmentation query arm has control TPR 1.000.
+# The augmented arms score TPR 0.00-0.07, i.e. this method is effectively
+# BLIND to a locked image that survives only as a geometric augmentation.
+# This list is therefore a LOWER BOUND on the true leak.
+10
+71
+76
+100
+102
+104
+139
+164
+172
+173
+184
+185
+229
+230
+235
+257
+372
+472
+499
+516
+528
+559
+562
+564

@@ -1,79 +1,76 @@
-# The repo root holds 81GB, of which 71GB is data/ containing patient images.
-# Bulk directories are excluded wholesale, then binary/patient formats are
-# excluded by extension everywhere else, so a stray image cannot be committed
-# even from a directory that is otherwise tracked.
-data/
-tmp/
-output/
-Hulu-Med/
-甲劈微循环hf_biomedclip/
-sam_audit_preview/
-seg_visual_check/
-captures_app/
-人工核对/
-.transfer/
-.verify/
-.tmp_probe/
-.codex_tmp_ppt_inspect/
-server_code_audit/
-github_nailfold_capillaroscopy/
 
+# 4 x 354MB of siglip2 weights plus part.NN splits: regenerable, not source.
 # Binary, patient-facing, and bulky formats: never committed.
-*.jpg
-*.jpeg
-*.png
-*.tar.gz
-*.zip
-*.pptx
-*.pdf
-*.rtf
-*.xlsx
-*.html
-*.pkl
-*.npz
-*.pt
-*.pth
-*.safetensors
-*.jsonl
-*.joblib
-*.onnx
+# Bulk directories are excluded wholesale, then binary/patient formats are
+# ONNX external-data blobs and the chunked splits used to ship them.
+# Prediction dumps and per-frame tables: bulky and regenerable.
+# Secrets. .env holds an API key; it must never enter git history.
+# The repo root holds 81GB, of which 71GB is data/ containing patient images.
+# Trained model binaries and per-fold dumps: regenerable, not source.
+# even from a directory that is otherwise tracked.
+# excluded by extension everywhere else, so a stray image cannot be committed
+**/*_chunks/
+**/*_locked/*.joblib
+**/checkpoints/
+**/chunks/
 *.bin
 *.ckpt
-*.h5
-*.log
-
-*.npy
-*.parquet
-*.docx
-
-# ONNX external-data blobs and the chunked splits used to ship them.
-# 4 x 354MB of siglip2 weights plus part.NN splits: regenerable, not source.
-*.onnx.data
-*.delta
-artifacts/windows_model*/
-**/*_chunks/
-**/chunks/
-*.part.[0-9][0-9]
-*part.[0-9][0-9][0-9]
-
-# Trained model binaries and per-fold dumps: regenerable, not source.
-artifacts/geometry_*/
-artifacts/video_*/
-**/checkpoints/
-**/*_locked/*.joblib
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
-
-# Prediction dumps and per-frame tables: bulky and regenerable.
-*_pred.jsonl
 *.csv.bak
-
-# Secrets. .env holds an API key; it must never enter git history.
+*.delta
+*.docx
+*.h5
+*.html
+*.joblib
+*.jpeg
+*.jpg
+*.jsonl
+*.key
+*.log
+*.npy
+*.npz
+*.onnx
+*.onnx.data
+*.parquet
+*.part.[0-9][0-9]
+*.pdf
+*.pem
+*.pkl
+*.png
+*.pptx
+*.pt
+*.pth
+*.pyc
+*.rtf
+*.safetensors
+*.tar.gz
+*.xlsx
+*.zip
+*_pred.jsonl
+*part.[0-9][0-9][0-9]
+.codex_tmp_ppt_inspect/
 .env
 .env.*
-*.pem
-*.key
+.ipynb_checkpoints/
 .netrc
-secrets*
+.tmp_probe/
+.transfer/
+.verify/
+Hulu-Med/
+__pycache__/
+artifacts/geometry_*/
+artifacts/video_*/
+artifacts/windows_model*/
+captures_app/
 credential*
+data/
+data/det_stage_lockedsafe/
+github_nailfold_capillaroscopy/
+output/
+sam_audit_preview/
+secrets*
+seg_visual_check/
+server_code_audit/
+tmp/
+weights/*.pt
+人工核对/
+甲劈微循环hf_biomedclip/
