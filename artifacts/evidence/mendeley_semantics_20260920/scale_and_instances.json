@@ -1,0 +1,48 @@
+{
+  "T1_yellow_is_it_a_box": {
+    "n_components": 354,
+    "perimeter_concentration": {
+      "median": 0.13725355917423365,
+      "frac_above_0.9": 0.0
+    },
+    "enclosed_area_fraction": {
+      "median": 0.0,
+      "frac_above_0.5": 0.005649717514124294
+    },
+    "expected_if_hollow_rectangle": {
+      "perimeter_concentration": "~1.0",
+      "enclosed_area_fraction": ">0.9"
+    },
+    "verdict": "open ~3px-wide strokes; device measurement calipers, NOT the paper's LabelImg annotations",
+    "consequence_if_not_boxes": "the dataset ships NO annotation file -- only a burnt-in device overlay. It therefore cannot supply the nail boundary, i.e. cannot supply the DENOMINATOR for Ìõ/mm or for the per-nailfold fields."
+  },
+  "T2_scale_and_instance_count": {
+    "their_nn_spacing_px_median": 16.777035315458406,
+    "their_nn_spacing_at_1024_width": 12.149705914447955,
+    "our_nn_spacing_px_median_1024_imgs": 81.91430666302804,
+    "our_nn_spacing_p25_p75": [
+      61.40188251890059,
+      113.3499179046869
+    ],
+    "our_n_images": 716,
+    "scale_factor": 6.7420814330673435,
+    "clusters_link_30px": {
+      "n_clusters_total": 4252,
+      "mean_cluster_size": 3.7497648165569144,
+      "frac_singletons": 0.33113828786453436,
+      "frac_in_multi_dot_cluster": 0.6688617121354656,
+      "caveat": "cluster count depends on the arbitrary 30 px link"
+    },
+    "verdict": "one red dot is NOT one capillary: the dots sit ~6.7x closer than our vessels do, and 66.9% of them lie in multi-dot clusters. They trace the CONTOUR of a loop. The usable instance count is the cluster count (~4252), not the dot count.",
+    "nfc_vs_nfb": {
+      "per_image_red_median": 24.0,
+      "frac_images_zero": 0.0,
+      "frac_images_le5": 0.12147887323943662,
+      "argument": "NFB in SSc are single-digit per nail and absent in many nails, so an NFB channel must be strongly zero-inflated. This channel is not.",
+      "verdict": "red marks CAPILLARIES (NFC); the hemorrhage branch is ruled out"
+    }
+  },
+  "images_opened_from_our_cohort": 0,
+  "locked_cases_seen": 0,
+  "models_run": 0
+}

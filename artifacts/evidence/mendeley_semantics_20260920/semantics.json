@@ -1,0 +1,183 @@
+{
+  "images_sampled": 144,
+  "Q1_yellow_shape": {
+    "verdict_counts": {
+      "stroke": 712
+    },
+    "frac_rectangles": 0.0,
+    "reading": "open strokes / polylines, not boxes",
+    "examples": [
+      {
+        "H": 152,
+        "W": 57,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.875,
+        "frac_cols_thin": 0.03508771929824561,
+        "max_row": 10,
+        "max_col": 16,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 121,
+        "W": 92,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.8099173553719008,
+        "frac_cols_thin": 0.532608695652174,
+        "max_row": 10,
+        "max_col": 11,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 121,
+        "W": 168,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.6115702479338843,
+        "frac_cols_thin": 0.8690476190476191,
+        "max_row": 11,
+        "max_col": 10,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 56,
+        "W": 150,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.4642857142857143,
+        "frac_cols_thin": 0.8466666666666667,
+        "max_row": 48,
+        "max_col": 10,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 80,
+        "W": 276,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.0125,
+        "frac_cols_thin": 0.9166666666666666,
+        "max_row": 49,
+        "max_col": 10,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 47,
+        "W": 173,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.02127659574468085,
+        "frac_cols_thin": 0.9017341040462428,
+        "max_row": 19,
+        "max_col": 10,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 41,
+        "W": 279,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.024390243902439025,
+        "frac_cols_thin": 0.9283154121863799,
+        "max_row": 102,
+        "max_col": 10,
+        "file": "160422akiyama koichi1.png",
+        "is_rect": false
+      },
+      {
+        "H": 98,
+        "W": 116,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.030612244897959183,
+        "frac_cols_thin": 0.5948275862068966,
+        "max_row": 34,
+        "max_col": 31,
+        "file": "160422akiyama koichi4.png",
+        "is_rect": false
+      },
+      {
+        "H": 239,
+        "W": 108,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.9037656903765691,
+        "frac_cols_thin": 0.5462962962962963,
+        "max_row": 10,
+        "max_col": 54,
+        "file": "160422akiyama koichi4.png",
+        "is_rect": false
+      },
+      {
+        "H": 56,
+        "W": 37,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.8392857142857143,
+        "frac_cols_thin": 0.5405405405405406,
+        "max_row": 7,
+        "max_col": 16,
+        "file": "160422akiyama koichi4.png",
+        "is_rect": false
+      },
+      {
+        "H": 88,
+        "W": 100,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.6818181818181818,
+        "frac_cols_thin": 0.76,
+        "max_row": 12,
+        "max_col": 10,
+        "file": "160422akiyama koichi4.png",
+        "is_rect": false
+      },
+      {
+        "H": 16,
+        "W": 21,
+        "rows_full": 0,
+        "cols_full": 0,
+        "frac_rows_thin": 0.625,
+        "frac_cols_thin": 0.6190476190476191,
+        "max_row": 12,
+        "max_col": 8,
+        "file": "160422akiyama koichi4.png",
+        "is_rect": false
+      }
+    ]
+  },
+  "Q2_red_is_nfc_or_nfb": {
+    "per_image_red": {
+      "median": 31.0,
+      "mean": 33.44444444444444,
+      "p05": 2.1500000000000004,
+      "p95": 78.94999999999996,
+      "max": 115,
+      "frac_images_zero": 0.013888888888888888,
+      "frac_images_le5": 0.09027777777777778
+    },
+    "per_image_yellow": {
+      "median": 5.0,
+      "max": 10,
+      "frac_images_zero": 0.0,
+      "frac_images_le5": 0.625
+    },
+    "argument": "NFB in SSc are counted in single digits per nail and are absent in many nails, so an NFB channel must be strongly zero-inflated. A channel with median 28 and almost no zeros is a dense structure, i.e. capillaries."
+  },
+  "Q3_red_inside_yellow": {
+    "red_centroids_inside_a_yellow_box": 1985,
+    "red_centroids_outside": 2831,
+    "frac_inside": 0.4121677740863787,
+    "reading": "different object classes"
+  },
+  "images_opened_from_our_cohort": 0,
+  "locked_cases_seen": 0,
+  "models_run": 0
+}
