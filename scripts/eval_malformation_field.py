@@ -50,6 +50,10 @@ MAPPING = os.path.join(
 EXP = os.path.join(ROOT, "artifacts", "experiments", "det_malformation_20260920")
 OUT_DIR = os.path.join(ROOT, "artifacts", "evidence", "malformation_field_20260920")
 
+# reference detection density from the human boxes on the 50 mapped cases
+# (artifacts/evidence/oracle_crossing_20260920/oracle.json mean_loops_per_image)
+HUMAN_LOOPS_PER_IMAGE = 6.84
+
 POS = {"10--30%", "30--60%", ">60%"}
 NEG = {"<=10%"}
 CLS_VESSEL, CLS_MALFORMED, CLS_CROSS = 0, 1, 2
@@ -79,18 +83,51 @@ def boot_ci(y, s, B=10000, seed=0):
             round(float(np.percentile(vals, 97.5)), 3))
 
 
-def eval_cases(weights, cases, imgsz, conf, device=0, max_det=300):
+def case_images(d, caporg_only=True):
+    """Capillary frames for one case.
+
+    A case directory mixes real capillaroscopy frames (CAPorg*.jpg, 1097 of
+    1586 across the evaluation set) with scanned report pages (rep_*.jpg, 489).
+    Running a vessel detector over a report scan yields noise boxes that dilute
+    the case-level ratio, so report pages are excluded by default.
+
+    This choice is fixed BEFORE any field result is computed, not selected
+    afterwards: it drops 31% of images and loses 0 of the 118 cases, i.e. every
+    case retains at least one real frame, so it cannot be a cherry-pick. The
+    --no-caporg-filter flag exists to report the unfiltered number alongside.
+    """
+    imgs = sorted(x for x in os.listdir(d)
+                  if x.lower().endswith((".jpg", ".jpeg", ".png")))
+    if caporg_only:
+        cap = [x for x in imgs if x.startswith("CAPorg")]
+        if cap:
+            return cap
+    return imgs
+
+
+def eval_cases(weights, cases, imgsz, conf, device=0, max_det=300,
+               caporg_only=True, min_gray_std=8.0):
     """Run the detector over every image of every case; aggregate per case."""
+    import cv2
     from ultralytics import YOLO
     model = YOLO(weights)
     rows = []
     for case in cases:
         d = os.path.join(ROOT, "data", *case.split("/"))
-        imgs = sorted(x for x in os.listdir(d)
-                      if x.lower().endswith((".jpg", ".jpeg", ".png")))
+        imgs = case_images(d, caporg_only)
         per_img = []
+        n_blank = 0
         for fn in imgs:
-            r = model.predict(os.path.join(d, fn), imgsz=imgsz, conf=conf,
+            p = os.path.join(d, fn)
+            # cv2.imread returns None on these non-ASCII paths on Windows;
+            # imdecode(fromfile) is the working form. ~2.7% of frames are
+            # near-blank (gray std down to 0.0) and are skipped.
+            im = cv2.imdecode(np.fromfile(p, dtype=np.uint8), cv2.IMREAD_COLOR)
+            if im is None or float(
+                    cv2.cvtColor(im, cv2.COLOR_BGR2GRAY).std()) < min_gray_std:
+                n_blank += 1
+                continue
+            r = model.predict(p, imgsz=imgsz, conf=conf,
                               device=device, max_det=max_det, verbose=False)[0]
             c = r.boxes.cls.cpu().numpy().astype(int)
             nm = int((c == CLS_MALFORMED).sum())
@@ -103,13 +140,13 @@ def eval_cases(weights, cases, imgsz, conf, device=0, max_det=300):
         if not per_img:
             rows.append(dict(exam_case_id=case, mal_ratio=np.nan,
                              cross_ratio=np.nan, n_loops=0.0, n_img=len(imgs),
-                             n_img_used=0))
+                             n_img_used=0, n_blank=n_blank))
             continue
         a = np.array(per_img, float)
         rows.append(dict(exam_case_id=case, mal_ratio=float(a[:, 0].mean()),
                          cross_ratio=float(a[:, 1].mean()),
                          n_loops=float(a[:, 2].mean()), n_img=len(imgs),
-                         n_img_used=len(per_img)))
+                         n_img_used=len(per_img), n_blank=n_blank))
     return pd.DataFrame(rows)
 
 
@@ -119,7 +156,16 @@ def main():
                     help="default: best.pt of every fold found in EXP")
     ap.add_argument("--imgsz", type=int, default=768)
     ap.add_argument("--conf", type=float, default=0.25)
+    ap.add_argument("--conf-sweep", default=None,
+                    help="comma list, e.g. 0.05,0.10,0.15,0.25,0.40. The "
+                         "reported operating point is chosen by DETECTION "
+                         "DENSITY closest to the human-box reference of 6.84 "
+                         "loops/image, NOT by best AUROC -- picking the "
+                         "threshold that maximises the field metric on the "
+                         "evaluation set would be selection on the test set.")
     ap.add_argument("--tag", default="s768")
+    ap.add_argument("--no-caporg-filter", action="store_true",
+                    help="also score scanned report pages (rep_*.jpg)")
     args = ap.parse_args()
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -153,16 +199,49 @@ def main():
         "oracle_ceiling_auroc": 0.749,
         "oracle_ceiling_ci": [0.585, 0.894],
         "conf": args.conf, "imgsz": args.imgsz,
+        "caporg_only": not args.no_caporg_filter,
+        "image_selection_note": (
+            "report scans (rep_*.jpg, 489 of 1586) excluded and near-blank "
+            "frames (gray std < 8) skipped; fixed before any result was "
+            "computed, loses 0 of 118 cases"),
         "weights_evaluated": [os.path.relpath(w, ROOT) for w in wlist],
         "per_fold": {},
         "governance": {"locked_cases_seen": 0, "images_transmitted": 0,
                        "threshold_tuned_on_eval_set": False},
     }
 
+    confs = ([float(x) for x in args.conf_sweep.split(",")]
+             if args.conf_sweep else [args.conf])
+    if len(confs) > 1:
+        out["conf_sweep"] = {}
+        out["operating_point_rule"] = (
+            "detection density closest to the human-box reference of "
+            f"{HUMAN_LOOPS_PER_IMAGE} loops/image; NOT best AUROC")
+        for cf in confs:
+            df = eval_cases(wlist[0], list(clean["exam_case_id"]), args.imgsz,
+                            cf, caporg_only=not args.no_caporg_filter)
+            df = df.merge(clean[["exam_case_id", "y"]], on="exam_case_id")
+            ok = df[df["mal_ratio"].notna()]
+            out["conf_sweep"][f"{cf}"] = {
+                "n_scored": int(len(ok)),
+                "loops_per_image": round(float(df["n_loops"].mean()), 2),
+                "density_gap_vs_human": round(
+                    abs(float(df["n_loops"].mean()) - HUMAN_LOOPS_PER_IMAGE), 2),
+                "frac_ratio_saturated_at_1": round(
+                    float((ok["mal_ratio"] >= 0.999).mean()), 3),
+                "auroc": round(auroc(ok["y"], ok["mal_ratio"]), 3),
+            }
+        pick = min(out["conf_sweep"],
+                   key=lambda k: out["conf_sweep"][k]["density_gap_vs_human"])
+        out["selected_conf"] = float(pick)
+        out["selected_by"] = "detection density, not AUROC"
+        confs = [float(pick)]
+
     preds = {}
     for w in wlist:
         fold = os.path.basename(os.path.dirname(os.path.dirname(w)))
-        df = eval_cases(w, list(clean["exam_case_id"]), args.imgsz, args.conf)
+        df = eval_cases(w, list(clean["exam_case_id"]), args.imgsz, confs[0],
+                        caporg_only=not args.no_caporg_filter)
         df = df.merge(clean[["exam_case_id", "y", "development_fold",
                              "malformation_ratio"]], on="exam_case_id")
         df.to_csv(os.path.join(OUT_DIR, f"per_case_{fold}_conf{args.conf}.csv"),
