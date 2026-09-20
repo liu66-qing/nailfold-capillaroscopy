@@ -1,0 +1,92 @@
+{
+  "seed": 20260920,
+  "n_original_ids_on_disk": 580,
+  "n_excluded_total": 32,
+  "n_excluded_known_locked": 32,
+  "n_excluded_near_duplicate": 0,
+  "extra_exclusion_file_present": false,
+  "excluded_original_ids": [
+    "13",
+    "48",
+    "60",
+    "69",
+    "70",
+    "74",
+    "79",
+    "96",
+    "146",
+    "179",
+    "183",
+    "238",
+    "274",
+    "312",
+    "319",
+    "321",
+    "340",
+    "348",
+    "354",
+    "383",
+    "385",
+    "389",
+    "498",
+    "509",
+    "511",
+    "513",
+    "522",
+    "530",
+    "548",
+    "551",
+    "556",
+    "577"
+  ],
+  "n_original_ids_kept": 548,
+  "n_images_kept": 10960,
+  "n_empty_label_files": 0,
+  "box_counts_kept": {
+    "vessel": 33260,
+    "malformed_vessel": 28640,
+    "cross_vessel": 10240
+  },
+  "augs_per_original": {
+    "20": 548
+  },
+  "folds": {
+    "fold0": {
+      "train_original_ids": 438,
+      "val_original_ids": 110,
+      "train_images": 8760,
+      "val_images": 2200
+    },
+    "fold1": {
+      "train_original_ids": 438,
+      "val_original_ids": 110,
+      "train_images": 8760,
+      "val_images": 2200
+    },
+    "fold2": {
+      "train_original_ids": 438,
+      "val_original_ids": 110,
+      "train_images": 8760,
+      "val_images": 2200
+    },
+    "fold3": {
+      "train_original_ids": 439,
+      "val_original_ids": 109,
+      "train_images": 8780,
+      "val_images": 2180
+    },
+    "fold4": {
+      "train_original_ids": 439,
+      "val_original_ids": 109,
+      "train_images": 8780,
+      "val_images": 2180
+    }
+  },
+  "governance": {
+    "locked_original_ids_in_any_fold": 0,
+    "group_unit": "original_id (all augmentations kept together)",
+    "file_level_random_split": false,
+    "images_transmitted": 0
+  },
+  "staged": false
+}
