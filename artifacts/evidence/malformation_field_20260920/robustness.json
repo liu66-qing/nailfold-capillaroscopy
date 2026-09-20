@@ -1,0 +1,63 @@
+{
+  "per_prediction_file": {
+    "per_case_fold0_s768_conf0.25.csv": {
+      "n_scored": 116,
+      "auroc": 0.749,
+      "ci95": [
+        0.655,
+        0.835
+      ],
+      "by_archive": {
+        "recovered_archive1": {
+          "n": 35,
+          "n_pos": 16,
+          "prevalence": 0.457,
+          "auroc": 0.827
+        },
+        "recovered_archive2": {
+          "n": 49,
+          "n_pos": 24,
+          "prevalence": 0.49,
+          "auroc": 0.732
+        },
+        "recovered_archive3": {
+          "n": 32,
+          "n_pos": 14,
+          "prevalence": 0.438,
+          "auroc": 0.627
+        }
+      },
+      "count_confounds": {
+        "n_img": 0.572,
+        "n_img_used": 0.499,
+        "n_blank": 0.49,
+        "n_loops": 0.343,
+        "cross_ratio": 0.582
+      },
+      "label_noise": {
+        "flip_5pct": 0.722,
+        "flip_10pct": 0.694,
+        "flip_15pct": 0.671,
+        "flip_20pct": 0.653
+      },
+      "label_reliability": {
+        "drop_ambiguous_10_30": {
+          "n": 96,
+          "auroc": 0.804
+        },
+        "extremes_only": {
+          "n": 82,
+          "auroc": 0.793
+        }
+      },
+      "archive_signal_everywhere": true,
+      "improves_on_cleaner_labels": true
+    }
+  },
+  "interpretation": "A spurious correlation would not strengthen when the noisiest label band is removed, and would not survive inside every archive separately. Total detections scoring BELOW 0.5 also rules out a simple count effect. None of this makes the number a product claim: it is a development-set measurement on one detector fold.",
+  "governance": {
+    "locked_cases_seen": 0,
+    "models_run": 0,
+    "reads_existing_predictions_only": true
+  }
+}
