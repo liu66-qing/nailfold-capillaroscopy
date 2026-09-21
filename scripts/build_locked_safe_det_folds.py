@@ -46,10 +46,24 @@ ALL_LABELS = os.path.join(ROOT, "data", "yolo_det_3class", "all_labels")
 MAPPING = os.path.join(
     ROOT, "artifacts", "audits", "vascular_dataset_governance_20260830",
     "source_case_mapping.csv")
-# written by scripts/leakcheck_unmapped_vs_locked.py if near-duplicates are found
-EXTRA_EXCLUDE = os.path.join(
-    ROOT, "artifacts", "evidence", "leakcheck_unmapped_20260920",
-    "exclude_original_ids.txt")
+# written by scripts/leakcheck_unmapped_vs_locked.py if near-duplicates are found.
+#
+# Two lists exist. The 24-id one is what the committed 5-fold run actually used;
+# the 45-id one is the full-resolution-confirmed superset (the 24 are a strict
+# subset) and hits 17 of the 47 locked cases. --exclude-list selects which, so
+# the committed run stays reproducible instead of being silently changed.
+#
+# The expanded file is TAB-SEPARATED (id, locked_case, filename, full-res MAE,
+# null-floor distance), so it must be parsed on the first field. Pointing the old
+# whole-line parser at it would have matched nothing and excluded nothing while
+# appearing to work -- exactly the kind of silent no-op that makes a leakage
+# guard worthless.
+EXCLUDE_DIR = os.path.join(
+    ROOT, "artifacts", "evidence", "leakcheck_unmapped_20260920")
+EXCLUDE_FILES = {
+    "committed24": os.path.join(EXCLUDE_DIR, "exclude_original_ids.txt"),
+    "expanded45": os.path.join(EXCLUDE_DIR, "exclude_original_ids_expanded.txt"),
+}
 
 STAGE = os.path.join(ROOT, "data", "det_stage_lockedsafe")
 OUT_DIR = os.path.join(ROOT, "artifacts", "evidence", "det_folds_20260920")
@@ -74,6 +88,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true",
                     help="report the split and exclusions without staging files")
+    ap.add_argument("--exclude-list", choices=sorted(EXCLUDE_FILES),
+                    default="committed24",
+                    help="committed24 reproduces the committed 5-fold run; "
+                         "expanded45 is the full-res-confirmed superset and is "
+                         "required before any locked-47 use")
     args = ap.parse_args()
 
     mp = pd.read_csv(MAPPING)
@@ -81,11 +100,22 @@ def main():
     locked_ids = set(mp.loc[mp["source_mapping_status"] ==
                             "EXACT_RECOVERED_LOCKED", "original_id"])
 
+    exclude_path = EXCLUDE_FILES[args.exclude_list]
     extra = set()
-    if os.path.exists(EXTRA_EXCLUDE):
-        with open(EXTRA_EXCLUDE, encoding="utf-8") as fh:
-            extra = {ln.strip() for ln in fh if ln.strip() and
-                     not ln.startswith("#")}
+    if os.path.exists(exclude_path):
+        with open(exclude_path, encoding="utf-8") as fh:
+            for ln in fh:
+                ln = ln.strip()
+                if not ln or ln.startswith("#"):
+                    continue
+                extra.add(ln.split("\t")[0].split()[0])
+    # a leakage guard that silently matches nothing is worse than none at all
+    if not extra:
+        raise AssertionError(
+            f"parsed 0 ids from {exclude_path}; refusing to stage an "
+            "unguarded dataset")
+    print(f"exclusion list {args.exclude_list}: {len(extra)} original_ids "
+          f"from {os.path.basename(exclude_path)}")
 
     # inventory: which original_ids actually have images AND labels on disk
     have = collections.defaultdict(list)
@@ -132,7 +162,9 @@ def main():
         "n_excluded_total": len(excluded),
         "n_excluded_known_locked": len(locked_ids & set(all_ids)),
         "n_excluded_near_duplicate": len(extra & set(all_ids)),
-        "extra_exclusion_file_present": os.path.exists(EXTRA_EXCLUDE),
+        "exclude_list_used": args.exclude_list,
+        "exclude_list_path": exclude_path,
+        "n_ids_in_exclude_list": len(extra),
         "excluded_original_ids": sorted(excluded, key=lambda s: int(s)),
         "n_original_ids_kept": len(keep_ids),
         "n_images_kept": n_imgs,
