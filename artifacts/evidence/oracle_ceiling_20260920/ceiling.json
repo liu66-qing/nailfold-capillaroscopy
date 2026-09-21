@@ -1,0 +1,38 @@
+{
+  "what": "paired ceiling test on the oracle cohort: human boxes vs per-frame out-of-fold detector, same cases, same labels",
+  "why_not_the_115_set": "the 115-case evaluation set was defined as the development cases WITHOUT human boxes; overlap with the oracle cohort is 0 by construction",
+  "n": 44,
+  "prevalence": 0.3409,
+  "human_boxes_auroc": 0.7494,
+  "human_boxes_ci95": [
+    0.5861,
+    0.894
+  ],
+  "detector_oof_auroc": 0.7253,
+  "detector_ci95": [
+    0.558,
+    0.8672
+  ],
+  "paired_difference_human_minus_detector": 0.0241,
+  "paired_difference_ci95": [
+    -0.1107,
+    0.1653
+  ],
+  "difference_excludes_zero": false,
+  "detection_density": {
+    "human_loops_per_image": 6.78,
+    "detector_loops_per_image": 7.22
+  },
+  "governance": {
+    "locked_cases_seen": 0,
+    "images_transmitted": 0,
+    "models_trained": 0,
+    "detector_scored_out_of_fold_per_frame": true
+  },
+  "interpretation_rule": "a difference CI that excludes 0 and favours the human boxes means detector headroom remains; a CI containing 0 at this n means NO LARGE GAP DETECTED, not equality",
+  "limitations": [
+    "n=44; a paired AUROC difference at this n resolves only large gaps",
+    "prevalence here is 0.341 vs 0.461 on the 115-case set, so absolute AUROCs are not comparable across the two cohorts -- only the paired difference within this cohort is interpretable",
+    "human boxes are student annotations, not a clinical gold standard"
+  ]
+}
