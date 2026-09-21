@@ -1,0 +1,738 @@
+{
+  "summary": {
+    "n_cases": 267,
+    "n_duplicate_rows_dropped": 0,
+    "n_with_rtf": 227,
+    "n_without_rtf": 40,
+    "n_with_report_image": 241,
+    "n_without_rtf_but_with_report_image": 14,
+    "Q1_patient_level_diagnosis": {
+      "cases_with_strong_history_marker": "0/267 (0.0%)",
+      "which": [],
+      "disease_sentences_total": 626,
+      "disease_sentences_with_strong_history": 0,
+      "disease_sentences_as_image_speculation": 499,
+      "disease_sentences_neither": 127
+    },
+    "Q1b_image_vs_rtf_advice": {
+      "n_compared": 227,
+      "similarity_median": 0.476,
+      "similarity_p10": 0.046,
+      "n_images_with_extra_history_marker_not_in_rtf": 0
+    },
+    "Q2_recoverable_from_image_without_rtf": {
+      "table_present": "14/14 (100.0%)",
+      "grade_present": "14/14 (100.0%)",
+      "advice_present": "1/14 (7.1%)",
+      "fully_recoverable_cases": [
+        "recovered_archive1/4",
+        "recovered_archive1/9",
+        "recovered_archive1/12",
+        "recovered_archive1/19",
+        "recovered_archive1/23",
+        "recovered_archive1/24",
+        "recovered_archive1/25",
+        "recovered_archive1/43",
+        "recovered_archive1/53",
+        "recovered_archive2/117",
+        "recovered_archive2/171",
+        "recovered_archive3/217",
+        "recovered_archive3/240",
+        "recovered_archive3/245"
+      ],
+      "n_fully_recoverable": 14,
+      "n_not_already_in_canonical_labels": 0,
+      "which_new": []
+    },
+    "table_present_overall": "241/267 (90.3%)",
+    "grade_distribution": {
+      "大致正常": 19,
+      "正常": 19,
+      "中度异常": 98,
+      "轻度异常": 33,
+      "重度异常": 72
+    },
+    "n_canonical_label_rows": 241
+  },
+  "disease_sentence_examples": [
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/mm 5--6 [7-9条/mm]  8'0 输入枝管径 [9-13um]  13 0. 0 输出枝管径 15 [11-17um] 0. 0 输出/输入枝管径 1.2 [1. 3] 祥顶直径 [12-18um]  19 0. 1 169 管祥长 [150-250um] 0. 0 [<30%] 交叉管祥数 <=30% 0'0 畸形管数 <=1 0%  [<10%]  0. 0 粒流 流速 [线流、线粒流] 8'0 un/s [>600un/s] 次/min 0--1 [0-1次/min] 血管运动性 0. 0 红细胞聚集 中度 [无] 1.0 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 0. 0 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 可见2排 [不见] 0.4 乳头 浅波纹状 [波纹状] 0. 4 汗腺导管 个/一指甲壁 [0-2个/一指甲] 形态积分：0.9 流态积分：2.0 祥周积分： 0.8 总积分： 3.7 综合判断： 轻度异常 建议 管祥顶端膨大，是雷诺的表 现，建议做进一步检查",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/mm 5--6 [7-9条/mm]  8'0 输入枝管径 [9-13um]  13 0. 0 输出枝管径 15 [11-17um] 0. 0 输出/输入枝管径 1.2 [1. 3] 祥顶直径 [12-18um]  19 0. 1 169 管祥长 [150-250um] 0. 0 [<30%] 交叉管祥数 <=30% 0'0 畸形管数 <=1 0%  [<10%]  0. 0 粒流 流速 [线流、线粒流] 8'0 un/s [>600un/s] 次/min 0--1 [0-1次/min] 血管运动性 0. 0 红细胞聚集 中度 [无] 1.0 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 0. 0 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 可见2排 [不见] 0.4 乳头 浅波纹状 [波纹状] 0. 4 汗腺导管 个/一指甲壁 [0-2个/一指甲] 形态积分：0.9 祥周积分： 流态积分：2.0 8'0 总积分： 3.7 综合判断： 轻度异常 建议 管祥顶端膨大，是雷诺的表 现，建议做进一步检查",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "管袢顶端膨大，是雷诺的表",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "管袢顶端膨大，是雷诺的表现，建议做进一步检查",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/29",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/30",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/mm >=7 [7-9条/mm] 0. 0 输入枝管径 [9-13um]  0. 2 输出枝管径 13 [11-17um] 0. 0 1.6 输出/输入枝管径 [1. 3] 祥顶直径 [12-18um] 0.4 335 管祥长 [150-250um] 0.4 [<30%] 交叉管祥数 %09--06 0. 2 畸形管祥数 <=1 0%  [<10%]  0. 0 流速 粒线流 [线流、线粒流] 0.4 um/s [>600un/s] 0--1 次/min [0-1次/min] 血管运动性 0. 0 红细胞聚集 中度 [无] 1. 0 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 1--2 2. 0 血色 浅红 [淡红色] 0. 2 [无] 1. 5 出血 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 不见 [不见] 0. 0 乳头 浅波纹状 [波纹状] 0. 4 汗腺导管 个/一指甲壁 [0-2个/一指甲] 形态积分：1.2 流态积分：3.6 祥周积分： 1. 9 总积分： 6.7 综合判断：中度异常 建议 红细胞聚集引起粘度增高， 红细胞携氧能力下降，细胞 和组织处于缺氧状态，导致 血管病加重，严重时会堵塞 血管，动脉中形成局部狭 窄，加重动脉疾病，导致组 织结构的严重病变 血液中可见少量白微栓， 严重时会阻塞毛细血管，引 起微循环重度改变，建议对 症治疗，如软化血管、降低 血脂血粘度等",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/30",
+      "sentence": "血脂血粘度等",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/30",
+      "sentence": "血液中可见少量白微栓，严重时会阻塞毛细血管，引起微循环重度改变，建议对症治疗，如软化血管、降低血脂血粘度等",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/31",
+      "sentence": "可见明显的静脉丛扩 张，表明静脉血回流不通 畅，体循环受阻，与严重疲 劳、风湿性疾病、糖尿病等 有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/31",
+      "sentence": "劳、风湿性疾病、糖尿病等",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/31",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/32",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 不清 [清晰] 0. 2 条/m 管祥数 3--4 [7-9条/mm] 2. 0 输入枝管径 [9-13um] 0. 0 输出枝管径 19 [11-17um] 0. 1 输出/输入枝管径 2. 1 [1. 3] 祥顶直径 [12-18um]  48 1. 0 管祥长 194 [150-250um] 0. 0 交叉管祥数 [<30%] 畸形管数 [<10%]  线粒流 流速 [线流、线粒流] 0. 0 un/s [>600un/s] 0--1 次/min [0-1次/min] 血管运动性 0. 0 红细胞聚集 轻度 [无] 0. 2 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 暗红 [淡红色] 0.4 [无] 1. 5 出血 [未见] 1--2 管祥/一指甲壁 8'0 乳头下静脉丛 不见 [不见] 0. 0 乳头 平坦 [波纹状] 1.6 汗腺导管 0--2 个/一指甲璧 [0-2个/一指甲璧] 0. 0 形态积分：3.3 流态积分：0.6 祥周积分： 3. 9 总积分： 7.8 综合判断：中度异常 建议 管祥短小，管祥粗细不均， 血管调节不稳定，部分管祥 顶端膨大，微血管出现漏血 性出血，表明血管壁脆性加 大，通透性亢进，循环血量 不足，末梢乏氧，外周循环 不良，符合雷诺表现",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "建议",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/32",
+      "sentence": "不良，符合雷诺表现",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/32",
+      "sentence": "管袢短小，管袢粗细不均，血管调节不稳定，部分管袢顶端膨大，微血管出现漏血性出血，表明血管壁脆性加大，通透性亢进，循环血量不足，末梢乏氧，外周循环不良，符合雷诺表现",
+      "disease_words": [
+        "雷诺"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/34",
+      "sentence": "血液中可见少量白微栓， 严重时会阻塞毛细血管，引 起微循环重度改变，建议对 症治疗，如软化血管、降低 血脂血粘度等 可见明显的静脉丛扩张",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/34",
+      "sentence": "血脂血粘度等",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/34",
+      "sentence": "血液中可见少量白微栓，严重时会阻塞毛细血管，引起微循环重度改变，建议对症治疗，如软化血管、降低血脂血粘度等",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/35",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/mm >=7 [7-9条/mm] 0. 0 输入枝管径 [9-13um]  0. 2 输出枝管径 [11-17um] 0. 0 输出/输入枝管径 1.4 [1. 3] 祥顶直径 [12-18um]  13 0. 0 管祥长 82 [150-250um] 0.4 <=30%  [<30%] 交叉管祥数 0'0 畸形管数 30--60% [<10%]  0.4 流速 粒线流 [线流、线粒流] 0.4 u/s [>600um/s] 0--1 血管运动性 次/min [0-1次/min] 0. 0 红细胞聚集 轻度 [无] 0. 2 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 0. 0 [未见] 管祥/一指甲璧 0. 0 乳头下静脉丛 可见1排 [不见] 0. 1 乳头 平坦 [波纹状] 1.6 汗腺导管 0--2 个/一指甲璧 [0-2个/一指甲璧] 0. 0 形态积分：1.0 流态积分：0.8 祥周积分： 1.7 总积分： 3. 5 综合判断：轻度异常 建议 管祥短小，循环血量不足， 外周循环不良，可见明显的 静脉丛扩张，表明静脉血回 流不通畅，体循环受阻，与 严重疲劳、风湿性疾病等有",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/35",
+      "sentence": "严重疲劳、风湿性疾病等有",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/35",
+      "sentence": "管袢短小，循环血量不足，外周循环不良，可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病等有关",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/36",
+      "sentence": "可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、血糖血脂等有关",
+      "disease_words": [
+        "风湿",
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/36",
+      "sentence": "可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、血糖血脂等有关",
+      "disease_words": [
+        "风湿",
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/36",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/36",
+      "sentence": "性疾病、血糖血脂等有关",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/36",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、血糖血脂等有关",
+      "disease_words": [
+        "风湿",
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/40",
+      "sentence": "测量项目 测量值 正常值 积分 清晰度 不清 [清晰] 0. 2 管祥数 条/m >=7 [7-9条/mm]  0. 0 输入枝管径 [9-13um] 10 0. 0 输出枝管径 15 [11-17um] 0. 0 输出/输入枝管径 1.5 [1. 3] 祥顶直径 [12-18um] 21 0. 1 管祥长 143 [150-250um] 0. 2 [<30%] 交叉管祥数 <=30% 0'0 畸形管祥数 <=1 0%  [<10%]  0. 0 流速 粒线流 [线流、线粒流] 0.4 un/s [>600um/s] 0--1 次/min [0-1次/min] 血管运动性 0. 0 红细胞聚集 轻度 [无] 0. 2 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 1. 5 出血 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 可见1排 [不见] 0. 1 乳头 平坦 [波纹状] 1.6 汗腺导管 0--2 个/一指甲壁 [0-2个/一指甲］ 0. 0 形态积分：0.5 流态积分：0.8 祥周积分： 3. 2 总积分： 4.5 综合判断：中度异常 建议 管祥短小，循环血量不足， 外周循环不良 管祥周围有明显的血浆成分 渗出，是微血管壁通透性改 变的直接表现，微循环状态 可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/40",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/40",
+      "sentence": "性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/40",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/41",
+      "sentence": "符合风湿病血管炎改 变，建议3个月复查",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/41",
+      "sentence": "符合风湿病血管炎改",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/41",
+      "sentence": "符合风湿病血管炎改变，建议3个月复查",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 不清 [清晰］ 0. 2 条/m 管祥数 >=7 [7-9条/mm]  0. 0 输入枝管径 um [9-13um]  输出枝管径 [11-17um] 输出/输入枝管径 [1. 3] 祥顶直径 [12-18um] 管祥长 243 [150-250um] 0. 2 [<30%] 交叉管祥数 <=30% 0'0 畸形管祥数 %09< [<10%]  1. 2 流速 粒流 [线流、线粒流] 8'0 un/s [>600un/s] 0--1 次/min [0-1次/min] 血管运动性 0. 0 红细胞聚集 中度 [无] 1. 0 白细胞数 个/15s [1-30个/15s] 1--30 0. 0 白微栓 个/min [未见] 1--2 2. 0 血色 暗红 [淡红色] 0.4 [无]  2.4 出血 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 >2排,扩张 [不见] 1.0 乳头 平坦  [波纹状] 1.6 汗腺导管 0--2 个/一指甲壁 [0-2个/一指甲璧] 0. 0 形态积分：1.6 流态积分：4.2 祥周积分： 5. 0 总积分： 10.8 综合判断：重度异常 建议 管祥短小，循环血量不足， 外周循环不良，畸形明显， 周围渗出，符合结缔组织病 微循环改变",
+      "disease_words": [
+        "结缔"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "周围渗出，符合结缔组织病",
+      "disease_words": [
+        "结缔"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "管袢短小，循环血量不足，外周循环不良，畸形明显，周围渗出，符合结缔组织病微循环改变",
+      "disease_words": [
+        "结缔"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/44",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/46",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/m >=7 [7-9条/mm] 0. 0 输入枝管径 [9-13um]  11 0. 0 输出枝管径 16 [11-17um] 0. 0 输出/输入枝管径 1.5 [1. 3] 祥顶直径 [12-18um]  28 1. 0 316 管祥长 [150-250um] 0.4 [<30%] 交叉管祥数 <=30% 0'0 畸形管祥数 30--60% [<10%]  0.4 流速 粒缓流 [线流、线粒流] 1. 6 un/s [>600um/s] 0--1 血管运动性 次/min [0-1次/min] 0. 0 红细胞聚集 重度 [无] 3. 0 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 1--2 2. 0 血色 暗红 [淡红色] 0. 4 [无] 3. 6 [未见] 管祥/一指甲壁 0. 0 乳头下静脉丛 可见1排 [不见] 0. 1 乳头 平坦 [波纹状] 1.6 汗腺导管 0--2 个/一指甲璧 [0-2个/一指甲] 0. 0 形态积分：1.8 祥周积分： 流态积分：7.0 5. 3 总积分： 综合判断： 14. 1 重度异常 建议 血流缓慢，细胞代谢降低， 表明血脂、血粘度高，引起 红细胞聚集，红细胞携氧能 力下降，细胞和组织处于缺 氧状态，导致血管病加重， 严重时会堵塞血管，动脉中 形成局部狭窄，加重动脉疾 病，导致组织结构的严重病 变",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/46",
+      "sentence": "测量项目 测量值 正常值 积分 清晰度 清晰 [清晰］ 0. 0 条/mm 管祥数 >=7 [7-9条/mm] 0. 0 输入枝管径 [9-13um]  11 um 0. 0 输出枝管径 16 [11-17um] 0. 0 输出/输入枝管径 1.5 [1. 3] 祥顶直径 [12-18um] 28 1. 0 管祥长 316 [150-250um] 0.4 [<30%] 交叉管祥数 <=30% 0'0 畸形管祥数 30--60% [<10%]  0.4 流速 粒缓流 [线流、线粒流] 1. 6 um/s [>600un/s] 次/min 0--1 [0-1次/min] 血管运动性 0. 0 红细胞聚集 重度 [无] 白细胞数 个/15s [1-30个/15s] 1--30 0. 0 白微栓 个/min [未见] 1--2 2. 0 血色 暗红 [淡红色] 0.4 [无] 3. 6 出血 [未见] 管祥/一指甲璧 0. 0 乳头下静脉丛 可见1排 [不见] 0. 1 乳头 平坦 [波纹状] 1.6 汗腺导管 0--2 个/一指甲壁 [0-2个/一指甲璧] 0. 0 形态积分：1.8 流态积分：7.0 祥周积分： 5. 3 总积分： 14. 1 综合判断：重度异常 建议 血流缓慢，细胞代谢降低， 表明血脂、血粘度高，引起 红细胞聚集，红细胞携氧能 力下降，细胞和组织处于缺 氧状态，导致血管病加重， 严重时会堵塞血管，动脉中 形成局部狭窄，加重动脉疾 病，导致组织结构的严重病 变",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/46",
+      "sentence": "表明血脂、血粘度高，引起",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明"
+      ]
+    },
+    {
+      "case": "recovered_archive1/46",
+      "sentence": "血流缓慢，细胞代谢降低，表明血脂、血粘度高，引起红细胞聚集，红细胞携氧能力下降，细胞和组织处于缺氧状态，导致血管病加重，严重时会堵塞血管，动脉中形成局部狭窄，加重动脉疾病，导致组织结构的严重病变",
+      "disease_words": [
+        "血脂"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明"
+      ]
+    },
+    {
+      "case": "recovered_archive1/47",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/m >=7 [7-9条/mm]  0. 0 输入枝管径 [9-13um] 11 0. 0 输出枝管径 13 [11-17um] 0. 0 输出/输入枝管径 1.2 [1. 3] 祥顶直径 [12-18um]  17 0. 0 管祥长 281 [150-250um] 0. 2 <=30%  [<30%] 交叉管祥数 0'0 畸形管数 10--30% [<10%]  0. 2 流速 粒线流 [线流、线粒流] 0.4 um/s [>600um/s] 0--1 次/min [0-1次/min] 血管运动性 0. 0 红细胞聚集 轻度 [无] 0. 2 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 1. 5 1--2 [未见] 管祥/一指甲壁 8'0 乳头下静脉丛 可见2排 [不见] 0.4 乳头 浅波纹状 [波纹状] 0. 4 汗腺导管 0--2 个/一指甲璧 [0-2个/一指甲璧] 0. 0 形态积分：0.4 流态积分：0.8 祥周积分： 3. 1 总积分： 4.3 综合判断：中度异常 建议 可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关 可见乳头形状平坦，血管动 力差，免疫力低下",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/47",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/47",
+      "sentence": "性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/47",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/49",
+      "sentence": "测量项目 测值 正常值 积分 清晰度 清晰 [清晰] 0. 0 管祥数 条/mm >=7 [7-9条/mm] 0. 0 输入枝管径 [9-13um]  0. 2 输出枝管径 [11-17um]  15 0. 0 1. 9 输出/输入枝管径 [1. 3] 祥顶直径 [12-18um]  12 0. 0 管祥长 [150-250um] 213 0. 0 [<30%] 交叉管祥数 <=30% 0'0 畸形管祥数 <=1 0%  [<10%]  0. 0 流速 粒线流 [线流、线粒流] 0.4 un/s [>600um/s] 0--1 血管运动性 次/min [0-1次/min] 0. 0 红细胞聚集 轻度 [无] 0. 2 白细胞数 个/15s 1--30 [1-30个/15s] 0. 0 白微栓 个/min [未见] 0. 0 血色 浅红 [淡红色] 0. 2 [无] 0. 0 管祥/一指甲璧 [未见] 0. 0 乳头下静脉丛 可见2排 [不见] 0.4 乳头 波纹状 [波纹状] 0. 0 汗腺导管 0--2 个/一指甲壁 [0-2个/一指甲璧] 0. 0 形态积分：0.2 祥周积分： 流态积分：0.8 0.4 总积分： 1.4 综合判断：大致正常 建议 可见明显的静脉丛扩张，表 明静脉血回流不通畅，体循 环受阻，与严重疲劳、风湿 性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/49",
+      "sentence": "环受阻，与严重疲劳、风湿",
+      "disease_words": [
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": []
+    },
+    {
+      "case": "recovered_archive1/49",
+      "sentence": "性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/49",
+      "sentence": "可见明显的静脉丛扩张，表明静脉血回流不通畅，体循环受阻，与严重疲劳、风湿性疾病、糖尿病等有关",
+      "disease_words": [
+        "糖尿",
+        "风湿"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "表明",
+        "有关"
+      ]
+    },
+    {
+      "case": "recovered_archive1/50",
+      "sentence": "测量项目 测量值 正常值 清晰度 [清晰］ 管祥数 条/mm [7-9条/mm]  输入枝管径 [9-13um]  输出枝管径 [11-17um] 输出/输入枝管径 [1. 3] 祥顶直径 [12-18um] 管祥长 [150-250um] 交叉管祥数 [<30%] 畸形管祥数 [<10%]  流速 [线流、线粒流] un/s [>600um/s] 次/min 血管运动性 [0-1次/min] 红细胞聚集 [无] 白细胞数 个/15s [1-30个/15s] 白微栓 个/min [未见] 血色 [淡红色] [无] 管祥/一指甲璧 [未见] 乳头下静脉丛 [不见] 乳头 [波纹状] 汗腺导管 个/一指甲璧 [0-2个/一指甲髮] 形态积分： 流态积分： 祥周积分： 总积分： 综合判断： 建议 多发管祥顶端膨大，注意系 统性硬化疾病的表现，建议 做进一步检查",
+      "disease_words": [
+        "硬化"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "注意"
+      ]
+    },
+    {
+      "case": "recovered_archive1/50",
+      "sentence": "末梢循环减少，周围多发渗 出明显，符合结缔组织病改 变，建议系统治疗后复查",
+      "disease_words": [
+        "结缔"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/50",
+      "sentence": "统性硬化疾病的表现，建议",
+      "disease_words": [
+        "硬化"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议"
+      ]
+    },
+    {
+      "case": "recovered_archive1/50",
+      "sentence": "出明显，符合结缔组织病改",
+      "disease_words": [
+        "结缔"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "符合"
+      ]
+    },
+    {
+      "case": "recovered_archive1/50",
+      "sentence": "多发管袢顶端膨大，注意系统性硬化疾病的表现，建议做进一步检查",
+      "disease_words": [
+        "硬化"
+      ],
+      "strong_history": [],
+      "speculation": [
+        "建议",
+        "注意"
+      ]
+    }
+  ]
+}
