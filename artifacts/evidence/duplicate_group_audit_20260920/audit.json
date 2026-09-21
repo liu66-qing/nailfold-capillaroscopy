@@ -1,0 +1,135 @@
+{
+  "group_audited": "recovered_archive1/32",
+  "n_members": 20,
+  "members": [
+    "recovered_archive1/32",
+    "recovered_archive1/38",
+    "recovered_archive1/51",
+    "recovered_archive1/61",
+    "recovered_archive1/62",
+    "recovered_archive1/90",
+    "recovered_archive1/99",
+    "recovered_archive2/113",
+    "recovered_archive2/124",
+    "recovered_archive2/164",
+    "recovered_archive2/168",
+    "recovered_archive2/176",
+    "recovered_archive2/191",
+    "recovered_archive3/209",
+    "recovered_archive3/213",
+    "recovered_archive3/221",
+    "recovered_archive3/223",
+    "recovered_archive3/242",
+    "recovered_archive3/246",
+    "recovered_archive3/267"
+  ],
+  "group_size_distribution": {
+    "1": 213,
+    "20": 1
+  },
+  "shape_note": "213 singletons and one group of 20, with no groups of 2 or 3 at all. Real duplicate detection produces a tail of small groups; this shape points at one degenerate edge.",
+  "linking_edges_multi_case": [
+    {
+      "role": "cap_image",
+      "sha256_prefix": "749a8efc155a7020",
+      "n_cases_linked": 23,
+      "n_file_rows": 34,
+      "size_bytes": 12917,
+      "width": 1024.0,
+      "height": 768.0,
+      "gray_mean": 0.0,
+      "gray_std": 0.0,
+      "is_black_placeholder": true,
+      "distinct_filenames": 13,
+      "example_filenames": [
+        "CAPorg1.jpg",
+        "CAPorg10.jpg",
+        "CAPorg11.jpg",
+        "CAPorg12.jpg",
+        "CAPorg13.jpg"
+      ]
+    },
+    {
+      "role": "report_image",
+      "sha256_prefix": "1aa0a6511ad71c35",
+      "n_cases_linked": 2,
+      "n_file_rows": 3,
+      "size_bytes": 43559,
+      "width": NaN,
+      "height": NaN,
+      "gray_mean": NaN,
+      "gray_std": NaN,
+      "is_black_placeholder": false,
+      "distinct_filenames": 3,
+      "example_filenames": [
+        "rep.jpg.jpg",
+        "rep_1810160.jpg.jpg",
+        "rep_1812070.jpg.jpg"
+      ]
+    },
+    {
+      "role": "report_image",
+      "sha256_prefix": "d49b4447bbfffce0",
+      "n_cases_linked": 2,
+      "n_file_rows": 4,
+      "size_bytes": 74076,
+      "width": NaN,
+      "height": NaN,
+      "gray_mean": NaN,
+      "gray_std": NaN,
+      "is_black_placeholder": false,
+      "distinct_filenames": 4,
+      "example_filenames": [
+        "rep.jpg.jpg",
+        "rep_1812070.jpg.jpg",
+        "rep_1812071.jpg.jpg",
+        "rep_左手.jpg.jpg"
+      ]
+    }
+  ],
+  "verdict": {
+    "real_duplicates": false,
+    "cause": "the only edge that links 3 or more cases is a byte-identical ALL-BLACK placeholder image (gray_mean 0.0, gray_std 0.0, is_black_placeholder True). build_splits.py unions cases on identical cap_image sha256 and never excludes placeholders, so every case that happens to contain a blank frame was merged into one component.",
+    "consequence_folds": "development fold 3 is NOT 43 correlated cases. The 20 members are unrelated patients, so fold 3's effective n is 43, not ~24. Any earlier claim that fold 3 was degenerate is withdrawn.",
+    "consequence_locked": "build_locked_evaluation.py samples locked cases BY duplicate_group, so these 20 cases were treated as one sampling unit and could contribute at most one locked case. That biases WHICH cases are in locked-47, but it does not put a case on both sides: the group is entirely in development.",
+    "what_is_not_affected": "no result is invalidated. The grouping is over-conservative, which cannot create leakage, only reduce the pool. It is a sampling-representativeness issue.",
+    "fix": "exclude is_black_placeholder rows before the union in build_splits.py:54. NOT applied here -- rebuilding splits would move cases between development and locked-47, and locked-47 must not be redrawn after it has been evaluated against."
+  },
+  "missing_size_2_groups_explained": {
+    "pairs": [
+      {
+        "role": "report_image",
+        "sha256_prefix": "1aa0a6511ad71c35",
+        "cases": [
+          "recovered_archive1/19",
+          "recovered_archive2/182"
+        ],
+        "in_manifest": [
+          false,
+          true
+        ]
+      },
+      {
+        "role": "report_image",
+        "sha256_prefix": "d49b4447bbfffce0",
+        "cases": [
+          "recovered_archive1/28",
+          "recovered_archive3/245"
+        ],
+        "in_manifest": [
+          true,
+          false
+        ]
+      }
+    ],
+    "explanation": "each real 2-case edge has exactly one member outside the 233-case manifest (dropped by build_splits.py's cap_count_usable / report_label_available filter), so the survivor appears as a singleton. The absence of size-2 groups is therefore expected, not a second bug."
+  },
+  "group20_all_placeholder_cases": true,
+  "black_placeholder_reach": {
+    "n_placeholder_file_rows": 36,
+    "n_cases_containing_one": 25,
+    "n_in_development": 21,
+    "n_in_locked": 0,
+    "note": "these frames carry no image information and must be excluded from any image-level evaluation as well, not just from the grouping"
+  }
+}

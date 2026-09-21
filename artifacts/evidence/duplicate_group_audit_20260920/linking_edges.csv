@@ -1,0 +1,4 @@
+role,sha256_prefix,n_cases_linked,n_file_rows,size_bytes,width,height,gray_mean,gray_std,is_black_placeholder,distinct_filenames,example_filenames
+cap_image,749a8efc155a7020,23,34,12917,1024.0,768.0,0.0,0.0,True,13,"['CAPorg1.jpg', 'CAPorg10.jpg', 'CAPorg11.jpg', 'CAPorg12.jpg', 'CAPorg13.jpg']"
+report_image,1aa0a6511ad71c35,2,3,43559,,,,,False,3,"['rep.jpg.jpg', 'rep_1810160.jpg.jpg', 'rep_1812070.jpg.jpg']"
+report_image,d49b4447bbfffce0,2,4,74076,,,,,False,4,"['rep.jpg.jpg', 'rep_1812070.jpg.jpg', 'rep_1812071.jpg.jpg', 'rep_左手.jpg.jpg']"
