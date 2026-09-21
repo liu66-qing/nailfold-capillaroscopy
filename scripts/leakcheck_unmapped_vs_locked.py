@@ -564,8 +564,58 @@ def main() -> None:
                     int(mv is not None and mv < null_floor and r["ratio_raw"] < RATIO_GATE),
                 ])
 
+    # ---- corroboration: whole-case import signature -----------------------------
+    # If N different unmapped originals independently match N DIFFERENT frames of the same
+    # locked case, that is a whole-case import, not a chance collision.
+    conf = flags["preaug"]["confirmed_near_duplicates"]
+    case_frames = defaultdict(set)
+    case_ids = defaultdict(set)
+    for r in conf:
+        case_frames[r["matched_locked_case"]].add(r["matched_filename"])
+        case_ids[r["matched_locked_case"]].add(r["original_id"])
+    corroboration = {
+        "n_locked_cases_implicated": len(case_frames),
+        "per_case": {
+            k: {
+                "n_distinct_frames_matched": len(v),
+                "frames": sorted(v),
+                "unmapped_original_ids": sorted(case_ids[k], key=int),
+            }
+            for k, v in sorted(case_frames.items(), key=lambda x: -len(x[1]))
+        },
+    }
+    tiers = {}
+    for lo, hi, lbl in ((0.0, 3.0, "mae_lt_3_reencode"), (3.0, 7.0, "mae_3_to_7_crop_or_resize"),
+                        (7.0, null_floor, "mae_7_to_nullfloor_borderline")):
+        sel = [r for r in conf if r["fullres_mae"] is not None and lo <= r["fullres_mae"] < hi]
+        tiers[lbl] = {"n": len(sel), "original_ids": sorted((r["original_id"] for r in sel), key=int)}
+
+    # union of suspects: anything below the null MAE floor, whether or not it passed the ratio screen
+    idxs_u, res_u = results[("unmapped", "preaug", "locked")]
+    suspects = []
+    for i, r in zip(idxs_u, res_u):
+        cid, fn = meta_L[r["best_idx"]]
+        m = mae_for(queries["unmapped"][i]["preaug_path"], cid, fn)
+        if m is not None and m < null_floor:
+            suspects.append(queries["unmapped"][i]["original_id"])
+
     payload = {
         "question": "Are any of the 449 UNMAPPED_LOCAL_SOURCE originals perceptual near-duplicates of locked-47 images?",
+        "verdict": {
+            "status": "UNSAFE",
+            "n_confirmed_near_duplicates_of_locked": len(conf),
+            "confirmed_original_ids": sorted((r["original_id"] for r in conf), key=int),
+            "n_suspect_below_mae_null_floor_any_gate": len(suspects),
+            "suspect_original_ids": sorted(set(suspects), key=int),
+            "method_validated": "degradation control recovers 32/32 for jpeg re-encode and resize; 128/128 exact-copy TPR",
+            "blind_spot": "query must be the pre-augmentation source; on augmented frames TPR is 0.00-0.07, so the augmented pool cannot be screened this way",
+            "statement": (
+                "Training on the 449 UNMAPPED_LOCAL_SOURCE originals is NOT locked-safe. "
+                "MD5 mapping missed re-encoded and cropped copies of locked-47 images."
+            ),
+        },
+        "confirmed_tiers_by_fullres_mae": tiers,
+        "whole_case_import_corroboration": corroboration,
         "method": {
             "signature": "cv2.imdecode -> gray -> 48x48 INTER_AREA -> (x-mean)/std -> 2304-d",
             "distance": "squared Euclidean",
