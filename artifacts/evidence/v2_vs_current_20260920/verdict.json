@@ -1,0 +1,248 @@
+{
+  "question": "v2 looks better -- why, and can the 4 models be combined?",
+  "generated": "2026-09-20",
+  "part1_one_ruler": {
+    "finding": "On accuracy-minus-majority-baseline, v2's routed numbers and the current fixed config are close on all 4 comparable fields. The apparent gap is mostly BA-vs-delta framing.",
+    "table": [
+      {
+        "field": "clarity",
+        "v2_routed_model": "rank8",
+        "v2_reported_ba": 0.8371,
+        "v2_routed_delta": 0.3297,
+        "v2_delta_min": 0.2973,
+        "v2_delta_max": 0.3297,
+        "v2_delta_mean": 0.3135,
+        "current_delta": 0.3297,
+        "gap_routed_minus_current": 0.0,
+        "comparable": true,
+        "note": ""
+      },
+      {
+        "field": "blood_color",
+        "v2_routed_model": "rank8",
+        "v2_reported_ba": 0.7392,
+        "v2_routed_delta": 0.1878,
+        "v2_delta_min": 0.1436,
+        "v2_delta_max": 0.1878,
+        "v2_delta_mean": 0.1588,
+        "current_delta": 0.1326,
+        "gap_routed_minus_current": 0.0552,
+        "comparable": true,
+        "note": ""
+      },
+      {
+        "field": "exudation",
+        "v2_routed_model": "rank4_lr1e4",
+        "v2_reported_ba": 0.7993,
+        "v2_routed_delta": 0.2896,
+        "v2_delta_min": 0.2623,
+        "v2_delta_max": 0.2896,
+        "v2_delta_mean": 0.2773,
+        "current_delta": 0.2404,
+        "gap_routed_minus_current": 0.0492,
+        "comparable": true,
+        "note": ""
+      },
+      {
+        "field": "subpapillary_venous_plexus",
+        "v2_routed_model": "rank4_lr1e4",
+        "v2_reported_ba": 0.8622,
+        "v2_routed_delta": 0.2989,
+        "v2_delta_min": 0.2554,
+        "v2_delta_max": 0.2989,
+        "v2_delta_mean": 0.2785,
+        "current_delta": 0.2663,
+        "gap_routed_minus_current": 0.0326,
+        "comparable": true,
+        "note": ""
+      },
+      {
+        "field": "papilla",
+        "v2_routed_model": "rank16",
+        "v2_reported_ba": 0.6268,
+        "v2_routed_delta": 0.027,
+        "v2_delta_min": -0.0108,
+        "v2_delta_max": 0.027,
+        "v2_delta_mean": 0.0095,
+        "current_delta": 0.027,
+        "gap_routed_minus_current": 0.0,
+        "comparable": false,
+        "note": "current=3-class, v2=binary"
+      }
+    ]
+  },
+  "part2_can_they_be_combined": {
+    "null_p_max_ge_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.41644,
+      "4": 0.062555,
+      "5": 0.00402
+    },
+    "per_field": [
+      {
+        "field": "clarity",
+        "val_winner": "rank8_lr1e4",
+        "val_wins_of_5": 2,
+        "p_under_null": 1.0,
+        "oof_winner": "rank8",
+        "val_predicts_oof": false,
+        "per_model_val_wins": {
+          "rank8_lr1e4": 2,
+          "rank8": 2,
+          "rank16": 1
+        }
+      },
+      {
+        "field": "blood_color",
+        "val_winner": "rank8_lr1e4",
+        "val_wins_of_5": 3,
+        "p_under_null": 0.4164,
+        "oof_winner": "rank8",
+        "val_predicts_oof": false,
+        "per_model_val_wins": {
+          "rank8_lr1e4": 3,
+          "rank8": 1,
+          "rank4_lr1e4": 1
+        }
+      },
+      {
+        "field": "exudation",
+        "val_winner": "rank8_lr1e4",
+        "val_wins_of_5": 2,
+        "p_under_null": 1.0,
+        "oof_winner": "rank4_lr1e4",
+        "val_predicts_oof": false,
+        "per_model_val_wins": {
+          "rank8": 1,
+          "rank4_lr1e4": 1,
+          "rank16": 1,
+          "rank8_lr1e4": 2
+        }
+      },
+      {
+        "field": "subpapillary_venous_plexus",
+        "val_winner": "rank8",
+        "val_wins_of_5": 2,
+        "p_under_null": 1.0,
+        "oof_winner": "rank4_lr1e4",
+        "val_predicts_oof": false,
+        "per_model_val_wins": {
+          "rank8": 2,
+          "rank8_lr1e4": 1,
+          "rank4_lr1e4": 2
+        }
+      },
+      {
+        "field": "papilla",
+        "val_winner": "rank8_lr1e4",
+        "val_wins_of_5": 4,
+        "p_under_null": 0.0626,
+        "oof_winner": "rank16",
+        "val_predicts_oof": false,
+        "per_model_val_wins": {
+          "rank4_lr1e4": 1,
+          "rank8_lr1e4": 4
+        }
+      }
+    ],
+    "val_predicts_oof_winner": "0/5",
+    "verdict": "NO. No field's per-fold winner count reaches significance (p >= 0.063), and the validation winner matches the routed OOF winner in 0/5 fields. Routing per field to its best model is how the 0.7729 headline was produced (+0.0213 free); it was independently refuted on 2026-09-17, when a single fixed config was not worse than fold-internal selection on all 10 fields."
+  },
+  "part3_label_file_confound": {
+    "withdrawn_claim": "I earlier stated v2 used locked_evaluation_v1_reviewed.csv while the current pipeline used the dirty-fix locked_evaluation_v1.csv, and called that the strongest remaining explanation for the gap. WITHDRAWN -- both use the reviewed file.",
+    "evidence": "evidence_all_fields_status.py:140 default = artifacts/manifest/locked_evaluation_v1_reviewed.csv",
+    "v2_labels": "/root/nailfold/artifacts/manifest/locked_evaluation_v1_reviewed.csv",
+    "v2_labels_note": "147/186 dev cases reviewed by human. 173 corrections + 2 NaN fills + 8 blanked. Original backup: locked_evaluation_v1_backup_pre_dirty_fix.csv. Dirty-fix intermediate: locked_evaluation_v1.csv.",
+    "table": [
+      {
+        "field": "clarity",
+        "reviewed_n_valid": 185,
+        "current_n": 185,
+        "n_matches": true,
+        "reviewed_pos_rate": 0.5081,
+        "reviewed_majority_baseline": 0.5081,
+        "current_majority_baseline": 0.5081,
+        "baseline_shift": 0.0,
+        "same_target": true
+      },
+      {
+        "field": "blood_color",
+        "reviewed_n_valid": 181,
+        "current_n": 181,
+        "n_matches": true,
+        "reviewed_pos_rate": 0.5525,
+        "reviewed_majority_baseline": 0.5525,
+        "current_majority_baseline": 0.5525,
+        "baseline_shift": 0.0,
+        "same_target": true
+      },
+      {
+        "field": "exudation",
+        "reviewed_n_valid": 183,
+        "current_n": 183,
+        "n_matches": true,
+        "reviewed_pos_rate": 0.4918,
+        "reviewed_majority_baseline": 0.5082,
+        "current_majority_baseline": 0.5082,
+        "baseline_shift": 0.0,
+        "same_target": true
+      },
+      {
+        "field": "subpapillary_venous_plexus",
+        "reviewed_n_valid": 184,
+        "current_n": 184,
+        "n_matches": true,
+        "reviewed_pos_rate": 0.5707,
+        "reviewed_majority_baseline": 0.5707,
+        "current_majority_baseline": 0.5707,
+        "baseline_shift": 0.0,
+        "same_target": true
+      },
+      {
+        "field": "papilla",
+        "reviewed_n_valid": 185,
+        "current_n": 185,
+        "n_matches": true,
+        "reviewed_pos_rate": 0.773,
+        "reviewed_majority_baseline": 0.773,
+        "current_majority_baseline": 0.4162,
+        "baseline_shift": 0.3568,
+        "same_target": false
+      }
+    ],
+    "same_target_on_comparable_fields": true,
+    "max_abs_baseline_shift_comparable": 0.0,
+    "papilla_shift_explained": "0.3568 is the 3-class-vs-binary task difference, not a label difference: v2's binary majority is 0.7730, the current 3-class majority is 0.4162.",
+    "consequence": "With the target, the cohort, the fold column and the n all identical, the v2-vs-current difference is the model only: LoRA-finetuned DINOv2 vs frozen-DINOv2 + PCA/logistic. No retrain on reviewed labels is needed -- that experiment is already done."
+  },
+  "part4_frame_count_lead": {
+    "v2_total_frames": 2207,
+    "dev_frames": 1708,
+    "locked_frames": 402,
+    "out_of_233_frames": 97,
+    "sums_to_2207": true,
+    "fold_case_sizes": [
+      38,
+      32,
+      39,
+      43,
+      34
+    ],
+    "split_unit": "exam_case_id",
+    "trainer_assertion": "finetune_dinov2_lora_rank8_cv.py:39 -- assert len(dev)==186 and len(locked)==47 and not set(frame.exam_case_id)&locked",
+    "verdict": "CLEAN. The 2207/1708 difference is dev+locked+out-of-cohort frames, not case duplication. v2's OOF is genuinely case-level, so leakage does NOT explain v2 looking good."
+  },
+  "what_this_does_not_close": [
+    "Neither era has been evaluated on locked-47 under this ruler; all numbers here are development-set and are NOT product capability.",
+    "v2's own metrics file already warns its 0.7729 is not comparable to v1 because the labels changed. The same caution applies to any v2-vs-current comparison, which is why the baselines are checked in part 3 rather than assumed.",
+    "The v2 deltas are single-point OOF numbers with no CI. The current run's CIs are +-0.09 wide at this n, so gaps of 0.03-0.06 are inside noise and must not be read as a ranking of the two eras.",
+    "This says nothing about whether LoRA beats frozen features in general -- the 2026-09-18 paired comparison found the LoRA gain to be 0 and r4 significantly negative. It says the two eras are much closer than the headline numbers suggested."
+  ],
+  "governance": {
+    "locked_cases_seen": 0,
+    "models_trained": 0,
+    "images_transmitted": 0,
+    "files_written_outside_out_dir": 0
+  }
+}
