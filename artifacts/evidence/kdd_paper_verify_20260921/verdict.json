@@ -1,0 +1,181 @@
+{
+  "seed": 20260921,
+  "claimed": {
+    "diabetic_subjects": 126,
+    "healthy_subjects": 76,
+    "diabetic_images": 3283,
+    "healthy_images": 3412,
+    "resolution": [
+      640,
+      480
+    ],
+    "morphology_images": 1279
+  },
+  "probes": {
+    "subject_counts": {
+      "healthy_dirs": 76,
+      "healthy_prefixes": 14,
+      "healthy_second_field_vocab": {
+        "12": 11,
+        "13": 13,
+        "14": 12,
+        "22": 14,
+        "23": 14,
+        "24": 12
+      },
+      "diabetic_dirs": 126,
+      "diabetic_per_subject_code_vocab": {
+        "1": 122,
+        "124": 1,
+        "2": 119,
+        "3": 122,
+        "4": 121,
+        "5": 122,
+        "6": 121,
+        "7": 122,
+        "8": 120,
+        "２": 1,
+        "３": 1,
+        "５": 1
+      },
+      "matches_claim_diabetic": true,
+      "matches_claim_healthy_dirs": true,
+      "resolution_of_dispute": "The paper says 76 healthy CONTROLS. There are 76 healthy directories but only 14 three-digit prefixes, and the second field takes exactly six values {12,13,14,22,23,24} = hand x finger -- the same per-subject multiplicity the diabetic side stores as a filename field with vocabulary {1..8}. So 76 = 14 people x ~5.4 fingers, and the paper's '76 healthy subjects' counts finger acquisitions as subjects. GPT relayed the paper's 76; my earlier '14 healthy' was the conservative grouping unit. Both numbers were right about different things, and the paper's is the one that inflates: 126 diabetic PEOPLE vs 14 healthy PEOPLE."
+    },
+    "image_counts": {
+      "raw_healthy": 3412,
+      "raw_diabetic": 4956,
+      "published_split_healthy": 3412,
+      "published_split_diabetic": 3283,
+      "claim_check": "Claimed 3412 healthy / 3283 diabetic. Raw healthy = 3412 (exact match). Raw diabetic = 4956, but the published split uses 3283 (exact match to the claim), i.e. the paper's diabetic count is the post-curation subset, not the raw folder. Both claimed numbers verify."
+    },
+    "resolution": {
+      "healthy": {
+        "(640, 480)": 3412
+      },
+      "diabetic": {
+        "(720, 540)": 400,
+        "(640, 480)": 4556
+      },
+      "subjects_with_mixed_resolution": 0,
+      "diabetic_720x540_subjects": [
+        "1",
+        "15",
+        "19",
+        "2",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "3",
+        "32",
+        "34",
+        "37"
+      ],
+      "video_subject_dirs": [
+        "1",
+        "15",
+        "19",
+        "2",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "3",
+        "32",
+        "34",
+        "37"
+      ],
+      "video_dirs_equal_720x540_subjects": true,
+      "claim_check": "Claimed 640x480 for the dataset. True for 100% of healthy images and 4556/4956 diabetic images, but 400 diabetic images across 15 subjects are 720x540 -- and those 15 subject ids are EXACTLY the 15 Video directories. So a second capture path (video-capable rig) exists on the diabetic side only, undisclosed in the abstract, and resolution alone labels those 15 subjects as diabetic with certainty. Resolution is constant within a subject, so it is a per-subject acquisition tag."
+    },
+    "split_grouping": {
+      "healthy_persons": {
+        "train": [
+          "200",
+          "201",
+          "202",
+          "301",
+          "302",
+          "303",
+          "401",
+          "402",
+          "501",
+          "502"
+        ],
+        "val": [
+          "502",
+          "503",
+          "504",
+          "505"
+        ],
+        "test": [
+          "505",
+          "506"
+        ]
+      },
+      "person_train_test_overlap": [],
+      "person_train_val_overlap": [
+        "502"
+      ],
+      "finger_train_test_overlap": 0,
+      "diabetic_filename_examples": {
+        "train": [
+          "0.jpg.jpg",
+          "1.jpg.jpg",
+          "10.jpg.jpg"
+        ],
+        "val": [
+          "2626.jpg.jpg",
+          "2627.jpg.jpg",
+          "2628.jpg.jpg"
+        ],
+        "test": [
+          "2954.jpg.jpg",
+          "2955.jpg.jpg",
+          "2956.jpg.jpg"
+        ]
+      },
+      "claim_check": "On the healthy side the split is person-grouped except one person (502) appearing in both train and val; train/test share no person. That is better than the Morphology_detection split we audited earlier (94%patient overlap). BUT the diabetic side is renumbered to sequential integers (train 0..2625, val 2626.., test 2954..), which destroys the subject id -- subject grouping on the diabetic half is unverifiable from the released files, and the raw folder order is monotone with the index, so the split is effectively a contiguous cut over subjects rather than a stated grouping. Their accuracy still must not be quoted."
+    },
+    "confound_survives_reencoding": {
+      "n_per_class": {
+        "diabetes": 450,
+        "healthy": 450
+      },
+      "sharpness_image_auroc_healthy_positive": 0.9191,
+      "diabetic_p5_med_p95": [
+        32.7,
+        42.0,
+        61.5
+      ],
+      "healthy_p5_med_p95": [
+        48.2,
+        61.1,
+        77.2
+      ],
+      "claim_check": "On the RAW files a subject-level sharpness AUROC of 1.0000 with non-overlapping ranges was already recorded. After the authors' own downscale-to-224 re-encoding it falls to 0.9191 with overlapping ranges -- lower, but nowhere near 0.5. A single focus scalar computed from the authors' published training tiles separates their two classes at 0.919 AUROC, so any benchmark trained on this split is partly reading the camera. This is a property of the data, not of the architecture, and no backbone swap removes it."
+    },
+    "morphology_count": {
+      "images_on_disk": 1298,
+      "claimed": 1279,
+      "name_examples": [
+        "1_t.jpg",
+        "2_t.jpg",
+        "4830.jpg",
+        "5313.jpg",
+        "5324.jpg",
+        "dia_10.jpg",
+        "dia_1000.jpg",
+        "dia_1003.jpg"
+      ],
+      "claim_check": "Claimed 1279 after de-duplication; 1298 on disk (train 1023 / val 256 / test 19), a 19-image difference equal to the test split size. Close enough to treat the claim as verified. Filenames here are frame indices and re-numbered ids, so subject identity is absent from this subset entirely -- consistent with the 94% patient overlap found earlier."
+    }
+  }
+}
