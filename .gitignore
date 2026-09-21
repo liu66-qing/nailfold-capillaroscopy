@@ -74,3 +74,6 @@ tmp/
 weights/*.pt
 人工核对/
 甲劈微循环hf_biomedclip/
+
+# Training-completion sentinel written by the fold loop; local run state, not source.
+artifacts/experiments/.folds_done
