@@ -1,0 +1,211 @@
+[
+ {
+  "field": "clarity",
+  "n": 115,
+  "n_pos": 58,
+  "prev": 0.504,
+  "mal": 0.6,
+  "ci": [
+   0.496,
+   0.701
+  ],
+  "cross": 0.404,
+  "nloops": 0.268,
+  "note": ""
+ },
+ {
+  "field": "capillary_count",
+  "n": 114,
+  "n_pos": 11,
+  "prev": 0.096,
+  "mal": 0.587,
+  "ci": [
+   0.428,
+   0.725
+  ],
+  "cross": 0.38,
+  "nloops": 0.138,
+  "note": ""
+ },
+ {
+  "field": "crossing_ratio",
+  "n": 115,
+  "n_pos": 44,
+  "prev": 0.383,
+  "mal": 0.539,
+  "ci": [
+   0.426,
+   0.644
+  ],
+  "cross": 0.574,
+  "nloops": 0.479,
+  "note": ""
+ },
+ {
+  "field": "malformation_ratio",
+  "n": 115,
+  "n_pos": 53,
+  "prev": 0.461,
+  "mal": 0.746,
+  "ci": [
+   0.652,
+   0.835
+  ],
+  "cross": 0.597,
+  "nloops": 0.38,
+  "note": ""
+ },
+ {
+  "field": "flow_state",
+  "n": 113,
+  "n_pos": 93,
+  "prev": 0.823,
+  "mal": 0.578,
+  "ci": [
+   0.434,
+   0.724
+  ],
+  "cross": 0.394,
+  "nloops": 0.431,
+  "note": ""
+ },
+ {
+  "field": "vasomotion",
+  "n": 113,
+  "n_pos": 2,
+  "mal": null,
+  "ci": null,
+  "cross": null,
+  "note": "too few in one class"
+ },
+ {
+  "field": "rbc_aggregation",
+  "n": 113,
+  "n_pos": 64,
+  "prev": 0.566,
+  "mal": 0.579,
+  "ci": [
+   0.471,
+   0.69
+  ],
+  "cross": 0.516,
+  "nloops": 0.43,
+  "note": ""
+ },
+ {
+  "field": "wbc_count",
+  "n": 114,
+  "n_pos": 1,
+  "mal": null,
+  "ci": null,
+  "cross": null,
+  "note": "too few in one class"
+ },
+ {
+  "field": "microthrombus",
+  "n": 113,
+  "n_pos": 40,
+  "prev": 0.354,
+  "mal": 0.496,
+  "ci": [
+   0.388,
+   0.609
+  ],
+  "cross": 0.535,
+  "nloops": 0.625,
+  "note": ""
+ },
+ {
+  "field": "blood_color",
+  "n": 108,
+  "n_pos": 54,
+  "prev": 0.5,
+  "mal": 0.606,
+  "ci": [
+   0.498,
+   0.711
+  ],
+  "cross": 0.445,
+  "nloops": 0.4,
+  "note": ""
+ },
+ {
+  "field": "exudation",
+  "n": 113,
+  "n_pos": 67,
+  "prev": 0.593,
+  "mal": 0.624,
+  "ci": [
+   0.513,
+   0.733
+  ],
+  "cross": 0.534,
+  "nloops": 0.33,
+  "note": ""
+ },
+ {
+  "field": "hemorrhage",
+  "n": 111,
+  "n_pos": 6,
+  "prev": 0.054,
+  "mal": 0.329,
+  "ci": [
+   0.129,
+   0.552
+  ],
+  "cross": 0.592,
+  "nloops": 0.375,
+  "note": ""
+ },
+ {
+  "field": "subpapillary_venous_plexus",
+  "n": 113,
+  "n_pos": 19,
+  "prev": 0.168,
+  "mal": 0.606,
+  "ci": [
+   0.462,
+   0.744
+  ],
+  "cross": 0.436,
+  "nloops": 0.672,
+  "note": ""
+ },
+ {
+  "field": "papilla",
+  "n": 113,
+  "n_pos": 35,
+  "prev": 0.31,
+  "mal": 0.683,
+  "ci": [
+   0.577,
+   0.781
+  ],
+  "cross": 0.41,
+  "nloops": 0.334,
+  "note": ""
+ },
+ {
+  "field": "sweat_duct",
+  "n": 99,
+  "n_pos": 2,
+  "mal": null,
+  "ci": null,
+  "cross": null,
+  "note": "too few in one class"
+ },
+ {
+  "field": "overall_assessment",
+  "n": 115,
+  "n_pos": 88,
+  "prev": 0.765,
+  "mal": 0.606,
+  "ci": [
+   0.46,
+   0.747
+  ],
+  "cross": 0.549,
+  "nloops": 0.527,
+  "note": ""
+ }
+]
