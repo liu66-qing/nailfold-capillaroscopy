@@ -1,0 +1,44 @@
+{
+  "question": "does this dataset supply the independent disease supervision our cohort lacks?",
+  "generated": "2026-09-20",
+  "source_relative": "data\\The number of nail fold capillaries\\The number of nail fold capillaries and nail fold bleedings reflects the clinical manifestations of systemic sclerosis",
+  "n_files_total": 578,
+  "n_png": 578,
+  "clinical_table_files_found": [],
+  "n_clinical_table_files": 0,
+  "derivable_label": {
+    "control_prefixed_files": 2,
+    "non_control_files": 576,
+    "finding": "with no table in the download, the only label derivable from the files is 2 control images vs 576 others. A 2-vs-576 split cannot train or validate anything."
+  },
+  "subjects": {
+    "n_distinct_identity_strings": 35,
+    "identity_list_sha256_16": "e897f24a35ceade1",
+    "images_per_subject_min_median_max": [
+      2,
+      10,
+      83
+    ],
+    "n_with_repeat_visit_dates": 19,
+    "visit_count_distribution": {
+      "1": 16,
+      "2": 8,
+      "3": 6,
+      "4": 2,
+      "5": 1,
+      "6": 1,
+      "9": 1
+    },
+    "unparsed_filenames": 0
+  },
+  "privacy_finding": "filenames embed date + what appear to be patient personal names. No name is recorded in this output. If any of this dataset is ever used, files must be re-keyed to opaque ids first, and the original names must not enter our repo, logs, or any model artifact.",
+  "verdict": "CANNOT supply disease supervision. No clinical variable of any kind is present -- no subtype, antibody, mRSS or organ involvement -- and the only filename-derivable label is 2 vs 576. The clinical table exists only in the paper, so obtaining it requires contacting the authors.",
+  "the_one_thing_it_could_still_do": "19 of 35 subjects have images from more than one visit date. That permits a test-retest / repeatability estimate of an image-derived measure -- a number we cannot compute from our own cohort at all, since none of our cases has a repeat acquisition. It measures stability, NOT accuracy, and it cannot validate any field against a clinical truth.",
+  "governance": {
+    "locked_cases_seen": 0,
+    "models_trained": 0,
+    "images_transmitted": 0,
+    "images_read": 0,
+    "personal_names_recorded": 0
+  }
+}
