@@ -1,0 +1,22 @@
+{
+  "fold": 1,
+  "tag": "s768",
+  "epochs": 25,
+  "imgsz": 768,
+  "batch": 8,
+  "weights_init": "yolo11s.pt",
+  "minutes": 52.7,
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "map50": 0.5892,
+  "map50_95": 0.2815,
+  "per_class_map50": {
+    "vessel": 0.6916,
+    "malformed_vessel": 0.5683,
+    "cross_vessel": 0.5077
+  },
+  "note": "INTERNAL detector metric on augmented copies of the same nailfolds. NOT a product number. The field verdict comes only from the case-level malformation_ratio evaluation on the 119 DEV cases that have no human boxes.",
+  "governance": {
+    "locked_cases_seen": 0,
+    "images_transmitted": 0
+  }
+}

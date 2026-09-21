@@ -1,0 +1,134 @@
+{
+  "what": "5-fold malformation_ratio on the 115 development cases scored by all five detectors; no locked case, detectors never trained on any of them",
+  "n_common": 115,
+  "prevalence": 0.4609,
+  "mode_baseline_accuracy": 0.5391,
+  "per_fold_auroc": {
+    "0": 0.7444,
+    "1": 0.7702,
+    "2": 0.7048,
+    "3": 0.7322,
+    "4": 0.7016
+  },
+  "mean_of_folds": 0.7306,
+  "sd_across_folds": 0.0286,
+  "ensemble": {
+    "auroc": 0.7459,
+    "ci95": [
+      0.6515,
+      0.8317
+    ]
+  },
+  "per_archive_ensemble": {
+    "recovered_archive1": {
+      "n": 34,
+      "prevalence": 0.441,
+      "auroc": 0.7825,
+      "min_across_folds": 0.7544,
+      "ci95": [
+        0.5871,
+        0.9451
+      ]
+    },
+    "recovered_archive2": {
+      "n": 49,
+      "prevalence": 0.49,
+      "auroc": 0.7317,
+      "min_across_folds": 0.6717,
+      "ci95": [
+        0.5824,
+        0.8649
+      ]
+    },
+    "recovered_archive3": {
+      "n": 32,
+      "prevalence": 0.438,
+      "auroc": 0.6667,
+      "min_across_folds": 0.623,
+      "ci95": [
+        0.4643,
+        0.8458
+      ]
+    }
+  },
+  "ensemble_confounds": {
+    "n_loops": 0.3802,
+    "cross_ratio": 0.5966,
+    "n_img": 0.5668,
+    "n_img_used": 0.509,
+    "n_blank": 0.4907
+  },
+  "saturation_frac_at_conf_0.25": {
+    "0": 0.0174,
+    "1": 0.0348,
+    "2": 0.0261,
+    "3": 0.0261,
+    "4": 0.0174
+  },
+  "gates": {
+    "ci_floor_above_chance": true,
+    "beats_n_loops_confound": true,
+    "beats_cross_ratio_confound": true,
+    "cross_ratio_ci_includes_chance": true,
+    "no_saturation_at_operating_point": true,
+    "all_five_folds_above_chance_ci": true,
+    "signal_in_every_archive": true,
+    "strengthens_on_cleaner_labels": true,
+    "every_archive_ci_floor_above_chance": false
+  },
+  "label_reliability_ensemble": {
+    "drop_ambiguous_10_30": {
+      "n": 95,
+      "auroc": 0.8006
+    },
+    "extremes_only": {
+      "n": 82,
+      "auroc": 0.796
+    }
+  },
+  "governance": {
+    "locked_cases_seen": 0,
+    "images_transmitted": 0,
+    "threshold_tuned_on_eval_set": false,
+    "operating_point_rule": "detection density vs human-box 6.84 loops/image, not best AUROC"
+  },
+  "limitations": [
+    "development-set measurement, NOT product capability",
+    "ordinal signal only: human boxes and clinical brackets differ by ~3x, so no percentage may be emitted",
+    "archive3 is the weakest direction (ensemble 0.667, per-fold min 0.623) and its CI on n=32 spans chance",
+    "this 115/118-case set has now been consumed once; any further tuning on it is selection on the evaluation set",
+    "21 of the 45 full-resolution locked near-duplicates were still present in the training stage for all five folds; byte-level overlap with the evaluation set is 0, but locked-47 is unusable for this detector"
+  ],
+  "ensemble_confound_ci95": {
+    "cross_ratio": [
+      0.4886,
+      0.7028
+    ],
+    "n_loops": [
+      0.2809,
+      0.4848
+    ]
+  },
+  "per_fold_ci95_full118set": {
+    "0": [
+      0.655,
+      0.835
+    ],
+    "1": [
+      0.689,
+      0.858
+    ],
+    "2": [
+      0.606,
+      0.794
+    ],
+    "3": [
+      0.64,
+      0.826
+    ],
+    "4": [
+      0.598,
+      0.789
+    ]
+  }
+}
