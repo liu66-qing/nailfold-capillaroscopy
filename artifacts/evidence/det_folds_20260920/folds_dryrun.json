@@ -4,7 +4,9 @@
   "n_excluded_total": 56,
   "n_excluded_known_locked": 32,
   "n_excluded_near_duplicate": 24,
-  "extra_exclusion_file_present": true,
+  "exclude_list_used": "committed24",
+  "exclude_list_path": "E:\\甲劈微循环\\artifacts\\evidence\\leakcheck_unmapped_20260920\\exclude_original_ids.txt",
+  "n_ids_in_exclude_list": 24,
   "excluded_original_ids": [
     "10",
     "13",
