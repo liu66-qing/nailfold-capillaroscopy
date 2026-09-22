@@ -1,0 +1,22 @@
+{
+  "deployed_configuration": {
+    "script": "scripts/evidence_all_fields_status.py",
+    "encoder": "frozen DINOv2 ViT-B/14, whole-image linear probe per field",
+    "geometry": "native preset, direct resize to 518x686, no padding",
+    "C_fixed": 0.03,
+    "pca_dim": 64,
+    "seed": 20260917,
+    "dev_feature_store": "artifacts/features_spatial/native",
+    "dev_feature_store_present_locally": false
+  },
+  "deployed_weight_hash_reference": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+  "experiment_weight_hash": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+  "hashes_match": false,
+  "hash_mismatch_explanation": "deployment loaded the facebook .pth release; this experiment loaded the timm safetensors conversion of the same DINOv2 ViT-B/14 model. Byte equality with deployment is therefore not available and the anchor is a re-implementation of the deployed geometry, not a bit-exact replay of the deployed run.",
+  "not_touched": [
+    "no deployed weight file was overwritten",
+    "no existing artifacts directory was modified",
+    "no field definition, fixed field or RAG input contract was changed",
+    "locked-47 was not read by any run in this experiment"
+  ]
+}

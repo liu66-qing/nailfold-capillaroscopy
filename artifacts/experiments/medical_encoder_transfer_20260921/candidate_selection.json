@@ -1,0 +1,48 @@
+{
+  "decided_before_reading_any_metric": true,
+  "recorded_in": "protocol.yaml (frozen) and amendments A1/A2",
+  "candidates": [
+    {
+      "candidate": "google/medsiglip-448",
+      "planned_role": "medical_candidate",
+      "status": "blocked_access",
+      "evidence": "HTTP 401 anonymous, HTTP 403 with the account's existing token; the repository requires accepting HAI-DEF terms",
+      "action": "not run; accepting licence terms on the user's behalf is not authorised and gating was not bypassed"
+    },
+    {
+      "candidate": "RETFound_dinov2_meh",
+      "planned_role": "medical_candidate",
+      "status": "blocked_access",
+      "evidence": "HTTP 403 with the account's existing token",
+      "action": "not run; weight access request flow not initiated on the user's behalf"
+    },
+    {
+      "candidate": "RETFound_mae_natureCFP",
+      "planned_role": "pre-recorded fallback",
+      "status": "blocked_access",
+      "evidence": "gated repository",
+      "action": "not run; same reason"
+    },
+    {
+      "candidate": "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224",
+      "planned_role": "medical_candidate (fallback clause, section 1)",
+      "status": "run",
+      "evidence": "the addendum permits BiomedCLIP if MedSigLIP is unobtainable and no equivalent experiment already exists; a repository grep found zero prior BiomedCLIP runs",
+      "action": "run as the medical arm, at the same nominal capacity as the anchor (ViT-B)"
+    },
+    {
+      "candidate": "RETFound-Green",
+      "planned_role": "later low-cost candidate",
+      "status": "not_in_round_one",
+      "evidence": "excluded by the plan itself",
+      "action": "not run"
+    },
+    {
+      "candidate": "HuluMed",
+      "planned_role": "none",
+      "status": "already_tested",
+      "evidence": "fused in the v1 baseline; wins only 10/29 folds",
+      "action": "not repackaged as a new candidate"
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "source": {
+    "summary": "paired_summary.csv",
+    "metrics": "paired_metrics.json",
+    "oof": "predictions_oof.csv"
+  },
+  "gates_quoted_from": "rescue_plan_medical_encoder_addendum_20260921.md section H",
+  "rd_gate": {
+    "min_paired_ba_gain": 0.03,
+    "min_folds_same_direction": 3,
+    "n_folds": 5,
+    "no_minority_recall_collapse": true
+  },
+  "adoption_gate": {
+    "min_paired_ba_gain": 0.05,
+    "ci_lo_above_zero": true,
+    "loao_mean_gain_above_zero": true,
+    "max_archive_drop": 0.03,
+    "max_retained_field_drop": 0.02
+  },
+  "primary_field": "malformation_ratio",
+  "anchor": "anchor_dinov2b_deployed",
+  "verdicts": {
+    "biomedclip_medical": {
+      "role": null,
+      "primary_ba_gain": 0.034,
+      "ci": [
+        -0.0362,
+        0.1052
+      ],
+      "per_fold_ba_gain": {
+        "0": 0.011,
+        "1": 0.0333,
+        "2": 0.1,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "recall_anchor": {
+        "per_class": {
+          "0": 0.7609,
+          "1": 0.4571
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.4571
+      },
+      "recall_arm": {
+        "per_class": {
+          "0": 0.7717,
+          "1": 0.5143
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.5143
+      },
+      "per_archive_ba_gain": {
+        "recovered_archive1": -0.0217,
+        "recovered_archive2": -0.1158,
+        "recovered_archive3": 0.0512
+      },
+      "retained_field_ba_gain": {
+        "clarity": 0.0,
+        "exudation": 0.0219,
+        "subpapillary_venous_plexus": -0.0776,
+        "blood_color": 0.0088
+      },
+      "rd_gate": {
+        "ba_gain_ge_0_03": true,
+        "folds_same_direction": "3/5",
+        "folds_gate_met": true,
+        "minority_recall_collapse": false,
+        "passed": true
+      },
+      "adoption_gate": {
+        "ba_gain_ge_0_05": false,
+        "ci_lo_above_zero": false,
+        "loao_mean_gain": -0.0288,
+        "loao_mean_above_zero": false,
+        "worst_archive_gain": -0.1158,
+        "no_archive_drop_over_0_03": false,
+        "worst_retained_field_gain": -0.0776,
+        "retained_fields_within_0_02": false,
+        "passed": false
+      },
+      "numeric_status": "rd_gate_passed"
+    },
+    "dinov2b_newloader": {
+      "role": null,
+      "primary_ba_gain": 0.0034,
+      "ci": [
+        -0.0503,
+        0.0527
+      ],
+      "per_fold_ba_gain": {
+        "0": 0.068,
+        "1": -0.0357,
+        "2": -0.025,
+        "3": -0.0238,
+        "4": 0.0385
+      },
+      "recall_anchor": {
+        "per_class": {
+          "0": 0.7609,
+          "1": 0.4571
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.4571
+      },
+      "recall_arm": {
+        "per_class": {
+          "0": 0.7391,
+          "1": 0.4857
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.4857
+      },
+      "per_archive_ba_gain": {
+        "recovered_archive1": -0.0435,
+        "recovered_archive2": 0.0256,
+        "recovered_archive3": 0.0113
+      },
+      "retained_field_ba_gain": {
+        "clarity": 0.0218,
+        "exudation": 0.0054,
+        "subpapillary_venous_plexus": -0.0032,
+        "blood_color": -0.0297
+      },
+      "rd_gate": {
+        "ba_gain_ge_0_03": false,
+        "folds_same_direction": "2/5",
+        "folds_gate_met": false,
+        "minority_recall_collapse": false,
+        "passed": false
+      },
+      "adoption_gate": {
+        "ba_gain_ge_0_05": false,
+        "ci_lo_above_zero": false,
+        "loao_mean_gain": -0.0022,
+        "loao_mean_above_zero": false,
+        "worst_archive_gain": -0.0435,
+        "no_archive_drop_over_0_03": false,
+        "worst_retained_field_gain": -0.0297,
+        "retained_fields_within_0_02": false,
+        "passed": false
+      },
+      "numeric_status": "inconclusive"
+    },
+    "dinov2l_capacity": {
+      "role": null,
+      "primary_ba_gain": 0.0714,
+      "ci": [
+        0.0111,
+        0.1355
+      ],
+      "per_fold_ba_gain": {
+        "0": 0.0943,
+        "1": 0.0643,
+        "2": 0.0062,
+        "3": 0.1429,
+        "4": 0.0385
+      },
+      "recall_anchor": {
+        "per_class": {
+          "0": 0.7609,
+          "1": 0.4571
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.4571
+      },
+      "recall_arm": {
+        "per_class": {
+          "0": 0.7609,
+          "1": 0.6
+        },
+        "minority_class": "1",
+        "minority_n": 70,
+        "minority_recall": 0.6
+      },
+      "per_archive_ba_gain": {
+        "recovered_archive1": 0.0435,
+        "recovered_archive2": 0.048,
+        "recovered_archive3": 0.1137
+      },
+      "retained_field_ba_gain": {
+        "clarity": 0.0484,
+        "exudation": -0.0163,
+        "subpapillary_venous_plexus": -0.0001,
+        "blood_color": 0.0273
+      },
+      "rd_gate": {
+        "ba_gain_ge_0_03": true,
+        "folds_same_direction": "5/5",
+        "folds_gate_met": true,
+        "minority_recall_collapse": false,
+        "passed": true
+      },
+      "adoption_gate": {
+        "ba_gain_ge_0_05": true,
+        "ci_lo_above_zero": true,
+        "loao_mean_gain": 0.0684,
+        "loao_mean_above_zero": true,
+        "worst_archive_gain": 0.0435,
+        "no_archive_drop_over_0_03": true,
+        "worst_retained_field_gain": -0.0163,
+        "retained_fields_within_0_02": true,
+        "passed": true
+      },
+      "numeric_status": "adopted_by_numbers"
+    }
+  },
+  "caveats": [
+    "development set only; locked-47 was not read by this run",
+    "numeric_status is the arithmetic result of the gates, not a launch decision; the addendum calls these project investment gates",
+    "the medical arm runs at 224x224 with patch 16 while the anchor runs at 518x686 with patch 14, so medical pretraining is confounded with input resolution and cannot be isolated by this round",
+    "malformation_ratio truth is the doctor's banded report value, not a counted per-vessel ratio"
+  ]
+}

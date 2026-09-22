@@ -1,0 +1,1225 @@
+{
+  "readout": "cls",
+  "seed": 20260921,
+  "n_boot": 2000,
+  "C_grid": [
+    0.003,
+    0.03,
+    0.3
+  ],
+  "anchor": "anchor_dinov2b_deployed",
+  "arms": [
+    "anchor_dinov2b_deployed",
+    "biomedclip_medical",
+    "dinov2b_newloader",
+    "dinov2l_capacity"
+  ],
+  "governance": {
+    "locked_cases_seen": 0,
+    "n_development_cases": 186
+  },
+  "per_field": [
+    {
+      "field": "malformation_ratio",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.03,
+        "2.0": 0.3,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 162,
+      "accuracy": 0.6296,
+      "baseline_constant": 0.5679,
+      "delta": 0.0617,
+      "balanced_accuracy": 0.609,
+      "per_class_recall": {
+        "0": 0.7609,
+        "1": 0.4571
+      },
+      "auroc": 0.713,
+      "fn": 38,
+      "fp": 22,
+      "miss_rate": 0.5429,
+      "false_alarm_rate": 0.2391,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "malformation_ratio",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.03,
+        "4.0": 0.03
+      },
+      "n": 162,
+      "accuracy": 0.6605,
+      "baseline_constant": 0.5679,
+      "delta": 0.0926,
+      "balanced_accuracy": 0.643,
+      "per_class_recall": {
+        "0": 0.7717,
+        "1": 0.5143
+      },
+      "auroc": 0.6655,
+      "fn": 34,
+      "fp": 21,
+      "miss_rate": 0.4857,
+      "false_alarm_rate": 0.2283,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.034,
+        "ci95_lo": -0.0362,
+        "ci95_hi": 0.1052,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 20,
+        "cases_anchor_right_arm_wrong": 15
+      }
+    },
+    {
+      "field": "malformation_ratio",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 162,
+      "accuracy": 0.6296,
+      "baseline_constant": 0.5679,
+      "delta": 0.0617,
+      "balanced_accuracy": 0.6124,
+      "per_class_recall": {
+        "0": 0.7391,
+        "1": 0.4857
+      },
+      "auroc": 0.6991,
+      "fn": 36,
+      "fp": 24,
+      "miss_rate": 0.5143,
+      "false_alarm_rate": 0.2609,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0034,
+        "ci95_lo": -0.0503,
+        "ci95_hi": 0.0527,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 9,
+        "cases_anchor_right_arm_wrong": 9
+      }
+    },
+    {
+      "field": "malformation_ratio",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.3,
+        "2.0": 0.003,
+        "3.0": 0.03,
+        "4.0": 0.03
+      },
+      "n": 162,
+      "accuracy": 0.6914,
+      "baseline_constant": 0.5679,
+      "delta": 0.1235,
+      "balanced_accuracy": 0.6804,
+      "per_class_recall": {
+        "0": 0.7609,
+        "1": 0.6
+      },
+      "auroc": 0.7287,
+      "fn": 28,
+      "fp": 22,
+      "miss_rate": 0.4,
+      "false_alarm_rate": 0.2391,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0714,
+        "ci95_lo": 0.0111,
+        "ci95_hi": 0.1355,
+        "ci_excludes_zero": true,
+        "cases_arm_right_anchor_wrong": 19,
+        "cases_anchor_right_arm_wrong": 9
+      }
+    },
+    {
+      "field": "clarity",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.03,
+        "4.0": 0.03
+      },
+      "n": 185,
+      "accuracy": 0.7892,
+      "baseline_constant": 0.5081,
+      "delta": 0.2811,
+      "balanced_accuracy": 0.7887,
+      "per_class_recall": {
+        "0": 0.7582,
+        "1": 0.8191
+      },
+      "auroc": 0.8836,
+      "fn": 17,
+      "fp": 22,
+      "miss_rate": 0.1809,
+      "false_alarm_rate": 0.2418,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "clarity",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.003,
+        "3.0": 0.3,
+        "4.0": 0.03
+      },
+      "n": 185,
+      "accuracy": 0.7892,
+      "baseline_constant": 0.5081,
+      "delta": 0.2811,
+      "balanced_accuracy": 0.7887,
+      "per_class_recall": {
+        "0": 0.7582,
+        "1": 0.8191
+      },
+      "auroc": 0.8527,
+      "fn": 17,
+      "fp": 22,
+      "miss_rate": 0.1809,
+      "false_alarm_rate": 0.2418,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0,
+        "ci95_lo": -0.0555,
+        "ci95_hi": 0.0595,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 15,
+        "cases_anchor_right_arm_wrong": 15
+      }
+    },
+    {
+      "field": "clarity",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 185,
+      "accuracy": 0.8108,
+      "baseline_constant": 0.5081,
+      "delta": 0.3027,
+      "balanced_accuracy": 0.8105,
+      "per_class_recall": {
+        "0": 0.7912,
+        "1": 0.8298
+      },
+      "auroc": 0.8881,
+      "fn": 16,
+      "fp": 19,
+      "miss_rate": 0.1702,
+      "false_alarm_rate": 0.2088,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0218,
+        "ci95_lo": -0.0161,
+        "ci95_hi": 0.0627,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 9,
+        "cases_anchor_right_arm_wrong": 5
+      }
+    },
+    {
+      "field": "clarity",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.03,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 185,
+      "accuracy": 0.8378,
+      "baseline_constant": 0.5081,
+      "delta": 0.3297,
+      "balanced_accuracy": 0.8371,
+      "per_class_recall": {
+        "0": 0.7912,
+        "1": 0.883
+      },
+      "auroc": 0.8881,
+      "fn": 11,
+      "fp": 19,
+      "miss_rate": 0.117,
+      "false_alarm_rate": 0.2088,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0484,
+        "ci95_lo": -0.0003,
+        "ci95_hi": 0.1013,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 17,
+        "cases_anchor_right_arm_wrong": 8
+      }
+    },
+    {
+      "field": "exudation",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.03,
+        "2.0": 0.003,
+        "3.0": 0.3,
+        "4.0": 0.3
+      },
+      "n": 183,
+      "accuracy": 0.7596,
+      "baseline_constant": 0.5082,
+      "delta": 0.2514,
+      "balanced_accuracy": 0.76,
+      "per_class_recall": {
+        "0": 0.7312,
+        "1": 0.7889
+      },
+      "auroc": 0.8254,
+      "fn": 19,
+      "fp": 25,
+      "miss_rate": 0.2111,
+      "false_alarm_rate": 0.2688,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "exudation",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.03,
+        "3.0": 0.03,
+        "4.0": 0.03
+      },
+      "n": 183,
+      "accuracy": 0.7814,
+      "baseline_constant": 0.5082,
+      "delta": 0.2732,
+      "balanced_accuracy": 0.7819,
+      "per_class_recall": {
+        "0": 0.7527,
+        "1": 0.8111
+      },
+      "auroc": 0.8167,
+      "fn": 17,
+      "fp": 23,
+      "miss_rate": 0.1889,
+      "false_alarm_rate": 0.2473,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0219,
+        "ci95_lo": -0.0385,
+        "ci95_hi": 0.0819,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 18,
+        "cases_anchor_right_arm_wrong": 14
+      }
+    },
+    {
+      "field": "exudation",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.03,
+        "3.0": 0.3,
+        "4.0": 0.03
+      },
+      "n": 183,
+      "accuracy": 0.765,
+      "baseline_constant": 0.5082,
+      "delta": 0.2568,
+      "balanced_accuracy": 0.7654,
+      "per_class_recall": {
+        "0": 0.7419,
+        "1": 0.7889
+      },
+      "auroc": 0.8453,
+      "fn": 19,
+      "fp": 24,
+      "miss_rate": 0.2111,
+      "false_alarm_rate": 0.2581,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0054,
+        "ci95_lo": -0.0357,
+        "ci95_hi": 0.047,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 8,
+        "cases_anchor_right_arm_wrong": 7
+      }
+    },
+    {
+      "field": "exudation",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.3,
+        "4.0": 0.3
+      },
+      "n": 183,
+      "accuracy": 0.7432,
+      "baseline_constant": 0.5082,
+      "delta": 0.235,
+      "balanced_accuracy": 0.7437,
+      "per_class_recall": {
+        "0": 0.7097,
+        "1": 0.7778
+      },
+      "auroc": 0.8349,
+      "fn": 20,
+      "fp": 27,
+      "miss_rate": 0.2222,
+      "false_alarm_rate": 0.2903,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0163,
+        "ci95_lo": -0.0697,
+        "ci95_hi": 0.0381,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 11,
+        "cases_anchor_right_arm_wrong": 14
+      }
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 184,
+      "accuracy": 0.7826,
+      "baseline_constant": 0.5707,
+      "delta": 0.212,
+      "balanced_accuracy": 0.775,
+      "per_class_recall": {
+        "0": 0.7215,
+        "1": 0.8286
+      },
+      "auroc": 0.8405,
+      "fn": 18,
+      "fp": 22,
+      "miss_rate": 0.1714,
+      "false_alarm_rate": 0.2785,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.3,
+        "3.0": 0.03,
+        "4.0": 0.3
+      },
+      "n": 184,
+      "accuracy": 0.712,
+      "baseline_constant": 0.5707,
+      "delta": 0.1413,
+      "balanced_accuracy": 0.6975,
+      "per_class_recall": {
+        "0": 0.5949,
+        "1": 0.8
+      },
+      "auroc": 0.7653,
+      "fn": 21,
+      "fp": 32,
+      "miss_rate": 0.2,
+      "false_alarm_rate": 0.4051,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0776,
+        "ci95_lo": -0.1447,
+        "ci95_hi": -0.0138,
+        "ci_excludes_zero": true,
+        "cases_arm_right_anchor_wrong": 11,
+        "cases_anchor_right_arm_wrong": 24
+      }
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.03,
+        "3.0": 0.03,
+        "4.0": 0.03
+      },
+      "n": 184,
+      "accuracy": 0.7772,
+      "baseline_constant": 0.5707,
+      "delta": 0.2065,
+      "balanced_accuracy": 0.7719,
+      "per_class_recall": {
+        "0": 0.7342,
+        "1": 0.8095
+      },
+      "auroc": 0.8473,
+      "fn": 20,
+      "fp": 21,
+      "miss_rate": 0.1905,
+      "false_alarm_rate": 0.2658,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0032,
+        "ci95_lo": -0.0484,
+        "ci95_hi": 0.0432,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 7,
+        "cases_anchor_right_arm_wrong": 8
+      }
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 184,
+      "accuracy": 0.7772,
+      "baseline_constant": 0.5707,
+      "delta": 0.2065,
+      "balanced_accuracy": 0.775,
+      "per_class_recall": {
+        "0": 0.7595,
+        "1": 0.7905
+      },
+      "auroc": 0.8639,
+      "fn": 22,
+      "fp": 19,
+      "miss_rate": 0.2095,
+      "false_alarm_rate": 0.2405,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0001,
+        "ci95_lo": -0.0534,
+        "ci95_hi": 0.0566,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 14,
+        "cases_anchor_right_arm_wrong": 15
+      }
+    },
+    {
+      "field": "blood_color",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 181,
+      "accuracy": 0.7127,
+      "baseline_constant": 0.5525,
+      "delta": 0.1602,
+      "balanced_accuracy": 0.7142,
+      "per_class_recall": {
+        "0": 0.7,
+        "1": 0.7284
+      },
+      "auroc": 0.8286,
+      "fn": 22,
+      "fp": 30,
+      "miss_rate": 0.2716,
+      "false_alarm_rate": 0.3,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "blood_color",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.03,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 181,
+      "accuracy": 0.7238,
+      "baseline_constant": 0.5525,
+      "delta": 0.1713,
+      "balanced_accuracy": 0.723,
+      "per_class_recall": {
+        "0": 0.73,
+        "1": 0.716
+      },
+      "auroc": 0.7983,
+      "fn": 23,
+      "fp": 27,
+      "miss_rate": 0.284,
+      "false_alarm_rate": 0.27,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0088,
+        "ci95_lo": -0.0678,
+        "ci95_hi": 0.087,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 27,
+        "cases_anchor_right_arm_wrong": 25
+      }
+    },
+    {
+      "field": "blood_color",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.03,
+        "2.0": 0.003,
+        "3.0": 0.3,
+        "4.0": 0.003
+      },
+      "n": 181,
+      "accuracy": 0.6851,
+      "baseline_constant": 0.5525,
+      "delta": 0.1326,
+      "balanced_accuracy": 0.6845,
+      "per_class_recall": {
+        "0": 0.69,
+        "1": 0.679
+      },
+      "auroc": 0.7944,
+      "fn": 26,
+      "fp": 31,
+      "miss_rate": 0.321,
+      "false_alarm_rate": 0.31,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0297,
+        "ci95_lo": -0.0733,
+        "ci95_hi": 0.013,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 5,
+        "cases_anchor_right_arm_wrong": 10
+      }
+    },
+    {
+      "field": "blood_color",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.3,
+        "2.0": 0.03,
+        "3.0": 0.003,
+        "4.0": 0.3
+      },
+      "n": 181,
+      "accuracy": 0.7403,
+      "baseline_constant": 0.5525,
+      "delta": 0.1878,
+      "balanced_accuracy": 0.7415,
+      "per_class_recall": {
+        "0": 0.73,
+        "1": 0.7531
+      },
+      "auroc": 0.7911,
+      "fn": 20,
+      "fp": 27,
+      "miss_rate": 0.2469,
+      "false_alarm_rate": 0.27,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0273,
+        "ci95_lo": -0.0297,
+        "ci95_hi": 0.0841,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 16,
+        "cases_anchor_right_arm_wrong": 11
+      }
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 182,
+      "accuracy": 0.8187,
+      "baseline_constant": 0.8242,
+      "delta": -0.0055,
+      "balanced_accuracy": 0.4967,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9933
+      },
+      "auroc": 0.6196,
+      "fn": 1,
+      "fp": 32,
+      "miss_rate": 0.0067,
+      "false_alarm_rate": 1.0,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.3,
+        "4.0": 0.003
+      },
+      "n": 182,
+      "accuracy": 0.8187,
+      "baseline_constant": 0.8242,
+      "delta": -0.0055,
+      "balanced_accuracy": 0.4967,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9933
+      },
+      "auroc": 0.6737,
+      "fn": 1,
+      "fp": 32,
+      "miss_rate": 0.0067,
+      "false_alarm_rate": 1.0,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0,
+        "ci95_lo": -0.01,
+        "ci95_hi": 0.0101,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 1,
+        "cases_anchor_right_arm_wrong": 1
+      }
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.03,
+        "4.0": 0.3
+      },
+      "n": 182,
+      "accuracy": 0.8187,
+      "baseline_constant": 0.8242,
+      "delta": -0.0055,
+      "balanced_accuracy": 0.4967,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9933
+      },
+      "auroc": 0.5696,
+      "fn": 1,
+      "fp": 32,
+      "miss_rate": 0.0067,
+      "false_alarm_rate": 1.0,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.0,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 0,
+        "cases_anchor_right_arm_wrong": 0
+      }
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "binary",
+      "C_per_fold": {
+        "0.0": 0.03,
+        "1.0": 0.3,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 182,
+      "accuracy": 0.8242,
+      "baseline_constant": 0.8242,
+      "delta": 0.0,
+      "balanced_accuracy": 0.5,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 1.0
+      },
+      "auroc": 0.539,
+      "fn": 0,
+      "fp": 32,
+      "miss_rate": 0.0,
+      "false_alarm_rate": 1.0,
+      "n_classes_present": 2,
+      "collapsed_to_one_class": true,
+      "auroc_unestimable": false,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0033,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.0105,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 1,
+        "cases_anchor_right_arm_wrong": 0
+      }
+    },
+    {
+      "field": "papilla",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "cls",
+      "kind": "multiclass",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.03,
+        "4.0": 0.3
+      },
+      "n": 185,
+      "accuracy": 0.4378,
+      "baseline_constant": 0.4162,
+      "delta": 0.0216,
+      "balanced_accuracy": 0.4141,
+      "per_class_recall": {
+        "0": 0.4242,
+        "1": 0.5325,
+        "2": 0.2857
+      },
+      "auroc": null,
+      "fn": null,
+      "fp": null,
+      "miss_rate": null,
+      "false_alarm_rate": null,
+      "n_classes_present": 3,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": true
+    },
+    {
+      "field": "papilla",
+      "arm": "biomedclip_medical",
+      "readout": "cls",
+      "kind": "multiclass",
+      "C_per_fold": {
+        "0.0": 0.3,
+        "1.0": 0.003,
+        "2.0": 0.003,
+        "3.0": 0.003,
+        "4.0": 0.03
+      },
+      "n": 185,
+      "accuracy": 0.427,
+      "baseline_constant": 0.4162,
+      "delta": 0.0108,
+      "balanced_accuracy": 0.3939,
+      "per_class_recall": {
+        "0": 0.4091,
+        "1": 0.5584,
+        "2": 0.2143
+      },
+      "auroc": null,
+      "fn": null,
+      "fp": null,
+      "miss_rate": null,
+      "false_alarm_rate": null,
+      "n_classes_present": 3,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": true,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0202,
+        "ci95_lo": -0.0999,
+        "ci95_hi": 0.0552,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 26,
+        "cases_anchor_right_arm_wrong": 28
+      }
+    },
+    {
+      "field": "papilla",
+      "arm": "dinov2b_newloader",
+      "readout": "cls",
+      "kind": "multiclass",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.003,
+        "2.0": 0.03,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 185,
+      "accuracy": 0.4595,
+      "baseline_constant": 0.4162,
+      "delta": 0.0432,
+      "balanced_accuracy": 0.4336,
+      "per_class_recall": {
+        "0": 0.4697,
+        "1": 0.5455,
+        "2": 0.2857
+      },
+      "auroc": null,
+      "fn": null,
+      "fp": null,
+      "miss_rate": null,
+      "false_alarm_rate": null,
+      "n_classes_present": 3,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": true,
+      "paired_vs_anchor": {
+        "ba_gain": 0.0195,
+        "ci95_lo": -0.0435,
+        "ci95_hi": 0.0787,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 20,
+        "cases_anchor_right_arm_wrong": 16
+      }
+    },
+    {
+      "field": "papilla",
+      "arm": "dinov2l_capacity",
+      "readout": "cls",
+      "kind": "multiclass",
+      "C_per_fold": {
+        "0.0": 0.003,
+        "1.0": 0.03,
+        "2.0": 0.03,
+        "3.0": 0.003,
+        "4.0": 0.003
+      },
+      "n": 185,
+      "accuracy": 0.4054,
+      "baseline_constant": 0.4162,
+      "delta": -0.0108,
+      "balanced_accuracy": 0.3615,
+      "per_class_recall": {
+        "0": 0.3939,
+        "1": 0.5714,
+        "2": 0.119
+      },
+      "auroc": null,
+      "fn": null,
+      "fp": null,
+      "miss_rate": null,
+      "false_alarm_rate": null,
+      "n_classes_present": 3,
+      "collapsed_to_one_class": false,
+      "auroc_unestimable": true,
+      "paired_vs_anchor": {
+        "ba_gain": -0.0527,
+        "ci95_lo": -0.1253,
+        "ci95_hi": 0.0255,
+        "ci_excludes_zero": false,
+        "cases_arm_right_anchor_wrong": 21,
+        "cases_anchor_right_arm_wrong": 27
+      }
+    }
+  ],
+  "loao": {
+    "malformation_ratio": {
+      "anchor_dinov2b_deployed": {
+        "recovered_archive1": {
+          "C": 0.03,
+          "n": 51,
+          "balanced_accuracy": 0.5924,
+          "delta": 0.0588,
+          "auroc": 0.6444
+        },
+        "recovered_archive2": {
+          "C": 0.03,
+          "n": 70,
+          "balanced_accuracy": 0.5848,
+          "delta": 0.0429,
+          "auroc": 0.6567
+        },
+        "recovered_archive3": {
+          "C": 0.003,
+          "n": 41,
+          "balanced_accuracy": 0.59,
+          "delta": 0.0,
+          "auroc": 0.7225
+        }
+      },
+      "biomedclip_medical": {
+        "recovered_archive1": {
+          "C": 0.03,
+          "n": 51,
+          "balanced_accuracy": 0.5707,
+          "delta": 0.0392,
+          "auroc": 0.6398
+        },
+        "recovered_archive2": {
+          "C": 0.03,
+          "n": 70,
+          "balanced_accuracy": 0.469,
+          "delta": -0.0714,
+          "auroc": 0.5674
+        },
+        "recovered_archive3": {
+          "C": 0.03,
+          "n": 41,
+          "balanced_accuracy": 0.6412,
+          "delta": 0.0488,
+          "auroc": 0.675
+        }
+      },
+      "dinov2b_newloader": {
+        "recovered_archive1": {
+          "C": 0.03,
+          "n": 51,
+          "balanced_accuracy": 0.5489,
+          "delta": 0.0196,
+          "auroc": 0.5745
+        },
+        "recovered_archive2": {
+          "C": 0.003,
+          "n": 70,
+          "balanced_accuracy": 0.6104,
+          "delta": 0.0714,
+          "auroc": 0.6617
+        },
+        "recovered_archive3": {
+          "C": 0.3,
+          "n": 41,
+          "balanced_accuracy": 0.6013,
+          "delta": 0.0,
+          "auroc": 0.705
+        }
+      },
+      "dinov2l_capacity": {
+        "recovered_archive1": {
+          "C": 0.3,
+          "n": 51,
+          "balanced_accuracy": 0.6359,
+          "delta": 0.098,
+          "auroc": 0.5606
+        },
+        "recovered_archive2": {
+          "C": 0.003,
+          "n": 70,
+          "balanced_accuracy": 0.6328,
+          "delta": 0.1,
+          "auroc": 0.6882
+        },
+        "recovered_archive3": {
+          "C": 0.003,
+          "n": 41,
+          "balanced_accuracy": 0.7037,
+          "delta": 0.0976,
+          "auroc": 0.7325
+        }
+      }
+    },
+    "papilla": {
+      "anchor_dinov2b_deployed": {
+        "recovered_archive1": {
+          "C": 0.3,
+          "n": 58,
+          "balanced_accuracy": 0.5027,
+          "delta": 0.069,
+          "auroc": null
+        },
+        "recovered_archive2": {
+          "C": 0.003,
+          "n": 77,
+          "balanced_accuracy": 0.3518,
+          "delta": -0.1429,
+          "auroc": null
+        },
+        "recovered_archive3": {
+          "C": 0.3,
+          "n": 50,
+          "balanced_accuracy": 0.4421,
+          "delta": 0.06,
+          "auroc": null
+        }
+      },
+      "biomedclip_medical": {
+        "recovered_archive1": {
+          "C": 0.3,
+          "n": 58,
+          "balanced_accuracy": 0.5128,
+          "delta": 0.0862,
+          "auroc": null
+        },
+        "recovered_archive2": {
+          "C": 0.003,
+          "n": 77,
+          "balanced_accuracy": 0.3921,
+          "delta": -0.1169,
+          "auroc": null
+        },
+        "recovered_archive3": {
+          "C": 0.03,
+          "n": 50,
+          "balanced_accuracy": 0.3751,
+          "delta": 0.0,
+          "auroc": null
+        }
+      },
+      "dinov2b_newloader": {
+        "recovered_archive1": {
+          "C": 0.003,
+          "n": 58,
+          "balanced_accuracy": 0.4808,
+          "delta": 0.0345,
+          "auroc": null
+        },
+        "recovered_archive2": {
+          "C": 0.3,
+          "n": 77,
+          "balanced_accuracy": 0.3509,
+          "delta": -0.1558,
+          "auroc": null
+        },
+        "recovered_archive3": {
+          "C": 0.003,
+          "n": 50,
+          "balanced_accuracy": 0.3966,
+          "delta": 0.0,
+          "auroc": null
+        }
+      },
+      "dinov2l_capacity": {
+        "recovered_archive1": {
+          "C": 0.03,
+          "n": 58,
+          "balanced_accuracy": 0.4654,
+          "delta": 0.0517,
+          "auroc": null
+        },
+        "recovered_archive2": {
+          "C": 0.3,
+          "n": 77,
+          "balanced_accuracy": 0.3675,
+          "delta": -0.1558,
+          "auroc": null
+        },
+        "recovered_archive3": {
+          "C": 0.003,
+          "n": 50,
+          "balanced_accuracy": 0.4067,
+          "delta": 0.0,
+          "auroc": null
+        }
+      }
+    }
+  }
+}
