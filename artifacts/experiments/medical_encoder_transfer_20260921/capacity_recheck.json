@@ -1,0 +1,364 @@
+{
+  "question": "does the ViT-L gain survive the shipped readout, with geometry held at the deployed setting so capacity is the only factor",
+  "readout": {
+    "poolings": [
+      "mean",
+      "topk_mean",
+      "max",
+      "cls",
+      "std"
+    ],
+    "C_fixed": 0.03,
+    "pca_dim": 64,
+    "seed": 20260917,
+    "aggregation": "mean of pooling probabilities; majority vote over poolings for the multiclass field",
+    "nothing_tuned": true
+  },
+  "arms": {
+    "anchor_dinov2b_deployed": "DINOv2 ViT-B/14, deployed geometry",
+    "dinov2l_deployed_geometry": "DINOv2 ViT-L/14, deployed geometry"
+  },
+  "locked_read": false,
+  "fields": [
+    {
+      "field": "malformation_ratio",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 162,
+      "accuracy": 0.6481,
+      "baseline_constant": 0.5679,
+      "balanced_accuracy": 0.6304,
+      "per_class_recall": {
+        "0": 0.7609,
+        "1": 0.5
+      },
+      "minority_class": "1",
+      "minority_recall": 0.5,
+      "collapsed": false,
+      "delta": 0.0802,
+      "auroc": 0.7068,
+      "miss_rate": 0.5
+    },
+    {
+      "field": "malformation_ratio",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 162,
+      "accuracy": 0.6235,
+      "baseline_constant": 0.5679,
+      "balanced_accuracy": 0.6036,
+      "per_class_recall": {
+        "0": 0.75,
+        "1": 0.4571
+      },
+      "minority_class": "1",
+      "minority_recall": 0.4571,
+      "collapsed": false,
+      "delta": 0.0556,
+      "auroc": 0.6943,
+      "miss_rate": 0.5429,
+      "paired_L_minus_B": {
+        "ba_gain": -0.0269,
+        "ci": [
+          -0.0826,
+          0.0258
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 8,
+        "cases_B_right_L_wrong": 12
+      }
+    },
+    {
+      "field": "clarity",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 185,
+      "accuracy": 0.8378,
+      "baseline_constant": 0.5081,
+      "balanced_accuracy": 0.8376,
+      "per_class_recall": {
+        "0": 0.8242,
+        "1": 0.8511
+      },
+      "minority_class": "0",
+      "minority_recall": 0.8242,
+      "collapsed": false,
+      "delta": 0.3297,
+      "auroc": 0.8903,
+      "miss_rate": 0.1489
+    },
+    {
+      "field": "clarity",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 185,
+      "accuracy": 0.8216,
+      "baseline_constant": 0.5081,
+      "balanced_accuracy": 0.8211,
+      "per_class_recall": {
+        "0": 0.7912,
+        "1": 0.8511
+      },
+      "minority_class": "0",
+      "minority_recall": 0.7912,
+      "collapsed": false,
+      "delta": 0.3135,
+      "auroc": 0.9012,
+      "miss_rate": 0.1489,
+      "paired_L_minus_B": {
+        "ba_gain": -0.0165,
+        "ci": [
+          -0.0595,
+          0.0281
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 7,
+        "cases_B_right_L_wrong": 10
+      }
+    },
+    {
+      "field": "exudation",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 183,
+      "accuracy": 0.7486,
+      "baseline_constant": 0.5082,
+      "balanced_accuracy": 0.7493,
+      "per_class_recall": {
+        "0": 0.7097,
+        "1": 0.7889
+      },
+      "minority_class": "1",
+      "minority_recall": 0.7889,
+      "collapsed": false,
+      "delta": 0.2404,
+      "auroc": 0.8418,
+      "miss_rate": 0.2111
+    },
+    {
+      "field": "exudation",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 183,
+      "accuracy": 0.7705,
+      "baseline_constant": 0.5082,
+      "balanced_accuracy": 0.771,
+      "per_class_recall": {
+        "0": 0.7419,
+        "1": 0.8
+      },
+      "minority_class": "1",
+      "minority_recall": 0.8,
+      "collapsed": false,
+      "delta": 0.2623,
+      "auroc": 0.862,
+      "miss_rate": 0.2,
+      "paired_L_minus_B": {
+        "ba_gain": 0.0217,
+        "ci": [
+          -0.026,
+          0.0692
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 12,
+        "cases_B_right_L_wrong": 8
+      }
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 184,
+      "accuracy": 0.837,
+      "baseline_constant": 0.5707,
+      "balanced_accuracy": 0.8321,
+      "per_class_recall": {
+        "0": 0.7975,
+        "1": 0.8667
+      },
+      "minority_class": "0",
+      "minority_recall": 0.7975,
+      "collapsed": false,
+      "delta": 0.2663,
+      "auroc": 0.8966,
+      "miss_rate": 0.1333
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 184,
+      "accuracy": 0.8152,
+      "baseline_constant": 0.5707,
+      "balanced_accuracy": 0.8146,
+      "per_class_recall": {
+        "0": 0.8101,
+        "1": 0.819
+      },
+      "minority_class": "0",
+      "minority_recall": 0.8101,
+      "collapsed": false,
+      "delta": 0.2445,
+      "auroc": 0.8811,
+      "miss_rate": 0.181,
+      "paired_L_minus_B": {
+        "ba_gain": -0.0175,
+        "ci": [
+          -0.0706,
+          0.0322
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 10,
+        "cases_B_right_L_wrong": 14
+      }
+    },
+    {
+      "field": "blood_color",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 181,
+      "accuracy": 0.6851,
+      "baseline_constant": 0.5525,
+      "balanced_accuracy": 0.6904,
+      "per_class_recall": {
+        "0": 0.64,
+        "1": 0.7407
+      },
+      "minority_class": "1",
+      "minority_recall": 0.7407,
+      "collapsed": false,
+      "delta": 0.1326,
+      "auroc": 0.7894,
+      "miss_rate": 0.2593
+    },
+    {
+      "field": "blood_color",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 181,
+      "accuracy": 0.7127,
+      "baseline_constant": 0.5525,
+      "balanced_accuracy": 0.7119,
+      "per_class_recall": {
+        "0": 0.72,
+        "1": 0.7037
+      },
+      "minority_class": "1",
+      "minority_recall": 0.7037,
+      "collapsed": false,
+      "delta": 0.1602,
+      "auroc": 0.7933,
+      "miss_rate": 0.2963,
+      "paired_L_minus_B": {
+        "ba_gain": 0.0215,
+        "ci": [
+          -0.0392,
+          0.0829
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 18,
+        "cases_B_right_L_wrong": 13
+      }
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 182,
+      "accuracy": 0.8132,
+      "baseline_constant": 0.8242,
+      "balanced_accuracy": 0.4933,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 0.9867
+      },
+      "minority_class": "0",
+      "minority_recall": 0.0,
+      "collapsed": false,
+      "delta": -0.011,
+      "auroc": 0.6419,
+      "miss_rate": 0.0133
+    },
+    {
+      "field": "rbc_aggregation",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 182,
+      "accuracy": 0.8242,
+      "baseline_constant": 0.8242,
+      "balanced_accuracy": 0.5,
+      "per_class_recall": {
+        "0": 0.0,
+        "1": 1.0
+      },
+      "minority_class": "0",
+      "minority_recall": 0.0,
+      "collapsed": true,
+      "delta": 0.0,
+      "auroc": 0.6085,
+      "miss_rate": 0.0,
+      "paired_L_minus_B": {
+        "ba_gain": 0.0067,
+        "ci": [
+          0.0,
+          0.017
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 2,
+        "cases_B_right_L_wrong": 0
+      }
+    },
+    {
+      "field": "papilla",
+      "arm": "anchor_dinov2b_deployed",
+      "readout": "deployed_5pool_C0.03",
+      "n": 185,
+      "accuracy": 0.4432,
+      "baseline_constant": 0.4162,
+      "balanced_accuracy": 0.4149,
+      "per_class_recall": {
+        "0": 0.5,
+        "1": 0.5065,
+        "2": 0.2381
+      },
+      "minority_class": "2",
+      "minority_recall": 0.2381,
+      "collapsed": false,
+      "delta": 0.027
+    },
+    {
+      "field": "papilla",
+      "arm": "dinov2l_deployed_geometry",
+      "readout": "deployed_5pool_C0.03",
+      "n": 185,
+      "accuracy": 0.4432,
+      "baseline_constant": 0.4162,
+      "balanced_accuracy": 0.4163,
+      "per_class_recall": {
+        "0": 0.5303,
+        "1": 0.4805,
+        "2": 0.2381
+      },
+      "minority_class": "2",
+      "minority_recall": 0.2381,
+      "collapsed": false,
+      "delta": 0.027,
+      "paired_L_minus_B": {
+        "ba_gain": 0.0014,
+        "ci": [
+          -0.0655,
+          0.0634
+        ],
+        "ci_excludes_zero": false,
+        "cases_L_right_B_wrong": 19,
+        "cases_B_right_L_wrong": 19
+      }
+    }
+  ],
+  "caveats": [
+    "development set only; locked-47 was not read",
+    "this is the shipped recipe applied to a new encoder, not a new search; no hyperparameter was selected here",
+    "malformation_ratio truth is the doctor's banded report value",
+    "a gain here is a research result, not a launch criterion"
+  ]
+}

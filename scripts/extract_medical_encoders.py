@@ -70,6 +70,16 @@ ARMS = {
         weights="weights/dinov2/l/model.safetensors",
         size=518, patch=14, norm=IMAGENET, role="capacity_control",
         pretraining="general LVD-142M"),
+    # Round 1b: ViT-L at the DEPLOYED geometry, so a re-check under the shipped
+    # readout (5 poolings, fixed C=0.03, PCA 64) varies capacity alone against
+    # anchor_dinov2b_deployed. Without this the comparison would still carry the
+    # loader change that geometry_only showed to be null but not proven harmless.
+    "dinov2l_deployed_geometry": dict(
+        kind="timm", model="vit_large_patch14_dinov2.lvd142m",
+        weights="weights/dinov2/l/model.safetensors",
+        size=518, patch=14, norm=IMAGENET, role="capacity_control_deployed_geom",
+        geometry="deployed", deployed_res=(518, 686),
+        pretraining="general LVD-142M"),
     "biomedclip_medical": dict(
         kind="biomedclip", model="vit_base_patch16_224",
         weights="甲劈微循环hf_biomedclip/open_clip_pytorch_model.bin",

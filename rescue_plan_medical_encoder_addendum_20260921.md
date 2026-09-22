@@ -386,3 +386,123 @@ rbc_aggregation 和 papilla 的结论与既有记录一致：**没有被医学�
 `protocol.yaml`（含修正案 A1/A2）、`model_registry.json`（4 臂：来源/哈希/许可/输入规范）、`baseline_manifest.json`、`candidate_selection.json`（6 候选，3 个 `blocked_access`）、`rollback_check.json`（`deployment_changed: false`，回退是空操作）、`predictions_oof.csv`、`paired_summary.csv`、`paired_metrics.json`、`gate_check.json`、`attribution.json`、`loao_predictions.csv`（24 行）。
 
 **已知局限**：部署当年加载的是 facebook `.pth`，本轮加载的是 timm safetensors 转换版，两者哈希不同（`baseline_manifest.json` 已记录 `hashes_match: false`），所以 anchor 是对部署几何的**重实现**，不是逐位重放；跨模型族读出方式不同，本轮是系统比较，不能把预训练单独归因；`medical_only` 分辨率混淆见 §1.5。
+
+## 执行记录 2：范围更正（2026-09-22，用户核对后追加）
+
+用户核对执行记录 1 后指出范围问题。以下四条为更正，优先于执行记录 1 中任何相反读法。
+
+**1. 本轮只完成 7 个字段，不是「除固定字段外的完整字段实验」。**
+
+实际评估过的字段仅有：`malformation_ratio`、`clarity`、`exudation`、`subpapillary_venous_plexus`、`blood_color`、`papilla`、`rbc_aggregation`。这 7 个是我在 `eval_medical_encoders.py` 里写死的 `BINARY_MAP` + `MULTICLASS`，不是按字段清单推导出来的。执行记录 1 的 §1.6 标题写「其它字段」有误导性，它只是这 7 个中的另外 6 个。
+
+**2. 医学编码器假设尚未覆盖全部非固定字段。**
+
+至少 `capillary_count`、`afferent_diameter`、`efferent_diameter`、`apex_diameter`、`loop_length`、`crossing_ratio`、`flow_state`、`microthrombus` 这 8 个非固定字段在本轮**完全没有跑过任何臂**。它们在本轮既不是「没有信号」也不是「已关闭」，而是**未测试**。此前记录里关于这些字段的结论来自其它实验、其它配置，不能当成本轮医学编码器的结论。
+
+**3. DINOv2-L 的 `adopted_by_numbers` 只是 malformation_ratio 上的容量对照结果。**
+
+它不表示医学预训练成功——L 臂是通用 LVD-142M 权重，医学因素为零。它也不能直接作为全局部署模型：
+- 该判定来自 7 个字段中的 1 个主终点，其余 14 个非固定字段未参与；
+- `attribution.json` 显示赢的因素是容量（ViT-B→ViT-L），不是本增补要验证的医学预训练；
+- 追加的部署读出复核（执行记录 3）显示这个增益在固定配置下不成立。
+
+**4. BiomedCLIP 的结果不能用来判定医学预训练无效。**
+
+它同时受 224×224 输入、patch 16、以及 CLIP 体系与 DINOv2 自监督体系的差异影响（token 数 196 对 1813）。本轮能说的只有「这一个医学系统在这 7 个字段上没有比通用 DINOv2 更好」。计划 §1 指定的两个医学候选（MedSigLIP、RETFound）带账号现有 token 仍 403，**医学预训练假设本身仍未被检验**。
+
+**后续纪律**：补齐必须先产出完整字段矩阵（标签是否存在、适合何种目标、输入模态、能否合理评估），确认后才训练。不得按字段事后挑最好模型；不得把未测试字段写成无信号或已关闭。
+
+## 执行记录 3：部署读出下容量增益反向（2026-09-22）
+
+在暂停前已完成一条复核，结果必须记录，因为它推翻了执行记录 1 的采用判定。
+
+追加一个臂 `dinov2l_deployed_geometry`（ViT-L/14，**部署几何** 518×686 直接 resize），使容量成为与 anchor 之间唯一变化的因素；然后用**部署固定配置**（5 池化 mean/topk_mean/max/cls/std，概率平均，C 固定 0.03，PCA 64，seed 20260917，无任何调参）重跑两臂。
+
+复现：
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/extract_medical_encoders.py --arm dinov2l_deployed_geometry --batch-size 4
+PYTHONIOENCODING=utf-8 python scripts/recheck_capacity_deployed_readout.py
+```
+
+| 字段 | ViT-B BA | ViT-L BA | 配对增益 | 95% CI |
+|---|---|---|---|---|
+| malformation_ratio | 0.6304 | 0.6036 | **−0.0269** | [−0.083, +0.026] |
+| clarity | 0.8376 | 0.8211 | −0.0165 | [−0.060, +0.028] |
+| exudation | 0.7493 | 0.7710 | +0.0217 | [−0.026, +0.069] |
+| SVP | 0.8321 | 0.8146 | −0.0175 | [−0.071, +0.032] |
+| blood_color | 0.6904 | 0.7119 | +0.0215 | [−0.039, +0.083] |
+| rbc_aggregation | 0.4933 | 0.5000 | +0.0067 | [0.000, +0.017]（两臂均塌成单类） |
+| papilla | 0.4149 | 0.4163 | +0.0014 | [−0.066, +0.063] |
+
+**主终点上容量增益从 +0.0714 变成 −0.0269，方向反转，7 个字段的 CI 全部含 0。** 分档案看（`capacity_recheck_by_archive.csv`），malformation_ratio 三个档案全部为负（−0.018 / −0.019 / −0.051）。
+
+因此：**执行记录 1 §1.4 的 `adopted_by_numbers` 不成立**，DINOv2-L 在部署配置下没有可采用的增益。两次运行的差别有两个可能来源（读出方式：单 cls 对 5 池化集成；C：折内选择对固定 0.03），本轮**未做隔离实验**，所以我不能说是哪一个，只能说这条增益**不稳健于配置**。按 §H「结果跨配置不稳定时标记 inconclusive，不扩展搜索」，DINOv2-L 状态改为 `inconclusive`。
+
+这也顺带说明执行记录 1 的一个方法学问题：折内选 C 会放大候选之间的差异，和固定配置的部署口径不可直接比较。后续补齐字段矩阵时应统一用固定配置。
+
+## 执行记录 4：完整字段矩阵（2026-09-22，训练前，待确认）
+
+按用户要求，补齐前先产出字段矩阵，**本节不含任何模型结果**。来源为标签文件本身：`server_code_audit/locked_evaluation_v1_reviewed.csv`，development 186 例，locked-47 未读。
+
+复现：
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/build_field_matrix.py
+```
+
+产物：`field_matrix.json`、`field_matrix.csv`。
+
+### 4.1 15 个非固定字段
+
+`n` 为映射后可用病例数；`最小类`为**映射后目标**的最小类计数（不是原始取值表，原始表里有一次性脏字符串会伪造出极小类）。
+
+| 字段 | n | 类数 | 最小类 | 众数占比 | 首轮已测 | 观测单位 | 静态图可观测 | 允许的目标 |
+|---|---|---|---|---|---|---|---|---|
+| clarity | 185 | 2 | 91 | 0.5081 | 是 | 静态图像外观 | 是 | 二分类 清晰 vs 不清/模糊 |
+| exudation | 183 | 2 | 90 | 0.5082 | 是 | 静态图像外观 | 是 | 二分类 无 vs +/++/+++ |
+| blood_color | 181 | 2 | 81 | 0.5525 | 是 | 静态图像外观 | 是 | 二分类 浅红/淡红 vs 暗红/暗紫 |
+| subpapillary_venous_plexus | 184 | 2 | 79 | 0.5707 | 是 | 静态图像外观 | 是 | 二分类 不见 vs 可见 |
+| papilla | 185 | 3 | 42 | 0.4162 | 是 | 静态图像形态 | 是 | 三分类 波纹状/浅波纹状/平坦 |
+| rbc_aggregation | 181 | 2 | 31 | 0.8287 | 是 | 静态外观，但医生按流动情境分级 | 是 | 二分类 无 vs 轻/中/重 |
+| malformation_ratio | 162 | 2 | 70 | 0.5679 | 是 | 静态形态，视野内血管比例 | 是 | 二分类 <=10% vs >10% |
+| capillary_count | 182 | 3 | 15 | 0.6868 | **否** | 单位长度条数，需标定与分母定义 | 部分 | **标签本身已是印出的分档** >=7 / 5--6 / <=4 |
+| afferent_diameter | 165 | 3 | 34 | 0.4545 | **否** | 微米，需设备标定 | 部分 | 按报告印出的 `正常值 [9-13]` 分三档 |
+| efferent_diameter | 164 | 3 | 23 | 0.6037 | **否** | 微米，需设备标定 | 部分 | 按 `[11-17]` 分三档 |
+| apex_diameter | 169 | 3 | 25 | 0.4260 | **否** | 微米，需设备标定 | 部分 | 按 `[12-18]` 分三档 |
+| loop_length | 176 | 3 | 32 | 0.5057 | **否** | 微米，需设备标定 | 部分 | 按 `[150-250]` 分三档 |
+| crossing_ratio | 177 | 2 | 65 | 0.6328 | **否** | 静态形态，视野内血管比例 | 是 | 二分类 <=30% vs >30% |
+| flow_state | 179 | 2 | 41 | 0.7709 | **否** | **时间基**（流态等级） | 否 | 二分类 线流/线粒流 vs 粒线流及更差 |
+| microthrombus | 182 | 2 | 74 | 0.5934 | **否** | **时间基**（个/min） | 否 | 二分类 无 vs >=1 |
+
+**结论：15 个字段全部有标签、全部有一个可以评估的目标，没有任何字段因「无标签」而不可评估。** 8 个字段在首轮**完全未测试**（上表「否」），这是范围缺口，不是它们没有信号。
+
+### 4.2 必须写明的限制（按字段）
+
+- **四个测量字段**（afferent/efferent/apex diameter、loop_length）：`device_calibration_status.json` 为 `UNCALIBRATED_BATCH_CONSISTENCY_ASSUMPTION`，**绝对微米输出仍然禁止**。只做报告自己印出的三档。另外标签本身分别只有 24 / 25 / 38 / 135 个不同数值，前三个实际上是序数而非连续量。分档定义取报告 `正常值` 列，**两端都含**，不是我们发明的阈值。
+- **capillary_count**：标签在文件里就是分档字符串（`>=7` / `5--6` / `3--4` / `<1`），所以**不需要预测任何 条/mm 数值**；真要输出每毫米条数仍然需要分母定义和设备标定，这条禁令不变。最小类只有 15 例，per-class CI 会很宽。
+- **flow_state 与 microthrombus**：观测单位是时间基（流态等级、个/min），**单张静态图不携带这个单位**。本轮仍然评估它们，因为不评估等于把它们判成已关闭，这正是要避免的。但任何出现的信号只能读作「与之相关的静态外观」，**不得称为观察到了流速或血栓事件**。
+- **rbc_aggregation**：众数占比 0.8287，是全部字段里最不平衡的；首轮四臂全部塌成单类。最小类 31 例。
+- **efferent_diameter / apex_diameter / capillary_count**：最小类 23 / 25 / 15，低于 30，per-class recall 的置信区间会宽到难以据此下结论；这必须在报告时写出来，不能只报均值。
+
+### 4.3 排除字段（按既定规则，不作为本轮成功标准）
+
+| 字段 | 排除依据 | 标签文件实际情况 |
+|---|---|---|
+| vasomotion | 固定 `not_modelled`，需时间基 | 见 `field_matrix.json` |
+| wbc_count | 固定 `not_modelled` | 同上 |
+| sweat_duct | 固定 `not_modelled`，需完整视野 | 同上 |
+| hemorrhage | 固定 `not_modelled`，需完整视野 | 同上 |
+| flow_speed_um_s | 空列 | 同上 |
+| output_input_ratio | 派生量，不单独建模 | 同上 |
+
+### 4.4 补齐计划（待用户确认后执行，尚未运行）
+
+对 15 个字段中每一个，跑同一套配置、同一病例折：
+
+- 臂：`anchor_dinov2b_deployed`（ViT-B，部署几何）、`dinov2l_deployed_geometry`（ViT-L，部署几何）、`biomedclip_medical`（已有特征，注意分辨率混淆）；
+- 读出与超参：**统一用部署固定配置**（5 池化、C 固定 0.03、PCA 64、seed 20260917），不做折内选择——执行记录 3 已显示折内选 C 会造出不稳健的增益；
+- 每字段报告：accuracy、delta（对单一众数答案）、BA、AUROC（二分类）、每类召回、95% CI、按档案分层；
+- 每字段标注：是否静态可观测、以及是否因标签/标定/时间/完整视野不足而不能交付。
+
+纪律：不按字段事后挑最好模型（三个臂对全部 15 字段跑同一配置）；不把未测试字段写成无信号；某字段若确实无法合理评估，写明原因和证据。

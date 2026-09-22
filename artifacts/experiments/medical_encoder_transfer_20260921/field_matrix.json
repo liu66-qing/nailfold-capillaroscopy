@@ -1,0 +1,677 @@
+{
+  "purpose": "field matrix required before any further encoder experiment; no model is trained and no encoder metric appears here",
+  "label_file": "server_code_audit/locked_evaluation_v1_reviewed.csv",
+  "n_development": 186,
+  "locked_read": false,
+  "min_class_for_ci": 10,
+  "in_scope": [
+    {
+      "field": "clarity",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 185,
+      "n_dirty_or_blank": 1,
+      "distinct_values": 3,
+      "value_counts": {
+        "清晰": 91,
+        "不清": 70,
+        "模糊": 24
+      },
+      "unit_of_observation": "static image appearance",
+      "observable_from_static_image": true,
+      "admissible_target": "binary 清晰 vs 不清/模糊",
+      "n_after_mapping": 185,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 91,
+        "1": 94
+      },
+      "target_mode_share": 0.5081,
+      "target_smallest_class": 91,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "exudation",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 183,
+      "n_dirty_or_blank": 3,
+      "distinct_values": 4,
+      "value_counts": {
+        "无": 93,
+        "+": 63,
+        "++": 23,
+        "+++": 4
+      },
+      "unit_of_observation": "static image appearance",
+      "observable_from_static_image": true,
+      "admissible_target": "binary 无 vs +/++/+++",
+      "n_after_mapping": 183,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 93,
+        "1": 90
+      },
+      "target_mode_share": 0.5082,
+      "target_smallest_class": 90,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "blood_color",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 181,
+      "n_dirty_or_blank": 5,
+      "distinct_values": 4,
+      "value_counts": {
+        "暗红": 79,
+        "浅红": 65,
+        "淡红": 35,
+        "暗紫": 2
+      },
+      "unit_of_observation": "static image appearance",
+      "observable_from_static_image": true,
+      "admissible_target": "binary 浅红/淡红 vs 暗红/暗紫",
+      "n_after_mapping": 181,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 100,
+        "1": 81
+      },
+      "target_mode_share": 0.5525,
+      "target_smallest_class": 81,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 184,
+      "n_dirty_or_blank": 2,
+      "distinct_values": 4,
+      "value_counts": {
+        "不见": 79,
+        "可见1排": 42,
+        "可见2排": 36,
+        ">2排,扩张": 27
+      },
+      "unit_of_observation": "static image appearance",
+      "observable_from_static_image": true,
+      "admissible_target": "binary 不见 vs 可见",
+      "n_after_mapping": 184,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 79,
+        "1": 105
+      },
+      "target_mode_share": 0.5707,
+      "target_smallest_class": 79,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "papilla",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 185,
+      "n_dirty_or_blank": 1,
+      "distinct_values": 3,
+      "value_counts": {
+        "浅波纹状": 77,
+        "波纹状": 66,
+        "平坦": 42
+      },
+      "unit_of_observation": "static image shape",
+      "observable_from_static_image": true,
+      "admissible_target": "3-class 波纹状/浅波纹状/平坦",
+      "n_after_mapping": 185,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 66,
+        "1": 77,
+        "2": 42
+      },
+      "target_mode_share": 0.4162,
+      "target_smallest_class": 42,
+      "target_n_classes": 3,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "rbc_aggregation",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 183,
+      "n_dirty_or_blank": 3,
+      "distinct_values": 5,
+      "value_counts": {
+        "中度": 77,
+        "轻度": 60,
+        "无": 31,
+        "重度": 13,
+        "1--30": 2
+      },
+      "unit_of_observation": "static image appearance, but graded from flow context",
+      "observable_from_static_image": true,
+      "admissible_target": "binary 无 vs 轻/中/重",
+      "n_after_mapping": 181,
+      "dropped_by_mapping": 2,
+      "target_class_counts": {
+        "0": 31,
+        "1": 150
+      },
+      "target_mode_share": 0.8287,
+      "target_smallest_class": 31,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "malformation_ratio",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 162,
+      "n_dirty_or_blank": 24,
+      "distinct_values": 4,
+      "value_counts": {
+        "<=10%": 92,
+        "10--30%": 25,
+        ">60%": 25,
+        "30--60%": 20
+      },
+      "unit_of_observation": "static image shape, ratio over vessels in view",
+      "observable_from_static_image": true,
+      "admissible_target": "binary <=10% vs >10%",
+      "n_after_mapping": 162,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 92,
+        "1": 70
+      },
+      "target_mode_share": 0.5679,
+      "target_smallest_class": 70,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": true
+    },
+    {
+      "field": "capillary_count",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 182,
+      "n_dirty_or_blank": 4,
+      "distinct_values": 4,
+      "value_counts": {
+        ">=7": 125,
+        "5--6": 42,
+        "3--4": 14,
+        "<1": 1
+      },
+      "unit_of_observation": "count per unit length; needs device calibration and a defined denominator",
+      "observable_from_static_image": false,
+      "admissible_target": "banded 3-class as printed >=7 / 5--6 / <=4",
+      "n_after_mapping": 182,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 125,
+        "1": 42,
+        "2": 15
+      },
+      "target_mode_share": 0.6868,
+      "target_smallest_class": 15,
+      "target_n_classes": 3,
+      "blocking_reasons": [
+        "the label is already a printed band, so no 条/mm figure is predicted; a per-mm output would still need a defined denominator and device calibration"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "afferent_diameter",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 165,
+      "n_dirty_or_blank": 21,
+      "distinct_values": 24,
+      "value_counts": {
+        "8.0": 25,
+        "10.0": 23,
+        "13.0": 23,
+        "11.0": 20,
+        "7.0": 18,
+        "14.0": 11,
+        "6.0": 8,
+        "9.0": 7,
+        "15.0": 6,
+        "17.0": 5,
+        "4.0": 3,
+        "5.0": 2
+      },
+      "n_numeric_parsed": 165,
+      "distinct_numeric_values": 24,
+      "numeric_summary": {
+        "min": 4.0,
+        "median": 10.0,
+        "max": 325.0,
+        "sorted_distinct_head": [
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0
+        ]
+      },
+      "banded_by_printed_normal_range": {
+        "normal": 75,
+        "low": 56,
+        "high": 34
+      },
+      "band_mode_share": 0.4545,
+      "band_smallest_class": 34,
+      "suggested_target": "3-class 低于正常/正常/高于正常, from the report's own printed range",
+      "unit_of_observation": "micrometres; needs device calibration",
+      "observable_from_static_image": false,
+      "admissible_target": "banded 3-class from the printed 正常值 range",
+      "n_after_mapping": 165,
+      "target_class_counts": {
+        "0": 56,
+        "1": 75,
+        "2": 34
+      },
+      "target_mode_share": 0.4545,
+      "target_smallest_class": 34,
+      "target_n_classes": 3,
+      "blocking_reasons": [
+        "absolute micron output stays forbidden (device calibration is UNCALIBRATED); only the banded target from the report's own printed range is admissible",
+        "the label has only 24 distinct numeric values, so it is ordinal in practice, not continuous"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "efferent_diameter",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 164,
+      "n_dirty_or_blank": 22,
+      "distinct_values": 25,
+      "value_counts": {
+        "13.0": 22,
+        "11.0": 21,
+        "14.0": 19,
+        "15.0": 16,
+        "10.0": 14,
+        "17.0": 11,
+        "18.0": 10,
+        "19.0": 9,
+        "16.0": 6,
+        "21.0": 5,
+        "8.0": 5,
+        "12.0": 4
+      },
+      "n_numeric_parsed": 164,
+      "distinct_numeric_values": 25,
+      "numeric_summary": {
+        "min": 7.0,
+        "median": 14.0,
+        "max": 89.0,
+        "sorted_distinct_head": [
+          7.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0
+        ]
+      },
+      "banded_by_printed_normal_range": {
+        "normal": 99,
+        "high": 42,
+        "low": 23
+      },
+      "band_mode_share": 0.6037,
+      "band_smallest_class": 23,
+      "suggested_target": "3-class 低于正常/正常/高于正常, from the report's own printed range",
+      "unit_of_observation": "micrometres; needs device calibration",
+      "observable_from_static_image": false,
+      "admissible_target": "banded 3-class from the printed 正常值 range",
+      "n_after_mapping": 164,
+      "target_class_counts": {
+        "0": 23,
+        "1": 99,
+        "2": 42
+      },
+      "target_mode_share": 0.6037,
+      "target_smallest_class": 23,
+      "target_n_classes": 3,
+      "blocking_reasons": [
+        "absolute micron output stays forbidden (device calibration is UNCALIBRATED); only the banded target from the report's own printed range is admissible",
+        "the label has only 25 distinct numeric values, so it is ordinal in practice, not continuous"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "apex_diameter",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 169,
+      "n_dirty_or_blank": 17,
+      "distinct_values": 38,
+      "value_counts": {
+        "13.0": 21,
+        "18.0": 13,
+        "14.0": 13,
+        "19.0": 12,
+        "11.0": 12,
+        "21.0": 11,
+        "15.0": 10,
+        "22.0": 8,
+        "10.0": 7,
+        "17.0": 7,
+        "24.0": 5,
+        "12.0": 5
+      },
+      "n_numeric_parsed": 169,
+      "distinct_numeric_values": 38,
+      "numeric_summary": {
+        "min": 6.0,
+        "median": 18.0,
+        "max": 113.0,
+        "sorted_distinct_head": [
+          6.0,
+          8.0,
+          9.0,
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0
+        ]
+      },
+      "banded_by_printed_normal_range": {
+        "high": 72,
+        "normal": 72,
+        "low": 25
+      },
+      "band_mode_share": 0.426,
+      "band_smallest_class": 25,
+      "suggested_target": "3-class 低于正常/正常/高于正常, from the report's own printed range",
+      "unit_of_observation": "micrometres; needs device calibration",
+      "observable_from_static_image": false,
+      "admissible_target": "banded 3-class from the printed 正常值 range",
+      "n_after_mapping": 169,
+      "target_class_counts": {
+        "0": 25,
+        "1": 72,
+        "2": 72
+      },
+      "target_mode_share": 0.426,
+      "target_smallest_class": 25,
+      "target_n_classes": 3,
+      "blocking_reasons": [
+        "absolute micron output stays forbidden (device calibration is UNCALIBRATED); only the banded target from the report's own printed range is admissible"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "loop_length",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 176,
+      "n_dirty_or_blank": 10,
+      "distinct_values": 135,
+      "value_counts": {
+        "316.0": 4,
+        "125.0": 4,
+        "143.0": 3,
+        "120.0": 3,
+        "131.0": 3,
+        "228.0": 3,
+        "221.0": 3,
+        "288.0": 3,
+        "164.0": 2,
+        "246.0": 2,
+        "169.0": 2,
+        "335.0": 2
+      },
+      "n_numeric_parsed": 176,
+      "distinct_numeric_values": 135,
+      "numeric_summary": {
+        "min": 38.0,
+        "median": 255.5,
+        "max": 648.0,
+        "sorted_distinct_head": [
+          38.0,
+          53.0,
+          76.0,
+          82.0,
+          90.0,
+          96.0,
+          99.0,
+          104.0,
+          107.0,
+          120.0,
+          121.0,
+          123.0
+        ]
+      },
+      "banded_by_printed_normal_range": {
+        "high": 89,
+        "normal": 55,
+        "low": 32
+      },
+      "band_mode_share": 0.5057,
+      "band_smallest_class": 32,
+      "suggested_target": "3-class 低于正常/正常/高于正常, from the report's own printed range",
+      "unit_of_observation": "micrometres; needs device calibration",
+      "observable_from_static_image": false,
+      "admissible_target": "banded 3-class from the printed 正常值 range",
+      "n_after_mapping": 176,
+      "target_class_counts": {
+        "0": 32,
+        "1": 55,
+        "2": 89
+      },
+      "target_mode_share": 0.5057,
+      "target_smallest_class": 32,
+      "target_n_classes": 3,
+      "blocking_reasons": [
+        "absolute micron output stays forbidden (device calibration is UNCALIBRATED); only the banded target from the report's own printed range is admissible"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "crossing_ratio",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 178,
+      "n_dirty_or_blank": 8,
+      "distinct_values": 5,
+      "value_counts": {
+        "<=30%": 112,
+        "30--60%": 48,
+        "60--80%": 12,
+        ">80%": 5,
+        "10--30%": 1
+      },
+      "unit_of_observation": "static image shape, ratio over vessels in view",
+      "observable_from_static_image": true,
+      "admissible_target": "binary <=30% vs >30%",
+      "n_after_mapping": 177,
+      "dropped_by_mapping": 1,
+      "target_class_counts": {
+        "0": 112,
+        "1": 65
+      },
+      "target_mode_share": 0.6328,
+      "target_smallest_class": 65,
+      "target_n_classes": 2,
+      "blocking_reasons": [],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "flow_state",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 179,
+      "n_dirty_or_blank": 7,
+      "distinct_values": 7,
+      "value_counts": {
+        "粒线流": 61,
+        "粒流": 61,
+        "线粒流": 38,
+        "粒缓流": 13,
+        "线流": 3,
+        "粒摆流": 2,
+        "全停": 1
+      },
+      "unit_of_observation": "time base; graded from motion",
+      "observable_from_static_image": false,
+      "admissible_target": "binary 线流/线粒流 vs 粒线流/粒流/粒缓流/粒摆流/全停",
+      "n_after_mapping": 179,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 41,
+        "1": 138
+      },
+      "target_mode_share": 0.7709,
+      "target_smallest_class": 41,
+      "target_n_classes": 2,
+      "blocking_reasons": [
+        "the field's unit is a time base, which a single static frame does not carry; it is still evaluated, but any signal must be read as correlated static appearance, not as an observation of the unit"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    },
+    {
+      "field": "microthrombus",
+      "column_present": true,
+      "n_development": 186,
+      "n_usable": 182,
+      "n_dirty_or_blank": 4,
+      "distinct_values": 3,
+      "value_counts": {
+        "无": 108,
+        "1--2": 45,
+        ">2": 29
+      },
+      "unit_of_observation": "time base; an event observed over time",
+      "observable_from_static_image": false,
+      "admissible_target": "binary 无 vs >=1",
+      "n_after_mapping": 182,
+      "dropped_by_mapping": 0,
+      "target_class_counts": {
+        "0": 108,
+        "1": 74
+      },
+      "target_mode_share": 0.5934,
+      "target_smallest_class": 74,
+      "target_n_classes": 2,
+      "blocking_reasons": [
+        "the field's unit is a time base, which a single static frame does not carry; it is still evaluated, but any signal must be read as correlated static appearance, not as an observation of the unit"
+      ],
+      "evaluable_in_encoder_comparison": true,
+      "deliverable_status_not_decided_here": "evaluable means the comparison can produce a number; whether the field can ship is a separate question answered by the metrics, not by this file",
+      "tested_in_round_one": false
+    }
+  ],
+  "excluded_by_rule": [
+    {
+      "field": "vasomotion",
+      "excluded_by_rule": "fixed not_modelled; needs a time base",
+      "column_present": true,
+      "n_usable": 184,
+      "distinct_values": 4
+    },
+    {
+      "field": "wbc_count",
+      "excluded_by_rule": "fixed not_modelled",
+      "column_present": true,
+      "n_usable": 183,
+      "distinct_values": 2
+    },
+    {
+      "field": "sweat_duct",
+      "excluded_by_rule": "fixed not_modelled; needs the full field of view",
+      "column_present": true,
+      "n_usable": 160,
+      "distinct_values": 3
+    },
+    {
+      "field": "hemorrhage",
+      "excluded_by_rule": "fixed not_modelled; needs the full field of view",
+      "column_present": true,
+      "n_usable": 185,
+      "distinct_values": 3
+    },
+    {
+      "field": "flow_speed_um_s",
+      "excluded_by_rule": "empty column",
+      "column_present": true,
+      "n_usable": 0,
+      "distinct_values": 0
+    },
+    {
+      "field": "output_input_ratio",
+      "excluded_by_rule": "derived quantity, not modelled on its own",
+      "column_present": true,
+      "n_usable": 171,
+      "distinct_values": 20
+    }
+  ],
+  "notes": [
+    "tested_in_round_one=false means UNTESTED in this round, not 'no signal' and not 'closed'",
+    "observable_from_static_image is a statement about the field's definition and unit, not about any model's accuracy",
+    "absolute micron output stays forbidden: device_calibration_status is UNCALIBRATED_BATCH_CONSISTENCY_ASSUMPTION",
+    "the 3-class banding uses the range printed in the report's own 正常值 column, inclusive at both ends; it is not our invention"
+  ]
+}

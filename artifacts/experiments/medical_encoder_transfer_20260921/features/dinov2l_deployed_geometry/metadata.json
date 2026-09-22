@@ -1,0 +1,47 @@
+{
+  "schema_version": "medical-encoder-features/1.0",
+  "arm": "dinov2l_deployed_geometry",
+  "role": "capacity_control_deployed_geom",
+  "pretraining": "general LVD-142M",
+  "timm_model": "vit_large_patch14_dinov2.lvd142m",
+  "input_size": 518,
+  "patch": 14,
+  "patch_grid": [
+    37,
+    49
+  ],
+  "feature_dim": 1024,
+  "normalisation": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "geometry": "direct resize to [518, 686], no padding (reproduces the deployed native preset)",
+  "pad_patches_excluded_from_patch_stats": true,
+  "poolings": [
+    "cls",
+    "mean",
+    "max",
+    "topk_mean",
+    "std"
+  ],
+  "topk": 16,
+  "weights": "weights/dinov2/l/model.safetensors",
+  "weights_sha256": "0424a5d1b515278cba3c6640ccbeaacc41de59d3a93df0dd5e494285eea2b355",
+  "cases": 186,
+  "images": 1708,
+  "locked_cases_seen": 0,
+  "limitations": [
+    "development features only; this run did not read locked-47",
+    "frozen encoder statistics, not learned detectors",
+    "readout differs across model families, so this is a system comparison and does not isolate pretraining as a cause",
+    "no accuracy claim is made by this file"
+  ]
+}
