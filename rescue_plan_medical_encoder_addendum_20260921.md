@@ -832,3 +832,622 @@ scripts/
    18%–20% 的样本落在阈值 ±10% 档宽内。
 5. **microthrombus 的临床含义待用户复核**（用户曾指出数据里没有血栓）。
 6. 上市阻塞项未被本轮触动：独立确诊患者 0 例、外部验证 0 项、5% 患病率下 PPV 0.12–0.15。
+
+## 执行记录 6：对执行记录 5 的解释修正（2026-09-22，用户核对后追加）
+
+执行记录 5 的**数字不变**，本记录只改这些数字被允许读成什么。以下六条逐条对应用户的
+更正；凡与执行记录 5 的措辞冲突，**以本记录为准**。
+
+### 6.1 RETFound / MedSigLIP 是 `blocked_access`，不因 BiomedCLIP 或 DINOv2 的结果关闭
+
+§5.5 末尾写的「**眼底迁移与医学编码器这条路应当停下**」（第 652 行）**撤回**。那句话是从
+malformation_ratio 与 papilla 两个字段不稳推出来的，而这两个字段是用 **DINOv2 anchor** 算的，
+与眼底预训练没有任何关系；把它读成医学/眼底路线的结论是把一个通用编码器的字段结果
+当成了另一条路线的证据。
+
+正确写法：
+
+| 对象 | 本轮状态 | 依据 | 允许写的结论 |
+|---|---|---|---|
+| MedSigLIP、RETFound ×3 | `blocked_access` | 同客户端同端点下公开库 200、gated 库带合法令牌 403，主机自述 `"Access to model <repo> is restricted and you are not in the authorized list."` | **尚未验证**；不得写「无效」「已停止」「已排除」 |
+| BiomedCLIP | 已运行、五轴混淆 | §5.5 | 只能评价这一个系统，不能代表「医学预训练」 |
+| DINOv2-B/L | 已运行 | §5.4/§5.5 | 只能评价通用视觉容量 |
+
+一个候选只在**合法取得权重并公平跑过之后**才能标 `rejected`。BiomedCLIP 的结果和
+DINOv2 的字段结果都不是 RETFound/MedSigLIP 的证据，二者不构成关闭理由。
+
+### 6.2 固定 C=0.03 只回答「直接替换」；同预算的折内嵌套选参也是合法比较
+
+执行记录 5 的固定配置回答的问题只有一个：**把编码器直接换进已部署的配方，会不会变好**。
+它不回答「这个编码器在公平调参下能做到什么」。这两个问题不同，之前的写法把前者的
+null 读得太宽。
+
+因此补一条对照定义，供 §A 权重获批后使用：
+
+- **固定头对照**（= 执行记录 5 的做法）：C=0.03、五池化、PCA 64 全部锁死，只换编码器。
+  回答直接替换。
+- **同预算嵌套适配对照**：C（及必要的池化子集）**只在训练折内部**用内层 CV 选，外层折
+  只用于一次评估；每个臂拿到**完全相同的搜索预算和相同的内层划分**。回答公平调参。
+
+合法性边界：嵌套选参的合法性来自「选择只发生在训练折内」。一旦看过外层结果再回头改
+C、改池化、改臂，就变成 §6.5 禁止的事后挑赢家，无论叫什么名字。
+
+**注意**：执行记录 5 里「不使用此前 round one 的 in-fold C selection 结果」这条仍然有效，
+原因不是嵌套选参不合法，而是 round one 那次的选择与外层评估未做隔离、不可比。
+
+### 6.3 标签步长和档宽不能证明模型已到上限
+
+§5.6 第 2 点（第 676–678 行）以及 `nailfold-label-granularity-ceiling` 的框架**降级**：
+标签网格 1 μm 对 4/6/6 μm 档宽、18.2%/19.5% 样本近阈值——这些是**标签侧的共存约束**，
+它限制的是**任何方法在这套标签上可测到的上限**，不等于**当前模型已经触到那个上限**。
+
+两者的区别可以写成：
+
+- 标签粗 → 度量的**分辨力**有限，真实增益若小于一格读数误差，我们**测不出来**。
+- 模型到顶 → 需要另外的证据（例如 oracle 上界、人工标注上界、学习曲线饱和），
+  §5.6 **没有提供**这类证据。
+
+已有的相关证据是 `nailfold-oracle-human-boxes`（malformation 人工框 oracle 0.749），
+那说明**上界高于当前成绩**，与「模型已到顶」方向相反。所以正确表述是：
+**测量字段在这套标签下难以验证改进，而不是模型能力已经耗尽。**
+
+### 6.4 BiomedCLIP 的分辨率解释是待检验假设
+
+§5.5 第 644–645 行「**它的损失更可能是分辨率损失**」措辞过强，改为：
+
+> **假设（未检验）**：BiomedCLIP 在 clarity 与 SVP 上的下降，可能来自 224×224 / patch16
+> 带来的 token 数下降（196 对 1813）。这是一个**假设**，本轮没有做过能支持它的对照。
+
+该假设与另外至少四个同时变化的因素（编码器体系、预训练目标、CLIP 归一化、pad 几何）
+互相混淆，现有数据无法分离。§5.5 里「2 正 2 负都不能归因到医学预训练」这一条**不变**，
+因为它是从混淆本身推出来的，不依赖分辨率假设成立。
+
+检验它需要一个**只改分辨率/patch 的对照**；若执行，产物与文字**只能叫「分辨率敏感性
+实验」**，不得写成「已确认分辨率是原因」，也不得用它反推医学预训练的有效性。
+
+### 6.5 允许预注册字段分支；禁止的是外层测试上事后挑赢家
+
+§5.8 第 3 点「**不能按字段挑臂**」（第 732 行）范围过宽，收窄为：
+
+- **禁止**：看过外层/测试结果后，为每个字段挑当时表现最好的臂、C、池化或阈值，再把
+  拼出来的表当成一套成绩。这正是 `nailfold-config-mixing-error` 和
+  `nailfold-perfield-selection-refuted` 记录过的错误。
+- **允许**：**预注册**的字段分支——在看结果之前，用**与结果无关的先验**（字段的单位、
+  是否需要时间基、是否需要整视野、类数）写死「哪些字段走哪条分支」，并连同判定门槛
+  一起落盘，此后不再改动。
+
+对 §5.8 那四行（malformation +0.123、microthrombus +0.132、apex +0.118、efferent +0.061）
+的处理不变：它们是**看过结果之后**才显现的，所以现在**不能**据此把这些字段指派给
+BiomedCLIP。若要用，必须写成新的预注册方案并重新评估。
+
+### 6.6 两处 loader 对照记录的版本、路径、哈希矛盾（已查实并更正）
+
+**矛盾内容。** 第 328 行写：anchor 与 loader 对照最初逐字节相同，**已在任何指标算出之前
+修正**。第 783 行的 `loader_geometry_only` 却写：该臂「与 anchor 逐字节相同
+（`np.array_equal` = True），不携带信息」。同一份文件对同一对特征给出了两种状态。
+
+**查实结果：第 783 行错，第 328 行对。** 证据：
+
+| 检查 | 结果 |
+|---|---|
+| `features_cls.npy` SHA-256 前 16 位 | anchor `ac9b47d0e7ca7921` / newloader `6733c8ac6c08631e` — **不同** |
+| 五个池化的 `np.array_equal` | 全部 **False**；max abs diff：cls 4.434、mean 4.023、max 8.940、std 1.704、topk_mean 6.633 |
+| token 网格 | anchor **37×49**（518×686 直接 resize）/ newloader **37×37**（pad 到方形） |
+| `attribution.json` 的 `geometry_only` | 有真实逐字段数字（malformation +0.0034 [−0.0485,+0.0592]、clarity +0.0218、exudation +0.0054、SVP −0.0032、blood_color −0.0297），**不可能由退化对照产生** |
+
+所以 `loader_geometry_only` 不是「不可用」，而是**已测且为 null**。实测覆盖 **7 个字段**
+（不是我先前写的 5 个；§1.5 的表只列了其中 6 列，我把列数当成了字段数），配对 BA 差
+全部 CI 跨 0：
+
+| 字段 | BA 差 | 95% CI | 折向 |
+|---|---|---|---|
+| clarity | +0.0218 | [−0.0160, +0.0600] | 4/5 |
+| papilla | +0.0195 | [−0.0399, +0.0800] | 3/5 |
+| exudation | +0.0054 | [−0.0362, +0.0451] | 3/5 |
+| malformation_ratio | +0.0034 | [−0.0485, +0.0592] | 2/5 |
+| rbc_aggregation | 0.0000 | [0.0000, 0.0000] | 0/5 |
+| subpapillary_venous_plexus | −0.0032 | [−0.0496, +0.0405] | 2/5 |
+| blood_color | −0.0297 | [−0.0711, +0.0119] | 0/5 |
+
+rbc_aggregation 恰好 0.0000 不是退化对照的证据：该字段在**两个臂上都塌缩到众数**
+（§5.4 记录其 mode 0.829、delta −0.011），两个相同的常数预测自然差 0。其余 6 个字段
+有非零差值，退化对照不可能产生。§5.10 该行据此改为：
+
+> `loader_geometry_only`｜首轮 loader control（37×37 pad）vs anchor（37×49 直接 resize）｜
+> **可用**；7 字段配对 BA 差全部 CI 跨 0（+0.022 … −0.030，其中 rbc_aggregation 因双臂
+> 均塌缩众数而恰为 0）｜能。几何/loader 的影响在这 7 个字段上测不到，但**未证明无害**，
+> 也**未在另外 8 个字段上测过**。
+
+**版本与路径。** 三处时间戳曾被我读成矛盾，实际原因是 `open_memmap` 写出的 `.npy` 在
+Windows 上 mtime 不随 flush 更新，只有 `index.csv` / `metadata.json` 是普通写入、时间可信。
+按可信时间重建：
+
+| 时刻 | 事件 |
+|---|---|
+| 09-21 23:56:55 | `biomedclip_medical` 落盘 |
+| 09-22 09:02:23 | `dinov2b_newloader` 落盘（pad 到 518×518） |
+| 09-22 09:07:15 | `dinov2l_capacity` 落盘 |
+| 09-22 13:04:37 | `protocol.yaml` 写入（anchor 改为部署几何的那次修正） |
+| 09-22 13:15:33 | `anchor_dinov2b_deployed` 落盘（518×686 直接 resize） |
+| 09-22 13:32:13 | 首批指标 `paired_metrics.json` / `predictions_oof.csv` |
+| 09-22 15:23:53 | `extract_medical_encoders.py` 最后一次改动（加入 `dinov2l_deployed_geometry`） |
+| 09-22 15:31:28 | `dinov2l_deployed_geometry` 落盘 |
+
+anchor（13:15）早于任何指标（13:32），**第 328 行「修正发生在指标之前」成立**。
+
+**版本一致性已实测**，不靠时间戳推断：用**当前**的 `extract_medical_encoders.py`
+（sha256 前 16 位 `30ba1c078af6ebe8`）对两个臂各重抽 4 行（index 行 0/1/500/1707），
+与落盘特征比对：
+
+```
+dinov2b_newloader            grid=(37,37)  weights_sha=55cbb5d887b3  maxabsdiff=0.00000  allclose=True
+anchor_dinov2b_deployed      grid=(37,49)  weights_sha=55cbb5d887b3  maxabsdiff=0.00000  allclose=True
+```
+
+即 15:23 那次脚本改动**只新增了一个臂，没有改动前两个臂的抽取行为**；已存特征与当前
+脚本版本一致，两个臂用的是同一份权重（`weights/dinov2/b/model.safetensors`）。
+
+复现命令：
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/verify_loader_control_contradiction.py
+```
+
+**仍然存在的、未被本条解决的局限**（沿用 §1.8）：部署当年加载 facebook `.pth`，本轮加载
+timm safetensors 转换版，`baseline_manifest.json` 记录 `hashes_match: false`。所以 anchor 是
+对部署几何的**重实现**，不是逐位复刻；这一点与上面的矛盾无关，独立存在。
+
+### 6.7 本记录改动范围
+
+- 只改**解释**，不改任何数字：`field_matrix_three_arms.json`、`field_verdict.csv`、
+  `attribution.json`、`medical_candidate_access.json` 全部未改写。
+- 被撤回/降级的表述：§5.5 第 652 行（路线关闭）、§5.5 第 644–645 行（分辨率为因）、
+  §5.6 第 2 点（标签粒度证明到顶）、§5.8 第 3 点（一律不得按字段分支）、
+  §5.10 `loader_geometry_only` 行（不可用 → 已测且 null）。
+- 新增产物：`scripts/verify_loader_control_contradiction.py` 及
+  `artifacts/experiments/medical_encoder_transfer_20260921/loader_control_reconciliation.json`。
+- locked-47：本记录未访问，`locked_cases_seen = 0`。
+- 仍为研发结果，不构成上线能力声明。
+
+## 执行记录 7-A：医学候选的准确授权页面与获批后的对照设计（2026-09-22）
+
+本节只做两件事：给出**准确的授权入口**，以及**权重获批后要跑什么**。没有下载任何权重，
+没有代替用户接受任何条款，没有绕过 gate。
+
+### 7A.1 授权页面（URL 来自主机 403 响应体自身，非我记忆）
+
+四个候选的 403 响应体里，主机**自己印出了**申请地址，所以下面的 URL 是被观测到的，
+不是我凑的：
+
+| 候选 | 授权页面 | 许可证 | gate 类型 | 谁批 |
+|---|---|---|---|---|
+| **MedSigLIP-448**（首选，只用视觉塔） | https://huggingface.co/google/medsiglip-448 | `health-ai-developer-foundations`（Google HAI-DEF 条款） | 接受条款即可，页面写明「This repository is publicly accessible, but you have to accept the conditions to access its files and content」 | **自动**，页面写「Requests are processed immediately」 |
+| **RETFound-DINOv2 (MEH)**（首选眼底） | https://huggingface.co/YukunZhou/RETFound_dinov2_meh | **CC BY-NC 4.0** | 「You need to agree to share your contact information to access this model」 | 未写明；措辞 "After granted the access" 暗示有审批步骤。作者 Yukun Zhou（ykzhoua@gmail.com / yukun.zhou.19@ucl.ac.uk） |
+| RETFound-DINOv2 (Shanghai)（备选） | https://huggingface.co/YukunZhou/RETFound_dinov2_shanghai | CC BY-NC 4.0 | 同上 | 同上 |
+| RETFound-MAE (Nature CFP)（备选） | https://huggingface.co/YukunZhou/RETFound_mae_natureCFP | CC BY-NC 4.0 | 同上 | 同上 |
+
+操作要求（用户本人执行，不由我代做）：
+
+1. 登录自己的 Hugging Face 账号 → 打开上表页面 → 阅读并**自行决定是否接受**条款。
+2. MedSigLIP 接受后应立即可下；RETFound 可能需要等作者批准。
+3. 批准后本机已有令牌即可用；**不需要把令牌给我**，也不需要贴出来。
+
+### 7A.2 两条许可证条款会影响产品，不只是影响下载
+
+这一点必须先写清楚，因为它可能让「拿到权重」变成没有意义的事：
+
+- **RETFound 系列是 CC BY-NC 4.0 = 非商业**。本项目的目标是**健康辅助产品**。
+  所以 RETFound 即使批下来，也**只能用于研发对照与论文**，**不能进入要卖的产品**。
+  建议：先申请、先测，但**预先把它标为 research-only**，避免出现「实验赢了却不能用」。
+- **MedSigLIP 的 HAI-DEF 条款没有禁止商业使用**，但有两条与我们直接相关：
+  - 分发条件包含「when applicable, seek Health Regulatory Authorization」；
+  - **硬禁止**：不得用于任何「could cause a Health Regulatory Authority to deem Google
+    to be a 'manufacturer' of a medical device」的用途，且 Google 可据此单方终止。
+  - 「Clinical Use」的定义**包含研究用途**（"including as part of a research study"）。
+  - 条款把「以托管服务形式提供推理」也算作 Distribution。
+  这些不是我能替用户判断的合规问题，**需要用户自己决定**；我只记录条款原文位置
+  （https://developers.google.com/health-ai-developer-foundations/terms ，页面标注
+  last modified 2024-11-15），并且**不得**在任何产品材料里声称这些条款允许我们做什么。
+
+**因此 7A 的优先级建议**：MedSigLIP 优先（商业路径不被许可证直接堵死、且即时放行），
+RETFound 作为研发期对照。这只是建议，不是已做的决定。
+
+### 7A.3 权重获批后要跑的两个对照（现在写死，避免事后调整）
+
+按 §6.2，两个对照回答两个不同问题，**都要跑，不互相替代**：
+
+| 对照 | 配置 | 回答的问题 | 判定 |
+|---|---|---|---|
+| **固定头对照** | C=0.03、PCA 64、seed 20260917、N_BOOT 2000 全部锁死；只换编码器 | 直接替换进已部署配方是否变好 | 与 anchor 配对：BA 差、accuracy 差、每类召回，2000 次 bootstrap CI |
+| **同预算嵌套适配对照** | C **只在训练折内**用内层 CV 选；每个臂**相同搜索网格、相同内层划分、相同预算**；外层折只评估一次 | 公平调参下能做到什么 | 同上；外层结果看过之后**不得**回头改任何超参 |
+
+按用户的两条约束固定下来：
+
+1. **不同时扩展多个 RETFound 变体。** 顺序是：先只跑 `RETFound_dinov2_meh`。只有它在
+   预注册门槛上通过，才考虑 Shanghai 变体；`RETFound_mae_natureCFP` 架构不同（MAE 而非
+   DINOv2），排在最后，且要单独说明其读出接口差异。
+2. **不机械套用五池化。** 五池化是为 DINOv2 的 patch token 网格设计的。对每个新编码器先
+   确认它实际暴露什么：
+   - 若暴露 patch token 网格 → 可用 `cls/mean/max/topk_mean/std`，并按 §1.2 的规则
+     排除 pad patch；
+   - 若只暴露 pooled/projected 向量（SigLIP 的图像塔常见）→ **只用它自己的池化输出**，
+     并在表里写明「该臂池化集合 = {native_pooled}，与 anchor 的 5 池化不可比」；
+   - **禁止**为了凑齐五个而人工构造该模型没有的池化。
+3. **MedSigLIP 只用视觉编码器和图像 embedding，不做文本零样本预测**（沿用既定约束）。
+
+### 7A.4 本节状态
+
+- **继续/停止：停在授权步骤**，原因是 `blocked_access` 且**不得代替用户接受条款**。
+  这不是「路线关闭」（§6.1）。
+- 本节未产生任何模型结果，未访问 locked-47（`locked_cases_seen = 0`）。
+- 需要用户做的唯一动作：在 7A.1 的页面上自行决定是否接受条款。做完之后无需再确认，
+  我按 7A.3 的固定设计执行。
+
+## 执行记录 7-B：BiomedCLIP 配对补充与一次预先固定的 LOAO（2026-09-22，已执行）
+
+不用新模型、不重跑 15×3。本节只把**已存的 OOF 预测重新配对**，补上执行记录 5 缺的
+配对 accuracy 差与每类召回，并按用户授权跑**一次**方案预先写死的 LOAO。
+
+复现：
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/supplement_biomedclip_paired.py
+```
+
+### 7B.1 配对 accuracy 差 与 BA 差（15 字段，2000 次配对 bootstrap）
+
+配对在 `exam_case_id` 上，bootstrap 重采样**病例**且两臂同一重采样，所以 CI 是配对 CI。
+
+| 字段 | n | acc anchor | acc BiomedCLIP | **acc 差** | acc 差 95% CI | BA 差 | BA 差 95% CI | 两尺子同时排除 0 |
+|---|---|---|---|---|---|---|---|---|
+| apex_diameter | 169 | 0.4497 | 0.5444 | **+0.0947** | [+0.024, +0.166] | +0.0915 | [+0.027, +0.158] | **是（正）** |
+| microthrombus | 182 | 0.6703 | 0.7253 | +0.0549 | [0.000, +0.115] | +0.0569 | [−0.001, +0.119] | 否 |
+| blood_color | 181 | 0.6851 | 0.7293 | +0.0442 | [−0.022, +0.116] | +0.0377 | [−0.028, +0.107] | 否 |
+| malformation_ratio | 162 | 0.6481 | 0.6914 | +0.0432 | [−0.025, +0.111] | +0.0449 | [−0.021, +0.108] | 否 |
+| crossing_ratio | 177 | 0.6215 | 0.6610 | +0.0395 | [−0.011, +0.090] | +0.0442 | [−0.015, +0.102] | 否 |
+| efferent_diameter | 164 | 0.6280 | 0.6646 | +0.0366 | [−0.012, +0.085] | +0.0293 | [−0.017, +0.076] | 否 |
+| flow_state | 179 | 0.7598 | 0.7821 | **+0.0223** | [+0.006, +0.045] | +0.0316 | [+0.004, +0.071] | **是（正，见 7B.2）** |
+| exudation | 183 | 0.7486 | 0.7650 | +0.0164 | [−0.038, +0.071] | +0.0163 | [−0.038, +0.071] | 否 |
+| rbc_aggregation | 181 | 0.8177 | 0.8232 | +0.0055 | [−0.011, +0.022] | +0.0033 | [−0.007, +0.014] | 否 |
+| capillary_count | 182 | 0.6978 | 0.6758 | −0.0220 | [−0.066, +0.017] | −0.0550 | [−0.150, +0.033] | 否 |
+| loop_length | 176 | 0.6080 | 0.5682 | −0.0398 | [−0.097, +0.017] | −0.0506 | [−0.119, +0.016] | 否 |
+| papilla | 185 | 0.4432 | 0.4000 | −0.0432 | [−0.124, +0.032] | −0.0512 | [−0.132, +0.029] | 否 |
+| afferent_diameter | 165 | 0.4667 | 0.4182 | −0.0485 | [−0.121, +0.030] | −0.0354 | [−0.108, +0.040] | 否 |
+| clarity | 185 | 0.8378 | 0.7838 | **−0.0541** | [−0.103, −0.005] | −0.0542 | [−0.104, −0.004] | **是（负）** |
+| subpapillary_venous_plexus | 184 | 0.8370 | 0.7228 | **−0.1141** | [−0.179, −0.049] | −0.1235 | [−0.191, −0.059] | **是（负）** |
+
+**这条补充直接修正了 §5.8。** 执行记录 5 说「delta 尺子下 BiomedCLIP 多出四个字段」，
+暗示两把尺子结论相反。补上配对 accuracy 差之后：**两把尺子在 15 个字段上完全一致**，
+`rulers_disagree_on = []`。§5.8 那个「反向发现」**不成立**，原因是它把
+「BiomedCLIP 的 delta 对自己的众数基线排除 0」当成了「BiomedCLIP 比 anchor 好」——
+前者是**对基线**，后者是**对 anchor**，是两个不同的比较。**§5.8 的反向发现撤回。**
+
+### 7B.2 每类召回暴露了两个「显著」其实是退化
+
+`biomedclip_per_class_recall.csv`。四个双尺子显著字段里，两个正向增益是这样来的：
+
+| 字段 | 类 | n | anchor 召回 | BiomedCLIP 召回 |
+|---|---|---|---|---|
+| **flow_state** | 0（正常） | 41 | 0.0000 | **0.0488** |
+| | 1（异常） | 138 | 0.9855 | **1.0000** |
+| **apex_diameter** | 0（低） | 25 | 0.0000 | **0.0800** |
+| | 1（正常） | 72 | 0.4306 | 0.5556 |
+| | 2（高） | 72 | 0.6250 | 0.6944 |
+| clarity | 0 | 91 | 0.8242 | 0.7582 |
+| | 1 | 94 | 0.8511 | 0.8085 |
+| SVP | 0 | 79 | 0.7975 | 0.6076 |
+| | 1 | 105 | 0.8667 | 0.8095 |
+
+flow_state 的「显著增益」是：正常类召回从 0 变成 **2/41**，异常类召回升到 **1.0000**。
+也就是**把所有人都判成异常，再蒙对两个正常人**。这不是能力，BA 0.524 也就是 chance 附近。
+apex_diameter 的低档召回 0.080 = **2/25**，同样不可交付。
+
+两个负向字段没有这个问题：clarity 与 SVP 是**两个类一起掉**，是真实的能力下降。
+
+**结论**：BiomedCLIP 的两个正向显著字段都由少数类上的个别命中驱动，**不构成任何字段的
+可交付理由**；两个负向显著字段恰好是本项目最强的两个，且下降是双类同向的。
+
+### 7B.3 一次预先固定的 LOAO（方案在看数字之前写死在代码里）
+
+固定内容（`scripts/supplement_biomedclip_paired.py` 顶部 docstring + `loao_scheme_fixed_before_reading`）：
+折 = 三个 recovered archive 留一；基线 = **训练档案的众数**，绝不用被测档案；臂对固定；
+读出 = 部署固定配置 C=0.03 不动；**看过之后不得改任何超参**。
+
+| 字段 | anchor 逐档案 delta | BiomedCLIP 逐档案 delta | 候选更好 | 平均 BA 差 | 符号一致 |
+|---|---|---|---|---|---|
+| **clarity** | +0.379 / +0.312 / +0.500 | +0.310 / +0.273 / +0.440 | **0/3** | −0.0515 | 是（一致为负） |
+| **SVP** | +0.241 / +0.210 / +0.380 | +0.103 / +0.105 / +0.280 | **0/3** | −0.1176 | 是（一致为负） |
+| exudation | +0.228 / +0.247 / +0.245 | +0.316 / +0.247 / +0.204 | 1/3 | +0.0154 | 否 |
+| blood_color | +0.210 / +0.133 / +0.041 | +0.105 / +0.133 / +0.327 | 1/3 | +0.0548 | 否 |
+| apex_diameter | −0.019 / +0.057 / +0.106 | +0.096 / +0.214 / +0.085 | 3/3 | +0.0769 | 是 |
+| flow_state | +0.000 / −0.013 / −0.020 | +0.018 / +0.013 / +0.000 | 3/3 | +0.0288 | 是 |
+| microthrombus | +0.018 / +0.118 / +0.082 | +0.053 / +0.118 / +0.245 | 2/3 | +0.0633 | 否 |
+| malformation_ratio | +0.118 / +0.114 / −0.024 | +0.157 / +0.100 / +0.122 | 2/3 | +0.0577 | 否 |
+
+读法（**按规则，看完不得再改参数，本节也没有改**）：
+
+1. **两个可交付字段上 anchor 3/3 全胜**，且 BiomedCLIP 在每个档案都更差。换编码器会让
+   唯一站得住的两个字段变差，这是本节最硬的结论。
+2. flow_state 的「3/3 一致」对应 BA 0.536 / 0.529 / 0.500 —— **就是 chance**。符号一致
+   在这里没有意义，因为量级本身在噪声内，且 7B.2 已显示它来自全判异常。
+3. apex_diameter 3/3 一致（BA 0.427 / 0.476 / 0.381），仍**全部低于三分类可用水平**，
+   低档召回 2/25。可以记为「唯一在 LOAO 下方向一致的正向候选」，**不能记为可交付**。
+4. blood_color 的 archive3 出现 anchor +0.041 对候选 +0.327 的大跳，与
+   `nailfold-leave-one-archive-out` 记录的「blood_color 是档案依赖的」一致，
+   进一步说明该字段不该按单一数字下结论。
+
+### 7B.4 分辨率对照：本节未执行
+
+§6.4 的分辨率假设需要一个只改分辨率/patch 的对照，本节**没有做**，所以：
+
+- 不得写「已确认分辨率是原因」；
+- 若将来执行，产物与文字**只能叫「分辨率敏感性实验」**，且不得用它反推医学预训练有效性。
+
+### 7B.5 本节状态与禁止写法
+
+- **继续/停止：Stream B 停止**。原因：授权的「一次 LOAO」已执行完毕，规则禁止据此再调参；
+  分辨率对照另属一件事，需要单独决定是否开。**不是路线被否证，而是本轮额度用尽。**
+- **禁止写法**：(a) 任何本节增益都**不能**归因到医学预训练（五轴混淆，§5.5/§6.4）；
+  (b) **不能**用本节结果给字段指派 BiomedCLIP——这些数字是事后读到的，正是 §6.5 禁止的
+  事后挑赢家，若要用必须另写预注册方案；(c) 本节与 MedSigLIP / RETFound 的
+  `blocked_access` **无关**，不得据此关闭它们（§6.1）。
+- 产物：`biomedclip_paired_supplement.json` / `.csv`、`biomedclip_per_class_recall.csv`。
+- locked-47 未访问，`locked_cases_seen = 0`；development OOF，不构成上线能力。
+- **已知局限（重要）**：本节 LOAO 是对**按档案分层的折**所产生预测的**再读出**，被留出的
+  档案参与过其它折的训练，所以它比「真正重训的 LOAO」弱，是档案迁移读出。规则禁止改参
+  重跑，所以本轮不升级它。
+
+## 执行记录 7-C：人工区域形态监督 与 视频可用性（2026-09-22）
+
+这两条按用户要求**不受医学模型访问阻塞影响**，独立推进。凡已有等价实验的**引用产物跳过**。
+
+### 7C.1 人工区域形态监督：输入为 0，这是阻塞项不是建模问题
+
+**已有产物（引用，不重跑）**：
+
+| 产物 | 内容 |
+|---|---|
+| `artifacts/doctor_annotation_round1_v2/draft_overlay/*.jpg` | 10 张草稿叠加图（已生成） |
+| `artifacts/doctor_annotation_round1_v2/corrections/*.json` | 10 个待填写的修正文件 |
+| `artifacts/annotations/v2/visual_review_queue_v2.csv` | 129 行审阅队列（49 病例） |
+| `artifacts/annotations/v2/agreement_report.json` | 一致性打分框架与门槛 |
+| `artifacts/annotations/v2/queue_disposition.csv` | 582 行治理判定 |
+
+**实测状态**：
+
+```
+files 10  reviewer_filled 0  total_instances 0  total_unusable_regions 0
+agreement_report.json: queue_rows 129, reviewed_rows 0
+```
+
+10 个修正文件的 `instances` **全部是空数组**，`reviewer` 字段**全部为空**，
+`agreement_report.json` 自己写着 `reviewed_rows: 0`。也就是：
+**这条路线的基础设施已经搭好，但没有任何一个人工区域标注被实际画出来。**
+
+因此人工区域形态监督**当前的状态是「输入不存在」**，不是「方法无效」。任何关于它的
+成绩数字都无法产生，因为没有监督信号可训。
+
+**按用户约束记录一条边界**：`queue_disposition.csv` 里有 `vessel_box_count` 列，
+`nailfold-anfc-usage-truth` 也记录过已有 YOLO11 六类检测器与伪标签。**检测框计数不等于
+区域表示监督**——前者给的是「有几个框」，后者要的是「每个管袢的形态与位置被人标出来」。
+所以既有检测产物**不能**冒充本条的输入，也不能用来跳过本条。
+
+治理侧的既有限制仍然有效（`nailfold-aux-annotation-pool`）：可用池是 129 图 / 49 病例，
+其中 `governance_status` 为 `HOLD` 的 454 行、`PASS_AUXILIARY_CONDITIONALLY` 仅 82 行，
+`EXCLUDE_LOCKED_OVERLAP` 32 行。**tier2 只加图不加病人**，所以即使标完，病例级 CI 仍会宽。
+
+**继续/停止：停在人工标注这一步**，原因是**需要人画**，不是我能代做的事，也不是模型问题。
+这与 2026-09-17 的 AI 辅助标注授权不冲突：辅助草图已经生成，缺的是人工审改。
+
+### 7C.2 视频可用性：已查实，半数病例有真实时间基
+
+**已有产物（引用，不重跑四次建模）**：
+
+| 产物 | 内容 |
+|---|---|
+| `artifacts/video_baseline_metrics_v2.json` | 视频基线，五个时间基字段 |
+| `artifacts/video_hybrid_cv_metrics.json` | 静态+视频混合 CV |
+| `artifacts/video_v3_cv_metrics.json` | v3 视频 CV，含每类召回 |
+| `artifacts/video_static_ft_cv_metrics.json` | 静态微调对照 |
+| `artifacts/invalid_video_repro/.../report.json` | 视频解析失败时的单病例行为 |
+
+这四次建模**已经**跑在恰好是需要时间基的五个字段上（flow_state、vasomotion、
+rbc_aggregation、wbc_count、microthrombus），**本轮不重复**。
+
+**它们都没回答的问题**，也是本节补的唯一一件事：**全语料到底有多少病例有能解码的视频**。
+之前的管线只 glob `recovered_archive*/*/*.mp4`（转码产物），而原始语料是 .avi/.mpg/.wmv，
+按 .mp4 统计会**低估**可用量。
+
+复现：
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/check_video_availability.py
+```
+
+（注意：该脚本需要 `cv2`，在 `pytorch_gpu` 环境里没有，用 anaconda3 基础环境的
+`python.exe` 运行；未安装任何新依赖。）
+
+实测结果：
+
+| 项 | 数值 |
+|---|---|
+| data/ 下类视频文件 | 388（.avi 193 / .mpg 124 / .wmv 15，locked 的未打开） |
+| 已探测（locked 之外） | 332 |
+| **可解码** | **329**；打不开 3；能打开但 0 帧 **0** |
+| development 病例 | 186 |
+| **有可用视频的 development 病例** | **95（51.1%）** |
+| 完全没有视频的 development 病例 | 91 |
+| 每病例最大帧数 | 中位 **211**，均值 214.6，最小 135，最大 321 |
+| 帧数 ≥1 / ≥5 / ≥10 / ≥30 / ≥60 的病例 | **95 / 95 / 95 / 95 / 95** |
+| 可用视频分辨率 | **全部 1024×768**（186 个文件，唯一取值） |
+| 五个时间基字段有标签且有可用视频 | 每个都是 95 / 184 = **51.6%** |
+
+**读法（这修正了一个我此前的默认假设）**：
+
+1. **视频的瓶颈不是解码，而是覆盖率和病例数。** 329/332 个文件能解码、全部 1024×768、
+   帧数 135–321，**所有 95 个病例都过了 60 帧门槛**。所以「视频不可用」这个说法
+   在这批数据上**不成立**；`invalid_video_repro` 那次失败是单个病例的
+   `.DS_Store` 被当成视频（报告里原话 "only 0 frames decoded from ...\.DS_Store"），
+   是路径问题，不是语料问题。
+2. **但可用子集只有 95 个病例**，占 development 的 51.1%。这解释了既有四次视频建模为什么
+   test 折只有 18–27 个病例（见 `video_baseline_metrics_v2.json` 的 `n_test`）——
+   在这个规模上，时间基字段的 BA 落在 0.10–0.51 之间且折间摇摆，**样本量本身就是主因之一**。
+3. **不能反过来说时间基字段现在可交付**。本节只给了分母，没有给成绩；五个字段的既有成绩
+   全部很弱，且本轮没有重跑。`nailfold-field-units-root-cause` 的结论（C 类字段需要时间基）
+   保持有效，本节把它精确化为：**时间基存在，但只覆盖一半病例**。
+
+**继续/停止：Stream C 的视频分支停在此处**，原因是用户本轮要求的是「可用性检查」，
+已完成；进一步的视频建模需要单独决定（且 §7 的停止条款禁止本轮引入视频模型）。
+
+### 7C.3 本节状态
+
+- 未训练任何模型，未预测任何字段，未从视频导出任何微米或条/mm 数量。
+- locked-47 的视频容器**从未被打开**，`locked_cases_seen = 0`；输出中不含任何 locked 病例。
+- 产物：`artifacts/experiments/video_availability_20260922/video_availability.json`、
+  `video_availability_by_case.csv`。
+- 仍为研发结果，不构成上线能力声明。
+
+---
+
+## 执行记录 7-D：逐项积分恢复（2026-09-22）
+
+对应请求 I 的 D：「继续报告逐项积分恢复。异常读数只根据原报告证据更正，不根据模型预测或正常范围自动删除、裁剪。」
+
+复现命令（OCR 一遍约 28 分钟；`--reparse` 只重跑解析与对账，不重跑 OCR）：
+
+```
+PYTHONIOENCODING=utf-8 /c/Users/liujunqing/anaconda3/python.exe scripts/extract_per_item_scores.py
+PYTHONIOENCODING=utf-8 /c/Users/liujunqing/anaconda3/python.exe scripts/extract_per_item_scores.py --reparse
+```
+
+产物目录 `artifacts/experiments/per_item_scores_20260922/`：`per_item_scores.csv`（图像级）、
+`per_item_scores_case_level.csv`（病例级，唯一键 exam_case_id+field）、`group_arithmetic_check.csv`、
+`corrections_from_printed_subtotal.csv`、`case_level_conflicts.csv`、`per_item_scores_summary.json`。
+`ocr_cells.jsonl`（原始 OCR 单元格缓存，6.6MB）与 `ocr_rows.jsonl` 按 `.gitignore:26` 的 `*.jsonl` 规则留在本地，
+不入库；它们由无参数运行重新生成，`--reparse` 已验证能精确复现该次 OCR 结果（784 / 744 / 185 / 184 完全一致）。
+
+### 7-D.1 逐项积分不在 RTF 里，只在报告图上
+
+用项目自己的 `scripts/dump_rtf.py::decode_rtf` 解码全部 465 个 rtf，检索 积分 / 分值 / 得分 / 计分 / 总分 / 评分：
+**命中 0 个文件**。这一条否掉了「先从文本里取分，图像只作校验」的路线：报告图是唯一来源，OCR 是唯一通路。
+
+（此前一次粗暴正则检索同样得到 0，但那是假阴性——它不处理 GBK `\'hh` 转义。这里的 0 是用正确解码器得到的。）
+
+### 7-D.2 恢复结果
+
+| 项 | 数 |
+|---|---|
+| 非 locked 报告图读入 | 784 |
+| 其中解析出逐项积分 | 744 |
+| 覆盖病例 | 185（其中 development 184 / 186 = **98.9%**） |
+| 病例级 field 单元格 | 3330，其中一致 3322、冲突记为 unknown 8 |
+| 打分表小计对账 | 2185 组，通过 2159；**566 个"组内字段全部读到"的组 566/566 全部对上** |
+
+逐字段病例数（病例级、一致）：clarity 184、wbc_count 184、vasomotion 183、capillary_count 183、
+exudation 182、papilla 182、SVP 181、hemorrhage 181、rbc_aggregation 180、flow_state 180、
+microthrombus 178、loop_length 176、blood_color 173、crossing_ratio 172、apex_diameter 169、
+efferent_diameter 162、malformation_ratio 160、afferent_diameter 159、sweat_duct 153。
+
+`output_input_ratio` 与 `flow_speed_um_s` 两行在报告上**本来就不印积分格**，不是漏读。
+
+### 7-D.3 表格定位方式（为什么不是按标签逐行匹配）
+
+按印刷标签逐行匹配会同时犯两种错，两种都实测到了：
+
+1. OCR 经常整行丢标签（渗出、出血 是两个字，最常丢），那些行的分就永远取不到；
+2. 子串碰撞：管袢数 是 交叉管袢数 的子串，输入枝管径 是 输出/输入枝管径 的子串，会整列错位。
+
+改为几何定位：用 `src/nailfold_report/data/report_layout.py` 的 `REPORT_FIELDS`（21 行、行距 19px）
+作为行序真值，读到的标签只用来拟合 行号→y，再按该拟合把积分列每个格子归到行上。三重防误：
+标签必须在单元格开头且单元格不比标签长 3 字以上（排除表格下方"血管清晰度尚可…"那段结论文字被当成
+clarity 行）、锚点要先投票剔除离群（单个错配标签不得拖动整个网格）、拟合步长必须落在 0.7~1.4 倍行距
+且最大残差 ≤8px，否则整页判为 `row_fit_rejected` 而不是勉强出分。
+
+### 7-D.4 异常读数的更正机制：只用报告自身的印刷证据
+
+OCR 把小数点渲染成撇号是系统性的：`0.8` → `8'0`。这类格子如果照字面收下，会把 0.8 记成 8.0。
+
+更正只走一条路：**该组印在同一张报告上的小计**。小计与逐项列是分开印的，所以小计与逐项之和不符，
+就定位到了一个误读。三条硬约束防止它退化成凑数：
+
+1. 只有**字形本身歧义**的格子才是候选——原文必须形如 `数字 撇/反引号/逗号 数字`，且置信度 ≤0.68。
+   实测分界很干净：确认误读的格子置信度 0.555~0.643，而清楚分隔的 `0.4`/`0. 4` 都 ≥0.70。
+2. 重算必须**唯一确定**：按 1、2、3 个格子的子集递增搜索，某个规模下只有一个组合能对上小计才采纳；
+   有并列解就整组不动、照实标记不符。
+3. 不删、不裁、不按正常范围判断、不引入任何模型预测。
+
+结果：**512 处更正，全部是同一个字形（`8'0` → 0.8）**，分布在 94 个病例：flow_state 246、
+capillary_count 168、hemorrhage 48、efferent_diameter 46，以及 4 处小计格自身（袢周积分同样被印成 `8'0`，
+用"该组逐项之和"反过来校正它，方向相反但依据同样是报告自身）。
+
+这里有一次被自己的约束抓住的错误值得记下：把子集搜索放宽到多格、但还没加字形与置信度门槛时，
+它产生了 18 处把干净的 `0.4`（置信度 0.749）改成 `4.0` 的"更正"——纯粹是为凑小计。
+加上门槛后这 18 处全部消失，而真误读一处不少。**能对上小计不等于读对了**，这是 7-D 的机制教训。
+
+### 7-D.5 留作未解决、不强行消解的部分
+
+- **26 个组小计不符**，全部是"组内有字段没读到"，属于预期缺口；其中 1 例（archive3/234 flow_score，
+  印 7.8、已读项之和 12.0）读数高于小计，页面上同时存在一个干净的 `4.0` 和一个 `8'0`，
+  无法唯一判定错哪个，按约束整组不动并列出。
+- **8 个病例级单元格跨报告图不一致**（同一病例的 rep.jpg / rep_<日期>.jpg / rep_左手.jpg 印同一张表，
+  互为独立读数），按字段分：afferent_diameter 5、efferent_diameter 1、exudation 1、SVP 1。
+  一律写 unknown 并列入 `case_level_conflicts.csv`，
+  **不做多数表决、不挑某一张图**——报告本身没说哪个读数对。
+- 总积分层面 7 例不符（145 例可检查中 138 例通过）；同样只标记，供人工回看原报告。
+
+### 7-D.6 恢复出来的积分说明了什么
+
+这些分是医生自己的算术，恢复它们的用处是看清**各字段在结论里占多大权重**，此前只能估计。
+185 例的分数质量分布（`share_of_mass` = 该字段总分 / 全部字段总分）：
+
+| 字段 | 占分数质量 | 非零病例比例 |
+|---|---|---|
+| microthrombus | 18.7% | 41.0% |
+| exudation | 14.9% | 53.3% |
+| rbc_aggregation | 10.3% | 82.2% |
+| papilla | 10.0% | 68.7% |
+| flow_state | 9.0% | 77.2% |
+| loop_length | 7.2% | 75.0% |
+| capillary_count | 5.6% | 31.1% |
+| blood_color | 4.6% | 90.8% |
+| SVP | 3.8% | 54.1% |
+| malformation_ratio | 3.5% | 44.4% |
+| apex_diameter | 3.5% | 56.8% |
+| afferent_diameter | 3.1% | 53.5% |
+| crossing_ratio | 1.7% | 38.4% |
+| clarity | 1.7% | 46.2% |
+| efferent_diameter | 1.6% | 39.5% |
+| hemorrhage | 0.8% | 6.6% |
+| wbc_count / sweat_duct / vasomotion | 各 ≤0.05% | ≤1.6% |
+
+三点与既有结论直接相关：
+
+1. **两个可交付字段（clarity + exudation）合计占 16.5%**，加上 4 个"仅有信号"字段
+   （malformation_ratio、papilla、SVP、blood_color）才到 38.4%。这是**实测**替代了
+   `nailfold-doctor-scale-audit` 里"可交付字段只覆盖 24.6% 积分"的估计值。口径不同（这里是分数质量占比，
+   按病例级一致单元格算），但两者说同一件事：模型能做的字段不是打分的主力。
+2. **clarity 只占 1.7% 分数质量**，却是唯一三向全过的字段。做得最好的字段对医生结论几乎不贡献权重。
+3. **microthrombus 占 18.7%，是单字段最大项**，而它在 `nailfold-field-units-root-cause` 里属于需要时间基
+   的 C 类、`nailfold-all-fields-fixed-config` 里塌缩成单类。7-C 已测出时间基**存在但只覆盖 51.1% 的 development 病例**。
+   这两条合起来才是 RAG 建议缺输入（`nailfold-rag-advice-gap`：35.7% 的建议由白微栓驱动）的完整解释：
+   不是没想到要做它，是它的观测单位一半病例都没有。
+4. wbc_count、sweat_duct、vasomotion 三个字段合计占分数质量 0.09%，非零病例 ≤1.6%。
+   它们在固定配置下塌缩成单类**与其临床权重一致**——这三个字段本来就几乎不参与打分。
+
+### 7-D.7 禁止事项（写在产物里）
+
+- 这些分**不得作为训练目标**。总积分与五级判断处在既有监督禁令下（`nailfold-doctor-scale-audit`）；
+  恢复它们是为了解释字段权重，不是为了预测等级。本条已写入 `per_item_scores_summary.json` 的 `forbidden`。
+- `rep_*` 是报告扫描件，这里只当**文本**读。它们不得作为编码器输入，本脚本不产出任何图像特征。
+- development 口径，不作产品能力声明。
+
+### 7-D.8 继续/停止原因
+
+**停止**：D 的目标（恢复逐项积分并报告）已达成，development 覆盖 98.9%，全部完整组算术自洽。
+剩下的 8 个冲突单元格和 1 个高读组需要人回看原报告才能定，不是脚本能推进的——按约束它们已被标为 unknown 而非猜定。
+
+**本轮 locked-47**：未访问。185 个病例全部来自非 locked；locked 报告图在选图阶段即按病例级排除，
+输出前 assert 再验一次。`locked_cases_seen: 0` 仅指本次运行。
+
+<!-- REC7END -->
+

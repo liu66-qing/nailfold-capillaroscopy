@@ -1,0 +1,421 @@
+{
+  "purpose": "decide which of two contradictory loader-control records in rescue_plan_medical_encoder_addendum_20260921.md is correct, and pin the version/path/hash facts behind them",
+  "written": "2026-09-22 18:51:38",
+  "anchor": "anchor_dinov2b_deployed",
+  "control": "dinov2b_newloader",
+  "verdict": "line_783_wrong_line_328_right",
+  "statement": "The stored loader control is NOT byte-identical to the anchor (distinct file hashes, np.array_equal False on all five poolings, max abs diff up to 8.941, token grids [37, 49] vs [37, 37]), and attribution.json's geometry_only contrast holds 6 non-zero per-field gains, which a degenerate contrast cannot produce. So line 328 is correct: the byte-identical condition existed and was fixed before any metric was computed. Line 783's claim that loader_geometry_only is unusable carried the pre-fix state forward and is withdrawn. The contrast is usable and its result is null on the 7 fields measured (all paired CIs span zero), which is a measured null, not an absent measurement. It says nothing about the remaining fields, which were never run on the pad-geometry arm.",
+  "checks": {
+    "file_hashes": {
+      "anchor_dinov2b_deployed": {
+        "cls": "ac9b47d0e7ca7921",
+        "mean": "cf4390b89d203d21",
+        "max": "81d2d6ca0acd1944",
+        "topk_mean": "d934e5f74975d9ed",
+        "std": "afea3b892dbb3e49"
+      },
+      "dinov2b_newloader": {
+        "cls": "6733c8ac6c08631e",
+        "mean": "9b5fd7ee88dbe36c",
+        "max": "a951358aa6df366c",
+        "topk_mean": "255e0721b00af6f1",
+        "std": "3259f1a1ab37fb61"
+      },
+      "any_pooling_hash_equal": false
+    },
+    "arrays": {
+      "per_pooling": {
+        "cls": {
+          "shape_anchor": [
+            1708,
+            768
+          ],
+          "shape_control": [
+            1708,
+            768
+          ],
+          "array_equal": false,
+          "max_abs_diff": 4.4336
+        },
+        "mean": {
+          "shape_anchor": [
+            1708,
+            768
+          ],
+          "shape_control": [
+            1708,
+            768
+          ],
+          "array_equal": false,
+          "max_abs_diff": 4.0234
+        },
+        "max": {
+          "shape_anchor": [
+            1708,
+            768
+          ],
+          "shape_control": [
+            1708,
+            768
+          ],
+          "array_equal": false,
+          "max_abs_diff": 8.9414
+        },
+        "topk_mean": {
+          "shape_anchor": [
+            1708,
+            768
+          ],
+          "shape_control": [
+            1708,
+            768
+          ],
+          "array_equal": false,
+          "max_abs_diff": 6.6328
+        },
+        "std": {
+          "shape_anchor": [
+            1708,
+            768
+          ],
+          "shape_control": [
+            1708,
+            768
+          ],
+          "array_equal": false,
+          "max_abs_diff": 1.7041
+        }
+      },
+      "all_equal": false,
+      "any_equal": false
+    },
+    "geometry": {
+      "anchor_dinov2b_deployed": {
+        "geometry": "direct resize to [518, 686], no padding (reproduces the deployed native preset)",
+        "patch_grid": [
+          37,
+          49
+        ],
+        "input_size": 518,
+        "patch": 14,
+        "weights": "weights/dinov2/b/model.safetensors",
+        "weights_sha256": "55cbb5d887b3",
+        "role": "anchor",
+        "locked_cases_seen": 0
+      },
+      "dinov2b_newloader": {
+        "geometry": "aspect-preserving resize then neutral pad, bottom-right",
+        "patch_grid": [
+          37,
+          37
+        ],
+        "input_size": 518,
+        "patch": 14,
+        "weights": "weights/dinov2/b/model.safetensors",
+        "weights_sha256": "55cbb5d887b3",
+        "role": "loader_control",
+        "locked_cases_seen": 0
+      },
+      "grids_differ": true,
+      "same_weights": true
+    },
+    "attribution_geometry_only": {
+      "present": true,
+      "arm": "dinov2b_newloader",
+      "reference": "anchor_dinov2b_deployed",
+      "fields": {
+        "malformation_ratio": {
+          "ba_gain": 0.0034,
+          "ci": [
+            -0.0485,
+            0.0592
+          ],
+          "folds_positive": "2/5",
+          "per_fold_ba_gain": {
+            "0": 0.068,
+            "1": -0.0357,
+            "2": -0.025,
+            "3": -0.0238,
+            "4": 0.0385
+          }
+        },
+        "clarity": {
+          "ba_gain": 0.0218,
+          "ci": [
+            -0.016,
+            0.06
+          ],
+          "folds_positive": "4/5",
+          "per_fold_ba_gain": {
+            "0": 0.0217,
+            "1": -0.068,
+            "2": 0.0516,
+            "3": 0.0238,
+            "4": 0.0625
+          }
+        },
+        "exudation": {
+          "ba_gain": 0.0054,
+          "ci": [
+            -0.0362,
+            0.0451
+          ],
+          "folds_positive": "3/5",
+          "per_fold_ba_gain": {
+            "0": -0.0238,
+            "1": -0.0526,
+            "2": 0.0238,
+            "3": 0.0417,
+            "4": 0.0294
+          }
+        },
+        "subpapillary_venous_plexus": {
+          "ba_gain": -0.0032,
+          "ci": [
+            -0.0496,
+            0.0405
+          ],
+          "folds_positive": "2/5",
+          "per_fold_ba_gain": {
+            "0": 0.0667,
+            "1": -0.0294,
+            "2": -0.025,
+            "3": -0.0488,
+            "4": 0.014
+          }
+        },
+        "blood_color": {
+          "ba_gain": -0.0297,
+          "ci": [
+            -0.0711,
+            0.0119
+          ],
+          "folds_positive": "0/5",
+          "per_fold_ba_gain": {
+            "0": -0.0278,
+            "1": -0.0227,
+            "2": 0.0,
+            "3": -0.0652,
+            "4": 0.0
+          }
+        },
+        "rbc_aggregation": {
+          "ba_gain": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "folds_positive": "0/5",
+          "per_fold_ba_gain": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "papilla": {
+          "ba_gain": 0.0195,
+          "ci": [
+            -0.0399,
+            0.08
+          ],
+          "folds_positive": "3/5",
+          "per_fold_ba_gain": {
+            "0": -0.0012,
+            "1": 0.0944,
+            "2": 0.037,
+            "3": 0.0339,
+            "4": -0.0714
+          }
+        }
+      },
+      "n_fields": 7,
+      "n_fields_with_nonzero_gain": 6,
+      "all_ci_span_zero": true,
+      "could_come_from_a_degenerate_contrast": false
+    },
+    "version_reproduction": {
+      "script": "scripts\\extract_medical_encoders.py",
+      "script_sha256": "30ba1c078af6ebe8",
+      "script_mtime": "2026-09-22 15:23:53",
+      "index_rows": 1708,
+      "probe_rows": [
+        0,
+        1,
+        500,
+        1707
+      ],
+      "arms": {
+        "dinov2b_newloader": {
+          "grid": [
+            37,
+            37
+          ],
+          "weights_sha256": "55cbb5d887b3",
+          "max_abs_diff_vs_stored": 0.0,
+          "reproduces": true
+        },
+        "anchor_dinov2b_deployed": {
+          "grid": [
+            37,
+            49
+          ],
+          "weights_sha256": "55cbb5d887b3",
+          "max_abs_diff_vs_stored": 0.0,
+          "reproduces": true
+        }
+      },
+      "all_arms_reproduce": true
+    }
+  },
+  "reliable_timeline": {
+    "note": "open_memmap'd .npy files do not refresh mtime on flush under Windows, so .npy timestamps are excluded as unreliable",
+    "events": [
+      {
+        "when": "2026-09-21 23:56:55",
+        "what": "features/biomedclip_medical/index.csv"
+      },
+      {
+        "when": "2026-09-21 23:56:55",
+        "what": "features/biomedclip_medical/metadata.json"
+      },
+      {
+        "when": "2026-09-22 09:02:23",
+        "what": "features/dinov2b_newloader/index.csv"
+      },
+      {
+        "when": "2026-09-22 09:02:23",
+        "what": "features/dinov2b_newloader/metadata.json"
+      },
+      {
+        "when": "2026-09-22 09:07:15",
+        "what": "features/dinov2l_capacity/index.csv"
+      },
+      {
+        "when": "2026-09-22 09:07:15",
+        "what": "features/dinov2l_capacity/metadata.json"
+      },
+      {
+        "when": "2026-09-22 13:04:37",
+        "what": "protocol.yaml"
+      },
+      {
+        "when": "2026-09-22 13:15:33",
+        "what": "features/anchor_dinov2b_deployed/index.csv"
+      },
+      {
+        "when": "2026-09-22 13:15:33",
+        "what": "features/anchor_dinov2b_deployed/metadata.json"
+      },
+      {
+        "when": "2026-09-22 13:32:13",
+        "what": "paired_metrics.json"
+      },
+      {
+        "when": "2026-09-22 13:32:13",
+        "what": "paired_summary.csv"
+      },
+      {
+        "when": "2026-09-22 13:32:13",
+        "what": "predictions_oof.csv"
+      },
+      {
+        "when": "2026-09-22 15:13:46",
+        "what": "gate_check.json"
+      },
+      {
+        "when": "2026-09-22 15:17:40",
+        "what": "attribution.json"
+      },
+      {
+        "when": "2026-09-22 15:19:08",
+        "what": "baseline_manifest.json"
+      },
+      {
+        "when": "2026-09-22 15:19:08",
+        "what": "candidate_selection.json"
+      },
+      {
+        "when": "2026-09-22 15:19:08",
+        "what": "loao_predictions.csv"
+      },
+      {
+        "when": "2026-09-22 15:19:08",
+        "what": "model_registry.json"
+      },
+      {
+        "when": "2026-09-22 15:19:08",
+        "what": "rollback_check.json"
+      },
+      {
+        "when": "2026-09-22 15:31:28",
+        "what": "features/dinov2l_deployed_geometry/index.csv"
+      },
+      {
+        "when": "2026-09-22 15:31:28",
+        "what": "features/dinov2l_deployed_geometry/metadata.json"
+      },
+      {
+        "when": "2026-09-22 15:34:02",
+        "what": "capacity_recheck.json"
+      },
+      {
+        "when": "2026-09-22 15:34:02",
+        "what": "capacity_recheck_by_archive.csv"
+      },
+      {
+        "when": "2026-09-22 15:50:31",
+        "what": "field_matrix.csv"
+      },
+      {
+        "when": "2026-09-22 15:50:31",
+        "what": "field_matrix.json"
+      },
+      {
+        "when": "2026-09-22 16:58:32",
+        "what": "field_matrix_three_arms.csv"
+      },
+      {
+        "when": "2026-09-22 16:58:32",
+        "what": "field_matrix_three_arms.json"
+      },
+      {
+        "when": "2026-09-22 16:58:32",
+        "what": "field_matrix_three_arms_by_archive.csv"
+      },
+      {
+        "when": "2026-09-22 16:58:32",
+        "what": "field_matrix_three_arms_predictions.csv"
+      },
+      {
+        "when": "2026-09-22 18:09:40",
+        "what": "medical_candidate_access.json"
+      },
+      {
+        "when": "2026-09-22 18:13:28",
+        "what": "field_verdict.csv"
+      },
+      {
+        "when": "2026-09-22 18:13:28",
+        "what": "field_verdict_and_attribution.json"
+      },
+      {
+        "when": "2026-09-22 18:50:08",
+        "what": "loader_control_reconciliation.json"
+      }
+    ]
+  },
+  "corrections_to_the_addendum": [
+    "line 783 / 5.10 loader_geometry_only: 'unavailable, byte-identical, carries no information' -> 'usable; measured null on 5 fields, all paired CIs span zero; untested on the other 10 fields'",
+    "line 328 stands as written: the byte-identical condition was fixed at 13:04-13:15, before the first metrics at 13:32"
+  ],
+  "limitations": [
+    "the deployment loaded facebook .pth while this round loads the timm safetensors conversion; baseline_manifest.json records hashes_match: false, so the anchor is a re-implementation of the deployed geometry, not a bit-exact replica. Independent of the contradiction settled here.",
+    "geometry_only was computed on 7 fields only; the 15-field matrix did not include the pad-geometry arm, so the null does not generalise to the other 8 fields",
+    "rbc_aggregation's exactly-zero gain is not evidence of a degenerate contrast: that field collapses to the mode on both arms, so two identical constant predictors differ by zero",
+    "a null paired contrast is not proof of harmlessness",
+    "development features only; this run did not read locked-47"
+  ],
+  "locked_cases_seen": 0
+}

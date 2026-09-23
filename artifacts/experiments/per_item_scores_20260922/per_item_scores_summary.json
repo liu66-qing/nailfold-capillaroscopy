@@ -1,0 +1,89 @@
+{
+  "purpose": "Stream D: recover the per-item doctor score printed on the report images. The RTF files do not contain it.",
+  "written": "2026-09-23 12:57:02",
+  "rtf_checked": {
+    "files": 465,
+    "decoder": "scripts/dump_rtf.py decode_rtf",
+    "searched": [
+      "积分",
+      "分值",
+      "得分",
+      "计分",
+      "总分",
+      "评分"
+    ],
+    "files_containing_any": 0,
+    "conclusion": "the per-item score exists only on the report images"
+  },
+  "images": {
+    "report_images_found": 978,
+    "read_this_run": 784,
+    "locked_report_images_skipped": 194,
+    "images_yielding_per_item_scores": 744
+  },
+  "coverage": {
+    "cases_with_any_per_item_score": 185,
+    "of_which_in_development": 184,
+    "development_cases_total": 186,
+    "fraction_of_development": 0.9892,
+    "per_field_case_counts": {
+      "clarity": 184,
+      "wbc_count": 184,
+      "exudation": 183,
+      "vasomotion": 183,
+      "capillary_count": 183,
+      "subpapillary_venous_plexus": 182,
+      "papilla": 182,
+      "hemorrhage": 181,
+      "rbc_aggregation": 180,
+      "flow_state": 180,
+      "microthrombus": 178,
+      "loop_length": 176,
+      "blood_color": 173,
+      "crossing_ratio": 172,
+      "apex_diameter": 169,
+      "afferent_diameter": 164,
+      "efferent_diameter": 163,
+      "malformation_ratio": 160,
+      "sweat_duct": 153
+    }
+  },
+  "totals_recovered": {
+    "cases_with_a_total": 155,
+    "arithmetic_checked": 145,
+    "arithmetic_agrees": 138,
+    "arithmetic_disagrees": 7,
+    "note": "a disagreement FLAGS the reading for a human re-read of the original report; it never deletes, clips or overwrites a value, and no model prediction is used to judge it"
+  },
+  "per_item_validated_against_printed_subtotals": {
+    "checks": 2185,
+    "agrees": 2159,
+    "disagrees": 26,
+    "complete_groups": 566,
+    "complete_and_agree": 566,
+    "meaning": "the group subtotal is printed independently of the per-item column, so agreement is evidence the per-item reads are correct; a group with items_missing can legitimately fall short of its subtotal",
+    "detail_file": "group_arithmetic_check.csv"
+  },
+  "case_level": {
+    "cells": 3330,
+    "agreed": 3322,
+    "unknown_conflict": 8,
+    "cases": 185,
+    "rule": "a case's several report images print the same table, so they are independent reads; disagreement is written unknown and listed in case_level_conflicts.csv, never resolved by majority vote or by preferring one image",
+    "files": [
+      "per_item_scores_case_level.csv",
+      "case_level_conflicts.csv"
+    ]
+  },
+  "unknown_policy": {
+    "min_confidence": 0.55,
+    "rule": "any cell below the confidence floor, or with no score cell on its row, is recorded unknown -- never coerced to normal or abnormal",
+    "abnormal_correction_rule": "corrected only from original-report evidence; never from a model prediction and never because a value falls outside a printed normal range"
+  },
+  "forbidden": [
+    "these scores must not be used as a training target: the total and the five-level assessment are under a standing supervision ban (nailfold-doctor-scale-audit). They are recovered to explain how fields are weighted, not to predict the grade",
+    "rep_* images are report scans and must never become encoder inputs; this script writes no image feature",
+    "development scope; no product capability claim"
+  ],
+  "locked_cases_seen": 0
+}
