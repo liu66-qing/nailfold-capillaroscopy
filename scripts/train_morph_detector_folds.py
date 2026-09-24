@@ -128,10 +128,24 @@ def write_external(work):
     own early-stopping only; that split has no bearing on our field evaluation.
     """
     box = pd.read_csv(FROZEN / "external_pool_hf_boxes.csv")
+    # Group by PERSON, not by subject_id. The healthy ids are hea_<person>-<visit>,
+    # so the 48 healthy subject_ids are really 13 people with repeat visits, and
+    # splitting on subject_id put 5 of them on both sides. This split only drives the
+    # detector's own early stopping, so no field number depended on it, but a person
+    # straddling it makes the external mAP meaningless as a generalisation figure.
+    def person(s):
+        s = str(s)
+        if s.startswith("hf_hea_"):
+            return "hea_" + s[len("hf_hea_"):].split("-")[0]
+        return s
+
+    box["person_group"] = box.subject_id.map(person)
     subs = sorted(box.subject_id.unique())
-    rng = pd.Series(subs).sample(frac=1.0, random_state=SEED).tolist()
+    people = sorted(box.person_group.unique())
+    rng = pd.Series(people).sample(frac=1.0, random_state=SEED).tolist()
     cut = max(1, int(0.15 * len(rng)))
-    val_subs = set(rng[:cut])
+    val_people = set(rng[:cut])
+    val_subs = set(box.loc[box.person_group.isin(val_people), "subject_id"])
     tr_i, tr_l = work / "train" / "images", work / "train" / "labels"
     va_i, va_l = work / "val" / "images", work / "val" / "labels"
     for d in (tr_i, tr_l, va_i, va_l):
@@ -141,7 +155,7 @@ def write_external(work):
         src_i, src_l = ROOT / r.rel_path, ROOT / r.label_path
         if not src_i.exists() or not src_l.exists():
             continue
-        side = "val" if r.subject_id in val_subs else "train"
+        side = "val" if r.person_group in val_people else "train"
         di, dl = ((va_i, va_l) if side == "val" else (tr_i, tr_l))
         shutil.copy2(src_i, di / src_i.name)
         shutil.copy2(src_l, dl / (src_i.stem + ".txt"))
@@ -151,8 +165,20 @@ def write_external(work):
     y = dict(path=str(work), train="train/images", val="val/images", names=EXT_NAMES)
     (work / "dataset.yaml").write_text(yaml.safe_dump(y, allow_unicode=True),
                                        encoding="utf-8")
+    # The split is defined on person_group, so bleed is impossible by construction.
+    # Assert it anyway: this is exactly the invariant that silently broke when the
+    # split keyed on subject_id instead.
+    sides = box.person_group.map(lambda p: "val" if p in val_people else "train")
+    bled = sorted(set(box.person_group[sides == "val"]) & set(box.person_group[sides == "train"]))
+    if bled:
+        raise RuntimeError("person on both sides of the external split: %s" % bled[:5])
     return dict(train_images=n["train"], val_images=n["val"],
-                subjects=len(subs), val_subjects=len(val_subs))
+                subjects=len(subs), val_subjects=len(val_subs),
+                people=len(people), val_people=len(val_people),
+                grouping="person, after collapsing hea_<person>-<visit> to person",
+                people_on_both_sides=0,
+                purpose=("early stopping for the detector only; this split drives no "
+                         "field number and its mAP is not a generalisation claim"))
 
 
 def _shim_numpy_trapz():
