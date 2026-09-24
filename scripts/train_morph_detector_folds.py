@@ -207,6 +207,26 @@ def train_one(yaml_path, weights, epochs, imgsz, out_dir, name, device, seed=SEE
     best = out_dir / name / "weights" / "best.pt"
     if not best.exists():
         raise RuntimeError("no best.pt at %s" % best)
+    # Capture PER-CLASS metrics now. results.csv records only the "all" row, and the
+    # fold's tree is deleted immediately after training, so this cannot be recovered
+    # later without rebuilding the tree. malformed and cross are the two classes the
+    # A2 hypothesis rests on -- an "all" mAP of 0.44 would look the same whether
+    # those classes are detected or the vessel class is carrying the average alone.
+    try:
+        r = m.metrics
+        names = getattr(r, "names", None) or {}
+        per = {}
+        for i, ap in enumerate(list(getattr(r.box, "ap50", []) or [])):
+            per[str(names.get(i, i))] = round(float(ap), 4)
+        (out_dir / name / "per_class.json").write_text(json.dumps(dict(
+            map50=round(float(r.box.map50), 4), map50_95=round(float(r.box.map), 4),
+            ap50_per_class=per,
+            note=("held-out validation of this fold; the val set is the cases this "
+                  "detector never trained on"),
+        ), ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as e:  # a metrics-shape change must not lose a trained fold
+        (out_dir / name / "per_class.json").write_text(json.dumps(
+            dict(error=repr(e)), ensure_ascii=False, indent=2), encoding="utf-8")
     return best, m.metrics
 
 
