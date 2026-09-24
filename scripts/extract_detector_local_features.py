@@ -92,7 +92,30 @@ def aggregate(df: pd.DataFrame) -> pd.DataFrame:
     tot["pooled_ratio_malformed"] = tot.pooled_n_malformed / tot.pooled_n_total.replace(0, np.nan)
     tot["pooled_ratio_cross"] = tot.pooled_n_cross / tot.pooled_n_total.replace(0, np.nan)
     tot["n_images"] = g.size()
-    return pd.concat(parts + [tot], axis=1)
+    out = pd.concat(parts + [tot], axis=1)
+
+    # A ratio over zero boxes is undefined, not zero, so per_image_stats writes NaN
+    # and that is right at the image level. At the CASE level those NaNs have to be
+    # resolved here rather than left for a downstream fillna, because the two cases
+    # they cover are different things:
+    #
+    #   counts     -> 0 is the measurement. The detector looked and found nothing.
+    #   ratios and -> still undefined for a case whose every image was empty. Filling
+    #   geometry      0 would assert "0% malformed", which is a claim the data does
+    #                 not support. Those stay NaN and carry an explicit flag column.
+    #
+    # The flag is what lets the evaluator distinguish "no vessels detected" from "a
+    # missing row", instead of both arriving as a zero.
+    cnt_cols = [c for c in out.columns
+                if c.startswith("pooled_n") or c.split("_")[0] == "n"
+                or any(c.startswith(p) for p in ("n_total", "n_vessel", "n_malformed",
+                                                 "n_cross"))]
+    out[cnt_cols] = out[cnt_cols].fillna(0)
+    out["no_detection_in_any_image"] = (out.get("pooled_n_total", 0) == 0).astype(int)
+    out["frac_images_with_no_detection"] = (
+        df.assign(empty=(df.n_total == 0).astype(float))
+          .groupby("exam_case_id").empty.mean())
+    return out
 
 
 def main() -> None:

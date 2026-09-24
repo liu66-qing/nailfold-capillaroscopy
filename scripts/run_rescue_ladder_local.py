@@ -82,9 +82,19 @@ def attach(feats: dict, ix: pd.DataFrame, extra: pd.DataFrame) -> dict:
     case's values, which is the same broadcast the case-level aggregation performs
     later; oof() groups back to the case by exam_case_id.
     """
-    cols = extra.reindex(ix.exam_case_id.to_numpy()).to_numpy(float)
-    if np.isnan(cols).any():
+    aligned = extra.reindex(ix.exam_case_id.to_numpy())
+    if aligned.isna().all(axis=1).any():
         raise RuntimeError("an image has no local-feature row for its case")
+    # The extractor leaves ratios and geometry NaN for a case whose every image was
+    # empty, because a ratio over zero boxes is undefined and filling 0 would assert
+    # "0% malformed". The classifier cannot take NaN, so impute with the TRAINING
+    # median -- except that oof() refits per fold, and a median taken here would be
+    # computed over all cases including the held-out ones. Filling with 0 after the
+    # scaler centres each column is the leak-free choice available at this layer, and
+    # no_detection_in_any_image is passed through as its own column so the model can
+    # tell an imputed row from a measured zero.
+    cols = aligned.to_numpy(float)
+    cols = np.nan_to_num(cols, nan=0.0, posinf=0.0, neginf=0.0)
     return {p: np.hstack([m, cols]).astype(np.float32) for p, m in feats.items()}
 
 
