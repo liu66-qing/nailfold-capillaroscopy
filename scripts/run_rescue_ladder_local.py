@@ -114,8 +114,13 @@ def pca_survival(feats: dict, ix: pd.DataFrame, extra: pd.DataFrame) -> dict:
     """
     from sklearn.decomposition import PCA
     from sklearn.preprocessing import StandardScaler
-    X = np.hstack([feats["mean"], extra.reindex(ix.exam_case_id.to_numpy()).to_numpy(float)])
+    # Build the matrix through attach(), not by hand: a case with zero detections
+    # carries NaN ratios by design (filling 0 would assert "0% malformed"), and
+    # attach() is where that becomes 0 after scaling. Hstacking the raw frame here
+    # instead put NaNs into PCA.fit and crashed on exactly the cases this
+    # diagnostic exists to reason about.
     n_local = extra.shape[1]
+    X = attach({"mean": feats["mean"]}, ix, extra)["mean"].astype(float)
     Z = StandardScaler().fit_transform(X)
     dim = max(2, min(64, Z.shape[0] - 1, Z.shape[1]))
     p = PCA(n_components=dim, random_state=SEED).fit(Z)
@@ -146,9 +151,19 @@ def load_local(tag: str) -> pd.DataFrame:
 
 
 def main() -> None:
-    dev = pd.read_csv(LABELS, dtype={"exam_case_id": str})
-    dev = dev[dev.development_fold.notna()].copy()
-    assert len(dev) == 186, len(dev)
+    # Indexed by exam_case_id, exactly as the whole-image ladder does it: target()
+    # returns y carrying dev's index, and every downstream key (oof's fold map,
+    # the local-feature join, loao's archive array) is a case id. With a
+    # RangeIndex here, `order` becomes 0..185 and nothing joins.
+    man = pd.read_csv(LABELS, dtype={"exam_case_id": str}).set_index("exam_case_id")
+    dev = man[man.development_fold.notna()]
+    if len(dev) != 186:
+        raise RuntimeError("expected 186 development cases, got %d" % len(dev))
+    # Same guard as the shipped ladder: the 47 locked cases must be identifiable
+    # and excluded here, not merely absent by accident.
+    locked = set(man.index[man.development_fold.isna()])
+    if len(locked) != 47:
+        raise RuntimeError("expected 47 locked cases, got %d" % len(locked))
 
     base_ix, base_feats, base_meta = load_arm(ANCHOR)
     if base_meta.get("locked_cases_seen", 0) != 0:
@@ -161,17 +176,23 @@ def main() -> None:
 
     rng = np.random.default_rng(SEED)
     rows, detail = [], {}
+    fold_map = dev.development_fold.to_dict()
+    arch_map = dev.archive.to_dict()
     for field in FIELDS:
-        y_case, multiclass, classes = target(dev, field)
-        if y_case is None:
-            rows.append(dict(field=field, rung="-", verdict="not_measurable",
-                             note="no admissible target under the shipped ruler"))
-            continue
+        # target() returns (y, n_classes, extra_report) -- NOT (y, multiclass,
+        # classes). Unpacking it the other way makes n_classes=2 a truthy
+        # "multiclass" for the two ratio fields and hands the report dict to oof()
+        # as the class list.
+        y_case, n_classes, target_report = target(dev, field)
         order = sorted(y_case.index)
-        # oof() indexes folds by case id, not positionally.
-        fold_map = dev.set_index("exam_case_id")["development_fold"].to_dict()
+        yv = y_case.reindex(order).to_numpy()
+        classes = sorted(set(float(v) for v in yv))
+        multiclass = n_classes > 2
+        # oof() indexes folds by case id; loao()/fold_directions() want arrays
+        # aligned to `order`.
         folds_arr = np.array([fold_map[c] for c in order], float)
-        yv = y_case.loc[order].to_numpy()
+        arch_arr = np.array([arch_map[c] for c in order], object)
+        unit, static_ok = UNIT[field]
 
         preds = {}
         p0, pr0 = oof(base_feats, base_ix, y_case, fold_map, order, multiclass, classes)
@@ -207,17 +228,34 @@ def main() -> None:
                          "gain really coming from the vessel counts?)" % RUNGS[k[3:]][0])
             else:
                 label = RUNGS[k][1]
-            rows.append(dict(field=field, rung=k, label=label,
-                             n=int(len(yv)), **{m: sc[m] for m in
-                                                ("accuracy", "baseline_accuracy", "delta",
-                                                 "balanced_accuracy", "collapsed_to_one_class")},
+            # Section 6 of the brief asks for LOAO, calibration and post-abstention
+            # coverage/accuracy on EVERY arm of EVERY field, not only on the ones
+            # that end up looking good. They are computed here, before any verdict
+            # is read, so the set of arms they exist for cannot depend on results.
+            lo = loao(yv, p, folds_arr, arch_arr, multiclass,
+                      None if k == "A0" else p0)
+            rows.append(dict(field=field, rung=k, label=label, n=int(len(yv)),
+                             unit_of_observation=unit,
+                             observable_from_static_image=static_ok,
+                             baseline_constant=sc["baseline_constant"],
+                             accuracy=sc["accuracy"], delta=sc["delta"],
+                             balanced_accuracy=sc["balanced_accuracy"],
+                             auroc_macro_ovr=sc.get("auroc_macro_ovr"),
+                             collapsed_to_one_class=sc["collapsed_to_one_class"],
                              ba_gain=None if pair is None else pair["ba_gain"],
                              ba_ci_excludes_zero=None if pair is None
                              else pair["ba_ci_excludes_zero"],
+                             loao_directions_positive=lo.get("directions_positive"),
+                             loao_directions_clearly_negative=lo.get(
+                                 "directions_clearly_negative"),
                              verdict=v))
-            detail[field][k] = dict(score=sc, paired=pair, verdict=v,
-                                    folds=None if pair is None
-                                    else fold_directions(yv, p, p0, folds_arr, multiclass))
+            detail[field][k] = dict(
+                score=sc, paired=pair, verdict=v, loao=lo,
+                calibration=calibration(yv, prob, multiclass, classes),
+                abstention=abstention(yv, p, prob, multiclass, classes),
+                folds=None if pair is None
+                else fold_directions(yv, p, p0, folds_arr, multiclass))
+        detail[field]["target_report"] = target_report
 
     OUT.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(rows)
