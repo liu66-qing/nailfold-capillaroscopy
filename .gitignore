@@ -77,3 +77,13 @@ weights/*.pt
 
 # Training-completion sentinel written by the fold loop; local run state, not source.
 artifacts/experiments/.folds_done
+
+# resolves opaque external ids back to paths containing apparent personal names
+*.local.csv
+
+# YOLO scratch trees: per-image label .txt and caches rebuilt by
+# train_morph_detector_folds.py from the frozen pools. Working directories, not
+# results; the fold assignment itself is in frozen/ and detectors_*.json.
+artifacts/experiments/*/detectors/_tree_*/
+# vendored third-party model metadata (tokeniser, preprocessor, config)
+weights/*/

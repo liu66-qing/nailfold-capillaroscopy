@@ -1,0 +1,52 @@
+{
+  "schema_version": "medical-encoder-features/1.0",
+  "arm": "dinov2b_da_external",
+  "role": "domain_adapted",
+  "pretraining": "general LVD-142M + external nailfold SSL adaptation",
+  "timm_model": "vit_base_patch14_dinov2.lvd142m",
+  "input_size": 518,
+  "patch": 14,
+  "patch_grid": [
+    37,
+    49
+  ],
+  "feature_dim": 768,
+  "normalisation": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "geometry": "direct resize to [518, 686], no padding (reproduces the deployed native preset)",
+  "pad_patches_excluded_from_patch_stats": true,
+  "poolings": [
+    "cls",
+    "mean",
+    "max",
+    "topk_mean",
+    "std"
+  ],
+  "topk": 16,
+  "weights": "artifacts/experiments/rescue_external_20260922/adapted/dinov2b_da/backbone.pth",
+  "weights_sha256": "a45a5ed0e5f0a5c84b17f3e116916486dd08310ff5df16c4cfe01e2e95b7a6a5",
+  "cases": 186,
+  "images": 1708,
+  "locked_cases_seen": 0,
+  "licence": null,
+  "arm_notes": null,
+  "limitations": [
+    "development features only; this run did not read locked-47",
+    "frozen encoder statistics, not learned detectors",
+    "readout differs across model families, so this is a system comparison and does not isolate pretraining as a cause",
+    "no accuracy claim is made by this file",
+    "this backbone was domain-adapted on EXTERNAL unlabelled nailfold images only. No local image, label or fold was read during adaptation, so one checkpoint is valid for every outer fold.",
+    "adaptation ran at a smaller square than this extraction geometry; see the arm's adaptation.json for the exact resolution and steps.",
+    "the base arm is anchor_dinov2b_deployed; only the adaptation differs, so a difference against that arm is attributable to the adaptation"
+  ]
+}

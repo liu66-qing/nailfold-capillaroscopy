@@ -1,0 +1,70 @@
+{
+  "run": "rescue_external_pools_frozen",
+  "frozen_at_utc": "2026-09-23T12:48:56.283238+00:00",
+  "compute": {
+    "local": "RTX 5070, torch 2.11+cu128, timm; encoder adaptation and all feature extraction run here",
+    "server": "ssh -p 14170 connect.westc.seetacloud.com, /root/miniconda3/envs/nfc/bin/python, ultralytics 8.3.0 + yolo11s/m present but NO GPU (nvidia-smi: No devices found), so it can host CPU-only steps and storage, not detector training"
+  },
+  "local_data": {
+    "dev_cases": 186,
+    "dev_images": 1708,
+    "folds": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "archives": {
+      "recovered_archive2": 78,
+      "recovered_archive1": 58,
+      "recovered_archive3": 50
+    },
+    "locked_cases_excluded": 47,
+    "locked_cases_seen": 0
+  },
+  "hf_unlabelled": {
+    "images": 8368,
+    "subjects": 202,
+    "by_group": {
+      "dia": 4956,
+      "hea": 3412
+    },
+    "use": "unlabelled domain adaptation only",
+    "diabetes_label_use": "external endpoint metadata only; never a disease label for our patients"
+  },
+  "hf_boxes": {
+    "images": 1298,
+    "boxes": 7206,
+    "subjects": 157,
+    "auditable_subject_images": 1279,
+    "published_split_used": false,
+    "grouping": "by recovered subject; the published train/val split puts 94% of images in subjects spanning both sides",
+    "class_semantics": "bushy/crossing/hairpin/tortuous are THEIR definitions, not our report fields; used as morphology pretraining signal only",
+    "box_definition_gap": "their boxes span a whole hairpin (height fraction 7.12x ours), so counts are not transferable without alignment"
+  },
+  "mendeley": {
+    "images": 576,
+    "subjects": 37,
+    "exams": 80,
+    "marker_bearing": 576,
+    "appearance_training_allowed": 0,
+    "subjects_rekeyed_to_opaque_ids": true,
+    "names_written": 0,
+    "is_new_patient_for_us": false
+  },
+  "local_boxes": {
+    "original_ids": 96,
+    "cases": 50,
+    "boxes": 13520,
+    "locked_original_ids_excluded": 32,
+    "use": "supervision inside TRAINING folds only; a validation case is never given a human box as input"
+  },
+  "rules": [
+    "locked-47 is absent from every pool and was never read",
+    "external data may enter training-fold pretraining / adaptation only",
+    "Mendeley marker-bearing images are banned from clarity, blood_color and exudation training",
+    "no absolute micron, per-mm or per-minute value is produced anywhere",
+    "external endpoint accuracy is never our field capability"
+  ]
+}

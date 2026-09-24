@@ -1,0 +1,27 @@
+{
+  "run": "morph_detector_folds",
+  "source": "local",
+  "base_weights": "weights/yolo11s.pt",
+  "epochs": 40,
+  "imgsz": 640,
+  "seed": 20260917,
+  "locked_original_ids_excluded": 32,
+  "locked_cases_seen": 0,
+  "folds": {
+    "0": {
+      "train_images": 1600,
+      "val_images": 320,
+      "train_cases": 44,
+      "val_cases": 6,
+      "weights": "artifacts/experiments/rescue_external_20260922/detectors/local_fold0/weights/best.pt",
+      "initialised_from": "weights/yolo11s.pt"
+    }
+  },
+  "runtime_minutes": 21.2,
+  "leakage_controls": [
+    "all 20 augmentations of one original_id stay on one side",
+    "no case in the validation fold contributes any image or box to training",
+    "32 locked-matched original_ids dropped before any tree was written",
+    "the external tree contains no local image and is subject-grouped"
+  ]
+}

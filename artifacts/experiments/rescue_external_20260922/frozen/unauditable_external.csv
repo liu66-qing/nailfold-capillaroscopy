@@ -1,0 +1,20 @@
+﻿image,rel_path,subject_id,reason
+1_t.jpg,data/Capillary-Dataset/Morphology_detection/images/test/1_t.jpg,hf_unmatched_0f7cb766d502,no subject recoverable by the earlier image-matching pass
+2_t.jpg,data/Capillary-Dataset/Morphology_detection/images/test/2_t.jpg,hf_unmatched_40cef9983a19,no subject recoverable by the earlier image-matching pass
+4830.jpg,data/Capillary-Dataset/Morphology_detection/images/test/4830.jpg,hf_unmatched_d1a29af1a1ec,no subject recoverable by the earlier image-matching pass
+5313.jpg,data/Capillary-Dataset/Morphology_detection/images/test/5313.jpg,hf_unmatched_b902a01f19d4,no subject recoverable by the earlier image-matching pass
+5324.jpg,data/Capillary-Dataset/Morphology_detection/images/test/5324.jpg,hf_unmatched_c668510a2443,no subject recoverable by the earlier image-matching pass
+frame1127.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame1127.jpg,hf_unmatched_727623f08b4c,no subject recoverable by the earlier image-matching pass
+frame1319.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame1319.jpg,hf_unmatched_1abf00316e85,no subject recoverable by the earlier image-matching pass
+frame1835.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame1835.jpg,hf_unmatched_62035682b175,no subject recoverable by the earlier image-matching pass
+frame1900.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame1900.jpg,hf_unmatched_eb4926816100,no subject recoverable by the earlier image-matching pass
+frame1926.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame1926.jpg,hf_unmatched_98cb78aab3c2,no subject recoverable by the earlier image-matching pass
+frame2386.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame2386.jpg,hf_unmatched_bf13f339728d,no subject recoverable by the earlier image-matching pass
+frame2600.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame2600.jpg,hf_unmatched_8bbb05bc6c14,no subject recoverable by the earlier image-matching pass
+frame2678.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame2678.jpg,hf_unmatched_90f1c1f51430,no subject recoverable by the earlier image-matching pass
+frame3203.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame3203.jpg,hf_unmatched_34bc5d3650cf,no subject recoverable by the earlier image-matching pass
+frame3502.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame3502.jpg,hf_unmatched_76b722feb12d,no subject recoverable by the earlier image-matching pass
+frame4206.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame4206.jpg,hf_unmatched_3e642056ab37,no subject recoverable by the earlier image-matching pass
+frame4825.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame4825.jpg,hf_unmatched_7461e7fb303f,no subject recoverable by the earlier image-matching pass
+frame505.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame505.jpg,hf_unmatched_f5253fcba0bf,no subject recoverable by the earlier image-matching pass
+frame5512.jpg,data/Capillary-Dataset/Morphology_detection/images/test/frame5512.jpg,hf_unmatched_930176c01964,no subject recoverable by the earlier image-matching pass

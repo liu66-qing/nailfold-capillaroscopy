@@ -85,6 +85,80 @@ ARMS = {
         weights="甲劈微循环hf_biomedclip/open_clip_pytorch_model.bin",
         size=224, patch=16, norm=OPENAI_CLIP, role="medical_candidate",
         pretraining="medical PMC-15M"),
+    # Round two, unblocked 2026-09-23 after the user accepted the licences on
+    # both gated pages. Before this the two repos returned 403 "not in the
+    # authorized list", which is blocked_access, not a negative result.
+    #
+    # RETFound at the DEPLOYED geometry. Its config.json claims patch 16 /
+    # image 224, but the published weights say otherwise: patch_embed.proj is
+    # (1024,3,14,14) and pos_embed is (1,1370,1024) = 1 + 37x37, i.e. DINOv2
+    # ViT-L/14 at 518. The card is wrong; the tensors decide. That it is ViT-L/14
+    # at 518 is convenient rather than lucky: it means RETFound can be compared
+    # against dinov2l_deployed_geometry with capacity, patch size and input
+    # geometry all held fixed, so the only difference left is the pretraining
+    # data (retinal CFP vs LVD-142M).
+    "retfound_dinov2_meh": dict(
+        kind="retfound", model="vit_large_patch14_dinov2.lvd142m",
+        weights="weights/RETFound_dinov2_meh/RETFound_dinov2_meh.pth",
+        size=518, patch=14, norm=IMAGENET, role="medical_candidate",
+        geometry="deployed", deployed_res=(518, 686),
+        pretraining="retinal CFP, MEH AlzEye, DINOv2 SSL",
+        licence="CC BY-NC 4.0 (non-commercial: research-period control only)"),
+    # MedSigLIP vision tower only. The text tower is downloaded but never used:
+    # the standing constraint is image embeddings only, no zero-shot text
+    # prediction. SigLIP has no CLS token and a fixed 1024-position embedding
+    # (32x32 patches at 448), so it cannot run at the deployed 518x686; it is
+    # evaluated at its own native square, and that difference is recorded rather
+    # than hidden, because it means this arm is not a pure pretraining contrast.
+    "medsiglip_medical": dict(
+        kind="medsiglip", model="siglip_vision",
+        weights="weights/medsiglip-448/model.safetensors",
+        size=448, patch=14, norm=((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        role="medical_candidate",
+        pretraining="medical multimodal (HAI-DEF MedSigLIP)",
+        licence="health-ai-developer-foundations",
+        note="vision tower only; no text tower, no zero-shot"),
+
+    # ---- rescue round: arms whose backbone was domain-adapted on EXTERNAL
+    # unlabelled nailfold images (adapt_encoder_domain_external.py). The base
+    # weights, geometry, readout and pooling set are unchanged, so the only
+    # difference against the matching un-adapted arm is the adaptation itself.
+    # Adaptation read no local image, label or fold, so one checkpoint is valid
+    # for every outer fold and cannot carry validation-case information.
+    "dinov2b_da_external": dict(
+        kind="adapted", model="vit_base_patch14_dinov2.lvd142m",
+        weights="artifacts/experiments/rescue_external_20260922/adapted/"
+                "dinov2b_da/backbone.pth",
+        size=518, patch=14, norm=IMAGENET, role="domain_adapted",
+        geometry="deployed", deployed_res=(518, 686),
+        base_arm="anchor_dinov2b_deployed",
+        pretraining="general LVD-142M + external nailfold SSL adaptation"),
+    "dinov2l_da_external": dict(
+        kind="adapted", model="vit_large_patch14_dinov2.lvd142m",
+        weights="artifacts/experiments/rescue_external_20260922/adapted/"
+                "dinov2l_da/backbone.pth",
+        size=518, patch=14, norm=IMAGENET, role="domain_adapted",
+        geometry="deployed", deployed_res=(518, 686),
+        base_arm="dinov2l_deployed_geometry",
+        pretraining="general LVD-142M + external nailfold SSL adaptation"),
+    "retfound_da_external": dict(
+        kind="adapted", model="vit_large_patch14_dinov2.lvd142m",
+        weights="artifacts/experiments/rescue_external_20260922/adapted/"
+                "retfound_da/backbone.pth",
+        size=518, patch=14, norm=IMAGENET, role="domain_adapted",
+        geometry="deployed", deployed_res=(518, 686),
+        base_arm="retfound_dinov2_meh",
+        licence="CC BY-NC 4.0 (non-commercial: research-period control only)",
+        pretraining="retinal CFP DINOv2 + external nailfold SSL adaptation"),
+    "medsiglip_da_external": dict(
+        kind="adapted_siglip", model="siglip_vision",
+        weights="artifacts/experiments/rescue_external_20260922/adapted/"
+                "medsiglip_da/backbone.pth",
+        size=448, patch=14, norm=((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        role="domain_adapted", base_arm="medsiglip_medical",
+        licence="health-ai-developer-foundations",
+        pretraining="MedSigLIP + external nailfold SSL adaptation",
+        note="vision tower only; no text tower, no zero-shot"),
 }
 POOLINGS = ["cls", "mean", "max", "topk_mean", "std"]
 
@@ -142,6 +216,46 @@ def build(cfg: dict, device: torch.device, img_size=None):
         sd = load_file(str(wpath))
         sd.pop("mask_token", None)
         missing, unexpected = model.load_state_dict(sd, strict=False)
+    elif cfg["kind"] == "retfound":
+        # DINOv2-SSL checkpoint: the usable encoder is teacher.backbone.*, next
+        # to dino_head/ibot_head which are SSL projection heads and are dropped.
+        model = timm.create_model(cfg["model"], pretrained=False, num_classes=0,
+                                  img_size=cfg["size"], dynamic_img_size=True)
+        blob = torch.load(str(wpath), map_location="cpu", weights_only=False)
+        t = blob["teacher"]
+        pre = "backbone."
+        sd = {k[len(pre):]: v for k, v in t.items() if k.startswith(pre)}
+        if not sd:
+            raise RuntimeError("no teacher.backbone.* keys in %s" % wpath)
+        sd.pop("mask_token", None)
+        missing, unexpected = model.load_state_dict(sd, strict=False)
+    elif cfg["kind"] == "medsiglip":
+        from transformers import SiglipVisionModel
+        # Vision tower only, loaded from the local snapshot. The text tower is
+        # present in the file and deliberately left unloaded.
+        model = SiglipVisionModel.from_pretrained(
+            str(wpath.parent), dtype=torch.float32)
+        return model.to(device).eval(), sha256(wpath)
+    elif cfg["kind"] == "adapted":
+        # domain-adapted backbone: the EMA teacher saved by the adaptation run.
+        # Its architecture and geometry are identical to the base arm, so the
+        # comparison isolates the adaptation.
+        model = timm.create_model(cfg["model"], pretrained=False, num_classes=0,
+                                  img_size=cfg["size"], dynamic_img_size=True)
+        blob = torch.load(str(wpath), map_location="cpu", weights_only=False)
+        sd = blob["state_dict"]
+        sd.pop("mask_token", None)
+        missing, unexpected = model.load_state_dict(sd, strict=False)
+    elif cfg["kind"] == "adapted_siglip":
+        from transformers import SiglipVisionModel
+        base = ROOT / "weights" / "medsiglip-448"
+        model = SiglipVisionModel.from_pretrained(str(base), dtype=torch.float32)
+        blob = torch.load(str(wpath), map_location="cpu", weights_only=False)
+        missing, unexpected = model.load_state_dict(blob["state_dict"], strict=False)
+        if missing or unexpected:
+            raise RuntimeError("adapted siglip mismatch missing=%s unexpected=%s"
+                               % (missing[:6], unexpected[:6]))
+        return model.to(device).eval(), sha256(wpath)
     else:
         model = timm.create_model(cfg["model"], pretrained=False, num_classes=0)
         blob = torch.load(str(wpath), map_location="cpu", weights_only=True)
@@ -223,11 +337,19 @@ def main() -> None:
     device = torch.device(a.device if torch.cuda.is_available() else "cpu")
     dep = cfg.get("deployed_res")
     model, wsha = build(cfg, device, img_size=list(dep) if dep else None)
-    dim = model.num_features
-    # With dynamic_img_size the token grid follows the actual input, not the
-    # checkpoint's square default, so derive it from the geometry this arm uses.
-    grid = ((dep[0] // cfg["patch"], dep[1] // cfg["patch"]) if dep
-            else tuple(model.patch_embed.grid_size))
+    if cfg["kind"] in ("medsiglip", "adapted_siglip"):
+        # SigLIP exposes no num_features / patch_embed.grid_size and has no CLS
+        # token: its position embedding is a fixed 1024 = 32x32 grid at 448, so
+        # it runs only at its own native square.
+        dim = int(model.config.hidden_size)
+        g = cfg["size"] // cfg["patch"]
+        grid = (g, g)
+    else:
+        dim = model.num_features
+        # With dynamic_img_size the token grid follows the actual input, not the
+        # checkpoint's square default, so derive it from this arm's geometry.
+        grid = ((dep[0] // cfg["patch"], dep[1] // cfg["patch"]) if dep
+                else tuple(model.patch_embed.grid_size))
 
     n = len(ix)
     sinks = {k: open_memmap(out / ("features_%s.npy" % k), mode="w+",
@@ -240,9 +362,19 @@ def main() -> None:
                        for r in rows]
             x = torch.stack([p[0] for p in prepped]).to(device)
             occ = [p[1] for p in prepped]
-            tok = model.forward_features(x)
-            vals = pool(tok, model.num_prefix_tokens, grid, occ,
-                        cfg["patch"], a.topk)
+            if cfg["kind"] in ("medsiglip", "adapted_siglip"):
+                # No CLS token, so npre=0 and the "cls" pooling slot is filled
+                # by SigLIP's own pooled output (attention pooling head), which
+                # is that family's equivalent global vector. Recorded in the
+                # metadata so the slot is not mistaken for a real CLS token.
+                o = model(pixel_values=x)
+                tok = o.last_hidden_state
+                vals = pool(tok, 0, grid, occ, cfg["patch"], a.topk)
+                vals["cls"] = o.pooler_output
+            else:
+                tok = model.forward_features(x)
+                vals = pool(tok, model.num_prefix_tokens, grid, occ,
+                            cfg["patch"], a.topk)
             e = s + len(rows)
             for k, v in vals.items():
                 sinks[k][s:e] = v.cpu().numpy().astype(np.float16)
@@ -266,13 +398,46 @@ def main() -> None:
         weights=cfg["weights"], weights_sha256=wsha,
         cases=int(ix.exam_case_id.nunique()), images=n,
         locked_cases_seen=0,
+        licence=cfg.get("licence"),
+        arm_notes=cfg.get("note"),
         limitations=[
             "development features only; this run did not read locked-47",
             "frozen encoder statistics, not learned detectors",
             "readout differs across model families, so this is a system "
             "comparison and does not isolate pretraining as a cause",
             "no accuracy claim is made by this file",
-        ])
+        ] + ([
+            "RETFound's config.json states patch 16 / image 224, but the "
+            "published tensors are patch 14 with pos_embed 1+37x37, i.e. "
+            "ViT-L/14 at 518. The tensors were followed, not the card.",
+            "CC BY-NC 4.0: non-commercial. Research-period control only; it "
+            "cannot ship in a product.",
+            "this checkpoint is a CONTINUED DINOv2 SSL run, not independent "
+            "pretraining: cosine(patch_embed, plain DINOv2-L) = 0.955, max "
+            "abs diff 0.058. That bounds how large a difference from the "
+            "dinov2l arm is mechanically possible; a null result here does "
+            "not test medical pretraining in general.",
+        ] if cfg["kind"] == "retfound" else []) + ([
+            "this backbone was domain-adapted on EXTERNAL unlabelled nailfold "
+            "images only. No local image, label or fold was read during "
+            "adaptation, so one checkpoint is valid for every outer fold.",
+            "adaptation ran at a smaller square than this extraction geometry; "
+            "see the arm's adaptation.json for the exact resolution and steps.",
+            "the base arm is %s; only the adaptation differs, so a difference "
+            "against that arm is attributable to the adaptation"
+            % cfg.get("base_arm"),
+        ] if cfg["kind"] in ("adapted", "adapted_siglip") else []) + ([
+            "RETFound lineage: CC BY-NC 4.0, non-commercial. Research-period "
+            "control only; it cannot ship in a product.",
+        ] if cfg.get("base_arm") == "retfound_dinov2_meh" else []) + ([
+            "SigLIP has no CLS token; the 'cls' pooling slot holds its "
+            "attention-pooled output instead, which is a different object.",
+            "fixed 1024-position embedding (32x32 at 448) means this arm "
+            "cannot run at the deployed 518x686, so it is NOT a pure "
+            "pretraining contrast -- geometry differs too.",
+            "vision tower only; the text tower is never loaded and no "
+            "zero-shot text prediction is made.",
+        ] if cfg["kind"] in ("medsiglip", "adapted_siglip") else []))
     (out / "metadata.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(meta, ensure_ascii=False, indent=2))

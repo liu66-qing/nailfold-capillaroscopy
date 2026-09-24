@@ -1,0 +1,51 @@
+{
+  "run": "external_unlabelled_domain_adaptation",
+  "arm_tag": "dinov2b_da",
+  "encoder": "dinov2b",
+  "base_arm": "anchor_dinov2b_deployed",
+  "kind": "timm",
+  "base_weights": "weights/dinov2/b/model.safetensors",
+  "base_weights_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+  "checkpoint": "artifacts/experiments/rescue_external_20260922/adapted/dinov2b_da/backbone.pth",
+  "checkpoint_sha256": "246df77df042670f3c9046b2e8f230e35fc54d2ea10dd384d8eb0a695c512880",
+  "feature_dim": 768,
+  "objective": "DINO-style self-distillation, two global views, EMA teacher, centred + sharpened cross-entropy; head discarded",
+  "hyperparameters": {
+    "epochs": 8,
+    "steps": 9664,
+    "size": 224,
+    "batch_size": 8,
+    "lr": 5e-06,
+    "ema": 0.996,
+    "teacher_temp": 0.04,
+    "student_temp": 0.1,
+    "seed": 20260917,
+    "precision": "bf16 autocast"
+  },
+  "pool": {
+    "images": 9666,
+    "by_source": {
+      "hf_classification_original": 8368,
+      "hf_morphology_images": 1298
+    },
+    "mendeley_included": false,
+    "mendeley_default_excluded_because": "all 576 images carry device caliper strokes / contour overlays, so adapting on them would teach another device's annotation marks"
+  },
+  "loss": {
+    "first_100": 8.0911,
+    "last_100": 1.15
+  },
+  "leakage": {
+    "local_images_used": 0,
+    "local_labels_used": 0,
+    "folds_read": 0,
+    "locked_cases_seen": 0,
+    "why_fold_independent": "only external images are used, so the adapted encoder cannot carry information about any local validation case and one checkpoint is valid for all folds"
+  },
+  "limitations": [
+    "adaptation runs at 224 square; the deployed geometry does not fit two views in 8.5 GB. Extraction afterwards still uses the arm's own deployed geometry, so adaptation and readout resolutions differ.",
+    "no hue/saturation jitter was applied, because blood_color and clarity are downstream targets and colour invariance would remove their signal",
+    "external subjects are not our patients; this transfers appearance statistics only and carries no label information"
+  ],
+  "runtime_minutes": 26.9
+}

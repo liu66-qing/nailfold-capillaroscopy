@@ -1,0 +1,70 @@
+{
+  "run": "external_unlabelled_domain_adaptation",
+  "arm_tag": "medsiglip_da",
+  "encoder": "medsiglip",
+  "base_arm": "medsiglip_medical",
+  "kind": "medsiglip",
+  "base_weights": "weights/medsiglip-448/model.safetensors",
+  "base_weights_sha256": "3e1722b8100cca8b87cfe16e42140737aa6d312854e9e6bc24dff6db70e21d72",
+  "checkpoint": "artifacts/experiments/rescue_external_20260922/adapted/medsiglip_da/backbone.pth",
+  "checkpoint_sha256": "cb9ec6714bd10a8776365aba3ea4038f2a022e05d2123120fab4a21c78a37128",
+  "feature_dim": 1152,
+  "objective": "DINO-style self-distillation, two global views, EMA teacher, centred + sharpened cross-entropy; head discarded",
+  "hyperparameters": {
+    "epochs": 99,
+    "steps": 6000,
+    "max_steps": 6000,
+    "size": 448,
+    "batch_size": 4,
+    "lr": 5e-06,
+    "ema": 0.996,
+    "teacher_temp": 0.04,
+    "student_temp": 0.1,
+    "unfreeze_blocks": 4,
+    "seed": 20260917,
+    "precision": "bf16 autocast"
+  },
+  "adapted_parameters": {
+    "total_blocks": 27,
+    "adapted": [
+      "block.23",
+      "block.24",
+      "block.25",
+      "block.26",
+      "final_norm"
+    ],
+    "trainable_params": 60960320,
+    "total_params": 428565440
+  },
+  "pool": {
+    "images": 9666,
+    "by_source": {
+      "hf_classification_original": 8368,
+      "hf_morphology_images": 1298
+    },
+    "mendeley_included": false,
+    "mendeley_default_excluded_because": "all 576 images carry device caliper strokes / contour overlays, so adapting on them would teach another device's annotation marks"
+  },
+  "loss": {
+    "first_100": 8.3444,
+    "last_100": 2.7063,
+    "first_100_is_from_this_process": true
+  },
+  "resumed": null,
+  "leakage": {
+    "local_images_used": 0,
+    "local_labels_used": 0,
+    "folds_read": 0,
+    "locked_cases_seen": 0,
+    "why_fold_independent": "only external images are used, so the adapted encoder cannot carry information about any local validation case and one checkpoint is valid for all folds"
+  },
+  "limitations": [
+    "adaptation runs at 448 square; the deployed geometry does not fit two views in 8.5 GB. Extraction afterwards still uses the arm's own deployed geometry, so adaptation and readout resolutions differ.",
+    "PARTIAL adaptation: only the last 4 blocks plus the final norm move (60960320 of 428565440 parameters). Full-backbone adaptation of a ViT-L was measured at 15.2 min / 100 steps on this 8.5 GB GPU, i.e. ~49 h for 8 epochs, so it is out of budget. A null result is therefore a null for THIS budget, not for domain adaptation in general.",
+    "the step budget (6000) is fixed and identical for every encoder so the arms are comparable; it is not tuned per encoder",
+    "no hue/saturation jitter was applied, because blood_color and clarity are downstream targets and colour invariance would remove their signal",
+    "external subjects are not our patients; this transfers appearance statistics only and carries no label information"
+  ],
+  "runtime_minutes": 89.7,
+  "runtime_minutes_this_process_only": false
+}

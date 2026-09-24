@@ -1,0 +1,52 @@
+{
+  "schema_version": "medical-encoder-features/1.0",
+  "arm": "medsiglip_medical",
+  "role": "medical_candidate",
+  "pretraining": "medical multimodal (HAI-DEF MedSigLIP)",
+  "timm_model": "siglip_vision",
+  "input_size": 448,
+  "patch": 14,
+  "patch_grid": [
+    32,
+    32
+  ],
+  "feature_dim": 1152,
+  "normalisation": {
+    "mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "std": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "geometry": "aspect-preserving resize then neutral pad, bottom-right",
+  "pad_patches_excluded_from_patch_stats": true,
+  "poolings": [
+    "cls",
+    "mean",
+    "max",
+    "topk_mean",
+    "std"
+  ],
+  "topk": 16,
+  "weights": "weights/medsiglip-448/model.safetensors",
+  "weights_sha256": "3e1722b8100cca8b87cfe16e42140737aa6d312854e9e6bc24dff6db70e21d72",
+  "cases": 186,
+  "images": 1708,
+  "locked_cases_seen": 0,
+  "licence": "health-ai-developer-foundations",
+  "arm_notes": "vision tower only; no text tower, no zero-shot",
+  "limitations": [
+    "development features only; this run did not read locked-47",
+    "frozen encoder statistics, not learned detectors",
+    "readout differs across model families, so this is a system comparison and does not isolate pretraining as a cause",
+    "no accuracy claim is made by this file",
+    "SigLIP has no CLS token; the 'cls' pooling slot holds its attention-pooled output instead, which is a different object.",
+    "fixed 1024-position embedding (32x32 at 448) means this arm cannot run at the deployed 518x686, so it is NOT a pure pretraining contrast -- geometry differs too.",
+    "vision tower only; the text tower is never loaded and no zero-shot text prediction is made."
+  ]
+}
