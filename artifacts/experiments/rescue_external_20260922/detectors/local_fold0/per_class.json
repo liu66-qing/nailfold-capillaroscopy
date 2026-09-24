@@ -1,0 +1,12 @@
+{
+  "map50": 0.4422,
+  "map50_95": 0.1861,
+  "ap50_per_class": {
+    "vessel": 0.5252,
+    "malformed_vessel": 0.3689,
+    "cross_vessel": 0.4325
+  },
+  "val_images": 320,
+  "val_cases": 6,
+  "note": "recovered after training by rebuilding this fold's val side from the frozen pools; image count verified against the manifest written at training time"
+}

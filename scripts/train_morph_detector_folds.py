@@ -291,6 +291,22 @@ def main() -> None:
         print("fold %g done: %s" % (fold, meta["folds"]["%g" % fold]), flush=True)
         shutil.rmtree(work, ignore_errors=True)
 
+    # MERGE, do not clobber. This manifest is keyed by fold, but `meta` starts
+    # empty every invocation, so running --folds 1,2,3,4 after a run that did
+    # fold 0 silently dropped fold 0 -- its weights were still on disk, but the
+    # evaluator reads this file and would have run on 4 of 5 folds without
+    # complaining. Folds retrained in THIS run replace their old entry; folds
+    # this run did not touch are carried over unchanged.
+    dest = DET / ("detectors_%s.json" % a.source)
+    if dest.exists():
+        old = json.loads(dest.read_text(encoding="utf-8"))
+        carried = {k: v for k, v in old.get("folds", {}).items()
+                   if k not in meta["folds"]}
+        if carried:
+            meta["folds"] = dict(carried, **meta["folds"])
+            meta["folds_carried_from_earlier_run"] = sorted(carried)
+            meta["runtime_minutes_this_run_only"] = True
+        meta["folds"] = {k: meta["folds"][k] for k in sorted(meta["folds"])}
     meta["runtime_minutes"] = round((time.time() - t0) / 60, 1)
     meta["leakage_controls"] = [
         "all 20 augmentations of one original_id stay on one side",
