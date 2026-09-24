@@ -1,0 +1,195 @@
+"""A2 / A3: do auto-detected local vessel regions raise any local-morphology field?
+
+This is the second half of the rescue ladder. The first half
+(run_rescue_ladder.py) asked whether a different or externally adapted ENCODER
+helps, and the answer was one field out of fifteen. This half asks a different
+question: the encoder reads a whole 518x686 frame, and a malformed capillary is a
+small object in it, so perhaps the information is present but diluted. Counting
+vessels explicitly with a detector is the obvious way to find out.
+
+The rungs, all on the same cases, the same folds and the same ruler as A0:
+
+  A0   whole-image features only                          (the shipped anchor)
+  A2   whole-image + local features from a detector trained on LOCAL human boxes
+  A2x  whole-image + local features from the EXTERNAL-pretrained detector
+  A3   whole-image + local features from external-pretrained-then-local-tuned
+  L2   local features ALONE, no whole-image features
+
+L2 exists because A2 beating A0 would otherwise be ambiguous: adding 30 columns
+to 320 can help simply by changing the regularisation geometry. If L2 is at
+baseline while A2 gains, the gain is not coming from the vessel counts.
+
+Leakage. Fold k's cases are read only by fold k's detector, which never saw them
+(train_morph_detector_folds.py holds out every case of fold k, and all 20
+augmentations of one original travel together). Validation cases therefore supply
+no human box and no image to the model that measures them -- they receive only
+automatically detected regions, which is the deployment condition. The human
+boxes are supervision inside training folds only.
+
+Units. The local features are counts, ratios and frame fractions. No micron, no
+per-mm, no per-minute value is computed anywhere in this path.
+
+Fields. Only the fields whose observable unit is a shape in a still frame can
+possibly benefit from vessel boxes, and they are named here BEFORE the run rather
+than chosen afterwards from whatever improved.
+
+Reproduce:
+  python scripts/run_rescue_ladder_local.py
+"""
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from run_field_matrix_three_arms import (  # noqa: E402  the shared, shipped ruler
+    ANCHOR, DIRTY, LABELS, N_BOOT, SEED, UNIT, ADMISSIBLE,
+    fold_directions, hard, load_arm, oof, paired, score, target)
+from run_rescue_ladder import (  # noqa: E402  same thresholds, same helpers
+    BELOW_RESOLUTION, MIN_EFFECT, abstention, calibration, loao, verdict)
+
+EXP = ROOT / "artifacts" / "experiments" / "rescue_external_20260922"
+LOCAL = EXP / "local_features"
+OUT = EXP / "ladder_local"
+
+# Pre-declared. A vessel-box feature can only help a field that is a shape in a
+# still frame; the measurement fields need calibration and the dynamic fields need
+# a time base, and no amount of counting boxes supplies either.
+FIELDS = ["malformation_ratio", "crossing_ratio", "papilla", "capillary_count"]
+
+# (tag under local_features/, rung label). The tag is produced by
+# extract_detector_local_features.py --tag <tag>.
+RUNGS = {
+    "A2": ("local", "A2  whole image + local features, detector trained on local human boxes"),
+    "A2x": ("external", "A2x whole image + local features, external-pretrained detector"),
+    "A3": ("external_then_local", "A3  whole image + local features, external then local"),
+}
+
+
+def attach(feats: dict, ix: pd.DataFrame, extra: pd.DataFrame) -> dict:
+    """Append the case-level local columns to EVERY pooling matrix.
+
+    load_arm returns one matrix per pooling, each with one row per IMAGE, and the
+    shipped oof() fits a model per pooling and then averages. So the local columns
+    have to be attached to all five, not to a single concatenated block -- otherwise
+    four of the five voters would never see them. Each image of a case carries its
+    case's values, which is the same broadcast the case-level aggregation performs
+    later; oof() groups back to the case by exam_case_id.
+    """
+    cols = extra.reindex(ix.exam_case_id.to_numpy()).to_numpy(float)
+    if np.isnan(cols).any():
+        raise RuntimeError("an image has no local-feature row for its case")
+    return {p: np.hstack([m, cols]).astype(np.float32) for p, m in feats.items()}
+
+
+def load_local(tag: str) -> pd.DataFrame:
+    p = LOCAL / tag / "case_features.csv"
+    if not p.exists():
+        return None
+    d = pd.read_csv(p, dtype={"exam_case_id": str})
+    bad = [c for c in d.columns if any(u in c.lower() for u in ("um_", "_um", "micron",
+                                                               "per_mm", "per_min"))]
+    if bad:
+        raise RuntimeError("a calibrated unit reached the local features: %s" % bad)
+    return d.set_index("exam_case_id")
+
+
+def main() -> None:
+    dev = pd.read_csv(LABELS, dtype={"exam_case_id": str})
+    dev = dev[dev.development_fold.notna()].copy()
+    assert len(dev) == 186, len(dev)
+
+    base_ix, base_feats, base_meta = load_arm(ANCHOR)
+    if base_meta.get("locked_cases_seen", 0) != 0:
+        raise RuntimeError("anchor arm reports locked cases")
+    locals_ = {k: load_local(tag) for k, (tag, _) in RUNGS.items()}
+    have = [k for k, v in locals_.items() if v is not None]
+    if not have:
+        raise SystemExit("no local feature table yet; run "
+                         "extract_detector_local_features.py first")
+
+    rng = np.random.default_rng(SEED)
+    rows, detail = [], {}
+    for field in FIELDS:
+        y_case, multiclass, classes = target(dev, field)
+        if y_case is None:
+            rows.append(dict(field=field, rung="-", verdict="not_measurable",
+                             note="no admissible target under the shipped ruler"))
+            continue
+        order = sorted(y_case.index)
+        # oof() indexes folds by case id, not positionally.
+        fold_map = dev.set_index("exam_case_id")["development_fold"].to_dict()
+        folds_arr = np.array([fold_map[c] for c in order], float)
+        yv = y_case.loc[order].to_numpy()
+
+        preds = {}
+        p0, pr0 = oof(base_feats, base_ix, y_case, fold_map, order, multiclass, classes)
+        preds["A0"] = (p0, pr0)
+        for k in have:
+            extra = locals_[k]
+            # A case whose images produced no detection is a real deployment case,
+            # not a missing value to drop: zero vessels IS the measurement. A case
+            # absent from the table entirely would be a pipeline error instead.
+            absent = sorted(set(order) - set(extra.index))
+            if absent:
+                raise RuntimeError("%d cases absent from local table %s: %s"
+                                   % (len(absent), k, absent[:5]))
+            preds[k] = oof(attach(base_feats, base_ix, extra), base_ix, y_case,
+                           fold_map, order, multiclass, classes)
+            # L2: the local columns ALONE. Without this, an A2 gain cannot be told
+            # apart from 30 extra columns happening to change the regularisation
+            # geometry of a 320-column problem. Same shape as a pooling matrix so
+            # the identical oof() path runs, but every pooling sees only the counts.
+            only = {p: np.zeros((len(base_ix), 0), np.float32) for p in base_feats}
+            preds["L2_" + k] = oof(attach(only, base_ix, extra), base_ix, y_case,
+                                   fold_map, order, multiclass, classes)
+        detail[field] = {}
+        for k in ["A0"] + have + ["L2_" + h for h in have]:
+            p, prob = preds[k]
+            sc = score(yv, p, prob, multiclass, classes, rng)
+            pair = paired(yv, p, p0, multiclass, rng) if k != "A0" else None
+            v = verdict(pair, sc)
+            if k == "A0":
+                label = "A0  shipped whole-image anchor"
+            elif k.startswith("L2_"):
+                label = ("L2  local features ALONE from the %s detector (control: is a "
+                         "gain really coming from the vessel counts?)" % RUNGS[k[3:]][0])
+            else:
+                label = RUNGS[k][1]
+            rows.append(dict(field=field, rung=k, label=label,
+                             n=int(len(yv)), **{m: sc[m] for m in
+                                                ("accuracy", "baseline_accuracy", "delta",
+                                                 "balanced_accuracy", "collapsed_to_one_class")},
+                             ba_gain=None if pair is None else pair["ba_gain"],
+                             ba_ci_excludes_zero=None if pair is None
+                             else pair["ba_ci_excludes_zero"],
+                             verdict=v))
+            detail[field][k] = dict(score=sc, paired=pair, verdict=v,
+                                    folds=None if pair is None
+                                    else fold_directions(yv, p, p0, folds_arr, multiclass))
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    df = pd.DataFrame(rows)
+    df.to_csv(OUT / "ladder_local.csv", index=False, encoding="utf-8-sig")
+    (OUT / "ladder_local.json").write_text(json.dumps(dict(
+        fields_pre_declared=FIELDS, rungs_available=have,
+        min_effect=MIN_EFFECT, below_resolution=BELOW_RESOLUTION,
+        detail=detail,
+        limitations=[
+            "development case-level OOF; this is not a product capability claim",
+            "locked-47 not read by this run",
+            "counts, ratios and frame fractions only; no micron/per-mm/per-minute value",
+            "only 50 of 186 cases have human boxes, so each detector trains on 35-44 "
+            "cases; a null here is a null at that annotation volume",
+        ]), ensure_ascii=False, indent=2), encoding="utf-8")
+    print(df.to_string(index=False))
+
+
+if __name__ == "__main__":
+    main()
