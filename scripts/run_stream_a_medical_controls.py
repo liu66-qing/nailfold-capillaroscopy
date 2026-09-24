@@ -18,9 +18,14 @@ share identical folds, identical cleaning and identical bootstrap draws.
 
 The interpretable contrast differs per candidate and is stated per row:
   retfound_dinov2_meh  vs dinov2l_deployed_geometry -- capacity, patch size and
-    geometry are all held fixed, so pretraining data is the only difference.  But
-    RETFound is a CONTINUED DINOv2 run (patch_embed cosine 0.955 against plain
-    DINOv2-L), so the mechanically possible difference is bounded.
+    geometry are all held fixed, so the continuation corpus is the only difference.
+    RETFound is a CONTINUED DINOv2 run (patch_embed cosine 0.955 against the
+    DINOv2-L this project uses, shuffle control -0.0017).  That establishes
+    ancestry only: the same comparison shows relative Frobenius distance 0.495 on
+    that tensor and attention cosine 0.165 by block 23, so the retinal SSL did
+    retrain the network substantially and nothing here bounds the possible
+    difference.  Read this row as "DINOv2 continued on retina vs DINOv2", not as
+    "medical pretraining vs general pretraining".
   medsiglip_medical    NOT a pure pretraining contrast: its position embedding is
     a fixed 32x32 at 448, so it cannot run at the deployed 518x686.  Geometry and
     architecture differ too, and a difference cannot be attributed.

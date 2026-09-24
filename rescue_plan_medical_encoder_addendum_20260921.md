@@ -1449,5 +1449,94 @@ capillary_count 168、hemorrhage 48、efferent_diameter 46，以及 4 处小计�
 **本轮 locked-47**：未访问。185 个病例全部来自非 locked；locked 报告图在选图阶段即按病例级排除，
 输出前 assert 再验一次。`locked_cases_seen: 0` 仅指本次运行。
 
+## 7-E Stream A 事后记录：权重到手之后，403 的真正原因和它改了什么结论
+
+写这一节是因为 `nailfold-15-field-three-arm-matrix` 里把 MedSigLIP 和 RETFound 记成
+`blocked_access`（403 原文），而本轮两个权重都下到了。那条记录**不是错的**，但它当时无法区分
+两种完全不同的 403，现在能区分了，必须补上——否则下一轮会误判为"再试一次就能过"。
+
+### 7-E.1 两种 403 不是一回事
+
+| | RETFound | MedSigLIP |
+|---|---|---|
+| 403 的来源 | 网络出口（区域不可达） | Hugging Face gate（需接受 HAI-DEF 条款） |
+| 解除方式 | 换出口 | **必须由用户本人在 HF 上接受条款** |
+| 我能否自行解除 | 是，纯网络问题 | **否，约束明令不得自行接受用户条款、不得绕过 gate** |
+
+这个区分有实际后果：**网络型 403 是环境问题，条款型 403 是授权问题**。前者重试有意义，
+后者重试一万次都是同一个答案，只有用户点了同意才变。以后遇到 403 必须先看是哪一种，
+再决定写 `blocked_access` 还是写"待用户授权"。
+
+### 7-E.2 RETFound 的 config card 与实际张量不一致
+
+发布的 `config.json` 写 patch 16 / image 224，而实际张量是 patch 14、`pos_embed` 为
+1+37×37，也就是 ViT-L/14 @ 518。**以张量为准**，已记在
+`features/retfound_dinov2_meh/metadata.json` 的 `limitations` 里。
+如果照 config card 建模型，权重根本装不上，或者（更糟）装上了但位置编码被静默插值，
+得到一个谁都不知道在测什么的臂。
+
+### 7-E.3 RETFound 是 DINOv2 的续训——但"续训"不等于"几乎没动"
+
+复现命令与产物：
+
+```bash
+CUDA_VISIBLE_DEVICES= python scripts/check_retfound_dinov2_distance.py
+# -> artifacts/experiments/rescue_external_20260922/encoder_distance/retfound_vs_dinov2l.json
+```
+
+参照用的是 `weights/dinov2/l/model.safetensors`，即**本项目 ViT-L 各臂实际抽特征用的那份**，
+不是 timm 下载（HF 缓存里只有一个 151 MB 的未完成 blob，这也是第一次跑挂在 exit 4 的原因）。
+
+| 张量 | cosine | 相对 Frobenius 距离 |
+|---|---|---|
+| `patch_embed.proj.weight` | **0.954853** | **0.495** |
+| `cls_token` | 0.704 | 2.300 |
+| `pos_embed` | 0.274 | 1.631 |
+| `blocks.0.attn.qkv` | 0.463 | 1.610 |
+| `blocks.11.attn.qkv` | 0.373 | 1.428 |
+| `blocks.23.attn.qkv` | **0.165** | 1.537 |
+| `norm.weight` | 0.999 | 0.043 |
+
+**打乱对照**：把 RETFound 自己的 `patch_embed` 元素随机置换（保持取值分布不变，破坏元素对应），
+对参照的 cosine 是 **−0.001672**。所以 0.955 是真实的张量对应关系，不是"两个小的零均值张量
+碰巧相似"的假象——**RETFound 确实是从这份 DINOv2-L 初始化的**。
+
+**但我此前把这个数字用错了。** 我先前写它"给医学预训练能带来多少划了一个机械上界，
+输入层几乎没动过"。这是错的，有两处：
+
+1. 同一个张量上相对 Frobenius 距离是 **0.495**，也就是更新量的范数达到权重自身的一半。
+   cosine 高只说明方向没翻转，不说明幅度小。
+2. 更要紧的是，**一个输入层张量对 24 个 block 之后的函数不构成任何上界**。
+   深度剖面从 block0 的 0.463 掉到 block23 的 0.165，视网膜 SSL 把这个网络**实质性地重训了**。
+
+站得住的只有**血统**那一半，而血统恰好是归因需要的那一半：
+R0 不是一个独立的医学预训练，而是一个在视网膜照片上续训的 DINOv2-L。
+所以 **R0 对 A0L 是"续训语料"的对比，不是"医学 vs 通用预训练"的对比**。
+实测 R0 是所有非适配臂里最弱的（对 A0：papilla −0.015、malformation_ratio −0.037），
+这与"它漂向了视网膜而不是甲襞"一致，但**不能**再说成"它本来就离 DINOv2-L 很近"。
+
+许可上 RETFound 是 **CC BY-NC 4.0**，只能作研究期对照，不得进商业产品。
+MedSigLIP 的 HAI-DEF 条款从未出现"commercial"字样，但把取得监管批准列为再分发条件、
+把托管推理算作 Distribution、并保留单方终止权——这三条都要在上线材料里写明。
+
+### 7-E.4 MedSigLIP 不是干净的"医学预训练"对照
+
+它没有 CLS token，位置编码固定 1024 = 32×32 @ 448，因此**既不能在部署几何 518×686 上跑，
+也不能在 224 上做适配**；metadata 里 `cls` 槽位装的是 attention-pooled 输出。
+所以 M0 与 A0 的差异同时混入了：预训练语料、分辨率、patch 网格、池化方式。
+实测 M0 不优于 A0（papilla +0.048、malformation_ratio −0.003、其余为零），
+但**这个"不优于"不可归因于医学预训练**，只能说"这套系统在本项目字段上不优于现行系统"。
+
+### 7-E.5 这一节没有改变的东西
+
+7-E 把三个臂的性质讲清楚了，但**没有增加任何可交付字段**。
+`nailfold-15-field-three-arm-matrix` 的 4 可用 / 9 仅有信号 / 2 测不出仍然成立。
+本轮外部数据阶梯的结果（60 个配对比较过 1 个，且那 1 个 BA 仅 0.51）写在
+`artifacts/experiments/rescue_external_20260922/ladder/`，与本节独立。
+
+**本轮 locked-47**：未访问。四个适配的 `folds_read: 0`、`local_images_used: 0`、
+`locked_cases_seen: 0`；四套适配特征各 186 例 / 1708 图，且每个特征目录的 `weights_sha256`
+已逐一核对等于其适配 checkpoint 的哈希。`locked_cases_seen: 0` 仅指本次运行。
+
 <!-- REC7END -->
 

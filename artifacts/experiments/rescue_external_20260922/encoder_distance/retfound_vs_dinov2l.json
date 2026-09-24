@@ -1,0 +1,209 @@
+{
+  "question": "how far is RETFound from the DINOv2-L this project extracts with",
+  "retfound_weights": "weights/RETFound_dinov2_meh/RETFound_dinov2_meh.pth",
+  "retfound_sha256": "a3feeaf69b44a0baa0934162d06b11ca517d1ca71a8459e04ef72c287d4e7124",
+  "reference_weights": "weights/dinov2/l/model.safetensors",
+  "reference_sha256": "0424a5d1b515278cba3c6640ccbeaacc41de59d3a93df0dd5e494285eea2b355",
+  "tensors": {
+    "patch_embed.proj.weight": {
+      "status": "compared",
+      "shape": [
+        1024,
+        3,
+        14,
+        14
+      ],
+      "cosine": 0.954853,
+      "max_abs_diff": 0.05815,
+      "relative_frobenius": 0.495088
+    },
+    "cls_token": {
+      "status": "compared",
+      "shape": [
+        1,
+        1,
+        1024
+      ],
+      "cosine": 0.70438,
+      "max_abs_diff": 0.114225,
+      "relative_frobenius": 2.300348
+    },
+    "pos_embed": {
+      "status": "compared",
+      "shape": [
+        1,
+        1370,
+        1024
+      ],
+      "cosine": 0.273557,
+      "max_abs_diff": 0.348009,
+      "relative_frobenius": 1.631122
+    },
+    "blocks.0.attn.qkv.weight": {
+      "status": "compared",
+      "shape": [
+        3072,
+        1024
+      ],
+      "cosine": 0.46327,
+      "max_abs_diff": 0.591374,
+      "relative_frobenius": 1.609683
+    },
+    "blocks.11.attn.qkv.weight": {
+      "status": "compared",
+      "shape": [
+        3072,
+        1024
+      ],
+      "cosine": 0.373207,
+      "max_abs_diff": 0.255485,
+      "relative_frobenius": 1.427579
+    },
+    "blocks.23.attn.qkv.weight": {
+      "status": "compared",
+      "shape": [
+        3072,
+        1024
+      ],
+      "cosine": 0.165156,
+      "max_abs_diff": 0.27454,
+      "relative_frobenius": 1.537146
+    },
+    "norm.weight": {
+      "status": "compared",
+      "shape": [
+        1024
+      ],
+      "cosine": 0.999106,
+      "max_abs_diff": 0.475166,
+      "relative_frobenius": 0.04259
+    }
+  },
+  "local_images_used": 0,
+  "labels_read": 0,
+  "folds_read": 0,
+  "locked_cases_seen": 0,
+  "shuffle_control": {
+    "what": "RETFound patch_embed with its elements permuted, vs the reference",
+    "cosine": -0.001672,
+    "reading": "near zero means the 0.95 figure is genuine tensor correspondence, i.e. RETFound was initialised from these weights"
+  },
+  "depth_profile_attn_qkv": [
+    {
+      "block": 0,
+      "cosine": 0.4633
+    },
+    {
+      "block": 1,
+      "cosine": 0.2915
+    },
+    {
+      "block": 2,
+      "cosine": 0.3576
+    },
+    {
+      "block": 3,
+      "cosine": 0.4477
+    },
+    {
+      "block": 4,
+      "cosine": 0.3833
+    },
+    {
+      "block": 5,
+      "cosine": 0.45
+    },
+    {
+      "block": 6,
+      "cosine": 0.4218
+    },
+    {
+      "block": 7,
+      "cosine": 0.4394
+    },
+    {
+      "block": 8,
+      "cosine": 0.4317
+    },
+    {
+      "block": 9,
+      "cosine": 0.4172
+    },
+    {
+      "block": 10,
+      "cosine": 0.4432
+    },
+    {
+      "block": 11,
+      "cosine": 0.3732
+    },
+    {
+      "block": 12,
+      "cosine": 0.3819
+    },
+    {
+      "block": 13,
+      "cosine": 0.382
+    },
+    {
+      "block": 14,
+      "cosine": 0.3231
+    },
+    {
+      "block": 15,
+      "cosine": 0.3464
+    },
+    {
+      "block": 16,
+      "cosine": 0.3016
+    },
+    {
+      "block": 17,
+      "cosine": 0.2838
+    },
+    {
+      "block": 18,
+      "cosine": 0.2764
+    },
+    {
+      "block": 19,
+      "cosine": 0.2511
+    },
+    {
+      "block": 20,
+      "cosine": 0.2234
+    },
+    {
+      "block": 21,
+      "cosine": 0.1875
+    },
+    {
+      "block": 22,
+      "cosine": 0.1659
+    },
+    {
+      "block": 23,
+      "cosine": 0.1652
+    }
+  ],
+  "depth_profile_summary": {
+    "block0_cosine": 0.4633,
+    "last_block_cosine": 0.1652,
+    "monotone_decreasing": false
+  },
+  "geometry_from_tensors": {
+    "pos_embed_shape": [
+      1,
+      1370,
+      1024
+    ],
+    "note": "the published config.json says patch 16 / image 224; the tensors say patch 14 with 1+37x37 positions, i.e. ViT-L/14 at 518. The tensors win."
+  },
+  "headline_patch_embed_cosine": 0.954853,
+  "interpretation": [
+    "SHARED ANCESTRY IS ESTABLISHED, NOT SIMILARITY. patch_embed cosine 0.955 with a near-zero shuffle control proves RETFound was initialised from this DINOv2-L. It does NOT show the encoder is nearly unchanged: on the same tensor the relative Frobenius distance is 0.495, i.e. the update has half the norm of the weight itself, and the deeper attention blocks fall to cosine 0.17.",
+    "So the retinal SSL retrained this network substantially. Any earlier phrasing of mine that used 0.955 to bound how much RETFound could possibly differ from DINOv2-L was wrong: a cosine on one input tensor bounds nothing about the function computed 24 blocks later.",
+    "What remains true is the ancestry claim, which is what matters for attribution: R0 is not an independent medical pretraining but a DINOv2-L continued on retinal photographs, so R0-vs-A0L is a domain-of-continuation contrast, not a medical-vs-general-pretraining contrast.",
+    "weight-space distance is not accuracy; the field numbers are in ladder/"
+  ]
+}

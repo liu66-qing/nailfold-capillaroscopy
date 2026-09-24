@@ -413,10 +413,14 @@ def main() -> None:
             "CC BY-NC 4.0: non-commercial. Research-period control only; it "
             "cannot ship in a product.",
             "this checkpoint is a CONTINUED DINOv2 SSL run, not independent "
-            "pretraining: cosine(patch_embed, plain DINOv2-L) = 0.955, max "
-            "abs diff 0.058. That bounds how large a difference from the "
-            "dinov2l arm is mechanically possible; a null result here does "
-            "not test medical pretraining in general.",
+            "pretraining: cosine(patch_embed, the DINOv2-L this project "
+            "extracts with) = 0.955, and a shuffle control gives -0.0017, so "
+            "the ancestry is established. It does NOT follow that the encoder "
+            "is nearly unchanged -- relative Frobenius distance on that same "
+            "tensor is 0.495 and attention cosine falls to 0.165 by block 23. "
+            "See encoder_distance/retfound_vs_dinov2l.json. Consequence for "
+            "attribution: this arm is a domain-of-continuation contrast, not a "
+            "medical-versus-general-pretraining contrast.",
         ] if cfg["kind"] == "retfound" else []) + ([
             "this backbone was domain-adapted on EXTERNAL unlabelled nailfold "
             "images only. No local image, label or fold was read during "
