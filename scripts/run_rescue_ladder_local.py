@@ -88,6 +88,41 @@ def attach(feats: dict, ix: pd.DataFrame, extra: pd.DataFrame) -> dict:
     return {p: np.hstack([m, cols]).astype(np.float32) for p, m in feats.items()}
 
 
+def pca_survival(feats: dict, ix: pd.DataFrame, extra: pd.DataFrame) -> dict:
+    """How much of the local columns survives the shipped PCA?
+
+    The shipped head is StandardScaler -> PCA(64) -> LogisticRegression, and after
+    attach() the input is 768 encoder dims plus ~30 local ones. Those 30 could be
+    crowded out of the retained 64 components by the 768, in which case an A2 null
+    would mean "the projection discarded them", not "vessel counts do not help".
+    That is a different finding and must not be reported as the second one.
+
+    Measured as the share of each local column's scaled variance that is recovered
+    by projecting onto the 64 components and back. Diagnostic only: it does not
+    change any fitted model, and the L2 rung is the answer that does not depend on
+    this projection at all.
+    """
+    from sklearn.decomposition import PCA
+    from sklearn.preprocessing import StandardScaler
+    X = np.hstack([feats["mean"], extra.reindex(ix.exam_case_id.to_numpy()).to_numpy(float)])
+    n_local = extra.shape[1]
+    Z = StandardScaler().fit_transform(X)
+    dim = max(2, min(64, Z.shape[0] - 1, Z.shape[1]))
+    p = PCA(n_components=dim, random_state=SEED).fit(Z)
+    recon = p.inverse_transform(p.transform(Z))
+    num = ((recon - Z.mean(0)) ** 2).sum(axis=0)
+    den = ((Z - Z.mean(0)) ** 2).sum(axis=0)
+    keep = np.divide(num, den, out=np.zeros_like(num), where=den > 0)
+    loc, enc = keep[-n_local:], keep[:-n_local]
+    return dict(n_local_columns=int(n_local), pca_components=int(dim),
+                local_variance_retained_mean=round(float(loc.mean()), 4),
+                local_variance_retained_min=round(float(loc.min()), 4),
+                encoder_variance_retained_mean=round(float(enc.mean()), 4),
+                reading=("if the local mean is far below the encoder mean, the "
+                         "projection is discarding the counts and an A2 null is "
+                         "uninformative; read L2 instead"))
+
+
 def load_local(tag: str) -> pd.DataFrame:
     p = LOCAL / tag / "case_features.csv"
     if not p.exists():
@@ -180,6 +215,7 @@ def main() -> None:
     (OUT / "ladder_local.json").write_text(json.dumps(dict(
         fields_pre_declared=FIELDS, rungs_available=have,
         min_effect=MIN_EFFECT, below_resolution=BELOW_RESOLUTION,
+        pca_survival={k: pca_survival(base_feats, base_ix, locals_[k]) for k in have},
         detail=detail,
         limitations=[
             "development case-level OOF; this is not a product capability claim",
