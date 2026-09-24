@@ -214,7 +214,13 @@ def train_one(yaml_path, weights, epochs, imgsz, out_dir, name, device, seed=SEE
     # those classes are detected or the vessel class is carrying the average alone.
     try:
         r = m.metrics
-        names = getattr(r, "names", None) or {}
+        # `or {}` evaluates `names` in a boolean context, and when ultralytics
+        # hands back a numpy-backed object that raises "truth value of an array
+        # with more than one element is ambiguous". The local folds happened to
+        # return a plain dict and survived; the external run did not, and its
+        # per-class APs were lost to the except branch below. Test for None.
+        names = getattr(r, "names", None)
+        names = {} if names is None else names
         per = {}
         for i, ap in enumerate(list(getattr(r.box, "ap50", []) or [])):
             per[str(names.get(i, i))] = round(float(ap), 4)

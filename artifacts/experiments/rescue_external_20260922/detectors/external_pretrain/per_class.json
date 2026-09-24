@@ -1,0 +1,16 @@
+{
+  "map50": 0.7677,
+  "map50_95": 0.4463,
+  "ap50_per_class": {
+    "bushy": 0.6891,
+    "crossing": 0.8519,
+    "hairpin": 0.8888,
+    "tortuous": 0.6409
+  },
+  "val_images": 198,
+  "val_people": 18,
+  "grouping": "person, after collapsing hea_<person>-<visit> to person",
+  "classes_are_not_our_fields": "bushy/crossing/hairpin/tortuous are the external authors' definitions; these APs say whether the pretraining target was learned, NOT whether any of our report fields can be predicted",
+  "not_a_generalisation_claim": "this split exists to drive the detector's early stopping; its mAP is not quoted as external generalisation",
+  "recovered_because": "train_one()'s per-class capture raised on the numpy-backed names object and its try/except wrote only the error"
+}
