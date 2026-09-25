@@ -1,0 +1,98 @@
+{
+ "date": "2026-09-25",
+ "question": "can we obtain a batch of new same-definition cases -- even just 50-100 -- from any dataset already on disk",
+ "answer": "no",
+ "new_same_definition_cases_available": 0,
+ "what_same_definition_requires": [
+  "one person's examination (a case), not an image",
+  "the 21 substantive fields as canonical_labels defines them",
+  "produced by the same report template so the value vocabulary matches",
+  "at least one CAPorg still as model input"
+ ],
+ "accounting": {
+  "own_archives": {
+   "case_directories": 267,
+   "admissible_today": 233,
+   "already_in_splits": 233,
+   "new_admissible": 0,
+   "remainder": {
+    "stills_but_no_label": 13,
+    "label_but_no_stills": 1,
+    "all_null_canonical_rows": 7
+   }
+  },
+  "external": {
+   "vascular_dataset_big_images": "cannot supply a new case",
+   "hf_capillary_dataset": "cannot supply a new case",
+   "anfc_thu": "cannot supply a new case",
+   "mendeley_ssc": "cannot supply a new case",
+   "captures_app": "cannot supply a new case",
+   "training_material_微循环培训资料": "cannot supply a new case"
+  }
+ },
+ "the_13_cases_examined_individually": {
+  "blank_template_scans": {
+   "n": 6,
+   "cases": [
+    "recovered_archive1/4",
+    "recovered_archive1/12",
+    "recovered_archive1/25",
+    "recovered_archive1/43",
+    "recovered_archive1/50",
+    "recovered_archive3/240"
+   ],
+   "proof": "all 17 report copies across the six cases OCR to the same 59-token signature; a filled report gives 100 tokens. The tokens are printed field names, units and normal-range brackets only. Table-region pixel diff between any two of them is exactly 0 pixels at >40 grey levels, while a filled report differs in 2365. Blank forms.",
+   "note": "archive1/50 also holds rep_rch1.rtf, but it contains only advice prose, no field values",
+   "recoverable": false
+  },
+  "no_report_at_all": {
+   "n": 7,
+   "cases": [
+    "recovered_archive1/6",
+    "recovered_archive1/15",
+    "recovered_archive1/26",
+    "recovered_archive1/56",
+    "recovered_archive1/87",
+    "recovered_archive3/238",
+    "recovered_archive3/239"
+   ],
+   "proof": "report_copy_count == 0, has_rep_rtf == False, no OCR record exists",
+   "recoverable": false
+  }
+ },
+ "what_the_82_stills_in_those_13_cases_can_and_cannot_do": {
+  "can": [
+   "unlabelled pre-training or augmentation pools",
+   "detector inference sanity checks"
+  ],
+  "cannot": [
+   "extend n for any field",
+   "narrow any confidence interval",
+   "serve as an external or unvisited test set"
+  ],
+  "why": "n is set by labelled cases. 82 images across 13 cases with no labels moves no denominator that matters -- the same shape as the aux-annotation pool finding: more images, no more people."
+ },
+ "where_new_cases_could_actually_come_from": [
+  {
+   "route": "new acquisition on the same device with the same report template",
+   "gives": "genuinely new same-definition cases",
+   "blocked_by": "not a data problem; needs collection"
+  },
+  {
+   "route": "an unvisited archive from the same clinic",
+   "gives": "same-definition cases and a real external test",
+   "blocked_by": "none on disk -- all three recovered archives are fully consumed"
+  },
+  {
+   "route": "independent clinician annotation of the 13 unlabelled cases",
+   "gives": "13 cases at most, under a DIFFERENT reference standard (reader, not report)",
+   "blocked_by": "needs a clinician; 13 is far short of 50 and is not same-definition"
+  }
+ ],
+ "limitations_of_this_search": [
+  "I searched only what is on this disk; I did not contact the clinic or any registry",
+  "the 大图 residue of 32 images was judged by multi-scale template matching at 256px, which can miss a heavy crop; it does not change the verdict because that source carries none of the deliverable fields regardless",
+  "locked-47 was not read, decoded or re-scored in this search"
+ ],
+ "locked_cases_seen_this_run": 0
+}

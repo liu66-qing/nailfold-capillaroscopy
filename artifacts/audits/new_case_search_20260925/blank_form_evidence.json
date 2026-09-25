@@ -1,0 +1,152 @@
+{
+ "baseline_for_pixel_diff": "recovered_archive1/4",
+ "table_region": "rows 0..470 of the 680x750 scan, i.e. the measurement table",
+ "pixel_diff": [
+  {
+   "case": "recovered_archive1/12",
+   "pixels_differing_over_40_grey_levels": 0
+  },
+  {
+   "case": "recovered_archive1/25",
+   "pixels_differing_over_40_grey_levels": 0
+  },
+  {
+   "case": "recovered_archive1/43",
+   "pixels_differing_over_40_grey_levels": 0
+  },
+  {
+   "case": "recovered_archive1/50",
+   "pixels_differing_over_40_grey_levels": 0
+  },
+  {
+   "case": "recovered_archive3/240",
+   "pixels_differing_over_40_grey_levels": 0
+  },
+  {
+   "case": "recovered_archive1/1",
+   "pixels_differing_over_40_grey_levels": 2365
+  }
+ ],
+ "every_report_copy": {
+  "recovered_archive1/1": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 25,
+    "ocr_tokens": 100
+   },
+   {
+    "copy": "rep_1901290.jpg.jpg",
+    "parsed_fields": 25,
+    "ocr_tokens": 100
+   },
+   {
+    "copy": "rep_1901291.jpg.jpg",
+    "parsed_fields": 25,
+    "ocr_tokens": 100
+   },
+   {
+    "copy": "rep_左手.jpg.jpg",
+    "parsed_fields": 25,
+    "ocr_tokens": 100
+   }
+  ],
+  "recovered_archive1/12": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1812180.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ],
+  "recovered_archive1/25": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1811020.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ],
+  "recovered_archive1/4": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1902260.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ],
+  "recovered_archive1/43": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1908230.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ],
+  "recovered_archive1/50": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1908010.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1908011.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_左手.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ],
+  "recovered_archive3/240": [
+   {
+    "copy": "rep.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   },
+   {
+    "copy": "rep_1810160.jpg.jpg",
+    "parsed_fields": 0,
+    "ocr_tokens": 59
+   }
+  ]
+ },
+ "reading": "the five other blank cases differ from the baseline in exactly 0 table pixels while the filled report differs in thousands, and all of their copies OCR to 59 tokens against the filled report's 100. The 59 are printed field names, units and normal-range brackets only. These are blank forms, so there is no value to recover."
+}

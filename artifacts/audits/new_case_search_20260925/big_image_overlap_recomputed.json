@@ -1,0 +1,18 @@
+{
+ "images": 582,
+ "rows_in_xlsx": 582,
+ "label_columns": [
+  "图片id",
+  "乳头下静脉丛",
+  "红细胞聚集",
+  "乳头",
+  "汗腺导管",
+  "血管是否出血"
+ ],
+ "unit_of_annotation": "one image; there is no case or patient column",
+ "phash_identical_to_our_stills": 161,
+ "distinct_our_cases_touched": 81,
+ "residue_not_matched_by_phash": 421,
+ "deliverable_fields_present": [],
+ "reading": "even before the overlap arithmetic this source fails condition 2 and 3: its five columns are weak fields in a different vocabulary, and none of clarity / exudation / malformation_ratio appears. The overlap only settles that the residue is small as well."
+}
