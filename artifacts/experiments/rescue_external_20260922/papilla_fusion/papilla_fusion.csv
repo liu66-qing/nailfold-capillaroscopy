@@ -1,0 +1,5 @@
+﻿field,arm,n,unit_of_observation,baseline_constant,accuracy,delta,balanced_accuracy,auroc_macro_ovr,collapsed_to_one_class,recall_0,recall_1,recall_2,ba_gain_vs_a1,ba_ci_excludes_zero_vs_a1,ba_gain_vs_a0,ece,verdict_vs_a1
+papilla,A0,185,static image shape,0.4162,0.4432,0.027,0.4149,0.6455,False,0.5,0.5065,0.2381,-0.0967,True,,0.0606,worse_beyond_threshold
+papilla,A1,185,static image shape,0.4162,0.5297,0.1135,0.5115,0.6996,False,0.5455,0.5844,0.4048,,,0.0967,0.0557,
+papilla,A2,185,static image shape,0.4162,0.4703,0.0541,0.4567,0.6471,False,0.5455,0.4675,0.3571,-0.0548,False,0.0418,0.0901,below_resolution
+papilla,A1+A2,185,static image shape,0.4162,0.5081,0.0919,0.4892,0.6727,False,0.5909,0.5195,0.3571,-0.0224,False,0.0743,0.0781,below_resolution
