@@ -1,294 +1,372 @@
 {
- "field": "malformation_ratio",
- "arm": "A2x",
- "frozen_on": "2026-09-24",
- "status": "strong development candidate; NOT a shipped field",
- "reproduces_execution_record_8": true,
- "development_oof": {
-  "n": 162,
-  "mode_baseline": 0.5679,
-  "accuracy": 0.7284,
-  "accuracy_ci": [
-   0.6543,
-   0.7963
+  "field": "malformation_ratio",
+  "arm": "A2x",
+  "frozen_on": "2026-09-24",
+  "status": {
+    "headline": "strong development candidate / not clinically validated / not yet shipped",
+    "development_candidate": true,
+    "clinically_validated": false,
+    "shipped": false,
+    "external_same_definition_test_set": "none exists yet",
+    "previous_status": "strong development candidate; NOT a shipped field"
+  },
+  "reproduces_execution_record_8": true,
+  "development_oof": {
+    "n": 162,
+    "mode_baseline": 0.5679,
+    "accuracy": 0.7284,
+    "accuracy_ci": [
+      0.6543,
+      0.7963
+    ],
+    "delta": 0.1605,
+    "delta_ci": [
+      0.0617,
+      0.2593
+    ],
+    "balanced_accuracy": 0.7216,
+    "balanced_accuracy_ci": [
+      0.6497,
+      0.7934
+    ],
+    "auroc_macro_ovr": 0.7766,
+    "per_class_recall": {
+      "0": 0.7717,
+      "1": 0.6714
+    },
+    "anchor_a0": {
+      "accuracy": 0.6481,
+      "delta": 0.0802,
+      "balanced_accuracy": 0.6304,
+      "auroc_macro_ovr": 0.7068,
+      "per_class_recall": {
+        "0": 0.7609,
+        "1": 0.5
+      }
+    },
+    "paired_vs_a0": {
+      "ba_gain": 0.0911,
+      "ba_ci": [
+        0.0197,
+        0.1628
+      ],
+      "ba_ci_excludes_zero": true,
+      "accuracy_gain": 0.0802,
+      "accuracy_ci": [
+        0.0123,
+        0.1481
+      ],
+      "cases_candidate_right_anchor_wrong": 23,
+      "cases_anchor_right_candidate_wrong": 10
+    }
+  },
+  "calibration": {
+    "bins": [
+      {
+        "bin": [
+          0.5,
+          0.6
+        ],
+        "n": 33,
+        "mean_confidence": 0.5496,
+        "observed_accuracy": 0.5152
+      },
+      {
+        "bin": [
+          0.6,
+          0.7
+        ],
+        "n": 29,
+        "mean_confidence": 0.6502,
+        "observed_accuracy": 0.7586
+      },
+      {
+        "bin": [
+          0.7,
+          0.8
+        ],
+        "n": 45,
+        "mean_confidence": 0.7515,
+        "observed_accuracy": 0.7556
+      },
+      {
+        "bin": [
+          0.8,
+          0.9
+        ],
+        "n": 35,
+        "mean_confidence": 0.8513,
+        "observed_accuracy": 0.8286
+      },
+      {
+        "bin": [
+          0.9,
+          1.0
+        ],
+        "n": 20,
+        "mean_confidence": 0.9403,
+        "observed_accuracy": 0.8
+      }
+    ],
+    "expected_calibration_error": 0.0498
+  },
+  "abstention": [
+    {
+      "target_coverage": 1.0,
+      "n_kept": 162,
+      "coverage": 1.0,
+      "accuracy": 0.7284,
+      "confidence_threshold": 0.5011
+    },
+    {
+      "target_coverage": 0.9,
+      "n_kept": 146,
+      "coverage": 0.9012,
+      "accuracy": 0.7534,
+      "confidence_threshold": 0.5468
+    },
+    {
+      "target_coverage": 0.8,
+      "n_kept": 130,
+      "coverage": 0.8025,
+      "accuracy": 0.7769,
+      "confidence_threshold": 0.5997
+    },
+    {
+      "target_coverage": 0.7,
+      "n_kept": 113,
+      "coverage": 0.6975,
+      "accuracy": 0.7876,
+      "confidence_threshold": 0.6548
+    },
+    {
+      "target_coverage": 0.6,
+      "n_kept": 97,
+      "coverage": 0.5988,
+      "accuracy": 0.7938,
+      "confidence_threshold": 0.7083
+    },
+    {
+      "target_coverage": 0.5,
+      "n_kept": 81,
+      "coverage": 0.5,
+      "accuracy": 0.8148,
+      "confidence_threshold": 0.7462
+    }
   ],
-  "delta": 0.1605,
-  "delta_ci": [
-   0.0617,
-   0.2593
+  "loao_pooled_oof_partition": {
+    "by_held_out_archive": {
+      "recovered_archive1": {
+        "n": 51,
+        "evaluable": true,
+        "accuracy": 0.7647,
+        "baseline_constant": 0.549,
+        "balanced_accuracy": 0.7547,
+        "delta": 0.2157,
+        "ba_gain_vs_anchor": 0.1048
+      },
+      "recovered_archive2": {
+        "n": 70,
+        "evaluable": true,
+        "accuracy": 0.7571,
+        "baseline_constant": 0.5571,
+        "balanced_accuracy": 0.7523,
+        "delta": 0.2,
+        "ba_gain_vs_anchor": 0.0968
+      },
+      "recovered_archive3": {
+        "n": 41,
+        "evaluable": true,
+        "accuracy": 0.6341,
+        "baseline_constant": 0.6098,
+        "balanced_accuracy": 0.6325,
+        "delta": 0.0243,
+        "ba_gain_vs_anchor": 0.0625
+      }
+    },
+    "directions_evaluated": 3,
+    "directions_positive": 3,
+    "directions_clearly_negative": 0
+  },
+  "loao_refit_archive_held_out": {
+    "by_held_out_archive": {
+      "recovered_archive1": {
+        "n": 51,
+        "evaluable": true,
+        "trained_on": [
+          "recovered_archive2",
+          "recovered_archive3"
+        ],
+        "accuracy": 0.7451,
+        "baseline_constant_training_archives": 0.549,
+        "baseline_constant_own_archive": 0.549,
+        "balanced_accuracy": 0.7368,
+        "delta_vs_training_archive_baseline": 0.1961
+      },
+      "recovered_archive2": {
+        "n": 70,
+        "evaluable": true,
+        "trained_on": [
+          "recovered_archive1",
+          "recovered_archive3"
+        ],
+        "accuracy": 0.7143,
+        "baseline_constant_training_archives": 0.5571,
+        "baseline_constant_own_archive": 0.5571,
+        "balanced_accuracy": 0.7072,
+        "delta_vs_training_archive_baseline": 0.1572
+      },
+      "recovered_archive3": {
+        "n": 41,
+        "evaluable": true,
+        "trained_on": [
+          "recovered_archive1",
+          "recovered_archive2"
+        ],
+        "accuracy": 0.7317,
+        "baseline_constant_training_archives": 0.6098,
+        "baseline_constant_own_archive": 0.6098,
+        "balanced_accuracy": 0.7238,
+        "delta_vs_training_archive_baseline": 0.1219
+      }
+    },
+    "directions_evaluated": 3,
+    "directions_with_positive_delta": 3,
+    "ruler": "baseline is the majority answer of the TRAINING archives; the held-out archive's own prevalence is unknown at deployment",
+    "difference_from_ladder_loao": "each archive is held out of TRAINING and the model refit; the ladder's loao() only partitions pooled OOF predictions and never refits"
+  },
+  "preprocessing": {
+    "encoder": "anchor_dinov2b_deployed",
+    "conf_threshold": 0.25,
+    "detector_imgsz": 640,
+    "class_map": {
+      "0": "bushy",
+      "1": "crossing",
+      "2": "hairpin",
+      "3": "tortuous"
+    },
+    "poolings": [
+      "mean",
+      "topk_mean",
+      "max",
+      "cls",
+      "std"
+    ],
+    "C": 0.03,
+    "pca_dim": 64,
+    "seed": 20260917,
+    "n_boot": 2000,
+    "local_columns": 64,
+    "nan_semantics": "zero detections means count 0 but ratio UNDEFINED; ratios stay NaN with explicit flags and are zero-imputed after scaling, never median-imputed (a fold-wise median would leak)"
+  },
+  "detector": {
+    "source": "external only",
+    "weights_sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
+    "one_checkpoint_for_all_folds": true,
+    "justification": "this detector trained only on external images -- zero local images, labels or folds -- so it cannot leak into any local validation fold and one checkpoint legitimately serves every fold",
+    "map50": 0.7677,
+    "ap50_per_class": {
+      "bushy": 0.6891,
+      "crossing": 0.8519,
+      "hairpin": 0.8888,
+      "tortuous": 0.6409
+    },
+    "classes_are_not_our_fields": true
+  },
+  "validation_discipline": {
+    "human_boxes_used_on_validation_cases": false,
+    "how": "validation cases receive only automatically detected regions; human boxes are supervision inside training folds only -- and for this arm the detector saw no local box at all",
+    "locked_cases_seen": 0,
+    "locked_note": "this run only; locked-47 has been consumed 7 times historically and had model selection done on it, so it is a CONSUMED internal holdout, not a clean final test set"
+  },
+  "output_semantics": {
+    "model_form": "binary classifier",
+    "decision_boundary": "report band <=10% (class 0) vs >10% (class 1)",
+    "class1_collapses": [
+      "10--30%",
+      "30--60%",
+      ">60%"
+    ],
+    "permitted_values": {
+      "low_band_correspondence": "the image corresponds to the report's <=10% malformation band",
+      "high_band_correspondence": "the image corresponds to the report's >10% malformation band",
+      "unknown": "no usable reading -- NOT a normal finding, and must never be rendered as one",
+      "rejected": "input or confidence failed a precondition; the field is withheld"
+    },
+    "forbidden_outputs": [
+      "any malformed-vessel percentage (e.g. 'malformed vessels 23%')",
+      "any per-mm value (条/mm)",
+      "any micron value",
+      "'the patient has <disease>'",
+      "'<disease> is ruled out'",
+      "any three-band low/medium/high wording -- the model is binary and cannot separate 10--30% from >60%; those were one training label"
+    ],
+    "why_not_three_bands": "ADMISSIBLE['malformation_ratio'] is 'binary <=10% vs >10%'. The three abnormal bands are one training label, so the model has never been shown the difference between them and cannot report it.",
+    "why_not_a_percentage": "human boxes fall inside their own clinical band for 17 of 44 cases with roughly a 3x scale offset, so a percentage would assert a calibration that does not exist",
+    "status_line": "image correlation, not a diagnosis",
+    "superseded_by_this_amendment": {
+      "permitted": "ordinal correspondence with the report's low / medium / high malformation wording",
+      "forbidden": "malformed-vessel percentage, or any per-mm / micron value",
+      "why": "human boxes fall inside their own clinical band for 17 of 44 cases with roughly a 3x scale offset, so a percentage would assert a calibration that does not exist"
+    }
+  },
+  "external_data_licence": {
+    "dataset": "HanaNguyen/Capillary-Dataset",
+    "declared_licence": "apache-2.0",
+    "source": "the dataset card's own YAML front matter, data/Capillary-Dataset/README.md",
+    "commercial_use_permitted": true,
+    "obligations": "Apache-2.0 requires the licence text and attribution be retained; cite Nguyen & Jeong, KDD 2025",
+    "used_for": "vessel-morphology detector initialisation only; the external diabetes labels were NOT used as patient labels for this project",
+    "adoption_criterion_8": "satisfied -- Apache-2.0 permits the target deployment"
+  },
+  "what_this_freeze_does_not_establish": [
+    "external validity: all three archives are one site, so no result here is an external test",
+    "a shipped field: promotion requires a new, never-accessed test set of the same field definition with per-case independence",
+    "a calibrated percentage: the permitted output is ordinal only"
   ],
-  "balanced_accuracy": 0.7216,
-  "balanced_accuracy_ci": [
-   0.6497,
-   0.7934
-  ],
-  "auroc_macro_ovr": 0.7766,
-  "per_class_recall": {
-   "0": 0.7717,
-   "1": 0.6714
+  "adoption_criteria": {
+    "scope": "these are RESEARCH-CANDIDATE conditions on development data. Passing them all would still not be a launch decision.",
+    "criterion_6_product_bar": {
+      "bar": "70% coverage with 85% accuracy (project engineering standard, not a regulatory or field-wide threshold)",
+      "observed_coverage": 0.6975,
+      "observed_accuracy": 0.7876,
+      "n_kept": 113,
+      "confidence_threshold": 0.6548,
+      "shortfall": 0.0624,
+      "passes": false,
+      "note": "the earlier record scored this as satisfied; it was not. The abstention table was already in the freeze.",
+      "bar_reachable_by_abstaining_further": false,
+      "best_accuracy_in_table": 0.8148,
+      "best_accuracy_coverage": 0.5
+    },
+    "criterion_8_licence": {
+      "declared_licence": "apache-2.0",
+      "passes": true,
+      "previous_wording": "satisfied -- Apache-2.0 permits the target deployment"
+    },
+    "tally": "7 of 8 research-candidate conditions; criterion 6 fails",
+    "must_not_be_written_as": "8/8, or as a launch approval"
   },
-  "anchor_a0": {
-   "accuracy": 0.6481,
-   "delta": 0.0802,
-   "balanced_accuracy": 0.6304,
-   "auroc_macro_ovr": 0.7068,
-   "per_class_recall": {
-    "0": 0.7609,
-    "1": 0.5
-   }
-  },
-  "paired_vs_a0": {
-   "ba_gain": 0.0911,
-   "ba_ci": [
-    0.0197,
-    0.1628
-   ],
-   "ba_ci_excludes_zero": true,
-   "accuracy_gain": 0.0802,
-   "accuracy_ci": [
-    0.0123,
-    0.1481
-   ],
-   "cases_candidate_right_anchor_wrong": 23,
-   "cases_anchor_right_candidate_wrong": 10
-  }
- },
- "calibration": {
-  "bins": [
-   {
-    "bin": [
-     0.5,
-     0.6
-    ],
-    "n": 33,
-    "mean_confidence": 0.5496,
-    "observed_accuracy": 0.5152
-   },
-   {
-    "bin": [
-     0.6,
-     0.7
-    ],
-    "n": 29,
-    "mean_confidence": 0.6502,
-    "observed_accuracy": 0.7586
-   },
-   {
-    "bin": [
-     0.7,
-     0.8
-    ],
-    "n": 45,
-    "mean_confidence": 0.7515,
-    "observed_accuracy": 0.7556
-   },
-   {
-    "bin": [
-     0.8,
-     0.9
-    ],
-    "n": 35,
-    "mean_confidence": 0.8513,
-    "observed_accuracy": 0.8286
-   },
-   {
-    "bin": [
-     0.9,
-     1.0
-    ],
-    "n": 20,
-    "mean_confidence": 0.9403,
-    "observed_accuracy": 0.8
-   }
-  ],
-  "expected_calibration_error": 0.0498
- },
- "abstention": [
-  {
-   "target_coverage": 1.0,
-   "n_kept": 162,
-   "coverage": 1.0,
-   "accuracy": 0.7284,
-   "confidence_threshold": 0.5011
-  },
-  {
-   "target_coverage": 0.9,
-   "n_kept": 146,
-   "coverage": 0.9012,
-   "accuracy": 0.7534,
-   "confidence_threshold": 0.5468
-  },
-  {
-   "target_coverage": 0.8,
-   "n_kept": 130,
-   "coverage": 0.8025,
-   "accuracy": 0.7769,
-   "confidence_threshold": 0.5997
-  },
-  {
-   "target_coverage": 0.7,
-   "n_kept": 113,
-   "coverage": 0.6975,
-   "accuracy": 0.7876,
-   "confidence_threshold": 0.6548
-  },
-  {
-   "target_coverage": 0.6,
-   "n_kept": 97,
-   "coverage": 0.5988,
-   "accuracy": 0.7938,
-   "confidence_threshold": 0.7083
-  },
-  {
-   "target_coverage": 0.5,
-   "n_kept": 81,
-   "coverage": 0.5,
-   "accuracy": 0.8148,
-   "confidence_threshold": 0.7462
-  }
- ],
- "loao_pooled_oof_partition": {
-  "by_held_out_archive": {
-   "recovered_archive1": {
-    "n": 51,
-    "evaluable": true,
-    "accuracy": 0.7647,
-    "baseline_constant": 0.549,
-    "balanced_accuracy": 0.7547,
-    "delta": 0.2157,
-    "ba_gain_vs_anchor": 0.1048
-   },
-   "recovered_archive2": {
-    "n": 70,
-    "evaluable": true,
-    "accuracy": 0.7571,
-    "baseline_constant": 0.5571,
-    "balanced_accuracy": 0.7523,
-    "delta": 0.2,
-    "ba_gain_vs_anchor": 0.0968
-   },
-   "recovered_archive3": {
-    "n": 41,
-    "evaluable": true,
-    "accuracy": 0.6341,
-    "baseline_constant": 0.6098,
-    "balanced_accuracy": 0.6325,
-    "delta": 0.0243,
-    "ba_gain_vs_anchor": 0.0625
-   }
-  },
-  "directions_evaluated": 3,
-  "directions_positive": 3,
-  "directions_clearly_negative": 0
- },
- "loao_refit_archive_held_out": {
-  "by_held_out_archive": {
-   "recovered_archive1": {
-    "n": 51,
-    "evaluable": true,
-    "trained_on": [
-     "recovered_archive2",
-     "recovered_archive3"
-    ],
-    "accuracy": 0.7451,
-    "baseline_constant_training_archives": 0.549,
-    "baseline_constant_own_archive": 0.549,
-    "balanced_accuracy": 0.7368,
-    "delta_vs_training_archive_baseline": 0.1961
-   },
-   "recovered_archive2": {
-    "n": 70,
-    "evaluable": true,
-    "trained_on": [
-     "recovered_archive1",
-     "recovered_archive3"
-    ],
-    "accuracy": 0.7143,
-    "baseline_constant_training_archives": 0.5571,
-    "baseline_constant_own_archive": 0.5571,
-    "balanced_accuracy": 0.7072,
-    "delta_vs_training_archive_baseline": 0.1572
-   },
-   "recovered_archive3": {
-    "n": 41,
-    "evaluable": true,
-    "trained_on": [
-     "recovered_archive1",
-     "recovered_archive2"
-    ],
-    "accuracy": 0.7317,
-    "baseline_constant_training_archives": 0.6098,
-    "baseline_constant_own_archive": 0.6098,
-    "balanced_accuracy": 0.7238,
-    "delta_vs_training_archive_baseline": 0.1219
-   }
-  },
-  "directions_evaluated": 3,
-  "directions_with_positive_delta": 3,
-  "ruler": "baseline is the majority answer of the TRAINING archives; the held-out archive's own prevalence is unknown at deployment",
-  "difference_from_ladder_loao": "each archive is held out of TRAINING and the model refit; the ladder's loao() only partitions pooled OOF predictions and never refits"
- },
- "preprocessing": {
-  "encoder": "anchor_dinov2b_deployed",
-  "conf_threshold": 0.25,
-  "detector_imgsz": 640,
-  "class_map": {
-   "0": "bushy",
-   "1": "crossing",
-   "2": "hairpin",
-   "3": "tortuous"
-  },
-  "poolings": [
-   "mean",
-   "topk_mean",
-   "max",
-   "cls",
-   "std"
-  ],
-  "C": 0.03,
-  "pca_dim": 64,
-  "seed": 20260917,
-  "n_boot": 2000,
-  "local_columns": 64,
-  "nan_semantics": "zero detections means count 0 but ratio UNDEFINED; ratios stay NaN with explicit flags and are zero-imputed after scaling, never median-imputed (a fold-wise median would leak)"
- },
- "detector": {
-  "source": "external only",
-  "weights_sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
-  "one_checkpoint_for_all_folds": true,
-  "justification": "this detector trained only on external images -- zero local images, labels or folds -- so it cannot leak into any local validation fold and one checkpoint legitimately serves every fold",
-  "map50": 0.7677,
-  "ap50_per_class": {
-   "bushy": 0.6891,
-   "crossing": 0.8519,
-   "hairpin": 0.8888,
-   "tortuous": 0.6409
-  },
-  "classes_are_not_our_fields": true
- },
- "validation_discipline": {
-  "human_boxes_used_on_validation_cases": false,
-  "how": "validation cases receive only automatically detected regions; human boxes are supervision inside training folds only -- and for this arm the detector saw no local box at all",
-  "locked_cases_seen": 0,
-  "locked_note": "this run only; locked-47 has been consumed 7 times historically and had model selection done on it, so it is a CONSUMED internal holdout, not a clean final test set"
- },
- "output_semantics": {
-  "permitted": "ordinal correspondence with the report's low / medium / high malformation wording",
-  "forbidden": "malformed-vessel percentage, or any per-mm / micron value",
-  "why": "human boxes fall inside their own clinical band for 17 of 44 cases with roughly a 3x scale offset, so a percentage would assert a calibration that does not exist"
- },
- "external_data_licence": {
-  "dataset": "HanaNguyen/Capillary-Dataset",
-  "declared_licence": "apache-2.0",
-  "source": "the dataset card's own YAML front matter, data/Capillary-Dataset/README.md",
-  "commercial_use_permitted": true,
-  "obligations": "Apache-2.0 requires the licence text and attribution be retained; cite Nguyen & Jeong, KDD 2025",
-  "used_for": "vessel-morphology detector initialisation only; the external diabetes labels were NOT used as patient labels for this project",
-  "adoption_criterion_8": "satisfied -- Apache-2.0 permits the target deployment"
- },
- "what_this_freeze_does_not_establish": [
-  "external validity: all three archives are one site, so no result here is an external test",
-  "a shipped field: promotion requires a new, never-accessed test set of the same field definition with per-case independence",
-  "a calibrated percentage: the permitted output is ordinal only"
- ]
+  "amendments": [
+    {
+      "n": 1,
+      "date": "2026-09-25",
+      "by": "user review of execution record 9",
+      "changes": [
+        "output semantics corrected from three ordinal bands to the binary band correspondence the model actually learned",
+        "unknown and rejected added as first-class output values",
+        "adoption criterion 6 re-scored as FAILING (0.7876 at 69.75% coverage against an 85% bar)",
+        "'8/8' retracted; it is 7/8 research-candidate conditions",
+        "status set to strong development candidate / not clinically validated / not yet shipped"
+      ],
+      "unchanged": [
+        "weights",
+        "per-case predictions",
+        "development OOF metrics",
+        "both LOAO tables",
+        "calibration",
+        "abstention table"
+      ]
+    }
+  ]
 }
