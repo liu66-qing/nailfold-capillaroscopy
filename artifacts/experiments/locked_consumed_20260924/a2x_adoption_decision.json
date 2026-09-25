@@ -1,0 +1,125 @@
+{
+  "run": "a2x_adoption_decision_20260924",
+  "field": "malformation_ratio",
+  "arm": "A2x",
+  "conditions": {
+    "refit_loao_no_regression": {
+      "condition": "refit LOAO shows no clear regression vs A0",
+      "per_archive_ba_gain": {
+        "recovered_archive1": 0.1444,
+        "recovered_archive2": 0.084,
+        "recovered_archive3": 0.185
+      },
+      "n_archives_positive": 3,
+      "n_ci_excluding_zero": 2,
+      "passes": true
+    },
+    "no_class_collapse": {
+      "condition": "no class collapse on the consumed holdout",
+      "a2x_collapsed": false,
+      "a0_collapsed": false,
+      "a2x_per_class_recall": {
+        "0": 0.8333,
+        "1": 0.4286
+      },
+      "passes": true
+    },
+    "binary_ordinal_semantics": {
+      "condition": "output semantics remain a binary band correspondence",
+      "model_form": "binary classifier",
+      "permitted_values": [
+        "high_band_correspondence",
+        "low_band_correspondence",
+        "rejected",
+        "unknown"
+      ],
+      "percentage_forbidden": true,
+      "passes": true
+    },
+    "coverage_accuracy_policy": {
+      "condition": "either the 70/85 bar is met, or an explicit lower-coverage refusal policy is in force and the bar is not claimed",
+      "bar_met": false,
+      "development_coverage": 0.6975,
+      "development_accuracy": 0.7876,
+      "locked_coverage_at_frozen_gate": 0.7179,
+      "locked_accuracy_at_frozen_gate": 0.6786,
+      "refusal_policy_in_force": 0.6548,
+      "bar_not_claimed": true,
+      "passes": true,
+      "passes_via": "explicit_lower_coverage_refusal_policy",
+      "qualification": "this is the weak branch of the condition. The bar is NOT met: 0.7876 at 69.75% coverage on development, and on the consumed holdout the best point on the whole curve is 0.70 at 51% coverage -- no amount of refusing reaches 85% on either set. The condition holds only in the sense the user specified: a lower-coverage refusal policy exists and the bar is not claimed. It must never be reported as the bar being met.",
+      "best_locked_accuracy_any_coverage": 0.7
+    },
+    "rag_safety": {
+      "condition": "all RAG safety rules pass and the mutation control catches every injected defect",
+      "n_passed": 8,
+      "n_cases": 8,
+      "n_mutants_caught": 8,
+      "n_mutants": 8,
+      "passes": true
+    },
+    "image_correlation_label": {
+      "condition": "labelled image correlation, not diagnosis",
+      "status": "image_correlation",
+      "not_a_diagnosis": true,
+      "passes": true
+    }
+  },
+  "conditions_failed": [],
+  "all_conditions_hold": true,
+  "conditions_holding_only_via_the_weak_branch": [
+    "coverage_accuracy_policy"
+  ],
+  "honest_reading": "6 of 6 hold, but coverage_accuracy_policy holds only because the user allowed an explicit lower-coverage refusal in place of the bar. The original 70% coverage + 85% accuracy target is not met on development or on the holdout, at any coverage point.",
+  "role": "first_version_rag_candidate_not_shipped",
+  "status_line": "strong development candidate / not clinically validated / not yet shipped",
+  "may_be_called": [
+    "image correlation",
+    "research candidate",
+    "internal health-education candidate"
+  ],
+  "may_not_be_called": [
+    "shipped model",
+    "validated model",
+    "diagnostic model",
+    "clinically confirmed",
+    "meets the 70/85 bar",
+    "externally validated"
+  ],
+  "headline_numbers": {
+    "development_oof": {
+      "n": 162,
+      "accuracy": 0.7284,
+      "balanced_accuracy": 0.7216,
+      "delta_vs_mode": 0.1605
+    },
+    "consumed_holdout": {
+      "n": 39,
+      "accuracy": 0.6154,
+      "balanced_accuracy": 0.631,
+      "auroc": 0.7249,
+      "delta_to_quote": 0.0769,
+      "class1_recall": 0.4286,
+      "ece": 0.157
+    },
+    "cross_archive_refit": {
+      "recovered_archive1": 0.1444,
+      "recovered_archive2": 0.084,
+      "recovered_archive3": 0.185
+    }
+  },
+  "what_the_holdout_showed": [
+    "accuracy 0.6154 and BA 0.6310 on 39 labelled locked cases, down 0.1130 and 0.0906 from development -- the drop is kept, not explained away",
+    "A2x still ranks above A0 (BA +0.0476) but the interval includes zero on 39 cases, so the cross-archive advantage is not reconfirmed here",
+    "class 1 recall 0.4286: more than half the above-band cases are missed",
+    "ECE 0.1570: the probabilities are overconfident on this set",
+    "the honest single-constant delta is +0.0769, not the +0.1539 that the development mode would suggest, because the majority class flips"
+  ],
+  "no_model_change": "the read was authorised on the condition that the result stands. No threshold, feature or head was changed after these numbers were seen.",
+  "remaining_blockers_not_solvable_by_modelling": [
+    "no external test set collected under the same definitions",
+    "no independent clinician annotation, so clinical correctness is untested",
+    "locked-47 is consumed and cannot serve as a clean test again",
+    "low-prevalence PPV is unaddressed; at 5% prevalence this would be a rule-out tool at best, and class 1 recall 0.4286 undermines even that"
+  ]
+}

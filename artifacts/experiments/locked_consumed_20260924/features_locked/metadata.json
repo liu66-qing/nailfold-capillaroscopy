@@ -1,0 +1,42 @@
+{
+  "run": "locked_consumed_20260924_features",
+  "scope": "locked-47 only",
+  "cases": 47,
+  "images": 402,
+  "encoder": {
+    "arm": "anchor_dinov2b_deployed",
+    "weights_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+    "feature_dim": 768,
+    "patch_grid": [
+      37,
+      49
+    ],
+    "geometry": "direct resize to [518, 686], no padding (reproduces the deployed native preset)"
+  },
+  "detector": {
+    "source": "external only",
+    "weights_sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
+    "conf": 0.25,
+    "imgsz": 640,
+    "class_map": {
+      "0": "bushy",
+      "1": "crossing",
+      "2": "hairpin",
+      "3": "tortuous"
+    }
+  },
+  "heads_frozen_sha256": {
+    "A0": "bee714f71cc99f792cb6b0702b5d881eb40a9c28564a57c5db40ac8a947f64c4",
+    "A2x": "cc15e2e67c51a39bc6e8b70cc05b618e7a5b9c49a69a51f544d86c1fac090a97"
+  },
+  "excluded_by_name": [
+    "rep_* report scans",
+    "videos",
+    "non-CAPorg files"
+  ],
+  "placeholder_images_in_locked": 0,
+  "placeholder_note": "all 36 all-black placeholders are development-side (25 cases); asserted, not assumed",
+  "this_run_read_locked": true,
+  "budget_note": "locked-47 was already consumed seven times with model selection on it in three runs. This read does not restore it to a clean test set; the scoring artefact is named a consumed internal holdout descriptive evaluation for that reason.",
+  "computes_no_metric": "features only. Scoring is a separate script so this step cannot be rerun differently in response to a number."
+}

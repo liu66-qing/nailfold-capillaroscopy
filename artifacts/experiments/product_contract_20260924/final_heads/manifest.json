@@ -5,7 +5,7 @@
   "field": "malformation_ratio",
   "arms": {
     "A0": "anchor_dinov2b_deployed",
-    "A2x": "anchor_dinov2b_deployed + local_features/local"
+    "A2x": "anchor_dinov2b_deployed + local_features/external"
   },
   "fit_on": {
     "cases": 162,
@@ -43,7 +43,7 @@
   },
   "head_sha256": {
     "A0": "bee714f71cc99f792cb6b0702b5d881eb40a9c28564a57c5db40ac8a947f64c4",
-    "A2x": "cc15e2e67c51a39bc6e8b70cc05b618e7a5b9c49a69a51f544d86c1fac090a97"
+    "A2x": "82435d8b08030aec93d0ee1a62d1ddb284c64ae7fa3a0a6494111d9923a351ed"
   },
   "detector_sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
   "encoder": "vit_base_patch14_dinov2.lvd142m",

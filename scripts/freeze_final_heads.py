@@ -40,7 +40,12 @@ from run_field_matrix_three_arms import (  # noqa: E402
 from run_rescue_ladder_local import attach, load_local  # noqa: E402
 
 FIELD = "malformation_ratio"
-LOCAL_TAG = "local"
+# The A2x table: the EXTERNAL-pretrained detector's 4 classes (bushy / crossing /
+# hairpin / tortuous), 64 columns. Not "local", which is the A2 rung's 3-class
+# local-box detector with 54 columns -- my first version of this script used that tag
+# and froze an A2 head under the name A2x. The width assertion below is what makes
+# that mistake impossible to repeat silently.
+LOCAL_TAG = "external"
 FROZEN = (ROOT / "artifacts" / "experiments" / "rescue_external_20260922"
           / "frozen_candidate_malformation_a2x")
 CONTRACT_DIR = ROOT / "artifacts" / "experiments" / "product_contract_20260924"
@@ -116,8 +121,27 @@ def main() -> None:
         raise RuntimeError("malformation_ratio must be binary; got %d" % n_classes)
     a2x_feats = attach(feats, ix, extra)
 
+    # The A2x arm must carry the external detector's 64 columns. Asserting the width
+    # against the frozen candidate's own table is what catches a wrong-tag mix-up:
+    # the A2 table has 54 columns and would fit, score and freeze without complaint.
+    frozen_cols = pd.read_csv(FROZEN / "case_features.csv", nrows=0).shape[1] - 1
+    if extra.shape[1] != frozen_cols:
+        raise RuntimeError(
+            "local table %r has %d columns but the frozen A2x candidate has %d -- "
+            "wrong rung (A2 'local' is 54, A2x 'external' is 64)"
+            % (LOCAL_TAG, extra.shape[1], frozen_cols))
+    if list(extra.columns) != [c for c in pd.read_csv(
+            FROZEN / "case_features.csv", nrows=0).columns if c != "exam_case_id"]:
+        raise RuntimeError("local column names differ from the frozen A2x candidate")
+
     heads = {"A0": fit_final(feats, ix, y_case),
              "A2x": fit_final(a2x_feats, ix, y_case)}
+    for arm, h in heads.items():
+        want = 768 + (frozen_cols if arm == "A2x" else 0)
+        got = h["pipes"][POOLINGS[0]].steps[0][1].n_features_in_
+        if got != want:
+            raise RuntimeError("%s head expects %d features, want %d"
+                               % (arm, got, want))
 
     with open(FROZEN / "frozen_candidate.json", encoding="utf-8") as fh:
         frozen = json.load(fh)
