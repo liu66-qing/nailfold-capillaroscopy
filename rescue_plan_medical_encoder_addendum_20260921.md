@@ -2074,3 +2074,45 @@ A1+A2 对 A1 的逐折 BA 差：+0.0654 / −0.0333 / −0.0897 / −0.0929 / +0
 - 所有数字都是 **development 病例级 OOF，不是产品能力**。
   本轮 `locked_cases_seen = 0`（仅指本轮运行；项目历史的 7 次消费不变）。
 
+### 9.5 补齐执行记录 8.10 的记录缺口：A3 检测器逐类 AP 已恢复
+
+执行记录 8.10 披露过一个缺口：`external_then_local_fold*/per_class.json`
+五个文件里全是 `ValueError('The truth value of an array…')` 字符串
+（`getattr(r, "names", None) or {}` 在 numpy names 对象上取布尔值），
+**逐类 AP 从未被写出**。当时明确写了「这是一个已知的记录缺口，不是 0 分」。
+
+现已用既有的 `scripts/recover_detector_per_class.py --detectors
+detectors_external_then_local.json` 补齐：从冻结池重建每折验证侧、
+重新 val 已保存的 best.pt（**不训练、不读任何 locked 图像**），
+并断言重建的 `val_images` 与训练时写入的清单一致（320/300/380/620/300）。
+五个文件现在都有真实数字。
+
+| 检测器 | mAP50 逐折 | mAP50 均值 | vessel | malformed_vessel | cross_vessel |
+|---|---|---|---|---|---|
+| A2 local（仅本地框） | .4422 .3953 .4571 .3440 .4255 | 0.4128 | 0.5575 | 0.4399 | **0.2410** |
+| A3 external_then_local | .4907 .5125 .4613 .4185 .4135 | **0.4593** | 0.5776 | **0.4847** | **0.3156** |
+
+**这张表改了一个归因，但没有改任何交付判定。**
+
+- 外部预训练**确实**把检测器练好了：mAP50 +0.0465、
+  malformed_vessel AP +0.0448、cross_vessel AP **+0.0746**（相对提升 31%）。
+  所以 A3 在下游字段上的弱表现**不能**解释成「预训练没学会」。
+- 但 cross_vessel AP 即使在最好的检测器上也只有 **0.3156**，
+  五折全在 0.29~0.40。这与 [[nailfold-seg-misses-abnormal]] 和
+  执行记录 8.7 的结论一致：**crossing 的瓶颈在我们自己的 crossing 标注**，
+  不是 backbone、不是预训练。检测器学不出一个定义本身不稳的类。
+- **同一套本地类别定义下**（A2 与 A3 都输出 vessel/malformed/cross 三类，
+  可直接比 AP），A3 的检测器明显更好，但下游 malformation_ratio
+  BA 差只有 +0.0626（CI 含 0，`below_resolution`），
+  低于 A2x 的 +0.0911（CI 排除 0）；crossing_ratio 同样是
+  A3 +0.0424 < A2x +0.0514，两者都不过阈值。
+  **检测器 AP 更高 ≠ 下游字段更好**，
+  这条要写进任何「再练检测器就能救字段」的提案里。
+  用户第三步「与其继续调 YOLO，不如去拿同定义参考标准」由此得到支持：
+  我们已经把 cross_vessel AP 提了 31%，下游净收益为 0。
+- **这条归因的限度**：A2x 用的是外部四类检测器（bushy/crossing/hairpin/
+  tortuous，与我们的字段不是同一定义），它的 AP 与 A2/A3 的三类 AP
+  **不可直接比较**，所以上面那句「AP 更高 ≠ 下游更好」严格成立的范围是
+  **A2 vs A3** 这一对。A2x 之所以最好，更可能来自它的框覆盖整条管袢
+  （高度占比是我们框的 7.12 倍），而不是它"检测得更准"。
+

@@ -1,3 +1,12 @@
 {
-  "error": "ValueError('The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()')"
+  "map50": 0.4907,
+  "map50_95": 0.2094,
+  "ap50_per_class": {
+    "vessel": 0.5917,
+    "malformed_vessel": 0.484,
+    "cross_vessel": 0.3963
+  },
+  "val_images": 320,
+  "val_cases": 6,
+  "note": "recovered after training by rebuilding this fold's val side from the frozen pools; image count verified against the manifest written at training time"
 }
