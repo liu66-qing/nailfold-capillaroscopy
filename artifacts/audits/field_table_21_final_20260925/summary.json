@@ -1,0 +1,20 @@
+{
+ "locked上有真实历史结果的字段": 5,
+ "未授权读取_不能补充locked指标的字段": 10,
+ "不需要locked模型评估的固定_删除_派生字段": 6,
+ "合计": 21,
+ "达到_70pct覆盖_85pct准确率_交付门槛的字段数": 0,
+ "门槛实测": {
+  "malformation_ratio_development_70pct": 0.7876,
+  "malformation_ratio_locked_70pct": 0.6667,
+  "note": "提高拒答率也到不了 85%（development 50% 覆盖时 0.8148 已是全曲线最好）",
+  "其余字段": "该次 locked 读取未存逐病例概率，覆盖曲线不可推算"
+ },
+ "locked_47的身份": "已消费的内部留出（consumed internal holdout），**不是外部验证、不是临床验证、不是干净最终测试集**（已被读取7次，其中3次在其上做过模型选择）",
+ "纪律声明": [
+  "development 数字**未**填入任何 locked 列",
+  "无逐病例概率的历史 locked 结果，AUROC 与 70% 覆盖准确率填 NOT_AVAILABLE_FROM_STORED_ARTIFACT，未用 development 数字替代",
+  "本次运行 locked_cases_seen = 0：未读取、未解码、未提特征、未训练",
+  "未修改任何既有模型或评估产物"
+ ]
+}

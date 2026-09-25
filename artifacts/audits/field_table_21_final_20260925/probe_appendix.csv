@@ -1,0 +1,4 @@
+﻿探针,量的定义,是否原21字段,人工金标准,准确率,与临床档的Spearman rho,95%CI,CI是否排除0,本地检测器二次意见,结论
+探针1：自动 crossing 框数,pooled_n_crossing（外部预训练4类检测器，病例内池化）,不是 —— 这是新量，**不得伪装成 crossing_ratio 的准确率**,不存在（无人逐图标注交叉数；报告只给全检查档位）,不可计算，且不声称,0.1048,"[-0.0361, 0.2399]",False,-0.0363,**不等价**：CI 含 0，且两个独立检测器符号相反
+探针2：画面内可见管袢数,pooled_n_total（同一检测器在画面内找到的管袢数）,不是 —— 新量，**不等价于 capillary_count 或条/mm**,不存在（无人标注画面内应有几条）,不可计算，且不声称,0.3697,"[0.237, 0.4862]",True,0.3341,有关联（CI排除0，两检测器同向），**但缺长度分母、设备UNCALIBRATED、无视野元数据 → 不是等价替代，禁止输出条/mm**
+探针3：局部可疑红点,NOT_AVAILABLE —— 磁盘上无任何检测器输出红点/出血类别,不是,不存在,NOT_AVAILABLE,NOT_AVAILABLE,NOT_AVAILABLE,NOT_AVAILABLE,NOT_AVAILABLE,"无量可评。外部检测器类别为 ['bushy', 'crossing', 'hairpin', 'tortuous']，本地为 ['vessel', 'malformed', 'cross']，均无红点类；要做需区域标注，我们持有 0 份"
