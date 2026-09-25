@@ -1,0 +1,604 @@
+{
+  "run": "frozen field output contract and RAG routing",
+  "frozen_on": "2026-09-25",
+  "frozen_before": "any locked-47 read in this round",
+  "product_framing": "this product emits health observations from an image. It does not diagnose, does not exclude disease, and has no independent disease endpoint in its training data",
+  "status_vocabulary": {
+    "reliable_observation": "a property of the image itself that the model reads dependably; still not a diagnosis",
+    "image_correlation": "the image looks like cases the report placed in this band; no calibrated measurement and no disease claim",
+    "unknown": "not assessed. MUST NOT be rendered as normal, negative or reassuring",
+    "rejected": "a precondition failed (quality, confidence, missing input); the field is withheld from the advice layer entirely"
+  },
+  "forbidden_status_values": [
+    "diagnosis",
+    "disease_fact",
+    "clinically_confirmed",
+    "confirmed",
+    "positive_diagnosis"
+  ],
+  "unknown_is_not_normal": "a field with status unknown or abstain=true must be rendered as 'not assessed'. Rendering it as normal, negative, clear or reassuring is a defect, not a wording choice",
+  "advice_allowed_whitelist": [
+    "建议结合症状、既往史和既往检查综合判断",
+    "如有雷诺现象、手指发白发紫、疼痛或反复皮肤改变，建议咨询医生",
+    "建议在相同条件下复查，或由专业人员进一步评估",
+    "本结果为图像相关性提示，不是诊断"
+  ],
+  "advice_forbidden_blacklist": [
+    "你患有系统性硬化症",
+    "你患有糖尿病",
+    "你有血栓",
+    "你没有疾病 / 可以排除疾病",
+    "立即开始治疗或停用药物",
+    "用图像排除任何疾病",
+    "任何具体疾病的确诊或排除",
+    "任何百分比、条/mm 或微米数值"
+  ],
+  "field_schema": {
+    "type": "object",
+    "required": [
+      "field",
+      "value",
+      "confidence",
+      "status",
+      "abstain",
+      "not_a_diagnosis",
+      "advice_allowed",
+      "advice_forbidden",
+      "reference_standard"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "field": {
+        "type": "string"
+      },
+      "value": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "null only when abstain is true"
+      },
+      "confidence": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "minimum": 0,
+        "maximum": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "image_correlation",
+          "rejected",
+          "reliable_observation",
+          "unknown"
+        ]
+      },
+      "abstain": {
+        "type": "boolean"
+      },
+      "abstain_reason": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "not_a_diagnosis": {
+        "const": true,
+        "description": "always true; there is no code path that may set this false"
+      },
+      "advice_allowed": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "advice_forbidden": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "reference_standard": {
+        "type": "string"
+      },
+      "tier": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "may_enter_advice": {
+        "type": "boolean"
+      }
+    }
+  },
+  "fields": {
+    "clarity": {
+      "field": "clarity",
+      "tier": 1,
+      "status": "reliable_observation",
+      "may_enter_advice": true,
+      "not_a_diagnosis": true,
+      "advice_allowed": [
+        "建议结合症状、既往史和既往检查综合判断",
+        "如有雷诺现象、手指发白发紫、疼痛或反复皮肤改变，建议咨询医生",
+        "建议在相同条件下复查，或由专业人员进一步评估",
+        "本结果为图像相关性提示，不是诊断"
+      ],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report wording, single reviewer, no independent second read",
+      "evidence": "passes the three-way archive check; delta +0.087 on locked after the prevalence-flip correction",
+      "role": "image quality / interpretability gate, not a clinical finding",
+      "may_gate_other_fields": true
+    },
+    "exudation": {
+      "field": "exudation",
+      "tier": 1,
+      "status": "image_correlation",
+      "may_enter_advice": true,
+      "not_a_diagnosis": true,
+      "advice_allowed": [
+        "建议结合症状、既往史和既往检查综合判断",
+        "如有雷诺现象、手指发白发紫、疼痛或反复皮肤改变，建议咨询医生",
+        "建议在相同条件下复查，或由专业人员进一步评估",
+        "本结果为图像相关性提示，不是诊断"
+      ],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report wording, single reviewer",
+      "evidence": "passes the three-way archive check",
+      "role": "conservative image correlation",
+      "may_gate_other_fields": false
+    },
+    "malformation_ratio": {
+      "field": "malformation_ratio",
+      "tier": 1,
+      "status": "image_correlation",
+      "may_enter_advice": true,
+      "not_a_diagnosis": true,
+      "advice_allowed": [
+        "建议结合症状、既往史和既往检查综合判断",
+        "如有雷诺现象、手指发白发紫、疼痛或反复皮肤改变，建议咨询医生",
+        "建议在相同条件下复查，或由专业人员进一步评估",
+        "本结果为图像相关性提示，不是诊断"
+      ],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report band (<=10% vs >10%); the human boxes are NOT the same measurement -- 17/44 inside band, ~3x scale offset",
+      "evidence": "A2x frozen candidate: development OOF delta +0.1605, BA 0.7216, refit LOAO beats a refit A0 in all three archives (+0.1444/+0.0840/+0.1850, 2 of 3 CIs exclude zero)",
+      "role": "binary band correspondence only; percentages forbidden",
+      "may_gate_other_fields": false,
+      "binary_values": [
+        "low_band_correspondence",
+        "high_band_correspondence"
+      ],
+      "product_bar_met": false,
+      "product_bar_note": "0.7876 accuracy at 69.75% coverage against an 85% bar; not reachable by abstaining further (0.8148 at 50%)"
+    },
+    "subpapillary_venous_plexus": {
+      "field": "subpapillary_venous_plexus",
+      "tier": 2,
+      "status": "image_correlation",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report wording",
+      "evidence": "archive-dependent; fails the leave-one-archive-out check",
+      "role": "research hint",
+      "may_gate_other_fields": false
+    },
+    "blood_color": {
+      "field": "blood_color",
+      "tier": 2,
+      "status": "image_correlation",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report wording",
+      "evidence": "archive-dependent; fails the leave-one-archive-out check",
+      "role": "research hint",
+      "may_gate_other_fields": false
+    },
+    "papilla": {
+      "field": "papilla",
+      "tier": 2,
+      "status": "image_correlation",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "original report wording, 3 bands kept",
+      "evidence": "best arm BA 0.5115 on a 3-class field; pre-registered fusion was worse than the best single arm. Model side closed.",
+      "role": "research hint",
+      "may_gate_other_fields": false
+    },
+    "capillary_count": {
+      "field": "capillary_count",
+      "tier": 2,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "printed band; no device calibration, no denominator, no field-of-view metadata",
+      "evidence": "blocked by the calibration prohibition, not by model quality",
+      "role": "blocked pending scale and denominator definition",
+      "may_gate_other_fields": false
+    },
+    "crossing_ratio": {
+      "field": "crossing_ratio",
+      "tier": 2,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "NOT ESTABLISHED -- the local crossing definition is the bottleneck; cross_vessel detector AP caps at 0.3156 across all five folds",
+      "evidence": "no arm clears threshold; the reference standard must be redone by an experienced reader before modelling continues",
+      "role": "blocked pending a redone reference standard",
+      "may_gate_other_fields": false
+    },
+    "microthrombus": {
+      "field": "microthrombus",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "needs a time base; also clinically contested in this data",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "flow_state": {
+      "field": "flow_state",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "needs a time base",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "rbc_aggregation": {
+      "field": "rbc_aggregation",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "needs a time base",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "vasomotion": {
+      "field": "vasomotion",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "needs a time base",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "wbc_count": {
+      "field": "wbc_count",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "needs a time base and a counting protocol",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "sweat_duct": {
+      "field": "sweat_duct",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "sample size makes this arithmetically unreachable at n=186",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "hemorrhage": {
+      "field": "hemorrhage",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "no usable reference standard (external kappa -0.208)",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "afferent_diameter": {
+      "field": "afferent_diameter",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "absolute micron measurement; device is UNCALIBRATED",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "efferent_diameter": {
+      "field": "efferent_diameter",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "absolute micron measurement; device is UNCALIBRATED",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "apex_diameter": {
+      "field": "apex_diameter",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "absolute micron measurement; device is UNCALIBRATED",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    },
+    "loop_length": {
+      "field": "loop_length",
+      "tier": 3,
+      "status": "unknown",
+      "may_enter_advice": false,
+      "not_a_diagnosis": true,
+      "advice_allowed": [],
+      "advice_forbidden": [
+        "你患有系统性硬化症",
+        "你患有糖尿病",
+        "你有血栓",
+        "你没有疾病 / 可以排除疾病",
+        "立即开始治疗或停用药物",
+        "用图像排除任何疾病",
+        "任何具体疾病的确诊或排除",
+        "任何百分比、条/mm 或微米数值"
+      ],
+      "reference_standard": "not established for product use",
+      "evidence": "absolute micron measurement; device is UNCALIBRATED",
+      "role": "not modelled; reported as not assessed",
+      "may_gate_other_fields": false
+    }
+  },
+  "tiers": {
+    "tier1": {
+      "fields": [
+        "clarity",
+        "exudation",
+        "malformation_ratio"
+      ],
+      "meaning": "may enter the RAG as an input"
+    },
+    "tier2": {
+      "fields": [
+        "blood_color",
+        "capillary_count",
+        "crossing_ratio",
+        "papilla",
+        "subpapillary_venous_plexus"
+      ],
+      "meaning": "research hint only; never reaches the advice layer"
+    },
+    "tier3": {
+      "fields": [
+        "afferent_diameter",
+        "apex_diameter",
+        "efferent_diameter",
+        "flow_state",
+        "hemorrhage",
+        "loop_length",
+        "microthrombus",
+        "rbc_aggregation",
+        "sweat_duct",
+        "vasomotion",
+        "wbc_count"
+      ],
+      "meaning": "not assessed; present so a consumer cannot mistake absence for normality"
+    }
+  },
+  "deleted_fields": {
+    "flow_speed_um_s": "deleted: an absolute velocity the device cannot calibrate and the report back-calculates"
+  },
+  "what_this_does_not_establish": [
+    "that any tier-1 field is clinically validated -- none is",
+    "that the advice whitelist is clinically correct; without independent clinician annotation that cannot be tested, only engineering safety can",
+    "that malformation_ratio meets the project's 70%/85% bar -- it does not, and abstaining further does not reach it"
+  ]
+}

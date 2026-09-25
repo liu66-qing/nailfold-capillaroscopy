@@ -1,0 +1,20 @@
+﻿field,tier,status,may_enter_advice,may_gate_other_fields,role,reference_standard
+clarity,1,reliable_observation,True,True,"image quality / interpretability gate, not a clinical finding","original report wording, single reviewer, no independent second read"
+exudation,1,image_correlation,True,False,conservative image correlation,"original report wording, single reviewer"
+malformation_ratio,1,image_correlation,True,False,binary band correspondence only; percentages forbidden,"original report band (<=10% vs >10%); the human boxes are NOT the same measurement -- 17/44 inside band, ~3x scale offset"
+blood_color,2,image_correlation,False,False,research hint,original report wording
+capillary_count,2,unknown,False,False,blocked pending scale and denominator definition,"printed band; no device calibration, no denominator, no field-of-view metadata"
+crossing_ratio,2,unknown,False,False,blocked pending a redone reference standard,NOT ESTABLISHED -- the local crossing definition is the bottleneck; cross_vessel detector AP caps at 0.3156 across all five folds
+papilla,2,image_correlation,False,False,research hint,"original report wording, 3 bands kept"
+subpapillary_venous_plexus,2,image_correlation,False,False,research hint,original report wording
+afferent_diameter,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+apex_diameter,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+efferent_diameter,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+flow_state,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+hemorrhage,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+loop_length,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+microthrombus,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+rbc_aggregation,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+sweat_duct,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+vasomotion,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
+wbc_count,3,unknown,False,False,not modelled; reported as not assessed,not established for product use
