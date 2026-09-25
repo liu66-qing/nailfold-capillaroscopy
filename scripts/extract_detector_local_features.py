@@ -40,23 +40,34 @@ CLS = {0: "vessel", 1: "malformed", 2: "cross"}
 QUANTS = ("median", "mean", "p25", "p75")
 
 
-def per_image_stats(res, conf: float):
-    """Counts and frame-relative geometry for one image."""
+def per_image_stats(res, conf: float, cls_map: dict = None):
+    """Counts and frame-relative geometry for one image.
+
+    cls_map decides what the class indices MEAN. The local detector emits
+    0/1/2 = vessel/malformed/cross, but the external-pretrained detector emits
+    0/1/2/3 = bushy/crossing/hairpin/tortuous. Filing the external detector's
+    class 0 under "n_vessel" would put its bushy count in the vessel column and
+    drop class 3 entirely, and the resulting table would look perfectly normal.
+    So the caller must pass the map that matches the checkpoint.
+    """
+    cls_map = CLS if cls_map is None else cls_map
+    names = list(cls_map.values())
     b = res.boxes
     if b is None or len(b) == 0:
-        return dict(n_total=0, n_vessel=0, n_malformed=0, n_cross=0,
-                    ratio_malformed=np.nan, ratio_cross=np.nan,
-                    box_w_frac=np.nan, box_h_frac=np.nan,
-                    box_aspect=np.nan, box_diag_frac=np.nan)
+        out = dict(n_total=0, **{"n_" + v: 0 for v in names})
+        out.update({"ratio_" + v: np.nan for v in names})
+        out.update(box_w_frac=np.nan, box_h_frac=np.nan,
+                   box_aspect=np.nan, box_diag_frac=np.nan)
+        return out
     keep = b.conf.cpu().numpy() >= conf
     cls = b.cls.cpu().numpy()[keep].astype(int)
     xywhn = b.xywhn.cpu().numpy()[keep]
     n = len(cls)
-    cnt = {v: int((cls == k).sum()) for k, v in CLS.items()}
-    out = dict(n_total=n, n_vessel=cnt.get("vessel", 0),
-               n_malformed=cnt.get("malformed", 0), n_cross=cnt.get("cross", 0))
-    out["ratio_malformed"] = (out["n_malformed"] / n) if n else np.nan
-    out["ratio_cross"] = (out["n_cross"] / n) if n else np.nan
+    out = dict(n_total=n)
+    for k, v in cls_map.items():
+        out["n_" + v] = int((cls == k).sum())
+    for v in names:
+        out["ratio_" + v] = (out["n_" + v] / n) if n else np.nan
     if n:
         w, h = xywhn[:, 2], xywhn[:, 3]
         out["box_w_frac"] = float(np.median(w))
@@ -87,10 +98,18 @@ def aggregate(df: pd.DataFrame) -> pd.DataFrame:
             a = g[num].quantile(0.75)
         a.columns = ["%s_%s" % (c, q) for c in a.columns]
         parts.append(a)
-    tot = g[["n_total", "n_vessel", "n_malformed", "n_cross"]].sum()
+    # Derive the class names from the columns actually present rather than naming
+    # them here, so an external checkpoint's 4 classes are pooled too instead of
+    # being silently dropped by a hard-coded vessel/malformed/cross list.
+    ncols = [c for c in ("n_total",) if c in df.columns] + \
+            [c for c in df.columns if c.startswith("n_") and c != "n_total"]
+    tot = g[ncols].sum()
     tot.columns = ["pooled_" + c for c in tot.columns]
-    tot["pooled_ratio_malformed"] = tot.pooled_n_malformed / tot.pooled_n_total.replace(0, np.nan)
-    tot["pooled_ratio_cross"] = tot.pooled_n_cross / tot.pooled_n_total.replace(0, np.nan)
+    for c in ncols:
+        if c == "n_total":
+            continue
+        tot["pooled_ratio_" + c[2:]] = \
+            tot["pooled_" + c] / tot.pooled_n_total.replace(0, np.nan)
     tot["n_images"] = g.size()
     out = pd.concat(parts + [tot], axis=1)
 
@@ -106,10 +125,11 @@ def aggregate(df: pd.DataFrame) -> pd.DataFrame:
     #
     # The flag is what lets the evaluator distinguish "no vessels detected" from "a
     # missing row", instead of both arriving as a zero.
+    # Count columns are exactly the ones whose name starts n_ or pooled_n_ -- no
+    # class name appears here, so this stays correct for a 4-class external
+    # checkpoint. n_images is a count too and is already non-null.
     cnt_cols = [c for c in out.columns
-                if c.startswith("pooled_n") or c.split("_")[0] == "n"
-                or any(c.startswith(p) for p in ("n_total", "n_vessel", "n_malformed",
-                                                 "n_cross"))]
+                if c.startswith("pooled_n_") or c.startswith("n_")]
     out[cnt_cols] = out[cnt_cols].fillna(0)
     out["no_detection_in_any_image"] = (out.get("pooled_n_total", 0) == 0).astype(int)
     out["frac_images_with_no_detection"] = (
@@ -138,16 +158,55 @@ def main() -> None:
     if set(prov.exam_case_id) & locked:
         raise RuntimeError("locked case in the provenance table")
     folds = sorted(prov.development_fold.unique())
-    missing = [f for f in folds if ("%g" % f) not in meta_in["folds"]]
-    if missing:
-        raise RuntimeError("no detector for folds %s" % missing)
+    # The external-only detector is ONE checkpoint, not five: it is trained purely
+    # on external images, reads no local image, label or fold, and therefore cannot
+    # leak into any local validation fold. So a single checkpoint legitimately
+    # serves every fold here -- the same argument already applied to the
+    # external-only domain adaptation in the whole-image ladder. Any manifest that
+    # DID see local images must still carry one detector per fold, so this fallback
+    # is allowed only for source == "external", and the source is checked, not the
+    # emptiness of the folds dict.
+    single = None
+    if meta_in["source"] == "external":
+        single = meta_in.get("external_pretrain_weights")
+        if not single:
+            raise RuntimeError("external manifest has no external_pretrain_weights")
+        if meta_in["folds"]:
+            raise RuntimeError("external manifest unexpectedly carries per-fold "
+                               "detectors: %s" % sorted(meta_in["folds"]))
+    else:
+        missing = [f for f in folds if ("%g" % f) not in meta_in["folds"]]
+        if missing:
+            raise RuntimeError("no detector for folds %s" % missing)
+
+    # Which class map applies is a property of the checkpoint, so take it from the
+    # manifest rather than assuming. An external-only checkpoint predicts THEIR four
+    # classes; external_then_local was fine-tuned on our boxes and predicts ours.
+    if meta_in["source"] == "external":
+        cls_map = {int(k): v for k, v in meta_in["external_class_names"].items()}
+    else:
+        cls_map = dict(CLS)
+    print("class map for %s: %s" % (meta_in["source"], cls_map), flush=True)
 
     out = OUT / a.tag
     out.mkdir(parents=True, exist_ok=True)
     rows = []
     for f in folds:
-        w = ROOT / meta_in["folds"]["%g" % f]["weights"]
+        w = ROOT / (single if single else meta_in["folds"]["%g" % f]["weights"])
         model = YOLO(str(w))
+        # The checkpoint must predict the same NUMBER of classes on the same
+        # indices as the map, or the columns are mislabelled in a way no
+        # downstream check would catch -- an external checkpoint's class 0 landing
+        # in n_vessel produces a table that looks entirely normal.
+        #
+        # Compared on indices, not on strings: the trainer's LOCAL_NAMES says
+        # malformed_vessel / cross_vessel and this module's CLS says malformed /
+        # cross. Same indices, same meaning, two spellings; a name equality check
+        # rejects a correct pairing.
+        got = {int(k): str(v) for k, v in (getattr(model, "names", None) or {}).items()}
+        if got and sorted(got) != sorted(cls_map):
+            raise RuntimeError("checkpoint %s predicts classes %s, manifest map is "
+                               "%s" % (w.name, got, cls_map))
         sub = prov[prov.development_fold == f]
         paths = [str(ROOT / "data" / p) for p in sub.image_path]
         for i in range(0, len(paths), 16):
@@ -157,7 +216,7 @@ def main() -> None:
             for r, p, cid in zip(res, chunk, sub.exam_case_id.iloc[i:i + 16]):
                 rows.append(dict(exam_case_id=cid,
                                  image_path=Path(p).name,
-                                 **per_image_stats(r, a.conf)))
+                                 **per_image_stats(r, a.conf, cls_map)))
         print("fold %g: %d images through %s"
               % (f, len(paths), Path(w).parent.parent.name), flush=True)
         del model
@@ -178,8 +237,16 @@ def main() -> None:
         conf_threshold=a.conf, imgsz=a.imgsz,
         cases=int(case.exam_case_id.nunique()), images=int(len(per_img)),
         feature_columns=[c for c in case.columns if c != "exam_case_id"],
-        fold_to_detector={("%g" % f): meta_in["folds"]["%g" % f]["weights"]
+        fold_to_detector={("%g" % f): (single if single
+                                       else meta_in["folds"]["%g" % f]["weights"])
                           for f in folds},
+        class_map={str(k): v for k, v in cls_map.items()},
+        one_checkpoint_for_all_folds=bool(single),
+        one_checkpoint_justification=(
+            None if not single else
+            "this detector trained only on external images -- zero local images, "
+            "labels or folds -- so it cannot leak into any local validation fold "
+            "and one checkpoint legitimately serves every fold"),
         locked_cases_seen=0,
         units=dict(counts="unitless box counts",
                    ratios="unitless fractions of detected boxes",

@@ -1,8 +1,8 @@
 {
   "run": "detector_local_features",
-  "tag": "local",
-  "detector_manifest": "detectors_local.json",
-  "detector_source": "local",
+  "tag": "external_then_local",
+  "detector_manifest": "detectors_external_then_local.json",
+  "detector_source": "external_then_local",
   "conf_threshold": 0.25,
   "imgsz": 640,
   "cases": 186,
@@ -64,12 +64,19 @@
     "frac_images_with_no_detection"
   ],
   "fold_to_detector": {
-    "0": "artifacts/experiments/rescue_external_20260922/detectors/local_fold0/weights/best.pt",
-    "1": "artifacts/experiments/rescue_external_20260922/detectors/local_fold1/weights/best.pt",
-    "2": "artifacts/experiments/rescue_external_20260922/detectors/local_fold2/weights/best.pt",
-    "3": "artifacts/experiments/rescue_external_20260922/detectors/local_fold3/weights/best.pt",
-    "4": "artifacts/experiments/rescue_external_20260922/detectors/local_fold4/weights/best.pt"
+    "0": "artifacts/experiments/rescue_external_20260922/detectors/external_then_local_fold0/weights/best.pt",
+    "1": "artifacts/experiments/rescue_external_20260922/detectors/external_then_local_fold1/weights/best.pt",
+    "2": "artifacts/experiments/rescue_external_20260922/detectors/external_then_local_fold2/weights/best.pt",
+    "3": "artifacts/experiments/rescue_external_20260922/detectors/external_then_local_fold3/weights/best.pt",
+    "4": "artifacts/experiments/rescue_external_20260922/detectors/external_then_local_fold4/weights/best.pt"
   },
+  "class_map": {
+    "0": "vessel",
+    "1": "malformed",
+    "2": "cross"
+  },
+  "one_checkpoint_for_all_folds": false,
+  "one_checkpoint_justification": null,
   "locked_cases_seen": 0,
   "units": {
     "counts": "unitless box counts",

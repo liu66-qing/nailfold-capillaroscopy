@@ -1,0 +1,11 @@
+{
+  "train_images": 1100,
+  "val_images": 198,
+  "subjects": 157,
+  "val_subjects": 24,
+  "people": 122,
+  "val_people": 18,
+  "grouping": "person, after collapsing hea_<person>-<visit> to person",
+  "people_on_both_sides": 0,
+  "purpose": "early stopping for the detector only; this split drives no field number and its mAP is not a generalisation claim"
+}
