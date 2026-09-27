@@ -3,3 +3,5 @@ freeze_commit_time: 2026-09-27T13:15:36+08:00
 bundle_sha256: a413286055a8d2f09efbd59d2a25eb4bdb049f6efffab9b756b7a66dbd3d8177
 offline_copy: E:/nailfold_frozen/rag_heads_v2/bundle.joblib
 test_queue_opens: examinations dated 2026-09-29 or later
+naming_note: rag_heads_v2 = A0 RAG heads on 233 cases; not the project's baseline v2 (2026-09-05 LoRA routing)
+label_source: all fields doctor-entered (user, 2026-09-28)

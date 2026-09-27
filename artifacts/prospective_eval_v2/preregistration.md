@@ -3,6 +3,14 @@
 Preregistration. Written on 2026-09-28, before the first prospective case.
 No line of this file may change after the first case is logged; amendments go in a dated appendix, and any case logged before an amendment is scored under the version it was logged under.
 
+## Naming (added 2026-09-28, before any case was logged)
+`rag_heads_v1` / `rag_heads_v2` are bundle names of the RAG field heads only:
+v1 = A0 heads trained on 186 dev cases, v2 = the same A0 heads trained on 233
+cases (186 + 47 former locked). They are **not** the project's historical
+"v1" (Aug routing, dirty labels) or "baseline v2" (2026-09-05 LoRA routing on
+reviewed labels). The paired comparison in section 7 is rag_heads_v1 vs
+rag_heads_v2, i.e. only the effect of adding 47 training cases.
+
 ## 0. What this measures and what it does not
 
 - It measures agreement between the frozen image model and the examination report that is produced later.
@@ -94,23 +102,18 @@ No line of this file may change after the first case is logged; amendments go in
 - **What a pass does not change.** `microthrombus` stays out of advice regardless of its result, because its unit (count / min) needs dynamic observation.
   `loop_length` may enter RAG only if it passes here, and only as "报告档位相关性提示".
 
-## 6. Label source per field (must be filled in before the first case)
+## 6. Label source per field
 
-| Field | Source | Confirmed by | Date |
-|---|---|---|---|
-| clarity | ☐ device software ☐ doctor entry ☐ mixed | | |
-| subpapillary_venous_plexus | ☐ device software ☐ doctor entry ☐ mixed | | |
-| exudation | ☐ device software ☐ doctor entry ☐ mixed | | |
-| blood_color | ☐ device software ☐ doctor entry ☐ mixed | | |
-| malformation_ratio | ☐ device software ☐ doctor entry ☐ mixed | | |
-| microthrombus | ☐ device software ☐ doctor entry ☐ mixed | | |
-| loop_length | ☐ device software ☐ doctor entry ☐ mixed | | |
-
-Results are labelled "reproduces device output" or "reproduces doctor report" according to this table.
+Confirmed by the user on 2026-09-28: **every report field is entered by the
+doctor**, none is computed by the device software. Every result of this
+evaluation is therefore "agreement with the doctor's report" (复现医生报告),
+for all seven fields, including loop_length (a doctor-entered value, not an
+instrument measurement). Inter-doctor variability is part of the reference
+standard and cannot be separated here: no second reading exists.
 
 ## 7. Known risk stated in advance
 
-In the internal paired LOAO (`artifacts/experiments/v1_vs_v2_training_20260928/`), adding the 47 former locked cases changed exudation BA by −0.035, CI [−0.074, 0.000].
+In the internal paired LOAO (`artifacts/experiments/v1_vs_v2_training_20260928/`, rag_heads_v1 vs rag_heads_v2), adding the 47 former locked cases changed exudation BA by −0.035, CI [−0.074, 0.000].
 v2 is kept as the single frozen configuration anyway, because choosing per field between v1 and v2 on that same LOAO would be selection on the evaluation.
 The prospective result is the test of that choice.
 
