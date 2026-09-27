@@ -123,3 +123,15 @@ The prospective result is the test of that choice.
 - v3 is frozen with its own preregistration.
 - Cases after v3's freeze form the next test queue.
 - Each prospective batch is scored exactly once.
+
+## Appendix A (2026-09-28, before any case was logged)
+- Scoring script `scripts/score_prospective_v2.py` committed with synthetic tests
+  (`tests/test_score_prospective.py`: entry rules, refusal before the stopping
+  point and on a second run, oracle passes / random fails, failures scored as
+  abstained). It encodes sections 2, 4 and 5 verbatim and is not edited after
+  the first case.
+- `ShadowLog.record` gained an optional `device_id` argument, stored as
+  `device_id_requested`, so a failed inference (no device block) is routed to
+  the correct queue. Predictions, bundle and thresholds are unchanged.
+- A failure without any device id is counted in the same-device queue
+  (it can only lower same-device coverage).

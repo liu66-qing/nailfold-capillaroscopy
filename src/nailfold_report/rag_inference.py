@@ -191,10 +191,12 @@ class ShadowLog:
 
     def record(self, exam_id: str, subject_key: str, exam_date: str,
                result: dict[str, Any] | None, raw: dict[str, Any] | None,
-               error: str | None = None) -> dict[str, Any]:
+               error: str | None = None,
+               device_id: str | None = None) -> dict[str, Any]:
         """subject_key: patient id if one exists, otherwise a stable pseudonym
         of the examined person; used to keep only one exam per person.
-        A failed inference is recorded with error set, never skipped."""
+        A failed inference is recorded with error set, never skipped;
+        device_id keeps a failure in the right (same/cross-device) queue."""
         import datetime
         import json
         row = dict(exam_id=exam_id, subject_key=subject_key, exam_date=exam_date,
@@ -204,7 +206,7 @@ class ShadowLog:
                    device=None if result is None else result["device"],
                    images=None if result is None else result["images"],
                    rag_fields=None if result is None else result["fields"],
-                   shadow_fields=raw, error=error)
+                   shadow_fields=raw, error=error, device_id_requested=device_id)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(row, ensure_ascii=False, default=float) + "\n")
