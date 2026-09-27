@@ -135,3 +135,12 @@ The prospective result is the test of that choice.
   the correct queue. Predictions, bundle and thresholds are unchanged.
 - A failure without any device id is counted in the same-device queue
   (it can only lower same-device coverage).
+
+## Appendix B (2026-09-28, before any case was logged)
+- The product inference entry is not designed yet. Until it is, prospective
+  exams are logged with `scripts/shadow_infer.py EXAM_DIR ...`, which reads only
+  `CAPorg*` images and never opens report files.
+- Names are removed upstream for privacy, so `subject_key = "<archive>/<folder number>"`
+  (user decision). Limitation stated in advance: if the same person is filed under
+  two folder numbers, the one-person-one-case rule cannot catch it.
+- `exam_date` = `--exam-date` if given, else the earliest mtime of the CAPorg images.
