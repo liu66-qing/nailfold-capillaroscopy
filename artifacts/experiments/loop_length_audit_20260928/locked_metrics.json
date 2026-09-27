@@ -1,0 +1,219 @@
+{
+ "bundle_sha256": "8c66fbb940217697ae3cb3b1b4473c384edf178428450e33add8d1665e3dae72",
+ "n_cases": 45,
+ "prevalence": 0.5111,
+ "metrics": {
+  "full_coverage": {
+   "n": 45,
+   "n_pos": 23,
+   "accuracy": 0.6889,
+   "balanced_accuracy": 0.6848,
+   "auroc": 0.7648,
+   "recall_0": 0.5,
+   "recall_1": 0.8696,
+   "majority_baseline_accuracy": 0.5111,
+   "confusion_rows_true_cols_pred": [
+    [
+     11,
+     11
+    ],
+    [
+     3,
+     20
+    ]
+   ]
+  },
+  "selective": {
+   "n": 25,
+   "n_pos": 12,
+   "accuracy": 0.76,
+   "balanced_accuracy": 0.766,
+   "auroc": 0.8333,
+   "recall_0": 0.6154,
+   "recall_1": 0.9167,
+   "majority_baseline_accuracy": 0.52,
+   "confusion_rows_true_cols_pred": [
+    [
+     8,
+     5
+    ],
+    [
+     1,
+     11
+    ]
+   ],
+   "coverage": 0.5556
+  },
+  "all_cases_outcome": {
+   "answered_correct": 0.4222,
+   "answered_wrong": 0.1333,
+   "abstained": 0.4444
+  },
+  "abstain_rate_by_true_class": {
+   "0": 0.4091,
+   "1": 0.4783
+  },
+  "per_archive": {
+   "recovered_archive1": {
+    "full_coverage": {
+     "n": 13,
+     "n_pos": 5,
+     "accuracy": 0.7692,
+     "balanced_accuracy": 0.8125,
+     "auroc": 0.825,
+     "recall_0": 0.625,
+     "recall_1": 1.0,
+     "majority_baseline_accuracy": 0.6154,
+     "confusion_rows_true_cols_pred": [
+      [
+       5,
+       3
+      ],
+      [
+       0,
+       5
+      ]
+     ]
+    },
+    "selective": {
+     "n": 7,
+     "n_pos": 2,
+     "accuracy": 0.7143,
+     "balanced_accuracy": 0.8,
+     "auroc": 0.9,
+     "recall_0": 0.6,
+     "recall_1": 1.0,
+     "majority_baseline_accuracy": 0.7143,
+     "confusion_rows_true_cols_pred": [
+      [
+       3,
+       2
+      ],
+      [
+       0,
+       2
+      ]
+     ]
+    },
+    "coverage": 0.5385,
+    "abstain_margin": 0.1965,
+    "prevalence": 0.3846
+   },
+   "recovered_archive2": {
+    "full_coverage": {
+     "n": 20,
+     "n_pos": 12,
+     "accuracy": 0.6,
+     "balanced_accuracy": 0.5625,
+     "auroc": 0.6667,
+     "recall_0": 0.375,
+     "recall_1": 0.75,
+     "majority_baseline_accuracy": 0.6,
+     "confusion_rows_true_cols_pred": [
+      [
+       3,
+       5
+      ],
+      [
+       3,
+       9
+      ]
+     ]
+    },
+    "selective": {
+     "n": 12,
+     "n_pos": 6,
+     "accuracy": 0.6667,
+     "balanced_accuracy": 0.6667,
+     "auroc": 0.8056,
+     "recall_0": 0.5,
+     "recall_1": 0.8333,
+     "majority_baseline_accuracy": 0.5,
+     "confusion_rows_true_cols_pred": [
+      [
+       3,
+       3
+      ],
+      [
+       1,
+       5
+      ]
+     ]
+    },
+    "coverage": 0.6,
+    "abstain_margin": 0.1965,
+    "prevalence": 0.6
+   },
+   "recovered_archive3": {
+    "full_coverage": {
+     "n": 12,
+     "n_pos": 6,
+     "accuracy": 0.75,
+     "balanced_accuracy": 0.75,
+     "auroc": 0.9167,
+     "recall_0": 0.5,
+     "recall_1": 1.0,
+     "majority_baseline_accuracy": 0.5,
+     "confusion_rows_true_cols_pred": [
+      [
+       3,
+       3
+      ],
+      [
+       0,
+       6
+      ]
+     ]
+    },
+    "selective": {
+     "n": 6,
+     "n_pos": 4,
+     "accuracy": 1.0,
+     "balanced_accuracy": 1.0,
+     "auroc": 1.0,
+     "recall_0": 1.0,
+     "recall_1": 1.0,
+     "majority_baseline_accuracy": 0.6667,
+     "confusion_rows_true_cols_pred": [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    },
+    "coverage": 0.5,
+    "abstain_margin": 0.1965,
+    "prevalence": 0.5
+   }
+  }
+ },
+ "full_ba_ci95": [
+  0.5525,
+  0.803
+ ],
+ "permutation_full": {
+  "mean": 0.4977,
+  "q95": 0.5958,
+  "p": 0.003
+ },
+ "permutation_selective": {
+  "mean": 0.4974,
+  "q95": 0.6859,
+  "p": 0.00799
+ },
+ "device_distance_informational": 0.1428,
+ "device_null_q99": 0.2684,
+ "gates": {
+  "1_full_BA>=0.65_recalls>=0.50": true,
+  "2_perm_p<0.05": true,
+  "3_sel_cov>=0.50_BA>=0.75_recalls>=0.65": false,
+  "4_abstain_class_gap<=0.15": true
+ },
+ "all_gates_pass": false,
+ "this_run_read_locked": true,
+ "refitted_anything": false
+}

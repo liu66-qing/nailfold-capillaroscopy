@@ -1,0 +1,11 @@
+{
+ "run": "measurement_relative",
+ "locked_cases_seen": 0,
+ "target": "label > development median (declared, not tuned)",
+ "arms": [
+  "A0",
+  "G (detector geometry, external)",
+  "A0+G mean 0.5"
+ ],
+ "note": "relative to this cohort; not a micrometre output"
+}

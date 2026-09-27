@@ -1,0 +1,36 @@
+{
+ "B_devfold_oof_thr250": {
+  "protocol": "5-fold development_fold OOF across archives (NOT LOAO)",
+  "ba": 0.7329
+ },
+ "D_probe_loao_sorted": {
+  "protocol": "R.oof with fold dict {held-out:1, rest:0}; refit per archive",
+  "ba": 0.7095,
+  "max_abs_prob_diff_vs_audit": 1.1102230246251565e-16,
+  "same_predicted_cases": true
+ },
+ "C_probe_loao_list_set_bug": {
+  "mechanism": "loao[list(te)] = q[arch==a]: q is in sorted-case order, list(set) is in hash order, so each archive's predictions were written onto the wrong cases of the same archive",
+  "historical_ba": 0.528,
+  "ba_under_5_random_within_archive_reassignments": [
+   0.539,
+   0.5617,
+   0.4594,
+   0.5276,
+   0.5163
+  ],
+  "within_archive_prediction_multiset_identical_to_audit": true,
+  "list_set_first5_under_hashseed_0_1_2": [
+   "recovered_archive1/54,recovered_archive1/48,recovered_archive1/68,recovered_archive1/76,recovered_archive1/100",
+   "recovered_archive1/42,recovered_archive1/78,recovered_archive1/38,recovered_archive1/67,recovered_archive1/72",
+   "recovered_archive1/28,recovered_archive1/78,recovered_archive1/38,recovered_archive1/47,recovered_archive1/61"
+  ],
+  "reading": "same training rows, same features, same fitted models, same predicted cases; only the case<->prediction assignment differs"
+ },
+ "A_eval_measurement_relative_loao_thr255.5": {
+  "protocol": "refit LOAO, threshold 255.5 (median) - a different target",
+  "ba": 0.733,
+  "max_abs_prob_diff_vs_audit_255": 1.1102230246251565e-16
+ },
+ "audit_main_thr250_full_ba": 0.7095
+}

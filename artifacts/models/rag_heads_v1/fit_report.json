@@ -1,0 +1,62 @@
+{
+ "fields": {
+  "clarity": {
+   "n": 185,
+   "prevalence": 0.5081,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.8378
+  },
+  "subpapillary_venous_plexus": {
+   "n": 184,
+   "prevalence": 0.5707,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.837
+  },
+  "exudation": {
+   "n": 183,
+   "prevalence": 0.4918,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.7486
+  },
+  "loop_length": {
+   "n": 176,
+   "prevalence": 0.5057,
+   "abstain_margin": 0.1965,
+   "oof_coverage": 0.6023,
+   "oof_answered_accuracy": 0.8208
+  },
+  "blood_color": {
+   "n": 181,
+   "prevalence": 0.4475,
+   "abstain_margin": 0.1147,
+   "oof_coverage": 0.6022,
+   "oof_answered_accuracy": 0.7982
+  },
+  "microthrombus": {
+   "n": 182,
+   "prevalence": 0.4066,
+   "abstain_margin": 0.1137,
+   "oof_coverage": 0.5989,
+   "oof_answered_accuracy": 0.7523
+  },
+  "malformation_ratio": {
+   "n": 162,
+   "prevalence": 0.4321,
+   "abstain_margin": 0.1172,
+   "oof_coverage": 0.5988,
+   "oof_answered_accuracy": 0.7216
+  }
+ },
+ "device": {
+  "cases": 12,
+  "null_q99": 0.2684346601515019,
+  "null_median": 0.1769559577847439
+ },
+ "locked_cases_seen": 0,
+ "keep_fraction": 0.6,
+ "loop_upper": 250.0,
+ "note": "development-only fit; not a launch claim"
+}

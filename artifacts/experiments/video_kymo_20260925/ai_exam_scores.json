@@ -1,0 +1,118 @@
+{
+  "deepseek": {
+    "answered": 220,
+    "parse_fail": 4,
+    "vessel": {
+      "n": 216,
+      "acc": 0.963,
+      "kappa": 0.7978,
+      "pred_yes_rate": 0.889,
+      "true_yes_rate": 0.907
+    },
+    "crossing": {
+      "n": 196,
+      "acc": 0.7194,
+      "kappa": 0.0295,
+      "pred_yes_rate": 0.087,
+      "true_yes_rate": 0.245
+    },
+    "abnormal": {
+      "n": 148,
+      "acc": 0.6824,
+      "kappa": 0.389,
+      "pred_yes_rate": 0.439,
+      "true_yes_rate": 0.662
+    },
+    "passes_kappa_0_4": {
+      "crossing": false,
+      "abnormal": false
+    }
+  },
+  "gpt_INVALID_listing_bug": {
+    "answered": 226,
+    "parse_fail": 0,
+    "vessel": {
+      "n": 185,
+      "acc": 0.9622,
+      "kappa": 0.7671,
+      "pred_yes_rate": 0.914,
+      "true_yes_rate": 0.908
+    },
+    "crossing": {
+      "n": 168,
+      "acc": 0.7083,
+      "kappa": -0.0538,
+      "pred_yes_rate": 0.083,
+      "true_yes_rate": 0.232
+    },
+    "abnormal": {
+      "n": 129,
+      "acc": 0.5349,
+      "kappa": 0.1902,
+      "pred_yes_rate": 0.287,
+      "true_yes_rate": 0.674
+    },
+    "passes_kappa_0_4": {
+      "crossing": false,
+      "abnormal": false
+    }
+  },
+  "gpt_partial": {
+    "answered": 40,
+    "parse_fail": 0,
+    "vessel": {
+      "n": 40,
+      "acc": 0.975,
+      "kappa": 0.7872,
+      "pred_yes_rate": 0.925,
+      "true_yes_rate": 0.95
+    },
+    "crossing": {
+      "n": 38,
+      "acc": 0.6842,
+      "kappa": -0.1343,
+      "pred_yes_rate": 0.079,
+      "true_yes_rate": 0.237
+    },
+    "abnormal": {
+      "n": 29,
+      "acc": 0.4828,
+      "kappa": 0.1714,
+      "pred_yes_rate": 0.172,
+      "true_yes_rate": 0.69
+    },
+    "passes_kappa_0_4": {
+      "crossing": false,
+      "abnormal": false
+    }
+  },
+  "qwen": {
+    "answered": 220,
+    "parse_fail": 75,
+    "vessel": {
+      "n": 145,
+      "acc": 0.9862,
+      "kappa": 0.9298,
+      "pred_yes_rate": 0.897,
+      "true_yes_rate": 0.883
+    },
+    "crossing": {
+      "n": 128,
+      "acc": 0.6641,
+      "kappa": 0.0765,
+      "pred_yes_rate": 0.219,
+      "true_yes_rate": 0.258
+    },
+    "abnormal": {
+      "n": 95,
+      "acc": 0.7368,
+      "kappa": 0.4681,
+      "pred_yes_rate": 0.526,
+      "true_yes_rate": 0.6
+    },
+    "passes_kappa_0_4": {
+      "crossing": false,
+      "abnormal": true
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+ "fields": {
+  "clarity": {
+   "n": 231,
+   "prevalence": 0.4762,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.8009
+  },
+  "subpapillary_venous_plexus": {
+   "n": 231,
+   "prevalence": 0.5887,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.8182
+  },
+  "exudation": {
+   "n": 230,
+   "prevalence": 0.5,
+   "abstain_margin": 0.0,
+   "oof_coverage": 1.0,
+   "oof_answered_accuracy": 0.6957
+  },
+  "loop_length": {
+   "n": 221,
+   "prevalence": 0.5068,
+   "abstain_margin": 0.1904,
+   "oof_coverage": 0.6018,
+   "oof_answered_accuracy": 0.812
+  },
+  "blood_color": {
+   "n": 225,
+   "prevalence": 0.4533,
+   "abstain_margin": 0.1084,
+   "oof_coverage": 0.6,
+   "oof_answered_accuracy": 0.8
+  },
+  "microthrombus": {
+   "n": 228,
+   "prevalence": 0.3947,
+   "abstain_margin": 0.1039,
+   "oof_coverage": 0.6009,
+   "oof_answered_accuracy": 0.7664
+  },
+  "malformation_ratio": {
+   "n": 201,
+   "prevalence": 0.4527,
+   "abstain_margin": 0.1181,
+   "oof_coverage": 0.602,
+   "oof_answered_accuracy": 0.7107
+  }
+ },
+ "device": {
+  "cases": 12,
+  "null_q99": 0.2834689762842629,
+  "null_median": 0.18090979437499866
+ },
+ "n_cases": 233,
+ "locked_cases_seen": 47,
+ "keep_fraction": 0.6,
+ "loop_upper": 250.0,
+ "withheld": {
+  "loop_length": "failed preregistered locked gate 3 (covered recall_0 0.615 < 0.65), 2026-09-28"
+ },
+ "note": "dev 186 + locked 47 fit; no untouched internal test set remains. The next newly collected cases are the test set; oof numbers here are internal estimates, not a test result."
+}

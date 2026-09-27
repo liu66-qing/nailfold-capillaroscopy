@@ -1,0 +1,78 @@
+{
+  "S0": {
+    "blood_color": {
+      "survive": 0.7777777777777778,
+      "mean_drop": 0.003,
+      "worst_drop": 0.021
+    },
+    "clarity": {
+      "survive": 1.0,
+      "mean_drop": 0.014,
+      "worst_drop": 0.033
+    },
+    "exudation": {
+      "survive": 1.0,
+      "mean_drop": 0.001,
+      "worst_drop": 0.024
+    },
+    "malformation_ratio": {
+      "survive": 0.5555555555555556,
+      "mean_drop": -0.011,
+      "worst_drop": 0.019
+    },
+    "microthrombus": {
+      "survive": 0.8888888888888888,
+      "mean_drop": -0.003,
+      "worst_drop": 0.016
+    },
+    "subpapillary_venous_plexus": {
+      "survive": 1.0,
+      "mean_drop": 0.002,
+      "worst_drop": 0.013
+    }
+  },
+  "S1_loso": {
+    "blood_color": {
+      "survive": 0.8888888888888888,
+      "mean_drop": -0.005,
+      "worst_drop": 0.005
+    },
+    "clarity": {
+      "survive": 1.0,
+      "mean_drop": 0.007,
+      "worst_drop": 0.016
+    },
+    "exudation": {
+      "survive": 1.0,
+      "mean_drop": 0.002,
+      "worst_drop": 0.019
+    },
+    "malformation_ratio": {
+      "survive": 0.3333333333333333,
+      "mean_drop": -0.001,
+      "worst_drop": 0.025
+    },
+    "microthrombus": {
+      "survive": 0.8888888888888888,
+      "mean_drop": 0.0,
+      "worst_drop": 0.021
+    },
+    "subpapillary_venous_plexus": {
+      "survive": 1.0,
+      "mean_drop": 0.004,
+      "worst_drop": 0.019
+    }
+  },
+  "locked_cases_seen": 0,
+  "shifts": [
+    "lowres_0.5",
+    "jpeg_q30",
+    "warm",
+    "cool",
+    "desat_0.5",
+    "dark_g1.4",
+    "bright_g0.7",
+    "blur_s1.5",
+    "hf_like"
+  ]
+}

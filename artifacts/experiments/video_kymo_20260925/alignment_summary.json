@@ -1,0 +1,32 @@
+{
+  "cases": 95,
+  "share_best_match_below_0_5": 0.0737,
+  "share_longest_stable_below_3s_smooth": 0.7053,
+  "share_longest_stable_below_3s_raw": 0.8947,
+  "best_match_max_quantiles": {
+    "0.1": 0.517,
+    "0.25": 0.562,
+    "0.5": 0.624,
+    "0.75": 0.683,
+    "0.9": 0.756
+  },
+  "stable_seconds_quantiles_smooth": {
+    "0.1": 0.5,
+    "0.25": 0.78,
+    "0.5": 1.5,
+    "0.75": 3.42,
+    "0.9": 6.63
+  },
+  "stable_seconds_quantiles_raw": {
+    "0.1": 0.25,
+    "0.25": 0.45,
+    "0.5": 0.7,
+    "0.75": 1.35,
+    "0.9": 2.96
+  },
+  "stop_rule_alignment_triggered": false,
+  "stop_rule_stability_triggered_smooth": true,
+  "stop_rule_stability_triggered_raw": true,
+  "note_post_hoc": "smooth definition was added after the first run; quote the raw result when the two disagree",
+  "locked_cases_seen": 0
+}

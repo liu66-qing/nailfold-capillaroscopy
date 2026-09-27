@@ -1,0 +1,38 @@
+{
+ "global": {
+  "full_ba": {
+   "observed": 0.7095,
+   "n": 1000,
+   "perm_mean": 0.4896,
+   "perm_q95": 0.5626,
+   "perm_max": 0.603,
+   "p_empirical": 0.001
+  },
+  "selective_ba": {
+   "observed": 0.8656,
+   "n": 1000,
+   "perm_mean": 0.4857,
+   "perm_q95": 0.5884,
+   "perm_max": 0.6832,
+   "p_empirical": 0.001
+  }
+ },
+ "within": {
+  "full_ba": {
+   "observed": 0.7095,
+   "n": 1000,
+   "perm_mean": 0.4676,
+   "perm_q95": 0.5446,
+   "perm_max": 0.6301,
+   "p_empirical": 0.001
+  },
+  "selective_ba": {
+   "observed": 0.8656,
+   "n": 1000,
+   "perm_mean": 0.4539,
+   "perm_q95": 0.562,
+   "perm_max": 0.6506,
+   "p_empirical": 0.001
+  }
+ }
+}

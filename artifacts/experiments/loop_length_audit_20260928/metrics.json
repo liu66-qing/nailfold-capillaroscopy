@@ -1,0 +1,580 @@
+{
+ "main": {
+  "full_coverage": {
+   "n": 176,
+   "n_pos": 89,
+   "accuracy": 0.7102,
+   "balanced_accuracy": 0.7095,
+   "auroc": 0.7959,
+   "recall_0": 0.6437,
+   "recall_1": 0.7753,
+   "majority_baseline_accuracy": 0.5057,
+   "confusion_rows_true_cols_pred": [
+    [
+     56,
+     31
+    ],
+    [
+     20,
+     69
+    ]
+   ]
+  },
+  "selective": {
+   "n": 101,
+   "n_pos": 46,
+   "accuracy": 0.8614,
+   "balanced_accuracy": 0.8656,
+   "auroc": 0.8664,
+   "recall_0": 0.8182,
+   "recall_1": 0.913,
+   "majority_baseline_accuracy": 0.5446,
+   "confusion_rows_true_cols_pred": [
+    [
+     45,
+     10
+    ],
+    [
+     4,
+     42
+    ]
+   ],
+   "coverage": 0.5739
+  },
+  "all_cases_outcome": {
+   "answered_correct": 0.4943,
+   "answered_wrong": 0.0795,
+   "abstained": 0.4261
+  },
+  "abstain_rate_by_true_class": {
+   "0": 0.3678,
+   "1": 0.4831
+  },
+  "per_archive": {
+   "recovered_archive1": {
+    "full_coverage": {
+     "n": 55,
+     "n_pos": 23,
+     "accuracy": 0.7273,
+     "balanced_accuracy": 0.7412,
+     "auroc": 0.8234,
+     "recall_0": 0.6562,
+     "recall_1": 0.8261,
+     "majority_baseline_accuracy": 0.5818,
+     "confusion_rows_true_cols_pred": [
+      [
+       21,
+       11
+      ],
+      [
+       4,
+       19
+      ]
+     ]
+    },
+    "selective": {
+     "n": 36,
+     "n_pos": 14,
+     "accuracy": 0.8333,
+     "balanced_accuracy": 0.8506,
+     "auroc": 0.8766,
+     "recall_0": 0.7727,
+     "recall_1": 0.9286,
+     "majority_baseline_accuracy": 0.6111,
+     "confusion_rows_true_cols_pred": [
+      [
+       17,
+       5
+      ],
+      [
+       1,
+       13
+      ]
+     ]
+    },
+    "coverage": 0.6545,
+    "abstain_margin": 0.1815,
+    "prevalence": 0.4182
+   },
+   "recovered_archive2": {
+    "full_coverage": {
+     "n": 73,
+     "n_pos": 33,
+     "accuracy": 0.6575,
+     "balanced_accuracy": 0.661,
+     "auroc": 0.7485,
+     "recall_0": 0.625,
+     "recall_1": 0.697,
+     "majority_baseline_accuracy": 0.5479,
+     "confusion_rows_true_cols_pred": [
+      [
+       25,
+       15
+      ],
+      [
+       10,
+       23
+      ]
+     ]
+    },
+    "selective": {
+     "n": 36,
+     "n_pos": 13,
+     "accuracy": 0.8333,
+     "balanced_accuracy": 0.8361,
+     "auroc": 0.8027,
+     "recall_0": 0.8261,
+     "recall_1": 0.8462,
+     "majority_baseline_accuracy": 0.6389,
+     "confusion_rows_true_cols_pred": [
+      [
+       19,
+       4
+      ],
+      [
+       2,
+       11
+      ]
+     ]
+    },
+    "coverage": 0.4932,
+    "abstain_margin": 0.2434,
+    "prevalence": 0.4521
+   },
+   "recovered_archive3": {
+    "full_coverage": {
+     "n": 48,
+     "n_pos": 33,
+     "accuracy": 0.7708,
+     "balanced_accuracy": 0.7424,
+     "auroc": 0.8283,
+     "recall_0": 0.6667,
+     "recall_1": 0.8182,
+     "majority_baseline_accuracy": 0.6875,
+     "confusion_rows_true_cols_pred": [
+      [
+       10,
+       5
+      ],
+      [
+       6,
+       27
+      ]
+     ]
+    },
+    "selective": {
+     "n": 29,
+     "n_pos": 19,
+     "accuracy": 0.931,
+     "balanced_accuracy": 0.9237,
+     "auroc": 0.9263,
+     "recall_0": 0.9,
+     "recall_1": 0.9474,
+     "majority_baseline_accuracy": 0.6552,
+     "confusion_rows_true_cols_pred": [
+      [
+       9,
+       1
+      ],
+      [
+       1,
+       18
+      ]
+     ]
+    },
+    "coverage": 0.6042,
+    "abstain_margin": 0.1822,
+    "prevalence": 0.6875
+   }
+  }
+ },
+ "gates": {
+  "1_each_direction_full_BA>=0.65_and_recalls>=0.50": true,
+  "3_selective_cov>=0.50_BA>=0.75_recalls>=0.65_each_dir_BA>=0.65": true,
+  "4_abstain_class_gap<=0.15_and_archive_cov_in_[0.35,0.80]": true,
+  "5_blank_image_exclusion_changes_full_BA<=0.03": true
+ },
+ "sensitivity_blank_images_excluded": {
+  "n_images_removed": 21,
+  "metrics": {
+   "full_coverage": {
+    "n": 176,
+    "n_pos": 89,
+    "accuracy": 0.7045,
+    "balanced_accuracy": 0.7039,
+    "auroc": 0.7953,
+    "recall_0": 0.6437,
+    "recall_1": 0.764,
+    "majority_baseline_accuracy": 0.5057,
+    "confusion_rows_true_cols_pred": [
+     [
+      56,
+      31
+     ],
+     [
+      21,
+      68
+     ]
+    ]
+   },
+   "selective": {
+    "n": 93,
+    "n_pos": 42,
+    "accuracy": 0.8602,
+    "balanced_accuracy": 0.8641,
+    "auroc": 0.8604,
+    "recall_0": 0.8235,
+    "recall_1": 0.9048,
+    "majority_baseline_accuracy": 0.5484,
+    "confusion_rows_true_cols_pred": [
+     [
+      42,
+      9
+     ],
+     [
+      4,
+      38
+     ]
+    ],
+    "coverage": 0.5284
+   },
+   "all_cases_outcome": {
+    "answered_correct": 0.4545,
+    "answered_wrong": 0.0739,
+    "abstained": 0.4716
+   },
+   "abstain_rate_by_true_class": {
+    "0": 0.4138,
+    "1": 0.5281
+   },
+   "per_archive": {
+    "recovered_archive1": {
+     "full_coverage": {
+      "n": 55,
+      "n_pos": 23,
+      "accuracy": 0.7273,
+      "balanced_accuracy": 0.7412,
+      "auroc": 0.8179,
+      "recall_0": 0.6562,
+      "recall_1": 0.8261,
+      "majority_baseline_accuracy": 0.5818,
+      "confusion_rows_true_cols_pred": [
+       [
+        21,
+        11
+       ],
+       [
+        4,
+        19
+       ]
+      ]
+     },
+     "selective": {
+      "n": 31,
+      "n_pos": 11,
+      "accuracy": 0.8387,
+      "balanced_accuracy": 0.8545,
+      "auroc": 0.8864,
+      "recall_0": 0.8,
+      "recall_1": 0.9091,
+      "majority_baseline_accuracy": 0.6452,
+      "confusion_rows_true_cols_pred": [
+       [
+        16,
+        4
+       ],
+       [
+        1,
+        10
+       ]
+      ]
+     },
+     "coverage": 0.5636,
+     "abstain_margin": 0.1996,
+     "prevalence": 0.4182
+    },
+    "recovered_archive2": {
+     "full_coverage": {
+      "n": 73,
+      "n_pos": 33,
+      "accuracy": 0.6575,
+      "balanced_accuracy": 0.661,
+      "auroc": 0.7508,
+      "recall_0": 0.625,
+      "recall_1": 0.697,
+      "majority_baseline_accuracy": 0.5479,
+      "confusion_rows_true_cols_pred": [
+       [
+        25,
+        15
+       ],
+       [
+        10,
+        23
+       ]
+      ]
+     },
+     "selective": {
+      "n": 32,
+      "n_pos": 11,
+      "accuracy": 0.8125,
+      "balanced_accuracy": 0.8139,
+      "auroc": 0.8052,
+      "recall_0": 0.8095,
+      "recall_1": 0.8182,
+      "majority_baseline_accuracy": 0.6562,
+      "confusion_rows_true_cols_pred": [
+       [
+        17,
+        4
+       ],
+       [
+        2,
+        9
+       ]
+      ]
+     },
+     "coverage": 0.4384,
+     "abstain_margin": 0.2589,
+     "prevalence": 0.4521
+    },
+    "recovered_archive3": {
+     "full_coverage": {
+      "n": 48,
+      "n_pos": 33,
+      "accuracy": 0.75,
+      "balanced_accuracy": 0.7273,
+      "auroc": 0.8364,
+      "recall_0": 0.6667,
+      "recall_1": 0.7879,
+      "majority_baseline_accuracy": 0.6875,
+      "confusion_rows_true_cols_pred": [
+       [
+        10,
+        5
+       ],
+       [
+        7,
+        26
+       ]
+      ]
+     },
+     "selective": {
+      "n": 30,
+      "n_pos": 20,
+      "accuracy": 0.9333,
+      "balanced_accuracy": 0.925,
+      "auroc": 0.92,
+      "recall_0": 0.9,
+      "recall_1": 0.95,
+      "majority_baseline_accuracy": 0.6667,
+      "confusion_rows_true_cols_pred": [
+       [
+        9,
+        1
+       ],
+       [
+        1,
+        19
+       ]
+      ]
+     },
+     "coverage": 0.625,
+     "abstain_margin": 0.1884,
+     "prevalence": 0.6875
+    }
+   }
+  }
+ },
+ "sensitivity_threshold_255_5": {
+  "full_coverage": {
+   "n": 176,
+   "n_pos": 88,
+   "accuracy": 0.733,
+   "balanced_accuracy": 0.733,
+   "auroc": 0.8023,
+   "recall_0": 0.6818,
+   "recall_1": 0.7841,
+   "majority_baseline_accuracy": 0.5,
+   "confusion_rows_true_cols_pred": [
+    [
+     60,
+     28
+    ],
+    [
+     19,
+     69
+    ]
+   ]
+  },
+  "selective": {
+   "n": 103,
+   "n_pos": 47,
+   "accuracy": 0.8738,
+   "balanced_accuracy": 0.8771,
+   "auroc": 0.8739,
+   "recall_0": 0.8393,
+   "recall_1": 0.9149,
+   "majority_baseline_accuracy": 0.5437,
+   "confusion_rows_true_cols_pred": [
+    [
+     47,
+     9
+    ],
+    [
+     4,
+     43
+    ]
+   ],
+   "coverage": 0.5852
+  },
+  "all_cases_outcome": {
+   "answered_correct": 0.5114,
+   "answered_wrong": 0.0739,
+   "abstained": 0.4148
+  },
+  "abstain_rate_by_true_class": {
+   "0": 0.3636,
+   "1": 0.4659
+  },
+  "per_archive": {
+   "recovered_archive1": {
+    "full_coverage": {
+     "n": 55,
+     "n_pos": 23,
+     "accuracy": 0.7636,
+     "balanced_accuracy": 0.7724,
+     "auroc": 0.8234,
+     "recall_0": 0.7188,
+     "recall_1": 0.8261,
+     "majority_baseline_accuracy": 0.5818,
+     "confusion_rows_true_cols_pred": [
+      [
+       23,
+       9
+      ],
+      [
+       4,
+       19
+      ]
+     ]
+    },
+    "selective": {
+     "n": 35,
+     "n_pos": 14,
+     "accuracy": 0.8571,
+     "balanced_accuracy": 0.869,
+     "auroc": 0.8776,
+     "recall_0": 0.8095,
+     "recall_1": 0.9286,
+     "majority_baseline_accuracy": 0.6,
+     "confusion_rows_true_cols_pred": [
+      [
+       17,
+       4
+      ],
+      [
+       1,
+       13
+      ]
+     ]
+    },
+    "coverage": 0.6364,
+    "abstain_margin": 0.1803,
+    "prevalence": 0.4182
+   },
+   "recovered_archive2": {
+    "full_coverage": {
+     "n": 73,
+     "n_pos": 33,
+     "accuracy": 0.6712,
+     "balanced_accuracy": 0.6735,
+     "auroc": 0.7432,
+     "recall_0": 0.65,
+     "recall_1": 0.697,
+     "majority_baseline_accuracy": 0.5479,
+     "confusion_rows_true_cols_pred": [
+      [
+       26,
+       14
+      ],
+      [
+       10,
+       23
+      ]
+     ]
+    },
+    "selective": {
+     "n": 39,
+     "n_pos": 15,
+     "accuracy": 0.8205,
+     "balanced_accuracy": 0.8167,
+     "auroc": 0.8167,
+     "recall_0": 0.8333,
+     "recall_1": 0.8,
+     "majority_baseline_accuracy": 0.6154,
+     "confusion_rows_true_cols_pred": [
+      [
+       20,
+       4
+      ],
+      [
+       3,
+       12
+      ]
+     ]
+    },
+    "coverage": 0.5342,
+    "abstain_margin": 0.2263,
+    "prevalence": 0.4521
+   },
+   "recovered_archive3": {
+    "full_coverage": {
+     "n": 48,
+     "n_pos": 32,
+     "accuracy": 0.7917,
+     "balanced_accuracy": 0.7656,
+     "auroc": 0.8516,
+     "recall_0": 0.6875,
+     "recall_1": 0.8438,
+     "majority_baseline_accuracy": 0.6667,
+     "confusion_rows_true_cols_pred": [
+      [
+       11,
+       5
+      ],
+      [
+       5,
+       27
+      ]
+     ]
+    },
+    "selective": {
+     "n": 29,
+     "n_pos": 18,
+     "accuracy": 0.9655,
+     "balanced_accuracy": 0.9545,
+     "auroc": 0.9495,
+     "recall_0": 0.9091,
+     "recall_1": 1.0,
+     "majority_baseline_accuracy": 0.6207,
+     "confusion_rows_true_cols_pred": [
+      [
+       10,
+       1
+      ],
+      [
+       0,
+       18
+      ]
+     ]
+    },
+    "coverage": 0.6042,
+    "abstain_margin": 0.1822,
+    "prevalence": 0.6667
+   }
+  }
+ },
+ "locked_cases_seen": 0,
+ "recentring_used": false
+}
