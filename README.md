@@ -12,6 +12,8 @@
 
 上图是开发集一例的实际输出，姓名、年龄为示例值。其余 8 例的 JSON 见 [release/final_v1/examples/](release/final_v1/examples/)。
 
+> **模型文件在哪：** 仓库代码里不含模型文件。5 个模型文件（共约 420 MB）都放在 GitHub Release **[expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)** 的附件里。克隆仓库后，先按 [§1.0](#10-下载模型文件) 下载，并放到指定路径，否则程序无法运行。
+
 ---
 
 ## 1. 快速开始
@@ -37,11 +39,28 @@ scikit-learn 必须是 1.9.0，因为分类头是 pickle 的 sklearn 管线，�
 
 完整 sha256 见 Release 里的 `SHA256SUMS.txt` 和 [release/final_v1/release_manifest.json](release/final_v1/release_manifest.json)。
 
-一键下载（需要装好 [gh](https://cli.github.com/)）：
+下载方式任选一种，文件都放进仓库根目录下的 `_assets/`：
+
+- 浏览器：打开 [Release 页面](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)，在 Assets 里逐个点击下载。
+- [gh](https://cli.github.com/)：
 
 ```bash
 gh release download expert-router-final -R liu66-qing/nailfold-capillaroscopy -D _assets
 ```
+
+- curl：
+
+```bash
+mkdir -p _assets && for f in bundle.joblib seg_s0.pt det_capillary.pt rag_heads_v1_bundle.joblib dinov2_b_model.safetensors SHA256SUMS.txt; do curl -L -o "_assets/$f" "https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/$f"; done
+```
+
+校验（可选；加载时也会再校验一次）：
+
+```bash
+cd _assets && sha256sum -c SHA256SUMS.txt && cd ..
+```
+
+放到对应路径：
 
 ```bash
 mkdir -p artifacts/models/expert_router_v1 artifacts/models/rag_heads_v1 weights/dinov2/b && cp _assets/bundle.joblib _assets/seg_s0.pt _assets/det_capillary.pt artifacts/models/expert_router_v1/ && cp _assets/rag_heads_v1_bundle.joblib artifacts/models/rag_heads_v1/bundle.joblib && cp _assets/dinov2_b_model.safetensors weights/dinov2/b/model.safetensors

@@ -96,3 +96,4 @@ _tmp_*/
 .claude/
 # the one image shipped with the README (a rendered example, no patient data)
 !docs/report_example.png
+_assets/
