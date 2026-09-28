@@ -1,0 +1,615 @@
+{
+ "summary": {
+  "afferent": {
+   "O-stack": {
+    "n": 209,
+    "counts": [
+     68,
+     96,
+     45
+    ],
+    "acc": 0.4545,
+    "mode_acc": 0.4593,
+    "shipped_acc": 0.4976,
+    "minus_mode": [
+     -0.0766,
+     -0.0048,
+     0.067
+    ],
+    "minus_shipped": [
+     -0.1053,
+     -0.0431,
+     0.0239
+    ],
+    "recall": [
+     0.324,
+     0.698,
+     0.133
+    ],
+    "shipped_recall": [
+     0.25,
+     0.76,
+     0.311
+    ],
+    "qwk": 0.1875,
+    "shipped_qwk": 0.2675,
+    "pred_share": [
+     0.244,
+     0.689,
+     0.067
+    ],
+    "locked_acc": 0.4318,
+    "locked_shipped_acc": 0.4773
+   },
+   "O-mean": {
+    "n": 209,
+    "counts": [
+     68,
+     96,
+     45
+    ],
+    "acc": 0.4785,
+    "mode_acc": 0.4593,
+    "shipped_acc": 0.4976,
+    "minus_mode": [
+     -0.0478,
+     0.0191,
+     0.0861
+    ],
+    "minus_shipped": [
+     -0.0718,
+     -0.0144,
+     0.0335
+    ],
+    "recall": [
+     0.309,
+     0.781,
+     0.089
+    ],
+    "shipped_recall": [
+     0.25,
+     0.76,
+     0.311
+    ],
+    "qwk": 0.2089,
+    "shipped_qwk": 0.2675,
+    "pred_share": [
+     0.201,
+     0.756,
+     0.043
+    ],
+    "locked_acc": 0.5,
+    "locked_shipped_acc": 0.4773
+   },
+   "O-stack-noMOR": {
+    "n": 209,
+    "counts": [
+     68,
+     96,
+     45
+    ],
+    "acc": 0.4689,
+    "mode_acc": 0.4593,
+    "shipped_acc": 0.4976,
+    "minus_mode": [
+     -0.0622,
+     0.0096,
+     0.0813
+    ],
+    "minus_shipped": [
+     -0.091,
+     -0.0287,
+     0.0335
+    ],
+    "recall": [
+     0.353,
+     0.729,
+     0.089
+    ],
+    "shipped_recall": [
+     0.25,
+     0.76,
+     0.311
+    ],
+    "qwk": 0.1573,
+    "shipped_qwk": 0.2675,
+    "pred_share": [
+     0.258,
+     0.694,
+     0.048
+    ],
+    "locked_acc": 0.4318,
+    "locked_shipped_acc": 0.4773
+   }
+  },
+  "efferent": {
+   "O-stack": {
+    "n": 208,
+    "counts": [
+     33,
+     120,
+     55
+    ],
+    "acc": 0.6346,
+    "mode_acc": 0.5769,
+    "shipped_acc": 0.6298,
+    "minus_mode": [
+     0.0048,
+     0.0577,
+     0.1106
+    ],
+    "minus_shipped": [
+     -0.0337,
+     0.0048,
+     0.0433
+    ],
+    "recall": [
+     0.03,
+     0.925,
+     0.364
+    ],
+    "shipped_recall": [
+     0.0,
+     0.917,
+     0.382
+    ],
+    "qwk": 0.3078,
+    "shipped_qwk": 0.2935,
+    "pred_share": [
+     0.019,
+     0.851,
+     0.13
+    ],
+    "locked_acc": 0.6136,
+    "locked_shipped_acc": 0.5909
+   },
+   "O-mean": {
+    "n": 208,
+    "counts": [
+     33,
+     120,
+     55
+    ],
+    "acc": 0.625,
+    "mode_acc": 0.5769,
+    "shipped_acc": 0.6298,
+    "minus_mode": [
+     -0.0048,
+     0.0481,
+     0.101
+    ],
+    "minus_shipped": [
+     -0.0481,
+     -0.0048,
+     0.0385
+    ],
+    "recall": [
+     0.061,
+     0.908,
+     0.345
+    ],
+    "shipped_recall": [
+     0.0,
+     0.917,
+     0.382
+    ],
+    "qwk": 0.2974,
+    "shipped_qwk": 0.2935,
+    "pred_share": [
+     0.014,
+     0.841,
+     0.144
+    ],
+    "locked_acc": 0.6364,
+    "locked_shipped_acc": 0.5909
+   },
+   "O-stack-noMOR": {
+    "n": 208,
+    "counts": [
+     33,
+     120,
+     55
+    ],
+    "acc": 0.6346,
+    "mode_acc": 0.5769,
+    "shipped_acc": 0.6298,
+    "minus_mode": [
+     0.0048,
+     0.0577,
+     0.1106
+    ],
+    "minus_shipped": [
+     -0.0385,
+     0.0048,
+     0.0433
+    ],
+    "recall": [
+     0.03,
+     0.917,
+     0.382
+    ],
+    "shipped_recall": [
+     0.0,
+     0.917,
+     0.382
+    ],
+    "qwk": 0.291,
+    "shipped_qwk": 0.2935,
+    "pred_share": [
+     0.01,
+     0.837,
+     0.154
+    ],
+    "locked_acc": 0.5682,
+    "locked_shipped_acc": 0.5909
+   }
+  },
+  "apex": {
+   "O-stack": {
+    "n": 213,
+    "counts": [
+     31,
+     92,
+     90
+    ],
+    "acc": 0.5117,
+    "mode_acc": 0.4131,
+    "shipped_acc": 0.5493,
+    "minus_mode": [
+     0.0094,
+     0.0986,
+     0.1925
+    ],
+    "minus_shipped": [
+     -0.1033,
+     -0.0376,
+     0.0236
+    ],
+    "recall": [
+     0.0,
+     0.62,
+     0.578
+    ],
+    "shipped_recall": [
+     0.0,
+     0.674,
+     0.611
+    ],
+    "qwk": 0.2481,
+    "shipped_qwk": 0.2762,
+    "pred_share": [
+     0.014,
+     0.559,
+     0.427
+    ],
+    "locked_acc": 0.5455,
+    "locked_shipped_acc": 0.5682
+   },
+   "O-mean": {
+    "n": 213,
+    "counts": [
+     31,
+     92,
+     90
+    ],
+    "acc": 0.5399,
+    "mode_acc": 0.4131,
+    "shipped_acc": 0.5493,
+    "minus_mode": [
+     0.0468,
+     0.1268,
+     0.2066
+    ],
+    "minus_shipped": [
+     -0.0657,
+     -0.0094,
+     0.0469
+    ],
+    "recall": [
+     0.0,
+     0.707,
+     0.556
+    ],
+    "shipped_recall": [
+     0.0,
+     0.674,
+     0.611
+    ],
+    "qwk": 0.2594,
+    "shipped_qwk": 0.2762,
+    "pred_share": [
+     0.009,
+     0.606,
+     0.385
+    ],
+    "locked_acc": 0.5,
+    "locked_shipped_acc": 0.5682
+   },
+   "O-stack-noMOR": {
+    "n": 213,
+    "counts": [
+     31,
+     92,
+     90
+    ],
+    "acc": 0.5211,
+    "mode_acc": 0.4131,
+    "shipped_acc": 0.5493,
+    "minus_mode": [
+     0.0188,
+     0.108,
+     0.1925
+    ],
+    "minus_shipped": [
+     -0.0939,
+     -0.0235,
+     0.0329
+    ],
+    "recall": [
+     0.032,
+     0.63,
+     0.578
+    ],
+    "shipped_recall": [
+     0.0,
+     0.674,
+     0.611
+    ],
+    "qwk": 0.2811,
+    "shipped_qwk": 0.2762,
+    "pred_share": [
+     0.019,
+     0.563,
+     0.418
+    ],
+    "locked_acc": 0.5455,
+    "locked_shipped_acc": 0.5682
+   }
+  },
+  "loop": {
+   "O-stack": {
+    "n": 221,
+    "counts": [
+     42,
+     67,
+     112
+    ],
+    "acc": 0.6109,
+    "mode_acc": 0.5068,
+    "shipped_acc": 0.5747,
+    "minus_mode": [
+     0.0407,
+     0.1041,
+     0.1719
+    ],
+    "minus_shipped": [
+     -0.0136,
+     0.0362,
+     0.086
+    ],
+    "recall": [
+     0.476,
+     0.313,
+     0.839
+    ],
+    "shipped_recall": [
+     0.333,
+     0.299,
+     0.83
+    ],
+    "qwk": 0.5463,
+    "shipped_qwk": 0.4884,
+    "pred_share": [
+     0.163,
+     0.226,
+     0.611
+    ],
+    "locked_acc": 0.6444,
+    "locked_shipped_acc": 0.6444
+   },
+   "O-mean": {
+    "n": 221,
+    "counts": [
+     42,
+     67,
+     112
+    ],
+    "acc": 0.6199,
+    "mode_acc": 0.5068,
+    "shipped_acc": 0.5747,
+    "minus_mode": [
+     0.0498,
+     0.1131,
+     0.181
+    ],
+    "minus_shipped": [
+     0.0,
+     0.0452,
+     0.0905
+    ],
+    "recall": [
+     0.405,
+     0.373,
+     0.848
+    ],
+    "shipped_recall": [
+     0.333,
+     0.299,
+     0.83
+    ],
+    "qwk": 0.5278,
+    "shipped_qwk": 0.4884,
+    "pred_share": [
+     0.14,
+     0.249,
+     0.611
+    ],
+    "locked_acc": 0.6667,
+    "locked_shipped_acc": 0.6444
+   },
+   "O-stack-noMOR": {
+    "n": 221,
+    "counts": [
+     42,
+     67,
+     112
+    ],
+    "acc": 0.6018,
+    "mode_acc": 0.5068,
+    "shipped_acc": 0.5747,
+    "minus_mode": [
+     0.0271,
+     0.095,
+     0.1629
+    ],
+    "minus_shipped": [
+     -0.0181,
+     0.0271,
+     0.0724
+    ],
+    "recall": [
+     0.476,
+     0.299,
+     0.83
+    ],
+    "shipped_recall": [
+     0.333,
+     0.299,
+     0.83
+    ],
+    "qwk": 0.5473,
+    "shipped_qwk": 0.4884,
+    "pred_share": [
+     0.158,
+     0.231,
+     0.611
+    ],
+    "locked_acc": 0.6667,
+    "locked_shipped_acc": 0.6444
+   }
+  },
+  "papilla": {
+   "O-stack": {
+    "n": 231,
+    "counts": [
+     80,
+     96,
+     55
+    ],
+    "acc": 0.4632,
+    "mode_acc": 0.4156,
+    "shipped_acc": 0.4589,
+    "minus_mode": [
+     -0.039,
+     0.0455,
+     0.1299
+    ],
+    "minus_shipped": [
+     -0.0736,
+     0.0043,
+     0.0779
+    ],
+    "recall": [
+     0.475,
+     0.562,
+     0.273
+    ],
+    "shipped_recall": [
+     0.212,
+     0.719,
+     0.364
+    ],
+    "qwk": 0.2639,
+    "shipped_qwk": 0.208,
+    "pred_share": [
+     0.364,
+     0.519,
+     0.117
+    ],
+    "locked_acc": 0.5217,
+    "locked_shipped_acc": 0.3913
+   },
+   "O-mean": {
+    "n": 231,
+    "counts": [
+     80,
+     96,
+     55
+    ],
+    "acc": 0.4199,
+    "mode_acc": 0.4156,
+    "shipped_acc": 0.4589,
+    "minus_mode": [
+     -0.0693,
+     0.0043,
+     0.0736
+    ],
+    "minus_shipped": [
+     -0.1082,
+     -0.039,
+     0.0303
+    ],
+    "recall": [
+     0.438,
+     0.583,
+     0.109
+    ],
+    "shipped_recall": [
+     0.212,
+     0.719,
+     0.364
+    ],
+    "qwk": 0.2386,
+    "shipped_qwk": 0.208,
+    "pred_share": [
+     0.303,
+     0.606,
+     0.091
+    ],
+    "locked_acc": 0.4348,
+    "locked_shipped_acc": 0.3913
+   },
+   "O-stack-noMOR": {
+    "n": 231,
+    "counts": [
+     80,
+     96,
+     55
+    ],
+    "acc": 0.4242,
+    "mode_acc": 0.4156,
+    "shipped_acc": 0.4589,
+    "minus_mode": [
+     -0.0694,
+     0.0087,
+     0.0866
+    ],
+    "minus_shipped": [
+     -0.1082,
+     -0.0346,
+     0.0391
+    ],
+    "recall": [
+     0.463,
+     0.531,
+     0.182
+    ],
+    "shipped_recall": [
+     0.212,
+     0.719,
+     0.364
+    ],
+    "qwk": 0.216,
+    "shipped_qwk": 0.208,
+    "pred_share": [
+     0.355,
+     0.532,
+     0.113
+    ],
+    "locked_acc": 0.5,
+    "locked_shipped_acc": 0.3913
+   }
+  }
+ },
+ "protocol": "Ordinal three-band experts for the measurement rows and papilla.\n\nWhy a new expert (declared before any number was seen):\n  The shipped three-band rows are composed from two independent one-sided binary\n  heads. The low-side heads have 15% positives and collapse (efferent_lo /\n  apex_lo recall 0), and neither head sees the order of the three bands or the\n  continuous value the doctor wrote. This expert changes the task form and the\n  input, not only the weights:\n\n  1. target  = the continuous value, rank-transformed inside the training fold\n               (papilla: its ordered class 0/1/2). One shared direction for all\n               three bands, every case contributes, not only the 15% tail.\n  2. sources = A0 (DINOv2 case mean, 5 poolings, PCA64), COL, SEG, DET as in the\n               router, plus MOR: explicit per-loop morphometry from the S0 masks\n               (limb widths from the distance transform on the vessel pixels,\n               apex/bottom widths, loop height, ridge length, contrast), which no\n               earlier source measured. Each source -> RidgeCV score (alpha picked\n               by GCV on the training fold only).\n  3. fusion  = O-stack: ordinal logit on the five inner-OOF source scores\n               (per-field learned weights + two cut points), fitted inside each\n               outer training set. Decision = argmax posterior (Bayes rule for\n               accuracy), the same rule the shipped rows use.\n\nVariants, all reported (3 x 5 = 15 comparisons against the shipped row):\n  O-stack (primary), O-mean (equal z-weights), O-stack without MOR (attribution).\n\nProtocol: the same 5 outer folds as eval_calibrated_router.py (development_fold,\nfold for locked), inner 4-fold inside each training set. Baselines: the training\nfold's majority band, and the shipped composed row (calibrated_3band_*.csv).\nPaired bootstrap 2000. Locked-47 subset descriptive only.\n\n    python scripts/eval_ordinal_experts.py --morph .tmp_probe/morph_image.csv\n"
+}

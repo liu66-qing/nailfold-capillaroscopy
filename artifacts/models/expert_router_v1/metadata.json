@@ -1,0 +1,197 @@
+{
+ "bundle_sha256": "04ee6b80a88bb2e1ff2370906262dddf46e1e27d2f889f8c745be4bb41b17241",
+ "cases": 233,
+ "images": 2110,
+ "extractors": {
+  "A0": {
+   "encoder_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+   "note": "rag_heads_v1 encoder/preprocessing, 5 poolings"
+  },
+  "COL": {
+   "recipe": "extract_roi_quality_background_features.features (512x384, 6 regions)"
+  },
+  "SEG": {
+   "weights": "E:/nailfold_tmp/seg_runs/S0/weights/best.pt",
+   "sha256": "08103c92b937c0e94086d735c973da7deab069591af62dc3f677ed6cc66838bb",
+   "conf": 0.05,
+   "imgsz": 1024,
+   "recipe": "extract_instance_geometry.polygon_features/pairwise_topology/image_row, case mean"
+  },
+  "DET": {
+   "weights": "artifacts/experiments/rescue_external_20260922/detectors/external_pretrain/weights/best.pt",
+   "sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
+   "conf": 0.25,
+   "imgsz": 640,
+   "class_map": {
+    "0": "bushy",
+    "1": "crossing",
+    "2": "hairpin",
+    "3": "tortuous"
+   },
+   "recipe": "extract_detector_local_features.per_image_stats + aggregate"
+  }
+ },
+ "targets": {
+  "afferent_hi": {
+   "n": 209,
+   "positives": 45,
+   "cal": [
+    1.3729,
+    0.4047
+   ]
+  },
+  "afferent_lo": {
+   "n": 209,
+   "positives": 68,
+   "cal": [
+    1.2006,
+    0.1948
+   ]
+  },
+  "efferent_hi": {
+   "n": 208,
+   "positives": 55,
+   "cal": [
+    1.3419,
+    0.284
+   ]
+  },
+  "efferent_lo": {
+   "n": 208,
+   "positives": 33,
+   "cal": [
+    0.8622,
+    -0.1821
+   ]
+  },
+  "apex_hi": {
+   "n": 213,
+   "positives": 90,
+   "cal": [
+    1.3541,
+    0.0586
+   ]
+  },
+  "apex_lo": {
+   "n": 213,
+   "positives": 31,
+   "cal": [
+    1.0739,
+    0.1812
+   ]
+  },
+  "loop_hi": {
+   "n": 221,
+   "positives": 112,
+   "cal": [
+    1.3529,
+    -0.0034
+   ]
+  },
+  "loop_lo": {
+   "n": 221,
+   "positives": 42,
+   "cal": [
+    1.3364,
+    0.4652
+   ]
+  },
+  "capillary_lo": {
+   "n": 228,
+   "positives": 72,
+   "cal": [
+    1.3183,
+    0.1941
+   ]
+  },
+  "papilla_flat": {
+   "n": 231,
+   "positives": 55,
+   "cal": [
+    1.2406,
+    0.3096
+   ]
+  },
+  "papilla_wavy": {
+   "n": 231,
+   "positives": 80,
+   "cal": [
+    0.8699,
+    -0.1127
+   ]
+  },
+  "crossing": {
+   "n": 222,
+   "positives": 76,
+   "cal": [
+    0.9204,
+    -0.0372
+   ]
+  },
+  "clarity": {
+   "n": 231,
+   "positives": 110,
+   "cal": [
+    1.8614,
+    0.0195
+   ]
+  },
+  "subpapillary_venous_plexus": {
+   "n": 231,
+   "positives": 136,
+   "cal": [
+    1.9551,
+    -0.2586
+   ]
+  },
+  "exudation": {
+   "n": 230,
+   "positives": 115,
+   "cal": [
+    1.562,
+    -0.0363
+   ]
+  },
+  "blood_color": {
+   "n": 225,
+   "positives": 102,
+   "cal": [
+    2.1903,
+    0.1818
+   ]
+  },
+  "microthrombus": {
+   "n": 228,
+   "positives": 90,
+   "cal": [
+    1.8552,
+    0.2508
+   ]
+  },
+  "malformation": {
+   "n": 201,
+   "positives": 91,
+   "cal": [
+    1.5177,
+    0.0939
+   ]
+  },
+  "flow_state": {
+   "n": 225,
+   "positives": 178,
+   "cal": [
+    0.281,
+    0.9177
+   ]
+  },
+  "rbc_aggregation": {
+   "n": 228,
+   "positives": 194,
+   "cal": [
+    1.3934,
+    -0.7431
+   ]
+  }
+ },
+ "protocol": "Fit the final field-expert router on every labelled case of the 233.\n\nSame recipe as eval_calibrated_router.py, nothing re-chosen:\n  p = mean of four expert heads (A0 image-level DINOv2 x5 poolings; COL colour /\n      sharpness; SEG S0 segmenter geometry; DET Capillary-Dataset detector),\n      each LogReg C=0.03, one head per binary target\n  q = 1-D Platt calibration of logit(p), fitted on the 5-fold OOF p already\n      written by eval_fixed_router.py (fixed_router_oof.csv, column p_all), so the\n      calibrator never sees an in-sample p\nThe report decision is q > 0.5; the confidence wording uses |q - 0.5|.\n\nOutput: artifacts/models/expert_router_v1/{bundle.joblib,metadata.json}\n\n    python scripts/fit_expert_router_final.py\n"
+}

@@ -1,0 +1,245 @@
+{
+ "results": {
+  "clarity": {
+   "target": "clarity",
+   "n": 231,
+   "classes": [
+    0,
+    1
+   ],
+   "class_counts": {
+    "0": 121,
+    "1": 110
+   },
+   "mode_accuracy": 0.5238,
+   "chosen_per_fold": [
+    "A0+SEG",
+    "A0+SEG",
+    "A0",
+    "A0",
+    "A0+SEG"
+   ],
+   "arms": {
+    "A0": {
+     "ba": 0.8157,
+     "ba_ci95": [
+      0.7669,
+      0.864
+     ],
+     "auroc": 0.8657,
+     "accuracy": 0.8139,
+     "recall": [
+      0.7769,
+      0.8545
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.8135,
+      "recovered_archive2": 0.7987,
+      "recovered_archive3": 0.8582
+     },
+     "locked_subset_ba": 0.7104
+    },
+    "COL": {
+     "ba": 0.6789,
+     "ba_ci95": [
+      0.6166,
+      0.7409
+     ],
+     "auroc": 0.7416,
+     "accuracy": 0.6797,
+     "recall": [
+      0.6942,
+      0.6636
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.6963,
+      "recovered_archive2": 0.6476,
+      "recovered_archive3": 0.7132
+     },
+     "locked_subset_ba": 0.7438
+    },
+    "SEG": {
+     "ba": 0.7793,
+     "ba_ci95": [
+      0.7281,
+      0.8349
+     ],
+     "auroc": 0.84,
+     "accuracy": 0.7792,
+     "recall": [
+      0.7769,
+      0.7818
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7691,
+      "recovered_archive2": 0.8053,
+      "recovered_archive3": 0.7637
+     },
+     "locked_subset_ba": 0.7104
+    },
+    "DET": {
+     "ba": 0.7368,
+     "ba_ci95": [
+      0.6791,
+      0.7958
+     ],
+     "auroc": 0.8038,
+     "accuracy": 0.7359,
+     "recall": [
+      0.719,
+      0.7545
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7608,
+      "recovered_archive2": 0.7017,
+      "recovered_archive3": 0.7784
+     },
+     "locked_subset_ba": 0.6937
+    },
+    "A0+COL": {
+     "ba": 0.8066,
+     "ba_ci95": [
+      0.7541,
+      0.8567
+     ],
+     "auroc": 0.863,
+     "accuracy": 0.8052,
+     "recall": [
+      0.7769,
+      0.8364
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7648,
+      "recovered_archive2": 0.8068,
+      "recovered_archive3": 0.8792
+     },
+     "locked_subset_ba": 0.8063
+    },
+    "A0+SEG": {
+     "ba": 0.8136,
+     "ba_ci95": [
+      0.7647,
+      0.8655
+     ],
+     "auroc": 0.8666,
+     "accuracy": 0.8139,
+     "recall": [
+      0.8182,
+      0.8091
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7974,
+      "recovered_archive2": 0.815,
+      "recovered_archive3": 0.8466
+     },
+     "locked_subset_ba": 0.7271
+    },
+    "A0+DET": {
+     "ba": 0.7839,
+     "ba_ci95": [
+      0.7312,
+      0.8369
+     ],
+     "auroc": 0.8545,
+     "accuracy": 0.7835,
+     "recall": [
+      0.7769,
+      0.7909
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7974,
+      "recovered_archive2": 0.7654,
+      "recovered_archive3": 0.8141
+     },
+     "locked_subset_ba": 0.7104
+    },
+    "SEG+DET": {
+     "ba": 0.7839,
+     "ba_ci95": [
+      0.7298,
+      0.8365
+     ],
+     "auroc": 0.8359,
+     "accuracy": 0.7835,
+     "recall": [
+      0.7769,
+      0.7909
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.7813,
+      "recovered_archive2": 0.7846,
+      "recovered_archive3": 0.7931
+     },
+     "locked_subset_ba": 0.7271
+    },
+    "ALL": {
+     "ba": 0.819,
+     "ba_ci95": [
+      0.7706,
+      0.8701
+     ],
+     "auroc": 0.8708,
+     "accuracy": 0.8182,
+     "recall": [
+      0.8017,
+      0.8364
+     ],
+     "archive_ba": {
+      "recovered_archive1": 0.8297,
+      "recovered_archive2": 0.7957,
+      "recovered_archive3": 0.8613
+     },
+     "locked_subset_ba": 0.775
+    }
+   },
+   "nested": {
+    "ba": 0.8103,
+    "ba_ci95": [
+     0.7608,
+     0.8619
+    ],
+    "auroc": 0.8611,
+    "accuracy": 0.8095,
+    "recall": [
+     0.7934,
+     0.8273
+    ],
+    "archive_ba": {
+     "recovered_archive1": 0.8135,
+     "recovered_archive2": 0.7972,
+     "recovered_archive3": 0.8466
+    },
+    "locked_subset_ba": 0.7104
+   }
+  }
+ },
+ "groups": {
+  "measurement": [
+   "afferent_hi",
+   "afferent_lo",
+   "efferent_hi",
+   "efferent_lo",
+   "apex_hi",
+   "apex_lo",
+   "loop_hi",
+   "loop_lo",
+   "capillary_lo",
+   "capillary_3",
+   "papilla_3",
+   "papilla_flat",
+   "papilla_wavy",
+   "crossing"
+  ],
+  "classification": [
+   "clarity",
+   "subpapillary_venous_plexus",
+   "exudation",
+   "blood_color",
+   "microthrombus",
+   "malformation",
+   "flow_state",
+   "rbc_aggregation"
+  ]
+ },
+ "protocol": "Per-field expert routing on all 233 cases, with the route chosen inside the CV.\n\nQuestion: the user's design gives measurement fields (afferent/efferent/apex,\ncapillary_count, loop_length, papilla, crossing) to a measurement expert and\nappearance fields (clarity, SVP, exudation, blood_color, microthrombus,\nmalformation) to a classification expert. Does giving each field its own\nfeature source and its own task form beat the single A0 model?\n\nFeature routes (all exist for all 233 cases; no labels were used to build them):\n  A0   DINOv2-B deployed, 5 poolings, PCA64, LogReg C=0.03 (image level, case mean)\n  COL  handcrafted colour / sharpness statistics over 4 regions (case mean)\n  SEG  S0 segmenter instance geometry, conf 0.05 (case mean)\n  DET  Capillary-Dataset detector (bushy/crossing/hairpin/tortuous) case features\n  plus fixed equal-weight averages: A0+COL, A0+SEG, A0+DET, SEG+DET, ALL\nCase-level routes: median fill, StandardScaler, LogReg C=0.03.\n\nTask forms, declared here before any number was seen. Measurement fields use the\nreport's printed reference-range edges as binary \"outside the range on this side\"\nquestions, because the 3-band form was at chance and the label grid is 1 unit.\n\nDecision rule, declared: binary -> positive when p > training prevalence;\nmulticlass -> argmax of p / training prior. p >= 0.5 collapses imbalanced\ntargets to the majority class, which is the \"guessing\" the user saw.\n\nProtocol: 5-fold CV over all labelled cases of the 233 (development_fold for\ndev, fold for locked). The route is picked by inner-CV balanced accuracy inside\neach outer training set only (nested), so the reported number carries no\nselection bias. Also reported: every route's plain outer OOF, the always-mode\nbaseline (BA 0.5 by construction, plus accuracy), per archive, and the\nlocked-47 subset of the outer predictions.\n\n    python scripts/eval_field_experts.py [--jobs 4]\n"
+}

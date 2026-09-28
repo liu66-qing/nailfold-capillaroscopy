@@ -1,0 +1,658 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "nailfold report",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "exam_id",
+  "release_id",
+  "assets",
+  "device",
+  "images",
+  "fields",
+  "advice"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "nailfold-report/2.0"
+  },
+  "release_id": {
+   "const": "expert-router-final"
+  },
+  "exam_id": {
+   "type": "string",
+   "minLength": 1
+  },
+  "images": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "fields": {
+   "type": "object",
+   "required": [
+    "clarity",
+    "capillary_count",
+    "afferent_diameter",
+    "efferent_diameter",
+    "output_input_ratio",
+    "apex_diameter",
+    "loop_length",
+    "crossing_ratio",
+    "malformation_ratio",
+    "flow_state",
+    "vasomotion",
+    "rbc_aggregation",
+    "wbc_count",
+    "microthrombus",
+    "blood_color",
+    "exudation",
+    "hemorrhage",
+    "subpapillary_venous_plexus",
+    "papilla",
+    "sweat_duct"
+   ],
+   "properties": {
+    "clarity": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "capillary_count": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "afferent_diameter": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "efferent_diameter": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "output_input_ratio": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "apex_diameter": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "loop_length": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "crossing_ratio": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "malformation_ratio": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "flow_state": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "vasomotion": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "rbc_aggregation": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "wbc_count": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "microthrombus": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "blood_color": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "exudation": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "hemorrhage": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "subpapillary_venous_plexus": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "papilla": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    },
+    "sweat_duct": {
+     "type": "object",
+     "required": [
+      "item",
+      "value",
+      "reference",
+      "kind",
+      "deviates"
+     ],
+     "properties": {
+      "value": {
+       "type": "string",
+       "minLength": 1
+      },
+      "kind": {
+       "enum": [
+        "binary",
+        "band3",
+        "papilla",
+        "fixed",
+        "derived"
+       ]
+      },
+      "deviates": {
+       "type": "boolean"
+      }
+     }
+    }
+   },
+   "additionalProperties": false
+  },
+  "advice": {
+   "type": "object",
+   "required": [
+    "headline",
+    "sections",
+    "how_to_read",
+    "see_doctor",
+    "disclaimer"
+   ]
+  }
+ },
+ "not": {
+  "anyOf": [
+   {
+    "required": [
+     "score"
+    ]
+   },
+   {
+    "required": [
+     "total_score"
+    ]
+   },
+   {
+    "required": [
+     "grade"
+    ]
+   },
+   {
+    "required": [
+     "severity"
+    ]
+   },
+   {
+    "required": [
+     "diagnosis"
+    ]
+   }
+  ]
+ }
+}

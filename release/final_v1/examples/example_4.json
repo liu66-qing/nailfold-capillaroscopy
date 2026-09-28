@@ -1,0 +1,328 @@
+{
+ "schema_version": "nailfold-report/2.0",
+ "exam_id": "EX-004",
+ "release_id": "expert-router-final",
+ "assets": {
+  "bundle_sha256": "04ee6b80a88bb2e1ff2370906262dddf46e1e27d2f889f8c745be4bb41b17241",
+  "encoder_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+  "seg_sha256": "08103c92b937c0e94086d735c973da7deab069591af62dc3f677ed6cc66838bb",
+  "det_sha256": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f"
+ },
+ "device": {
+  "id": "示例设备"
+ },
+ "images": 4,
+ "fields": {
+  "clarity": {
+   "item": "清晰度",
+   "value": "清晰",
+   "reference": "清晰",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.763,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.763,
+    0.237
+   ]
+  },
+  "capillary_count": {
+   "item": "管袢数",
+   "value": "适中",
+   "reference": "适中",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.73,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.73,
+    0.27
+   ]
+  },
+  "afferent_diameter": {
+   "item": "输入枝管径",
+   "value": "偏细",
+   "reference": "适中",
+   "kind": "band3",
+   "class_id": 0,
+   "deviates": true,
+   "probability": 0.666,
+   "confidence": 1,
+   "confidence_word": "中等",
+   "class_probabilities": [
+    0.666,
+    0.285,
+    0.049
+   ]
+  },
+  "efferent_diameter": {
+   "item": "输出枝管径",
+   "value": "适中",
+   "reference": "适中",
+   "kind": "band3",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.61,
+   "confidence": 1,
+   "confidence_word": "中等",
+   "class_probabilities": [
+    0.223,
+    0.61,
+    0.167
+   ]
+  },
+  "output_input_ratio": {
+   "item": "输出/输入枝",
+   "value": "输出枝相对偏粗",
+   "reference": "输出枝略粗于输入枝",
+   "kind": "derived",
+   "deviates": false,
+   "confidence": 1,
+   "confidence_word": "中等"
+  },
+  "apex_diameter": {
+   "item": "袢顶管径",
+   "value": "适中",
+   "reference": "适中",
+   "kind": "band3",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.641,
+   "confidence": 1,
+   "confidence_word": "中等",
+   "class_probabilities": [
+    0.183,
+    0.641,
+    0.176
+   ]
+  },
+  "loop_length": {
+   "item": "管袢长度",
+   "value": "适中",
+   "reference": "适中",
+   "kind": "band3",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.46,
+   "confidence": 0,
+   "confidence_word": "较低",
+   "class_probabilities": [
+    0.267,
+    0.46,
+    0.274
+   ]
+  },
+  "crossing_ratio": {
+   "item": "交叉管袢",
+   "value": "比例不高",
+   "reference": "比例不高",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.529,
+   "confidence": 0,
+   "confidence_word": "较低",
+   "class_probabilities": [
+    0.529,
+    0.471
+   ]
+  },
+  "malformation_ratio": {
+   "item": "不规则管袢",
+   "value": "比例较高",
+   "reference": "比例不高",
+   "kind": "binary",
+   "class_id": 1,
+   "deviates": true,
+   "probability": 0.536,
+   "confidence": 0,
+   "confidence_word": "较低",
+   "class_probabilities": [
+    0.464,
+    0.536
+   ]
+  },
+  "flow_state": {
+   "item": "流态",
+   "value": "粒线流/粒流",
+   "reference": "—",
+   "kind": "binary",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.775,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.225,
+    0.775
+   ]
+  },
+  "vasomotion": {
+   "item": "血管运动性",
+   "value": "低频",
+   "reference": "低频",
+   "kind": "fixed",
+   "deviates": false,
+   "confidence": null,
+   "confidence_word": null
+  },
+  "rbc_aggregation": {
+   "item": "红细胞聚集",
+   "value": "有",
+   "reference": "—",
+   "kind": "binary",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.72,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.28,
+    0.72
+   ]
+  },
+  "wbc_count": {
+   "item": "白细胞",
+   "value": "未见增多",
+   "reference": "未见增多",
+   "kind": "fixed",
+   "deviates": false,
+   "confidence": null,
+   "confidence_word": null
+  },
+  "microthrombus": {
+   "item": "白色微粒样片段",
+   "value": "未见",
+   "reference": "未见",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.861,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.861,
+    0.139
+   ]
+  },
+  "blood_color": {
+   "item": "血色",
+   "value": "淡红/浅红",
+   "reference": "淡红/浅红",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.987,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.987,
+    0.013
+   ]
+  },
+  "exudation": {
+   "item": "渗出",
+   "value": "无",
+   "reference": "无",
+   "kind": "binary",
+   "class_id": 0,
+   "deviates": false,
+   "probability": 0.775,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.775,
+    0.225
+   ]
+  },
+  "hemorrhage": {
+   "item": "出血",
+   "value": "无",
+   "reference": "无",
+   "kind": "fixed",
+   "deviates": false,
+   "confidence": null,
+   "confidence_word": null
+  },
+  "subpapillary_venous_plexus": {
+   "item": "乳头下静脉丛",
+   "value": "可见",
+   "reference": "—",
+   "kind": "binary",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.941,
+   "confidence": 2,
+   "confidence_word": "较高",
+   "class_probabilities": [
+    0.059,
+    0.941
+   ]
+  },
+  "papilla": {
+   "item": "乳头",
+   "value": "浅波纹状",
+   "reference": "—",
+   "kind": "papilla",
+   "class_id": 1,
+   "deviates": false,
+   "probability": 0.567,
+   "confidence": 1,
+   "confidence_word": "中等",
+   "class_probabilities": [
+    0.344,
+    0.567,
+    0.089
+   ]
+  },
+  "sweat_duct": {
+   "item": "汗腺导管",
+   "value": "少",
+   "reference": "少",
+   "kind": "fixed",
+   "deviates": false,
+   "confidence": null,
+   "confidence_word": null
+  }
+ },
+ "advice": {
+  "headline": "整体形态大致正常，最值得留意的是管径偏细，常与手部受冷、小血管收缩有关。",
+  "sections": [
+   {
+    "theme": "cold",
+    "title": "管径偏细",
+    "triggers": [
+     "afferent_diameter"
+    ],
+    "meaning": "管径偏细常见于指尖小血管处在收缩状态时，受冷、紧张、咖啡因都会让它收紧。如果您平时手脚容易凉，这与本次所见一致；这类表现和环境、习惯关系密切，保暖和活动后常会有变化。",
+    "seen": "输入枝（血液流入的一侧）管径偏细",
+    "actions": [
+     {
+      "text": "手部保暖：天冷出门戴手套，洗手、洗碗尽量用温水，空调房里别让手长时间对着出风口。",
+      "for": "输入枝管径偏细"
+     },
+     {
+      "text": "少喝浓咖啡、浓茶；紧张时做几次慢呼吸（吸气 4 秒、呼气 6 秒）。",
+      "for": "输入枝管径偏细"
+     },
+     {
+      "text": "每天做 3 次手指操：握拳—张开 20 次，再从指根向指尖轻轻按揉每根手指约 1 分钟。",
+      "for": "输入枝管径偏细"
+     },
+     {
+      "text": "睡前用 38~40 ℃ 的温水泡手 5~10 分钟，水温不要过烫。",
+      "for": "输入枝管径偏细"
+     }
+    ]
+   }
+  ],
+  "how_to_read": "单次拍摄会受室温、手指和按压影响，在同样条件下多次拍摄，看变化趋势更有意义。",
+  "see_doctor": "如果出现手指遇冷明显发白、发紫，或伴麻木、疼痛、指尖破溃不易愈合，请带上本报告到医院（风湿免疫科或血管外科）就诊。",
+  "disclaimer": "本报告描述的是甲襞图像上的微循环形态特征，用于日常健康管理，不是疾病诊断。",
+  "generated_by": "template"
+ }
+}

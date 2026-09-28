@@ -1,0 +1,1567 @@
+{
+ "binary": {
+  "afferent_hi": {
+   "acc_rule": {
+    "n": 209,
+    "counts": [
+     164,
+     45
+    ],
+    "acc": 0.7895,
+    "mode_acc": 0.7847,
+    "acc_minus_mode": [
+     -0.0287,
+     0.0048,
+     0.0383
+    ],
+    "ba": 0.5595,
+    "recall": [
+     0.9634,
+     0.1556
+    ],
+    "pred_share": [
+     0.938,
+     0.062
+    ],
+    "locked_acc": 0.7273,
+    "locked_mode_acc": 0.75,
+    "auroc": 0.7512
+   },
+   "ba_rule": {
+    "n": 209,
+    "counts": [
+     164,
+     45
+    ],
+    "acc": 0.7033,
+    "mode_acc": 0.7847,
+    "acc_minus_mode": [
+     -0.1627,
+     -0.0813,
+     0.0048
+    ],
+    "ba": 0.7223,
+    "recall": [
+     0.689,
+     0.7556
+    ],
+    "pred_share": [
+     0.593,
+     0.407
+    ],
+    "locked_acc": 0.7045,
+    "locked_mode_acc": 0.75
+   },
+   "tier_0.6": {
+    "share_pos": 0.033,
+    "ppv": 0.429,
+    "share_neg": 0.895,
+    "npv": 0.824
+   },
+   "tier_0.7": {
+    "share_pos": 0.024,
+    "ppv": 0.4,
+    "share_neg": 0.78,
+    "npv": 0.865
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.55,
+    "npv": 0.896
+   }
+  },
+  "afferent_lo": {
+   "acc_rule": {
+    "n": 209,
+    "counts": [
+     141,
+     68
+    ],
+    "acc": 0.689,
+    "mode_acc": 0.6746,
+    "acc_minus_mode": [
+     -0.0287,
+     0.0144,
+     0.0622
+    ],
+    "ba": 0.5601,
+    "recall": [
+     0.9291,
+     0.1912
+    ],
+    "pred_share": [
+     0.89,
+     0.11
+    ],
+    "locked_acc": 0.6591,
+    "locked_mode_acc": 0.7273,
+    "auroc": 0.6667
+   },
+   "ba_rule": {
+    "n": 209,
+    "counts": [
+     141,
+     68
+    ],
+    "acc": 0.6842,
+    "mode_acc": 0.6746,
+    "acc_minus_mode": [
+     -0.0766,
+     0.0096,
+     0.0957
+    ],
+    "ba": 0.6746,
+    "recall": [
+     0.7021,
+     0.6471
+    ],
+    "pred_share": [
+     0.589,
+     0.411
+    ],
+    "locked_acc": 0.6818,
+    "locked_mode_acc": 0.7273
+   },
+   "tier_0.6": {
+    "share_pos": 0.005,
+    "ppv": 1.0,
+    "share_neg": 0.78,
+    "npv": 0.712
+   },
+   "tier_0.7": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.464,
+    "npv": 0.804
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.096,
+    "npv": 0.8
+   }
+  },
+  "efferent_hi": {
+   "acc_rule": {
+    "n": 208,
+    "counts": [
+     153,
+     55
+    ],
+    "acc": 0.7885,
+    "mode_acc": 0.7356,
+    "acc_minus_mode": [
+     0.0096,
+     0.0529,
+     0.0962
+    ],
+    "ba": 0.6349,
+    "recall": [
+     0.9608,
+     0.3091
+    ],
+    "pred_share": [
+     0.889,
+     0.111
+    ],
+    "locked_acc": 0.7727,
+    "locked_mode_acc": 0.7045,
+    "auroc": 0.7469
+   },
+   "ba_rule": {
+    "n": 208,
+    "counts": [
+     153,
+     55
+    ],
+    "acc": 0.6683,
+    "mode_acc": 0.7356,
+    "acc_minus_mode": [
+     -0.1538,
+     -0.0673,
+     0.024
+    ],
+    "ba": 0.6755,
+    "recall": [
+     0.6601,
+     0.6909
+    ],
+    "pred_share": [
+     0.567,
+     0.433
+    ],
+    "locked_acc": 0.7727,
+    "locked_mode_acc": 0.7045
+   },
+   "tier_0.6": {
+    "share_pos": 0.082,
+    "ppv": 0.706,
+    "share_neg": 0.832,
+    "npv": 0.809
+   },
+   "tier_0.7": {
+    "share_pos": 0.034,
+    "ppv": 0.714,
+    "share_neg": 0.668,
+    "npv": 0.835
+   },
+   "tier_0.8": {
+    "share_pos": 0.014,
+    "ppv": 1.0,
+    "share_neg": 0.438,
+    "npv": 0.89
+   }
+  },
+  "efferent_lo": {
+   "acc_rule": {
+    "n": 208,
+    "counts": [
+     175,
+     33
+    ],
+    "acc": 0.8413,
+    "mode_acc": 0.8413,
+    "acc_minus_mode": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "ba": 0.5,
+    "recall": [
+     1.0,
+     0.0
+    ],
+    "pred_share": [
+     1.0,
+     0.0
+    ],
+    "locked_acc": 0.7727,
+    "locked_mode_acc": 0.7727,
+    "auroc": 0.5695
+   },
+   "ba_rule": {
+    "n": 208,
+    "counts": [
+     175,
+     33
+    ],
+    "acc": 0.5962,
+    "mode_acc": 0.8413,
+    "acc_minus_mode": [
+     -0.3269,
+     -0.2452,
+     -0.1635
+    ],
+    "ba": 0.5756,
+    "recall": [
+     0.6057,
+     0.5455
+    ],
+    "pred_share": [
+     0.582,
+     0.418
+    ],
+    "locked_acc": 0.6136,
+    "locked_mode_acc": 0.7727
+   },
+   "tier_0.6": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 1.0,
+    "npv": 0.841
+   },
+   "tier_0.7": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.986,
+    "npv": 0.839
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.817,
+    "npv": 0.853
+   }
+  },
+  "apex_hi": {
+   "acc_rule": {
+    "n": 213,
+    "counts": [
+     123,
+     90
+    ],
+    "acc": 0.6948,
+    "mode_acc": 0.5775,
+    "acc_minus_mode": [
+     0.0516,
+     0.1174,
+     0.1878
+    ],
+    "ba": 0.6642,
+    "recall": [
+     0.8618,
+     0.4667
+    ],
+    "pred_share": [
+     0.723,
+     0.277
+    ],
+    "locked_acc": 0.75,
+    "locked_mode_acc": 0.5909,
+    "auroc": 0.714
+   },
+   "ba_rule": {
+    "n": 213,
+    "counts": [
+     123,
+     90
+    ],
+    "acc": 0.6714,
+    "mode_acc": 0.5775,
+    "acc_minus_mode": [
+     0.0,
+     0.0939,
+     0.1878
+    ],
+    "ba": 0.6722,
+    "recall": [
+     0.6667,
+     0.6778
+    ],
+    "pred_share": [
+     0.521,
+     0.479
+    ],
+    "locked_acc": 0.75,
+    "locked_mode_acc": 0.5909
+   },
+   "tier_0.6": {
+    "share_pos": 0.174,
+    "ppv": 0.73,
+    "share_neg": 0.498,
+    "npv": 0.745
+   },
+   "tier_0.7": {
+    "share_pos": 0.099,
+    "ppv": 0.762,
+    "share_neg": 0.263,
+    "npv": 0.75
+   },
+   "tier_0.8": {
+    "share_pos": 0.033,
+    "ppv": 1.0,
+    "share_neg": 0.099,
+    "npv": 0.714
+   }
+  },
+  "apex_lo": {
+   "acc_rule": {
+    "n": 213,
+    "counts": [
+     182,
+     31
+    ],
+    "acc": 0.8545,
+    "mode_acc": 0.8545,
+    "acc_minus_mode": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "ba": 0.5,
+    "recall": [
+     1.0,
+     0.0
+    ],
+    "pred_share": [
+     1.0,
+     0.0
+    ],
+    "locked_acc": 0.8636,
+    "locked_mode_acc": 0.8636,
+    "auroc": 0.6207
+   },
+   "ba_rule": {
+    "n": 213,
+    "counts": [
+     182,
+     31
+    ],
+    "acc": 0.662,
+    "mode_acc": 0.8545,
+    "acc_minus_mode": [
+     -0.2723,
+     -0.1925,
+     -0.1127
+    ],
+    "ba": 0.655,
+    "recall": [
+     0.6648,
+     0.6452
+    ],
+    "pred_share": [
+     0.62,
+     0.38
+    ],
+    "locked_acc": 0.7727,
+    "locked_mode_acc": 0.8636
+   },
+   "tier_0.6": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.986,
+    "npv": 0.852
+   },
+   "tier_0.7": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.962,
+    "npv": 0.859
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.831,
+    "npv": 0.859
+   }
+  },
+  "loop_hi": {
+   "acc_rule": {
+    "n": 221,
+    "counts": [
+     109,
+     112
+    ],
+    "acc": 0.7285,
+    "mode_acc": 0.4751,
+    "acc_minus_mode": [
+     0.1719,
+     0.2534,
+     0.3348
+    ],
+    "ba": 0.7277,
+    "recall": [
+     0.6697,
+     0.7857
+    ],
+    "pred_share": [
+     0.439,
+     0.561
+    ],
+    "locked_acc": 0.7333,
+    "locked_mode_acc": 0.4889,
+    "auroc": 0.8097
+   },
+   "ba_rule": {
+    "n": 221,
+    "counts": [
+     109,
+     112
+    ],
+    "acc": 0.7466,
+    "mode_acc": 0.4751,
+    "acc_minus_mode": [
+     0.1899,
+     0.2715,
+     0.3531
+    ],
+    "ba": 0.7459,
+    "recall": [
+     0.6972,
+     0.7946
+    ],
+    "pred_share": [
+     0.448,
+     0.552
+    ],
+    "locked_acc": 0.7333,
+    "locked_mode_acc": 0.4889
+   },
+   "tier_0.6": {
+    "share_pos": 0.457,
+    "ppv": 0.782,
+    "share_neg": 0.371,
+    "npv": 0.793
+   },
+   "tier_0.7": {
+    "share_pos": 0.308,
+    "ppv": 0.824,
+    "share_neg": 0.294,
+    "npv": 0.862
+   },
+   "tier_0.8": {
+    "share_pos": 0.131,
+    "ppv": 0.828,
+    "share_neg": 0.204,
+    "npv": 0.889
+   }
+  },
+  "loop_lo": {
+   "acc_rule": {
+    "n": 221,
+    "counts": [
+     179,
+     42
+    ],
+    "acc": 0.8054,
+    "mode_acc": 0.81,
+    "acc_minus_mode": [
+     -0.0407,
+     -0.0045,
+     0.0271
+    ],
+    "ba": 0.561,
+    "recall": [
+     0.9553,
+     0.1667
+    ],
+    "pred_share": [
+     0.932,
+     0.068
+    ],
+    "locked_acc": 0.8444,
+    "locked_mode_acc": 0.7778,
+    "auroc": 0.7844
+   },
+   "ba_rule": {
+    "n": 221,
+    "counts": [
+     179,
+     42
+    ],
+    "acc": 0.7376,
+    "mode_acc": 0.81,
+    "acc_minus_mode": [
+     -0.1448,
+     -0.0724,
+     0.009
+    ],
+    "ba": 0.7287,
+    "recall": [
+     0.743,
+     0.7143
+    ],
+    "pred_share": [
+     0.656,
+     0.344
+    ],
+    "locked_acc": 0.8222,
+    "locked_mode_acc": 0.7778
+   },
+   "tier_0.6": {
+    "share_pos": 0.036,
+    "ppv": 0.75,
+    "share_neg": 0.851,
+    "npv": 0.862
+   },
+   "tier_0.7": {
+    "share_pos": 0.009,
+    "ppv": 1.0,
+    "share_neg": 0.756,
+    "npv": 0.892
+   },
+   "tier_0.8": {
+    "share_pos": 0.005,
+    "ppv": 1.0,
+    "share_neg": 0.674,
+    "npv": 0.919
+   }
+  },
+  "capillary_lo": {
+   "acc_rule": {
+    "n": 228,
+    "counts": [
+     156,
+     72
+    ],
+    "acc": 0.7412,
+    "mode_acc": 0.6842,
+    "acc_minus_mode": [
+     0.0044,
+     0.057,
+     0.114
+    ],
+    "ba": 0.6426,
+    "recall": [
+     0.9103,
+     0.375
+    ],
+    "pred_share": [
+     0.82,
+     0.18
+    ],
+    "locked_acc": 0.7174,
+    "locked_mode_acc": 0.6739,
+    "auroc": 0.7349
+   },
+   "ba_rule": {
+    "n": 228,
+    "counts": [
+     156,
+     72
+    ],
+    "acc": 0.6842,
+    "mode_acc": 0.6842,
+    "acc_minus_mode": [
+     -0.0833,
+     0.0,
+     0.0833
+    ],
+    "ba": 0.6795,
+    "recall": [
+     0.6923,
+     0.6667
+    ],
+    "pred_share": [
+     0.579,
+     0.421
+    ],
+    "locked_acc": 0.6522,
+    "locked_mode_acc": 0.6739
+   },
+   "tier_0.6": {
+    "share_pos": 0.105,
+    "ppv": 0.75,
+    "share_neg": 0.719,
+    "npv": 0.78
+   },
+   "tier_0.7": {
+    "share_pos": 0.053,
+    "ppv": 0.833,
+    "share_neg": 0.579,
+    "npv": 0.818
+   },
+   "tier_0.8": {
+    "share_pos": 0.009,
+    "ppv": 1.0,
+    "share_neg": 0.32,
+    "npv": 0.836
+   }
+  },
+  "papilla_flat": {
+   "acc_rule": {
+    "n": 231,
+    "counts": [
+     176,
+     55
+    ],
+    "acc": 0.7403,
+    "mode_acc": 0.7619,
+    "acc_minus_mode": [
+     -0.0606,
+     -0.0216,
+     0.0173
+    ],
+    "ba": 0.5295,
+    "recall": [
+     0.9318,
+     0.1273
+    ],
+    "pred_share": [
+     0.918,
+     0.082
+    ],
+    "locked_acc": 0.6739,
+    "locked_mode_acc": 0.7174,
+    "auroc": 0.7467
+   },
+   "ba_rule": {
+    "n": 231,
+    "counts": [
+     176,
+     55
+    ],
+    "acc": 0.6926,
+    "mode_acc": 0.7619,
+    "acc_minus_mode": [
+     -0.1472,
+     -0.0649,
+     0.013
+    ],
+    "ba": 0.6858,
+    "recall": [
+     0.6989,
+     0.6727
+    ],
+    "pred_share": [
+     0.61,
+     0.39
+    ],
+    "locked_acc": 0.7391,
+    "locked_mode_acc": 0.7174
+   },
+   "tier_0.6": {
+    "share_pos": 0.026,
+    "ppv": 0.333,
+    "share_neg": 0.857,
+    "npv": 0.793
+   },
+   "tier_0.7": {
+    "share_pos": 0.013,
+    "ppv": 0.333,
+    "share_neg": 0.714,
+    "npv": 0.848
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.472,
+    "npv": 0.908
+   }
+  },
+  "papilla_wavy": {
+   "acc_rule": {
+    "n": 231,
+    "counts": [
+     151,
+     80
+    ],
+    "acc": 0.6623,
+    "mode_acc": 0.6537,
+    "acc_minus_mode": [
+     -0.013,
+     0.0087,
+     0.0303
+    ],
+    "ba": 0.5184,
+    "recall": [
+     0.9868,
+     0.05
+    ],
+    "pred_share": [
+     0.974,
+     0.026
+    ],
+    "locked_acc": 0.6522,
+    "locked_mode_acc": 0.6957,
+    "auroc": 0.6094
+   },
+   "ba_rule": {
+    "n": 231,
+    "counts": [
+     151,
+     80
+    ],
+    "acc": 0.6061,
+    "mode_acc": 0.6537,
+    "acc_minus_mode": [
+     -0.1385,
+     -0.0476,
+     0.039
+    ],
+    "ba": 0.6193,
+    "recall": [
+     0.5762,
+     0.6625
+    ],
+    "pred_share": [
+     0.494,
+     0.506
+    ],
+    "locked_acc": 0.6957,
+    "locked_mode_acc": 0.6957
+   },
+   "tier_0.6": {
+    "share_pos": 0.004,
+    "ppv": 1.0,
+    "share_neg": 0.745,
+    "npv": 0.703
+   },
+   "tier_0.7": {
+    "share_pos": 0.004,
+    "ppv": 1.0,
+    "share_neg": 0.242,
+    "npv": 0.75
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.03,
+    "npv": 0.429
+   }
+  },
+  "crossing": {
+   "acc_rule": {
+    "n": 222,
+    "counts": [
+     146,
+     76
+    ],
+    "acc": 0.6486,
+    "mode_acc": 0.6577,
+    "acc_minus_mode": [
+     -0.045,
+     -0.009,
+     0.027
+    ],
+    "ba": 0.5184,
+    "recall": [
+     0.9315,
+     0.1053
+    ],
+    "pred_share": [
+     0.919,
+     0.081
+    ],
+    "locked_acc": 0.7556,
+    "locked_mode_acc": 0.7556,
+    "auroc": 0.6458
+   },
+   "ba_rule": {
+    "n": 222,
+    "counts": [
+     146,
+     76
+    ],
+    "acc": 0.6622,
+    "mode_acc": 0.6577,
+    "acc_minus_mode": [
+     -0.0856,
+     0.0045,
+     0.0901
+    ],
+    "ba": 0.6517,
+    "recall": [
+     0.6849,
+     0.6184
+    ],
+    "pred_share": [
+     0.581,
+     0.419
+    ],
+    "locked_acc": 0.8,
+    "locked_mode_acc": 0.7556
+   },
+   "tier_0.6": {
+    "share_pos": 0.014,
+    "ppv": 0.667,
+    "share_neg": 0.734,
+    "npv": 0.712
+   },
+   "tier_0.7": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.356,
+    "npv": 0.772
+   },
+   "tier_0.8": {
+    "share_pos": 0.0,
+    "ppv": null,
+    "share_neg": 0.072,
+    "npv": 0.688
+   }
+  },
+  "clarity": {
+   "acc_rule": {
+    "n": 231,
+    "counts": [
+     121,
+     110
+    ],
+    "acc": 0.8139,
+    "mode_acc": 0.5238,
+    "acc_minus_mode": [
+     0.2078,
+     0.29,
+     0.368
+    ],
+    "ba": 0.8136,
+    "recall": [
+     0.8182,
+     0.8091
+    ],
+    "pred_share": [
+     0.519,
+     0.481
+    ],
+    "locked_acc": 0.8043,
+    "locked_mode_acc": 0.6522,
+    "auroc": 0.8735
+   },
+   "ba_rule": {
+    "n": 231,
+    "counts": [
+     121,
+     110
+    ],
+    "acc": 0.8182,
+    "mode_acc": 0.5238,
+    "acc_minus_mode": [
+     0.2121,
+     0.2944,
+     0.381
+    ],
+    "ba": 0.819,
+    "recall": [
+     0.8017,
+     0.8364
+    ],
+    "pred_share": [
+     0.498,
+     0.502
+    ],
+    "locked_acc": 0.7826,
+    "locked_mode_acc": 0.6522
+   },
+   "tier_0.6": {
+    "share_pos": 0.416,
+    "ppv": 0.833,
+    "share_neg": 0.459,
+    "npv": 0.858
+   },
+   "tier_0.7": {
+    "share_pos": 0.303,
+    "ppv": 0.871,
+    "share_neg": 0.385,
+    "npv": 0.888
+   },
+   "tier_0.8": {
+    "share_pos": 0.234,
+    "ppv": 0.87,
+    "share_neg": 0.26,
+    "npv": 0.9
+   }
+  },
+  "subpapillary_venous_plexus": {
+   "acc_rule": {
+    "n": 231,
+    "counts": [
+     95,
+     136
+    ],
+    "acc": 0.7749,
+    "mode_acc": 0.5887,
+    "acc_minus_mode": [
+     0.1126,
+     0.1861,
+     0.2597
+    ],
+    "ba": 0.7628,
+    "recall": [
+     0.6947,
+     0.8309
+    ],
+    "pred_share": [
+     0.385,
+     0.615
+    ],
+    "locked_acc": 0.766,
+    "locked_mode_acc": 0.6596,
+    "auroc": 0.8184
+   },
+   "ba_rule": {
+    "n": 231,
+    "counts": [
+     95,
+     136
+    ],
+    "acc": 0.7576,
+    "mode_acc": 0.5887,
+    "acc_minus_mode": [
+     0.0866,
+     0.1688,
+     0.2511
+    ],
+    "ba": 0.7624,
+    "recall": [
+     0.7895,
+     0.7353
+    ],
+    "pred_share": [
+     0.481,
+     0.519
+    ],
+    "locked_acc": 0.7234,
+    "locked_mode_acc": 0.6596
+   },
+   "tier_0.6": {
+    "share_pos": 0.524,
+    "ppv": 0.826,
+    "share_neg": 0.273,
+    "npv": 0.81
+   },
+   "tier_0.7": {
+    "share_pos": 0.424,
+    "ppv": 0.847,
+    "share_neg": 0.19,
+    "npv": 0.864
+   },
+   "tier_0.8": {
+    "share_pos": 0.251,
+    "ppv": 0.862,
+    "share_neg": 0.091,
+    "npv": 0.952
+   }
+  },
+  "exudation": {
+   "acc_rule": {
+    "n": 230,
+    "counts": [
+     115,
+     115
+    ],
+    "acc": 0.7522,
+    "mode_acc": 0.4739,
+    "acc_minus_mode": [
+     0.1957,
+     0.2783,
+     0.3609
+    ],
+    "ba": 0.7522,
+    "recall": [
+     0.7565,
+     0.7478
+    ],
+    "pred_share": [
+     0.504,
+     0.496
+    ],
+    "locked_acc": 0.6383,
+    "locked_mode_acc": 0.5957,
+    "auroc": 0.7856
+   },
+   "ba_rule": {
+    "n": 230,
+    "counts": [
+     115,
+     115
+    ],
+    "acc": 0.7522,
+    "mode_acc": 0.4739,
+    "acc_minus_mode": [
+     0.1955,
+     0.2783,
+     0.3609
+    ],
+    "ba": 0.7522,
+    "recall": [
+     0.7478,
+     0.7565
+    ],
+    "pred_share": [
+     0.496,
+     0.504
+    ],
+    "locked_acc": 0.617,
+    "locked_mode_acc": 0.5957
+   },
+   "tier_0.6": {
+    "share_pos": 0.391,
+    "ppv": 0.822,
+    "share_neg": 0.383,
+    "npv": 0.761
+   },
+   "tier_0.7": {
+    "share_pos": 0.257,
+    "ppv": 0.814,
+    "share_neg": 0.243,
+    "npv": 0.75
+   },
+   "tier_0.8": {
+    "share_pos": 0.126,
+    "ppv": 0.828,
+    "share_neg": 0.126,
+    "npv": 0.793
+   }
+  },
+  "blood_color": {
+   "acc_rule": {
+    "n": 225,
+    "counts": [
+     123,
+     102
+    ],
+    "acc": 0.7511,
+    "mode_acc": 0.5467,
+    "acc_minus_mode": [
+     0.1289,
+     0.2044,
+     0.2889
+    ],
+    "ba": 0.7473,
+    "recall": [
+     0.7886,
+     0.7059
+    ],
+    "pred_share": [
+     0.564,
+     0.436
+    ],
+    "locked_acc": 0.7955,
+    "locked_mode_acc": 0.5227,
+    "auroc": 0.8306
+   },
+   "ba_rule": {
+    "n": 225,
+    "counts": [
+     123,
+     102
+    ],
+    "acc": 0.76,
+    "mode_acc": 0.5467,
+    "acc_minus_mode": [
+     0.1289,
+     0.2133,
+     0.3022
+    ],
+    "ba": 0.7629,
+    "recall": [
+     0.7317,
+     0.7941
+    ],
+    "pred_share": [
+     0.493,
+     0.507
+    ],
+    "locked_acc": 0.7955,
+    "locked_mode_acc": 0.5227
+   },
+   "tier_0.6": {
+    "share_pos": 0.364,
+    "ppv": 0.793,
+    "share_neg": 0.449,
+    "npv": 0.861
+   },
+   "tier_0.7": {
+    "share_pos": 0.258,
+    "ppv": 0.81,
+    "share_neg": 0.36,
+    "npv": 0.877
+   },
+   "tier_0.8": {
+    "share_pos": 0.124,
+    "ppv": 0.893,
+    "share_neg": 0.244,
+    "npv": 0.855
+   }
+  },
+  "microthrombus": {
+   "acc_rule": {
+    "n": 228,
+    "counts": [
+     138,
+     90
+    ],
+    "acc": 0.7149,
+    "mode_acc": 0.6053,
+    "acc_minus_mode": [
+     0.0395,
+     0.1096,
+     0.1798
+    ],
+    "ba": 0.6872,
+    "recall": [
+     0.8188,
+     0.5556
+    ],
+    "pred_share": [
+     0.671,
+     0.329
+    ],
+    "locked_acc": 0.6304,
+    "locked_mode_acc": 0.6522,
+    "auroc": 0.77
+   },
+   "ba_rule": {
+    "n": 228,
+    "counts": [
+     138,
+     90
+    ],
+    "acc": 0.693,
+    "mode_acc": 0.6053,
+    "acc_minus_mode": [
+     -0.0044,
+     0.0877,
+     0.1754
+    ],
+    "ba": 0.7019,
+    "recall": [
+     0.6594,
+     0.7444
+    ],
+    "pred_share": [
+     0.5,
+     0.5
+    ],
+    "locked_acc": 0.5652,
+    "locked_mode_acc": 0.6522
+   },
+   "tier_0.6": {
+    "share_pos": 0.224,
+    "ppv": 0.706,
+    "share_neg": 0.539,
+    "npv": 0.764
+   },
+   "tier_0.7": {
+    "share_pos": 0.127,
+    "ppv": 0.724,
+    "share_neg": 0.412,
+    "npv": 0.84
+   },
+   "tier_0.8": {
+    "share_pos": 0.035,
+    "ppv": 0.75,
+    "share_neg": 0.241,
+    "npv": 0.891
+   }
+  },
+  "malformation": {
+   "acc_rule": {
+    "n": 201,
+    "counts": [
+     110,
+     91
+    ],
+    "acc": 0.6567,
+    "mode_acc": 0.5473,
+    "acc_minus_mode": [
+     0.0249,
+     0.1095,
+     0.199
+    ],
+    "ba": 0.6494,
+    "recall": [
+     0.7273,
+     0.5714
+    ],
+    "pred_share": [
+     0.592,
+     0.408
+    ],
+    "locked_acc": 0.6154,
+    "locked_mode_acc": 0.4615,
+    "auroc": 0.7185
+   },
+   "ba_rule": {
+    "n": 201,
+    "counts": [
+     110,
+     91
+    ],
+    "acc": 0.6766,
+    "mode_acc": 0.5473,
+    "acc_minus_mode": [
+     0.0348,
+     0.1294,
+     0.2239
+    ],
+    "ba": 0.6742,
+    "recall": [
+     0.7,
+     0.6484
+    ],
+    "pred_share": [
+     0.542,
+     0.458
+    ],
+    "locked_acc": 0.641,
+    "locked_mode_acc": 0.4615
+   },
+   "tier_0.6": {
+    "share_pos": 0.264,
+    "ppv": 0.698,
+    "share_neg": 0.418,
+    "npv": 0.75
+   },
+   "tier_0.7": {
+    "share_pos": 0.09,
+    "ppv": 0.778,
+    "share_neg": 0.214,
+    "npv": 0.814
+   },
+   "tier_0.8": {
+    "share_pos": 0.02,
+    "ppv": 0.75,
+    "share_neg": 0.1,
+    "npv": 0.85
+   }
+  },
+  "flow_state": {
+   "acc_rule": {
+    "n": 225,
+    "counts": [
+     47,
+     178
+    ],
+    "acc": 0.7911,
+    "mode_acc": 0.7911,
+    "acc_minus_mode": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "ba": 0.5,
+    "recall": [
+     0.0,
+     1.0
+    ],
+    "pred_share": [
+     0.0,
+     1.0
+    ],
+    "locked_acc": 0.8696,
+    "locked_mode_acc": 0.8696,
+    "auroc": 0.4219
+   },
+   "ba_rule": {
+    "n": 225,
+    "counts": [
+     47,
+     178
+    ],
+    "acc": 0.6,
+    "mode_acc": 0.7911,
+    "acc_minus_mode": [
+     -0.2579,
+     -0.1911,
+     -0.1156
+    ],
+    "ba": 0.5358,
+    "recall": [
+     0.4255,
+     0.6461
+    ],
+    "pred_share": [
+     0.369,
+     0.631
+    ],
+    "locked_acc": 0.6304,
+    "locked_mode_acc": 0.8696
+   },
+   "tier_0.6": {
+    "share_pos": 1.0,
+    "ppv": 0.791,
+    "share_neg": 0.0,
+    "npv": null
+   },
+   "tier_0.7": {
+    "share_pos": 0.996,
+    "ppv": 0.79,
+    "share_neg": 0.0,
+    "npv": null
+   },
+   "tier_0.8": {
+    "share_pos": 0.409,
+    "ppv": 0.739,
+    "share_neg": 0.0,
+    "npv": null
+   }
+  },
+  "rbc_aggregation": {
+   "acc_rule": {
+    "n": 228,
+    "counts": [
+     34,
+     194
+    ],
+    "acc": 0.8509,
+    "mode_acc": 0.8509,
+    "acc_minus_mode": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "ba": 0.5,
+    "recall": [
+     0.0,
+     1.0
+    ],
+    "pred_share": [
+     0.0,
+     1.0
+    ],
+    "locked_acc": 0.9362,
+    "locked_mode_acc": 0.9362,
+    "auroc": 0.7115
+   },
+   "ba_rule": {
+    "n": 228,
+    "counts": [
+     34,
+     194
+    ],
+    "acc": 0.6886,
+    "mode_acc": 0.8509,
+    "acc_minus_mode": [
+     -0.2412,
+     -0.1623,
+     -0.0876
+    ],
+    "ba": 0.6957,
+    "recall": [
+     0.7059,
+     0.6856
+    ],
+    "pred_share": [
+     0.373,
+     0.627
+    ],
+    "locked_acc": 0.6809,
+    "locked_mode_acc": 0.9362
+   },
+   "tier_0.6": {
+    "share_pos": 0.996,
+    "ppv": 0.85,
+    "share_neg": 0.0,
+    "npv": null
+   },
+   "tier_0.7": {
+    "share_pos": 0.939,
+    "ppv": 0.855,
+    "share_neg": 0.0,
+    "npv": null
+   },
+   "tier_0.8": {
+    "share_pos": 0.759,
+    "ppv": 0.89,
+    "share_neg": 0.0,
+    "npv": null
+   }
+  }
+ },
+ "three_band": {
+  "afferent": {
+   "n": 209,
+   "counts": [
+    68,
+    96,
+    45
+   ],
+   "acc": 0.4976,
+   "mode_acc": 0.4593,
+   "acc_minus_mode": [
+    -0.0287,
+    0.0383,
+    0.1053
+   ],
+   "ba": 0.4405,
+   "recall": [
+    0.25,
+    0.7604,
+    0.3111
+   ],
+   "pred_share": [
+    0.167,
+    0.708,
+    0.124
+   ],
+   "locked_acc": 0.4773,
+   "locked_mode_acc": 0.4773
+  },
+  "efferent": {
+   "n": 208,
+   "counts": [
+    33,
+    120,
+    55
+   ],
+   "acc": 0.6298,
+   "mode_acc": 0.5769,
+   "acc_minus_mode": [
+    0.0048,
+    0.0529,
+    0.1058
+   ],
+   "ba": 0.4328,
+   "recall": [
+    0.0,
+    0.9167,
+    0.3818
+   ],
+   "pred_share": [
+    0.0,
+    0.846,
+    0.154
+   ],
+   "locked_acc": 0.5909,
+   "locked_mode_acc": 0.4773
+  },
+  "apex": {
+   "n": 213,
+   "counts": [
+    31,
+    92,
+    90
+   ],
+   "acc": 0.5493,
+   "mode_acc": 0.4131,
+   "acc_minus_mode": [
+    0.0516,
+    0.1362,
+    0.216
+   ],
+   "ba": 0.4283,
+   "recall": [
+    0.0,
+    0.6739,
+    0.6111
+   ],
+   "pred_share": [
+    0.014,
+    0.563,
+    0.423
+   ],
+   "locked_acc": 0.5682,
+   "locked_mode_acc": 0.4773
+  },
+  "loop": {
+   "n": 221,
+   "counts": [
+    42,
+    67,
+    112
+   ],
+   "acc": 0.5747,
+   "mode_acc": 0.5068,
+   "acc_minus_mode": [
+    0.0045,
+    0.0679,
+    0.1312
+   ],
+   "ba": 0.4874,
+   "recall": [
+    0.3333,
+    0.2985,
+    0.8304
+   ],
+   "pred_share": [
+    0.14,
+    0.249,
+    0.611
+   ],
+   "locked_acc": 0.6444,
+   "locked_mode_acc": 0.5111
+  },
+  "papilla": {
+   "n": 231,
+   "counts": [
+    80,
+    96,
+    55
+   ],
+   "acc": 0.4589,
+   "mode_acc": 0.4156,
+   "acc_minus_mode": [
+    -0.026,
+    0.0433,
+    0.1126
+   ],
+   "ba": 0.4316,
+   "recall": [
+    0.2125,
+    0.7188,
+    0.3636
+   ],
+   "pred_share": [
+    0.165,
+    0.658,
+    0.177
+   ],
+   "locked_acc": 0.3913,
+   "locked_mode_acc": 0.413
+  }
+ },
+ "protocol": "Fixed four-expert router + nested calibration + accuracy-optimal decision.\n\nRouter (same for every field, no selection): p = mean(A0, COL, SEG, DET).\nThe heads are strongly shrunk (C=0.03), so p is not a probability. Inside each\nouter training set an inner 5-fold OOF p is produced and a 1-D logistic\ncalibration logit(p) -> y is fitted on it; the outer test cases get the\ncalibrated posterior q. Nothing from the outer test fold touches the fit.\n\nDecision rules reported:\n  acc   q > 0.5 (Bayes rule for accuracy; this is what a report line should use)\n  ba    p > training prevalence (balanced-accuracy rule, for comparison)\n  mode  always the training majority (the \"fixed dictionary\" answer)\nThree-band measurement rows are composed from the calibrated one-sided heads:\nP(hi), P(lo), P(ref) = 1 - P(hi) - P(lo) (floored at 0), argmax.\npapilla uses flat / wavy heads the same way; capillary_count uses its binary\n\"below the >=7 band\" head (the 3--4 and lower bands have 18 cases).\n\nFive-fold over all labelled cases of the 233. Paired bootstrap accuracy(acc) -\naccuracy(mode). Locked-47 subset reported descriptively.\n\n    python scripts/eval_calibrated_router.py\n"
+}

@@ -1,0 +1,353 @@
+{
+ "schema_version": "nailfold-report/1.0-final",
+ "exam_id": "example-2",
+ "release_id": "v1-static-final",
+ "assets": {
+  "base_bundle_sha256": "8c66fbb940217697ae3cb3b1b4473c384edf178428450e33add8d1665e3dae72",
+  "supplement_sha256": "2df04ab20e5d508af1ab316f36985e891df37bc7bb4cfc35970c0cd0fd0f3655",
+  "encoder_sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+ },
+ "device": {
+  "id": "example-device",
+  "recentre": false
+ },
+ "images": 16,
+ "fields": {
+  "clarity": {
+   "value": "模型预测：清晰",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "rag_heads_v1:clarity",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "clarity",
+   "advice_level": "Q"
+  },
+  "capillary_count": {
+   "value": "模型预测：管袢数量参考档",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "a0_supplement_v1:capillary_count",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "capillary_count",
+   "advice_level": "T"
+  },
+  "afferent_diameter": {
+   "value": "模型预测：参考档",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:afferent_diameter",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "afferent_diameter",
+   "advice_level": "T"
+  },
+  "efferent_diameter": {
+   "value": "模型预测：参考档",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:efferent_diameter",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "efferent_diameter",
+   "advice_level": "T"
+  },
+  "output_input_ratio": {
+   "value": "预测档位组合：输出枝参考档；输入枝参考档。档位不能确定管径比",
+   "class_id": null,
+   "source": "derived",
+   "source_id": "derived:efferent_diameter+afferent_diameter",
+   "confidence_flag": "derived",
+   "validation_card_id": "output_input_ratio",
+   "advice_level": "T"
+  },
+  "apex_diameter": {
+   "value": "模型预测：参考档",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:apex_diameter",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "apex_diameter",
+   "advice_level": "T"
+  },
+  "loop_length": {
+   "value": "模型预测：未超过长度上界档",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "rag_heads_v1:loop_length",
+   "confidence_flag": "low_margin",
+   "validation_card_id": "loop_length",
+   "advice_level": "T"
+  },
+  "crossing_ratio": {
+   "value": "模型预测：交叉比例未超过报告阈值档",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "a0_supplement_v1:crossing_ratio",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "crossing_ratio",
+   "advice_level": "T"
+  },
+  "malformation_ratio": {
+   "value": "模型预测：畸形比例未超过报告阈值档",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "rag_heads_v1:malformation_ratio",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "malformation_ratio",
+   "advice_level": "T"
+  },
+  "flow_state": {
+   "value": "静态关联预测：粒线流等其余流态标签组（不代表观察到流动）",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:flow_state",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "flow_state",
+   "advice_level": "E"
+  },
+  "vasomotion": {
+   "value": "静态图像不提供运动频次；开发集常见标签：较低频次档（固定基线，不是本次观测）",
+   "class_id": 0,
+   "source": "fixed_dev_baseline",
+   "source_id": "dev186_mode:vasomotion",
+   "confidence_flag": "not_applicable",
+   "validation_card_id": "vasomotion",
+   "advice_level": "E"
+  },
+  "rbc_aggregation": {
+   "value": "模型预测：有聚集标签（不区分程度）",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:rbc_aggregation",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "rbc_aggregation",
+   "advice_level": "E"
+  },
+  "wbc_count": {
+   "value": "静态图像不提供时段计数；开发集常见标签：未超过计数阈值档（固定基线，不是本次观测）",
+   "class_id": 0,
+   "source": "fixed_dev_baseline",
+   "source_id": "dev186_mode:wbc_count",
+   "confidence_flag": "not_applicable",
+   "validation_card_id": "wbc_count",
+   "advice_level": "E"
+  },
+  "microthrombus": {
+   "value": "静态关联预测：有白微栓报告标签（不代表动态检出或排除）",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "rag_heads_v1:microthrombus",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "microthrombus",
+   "advice_level": "E"
+  },
+  "blood_color": {
+   "value": "模型预测：暗红或暗紫",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "rag_heads_v1:blood_color",
+   "confidence_flag": "low_margin",
+   "validation_card_id": "blood_color",
+   "advice_level": "T"
+  },
+  "exudation": {
+   "value": "模型预测：无渗出标签",
+   "class_id": 0,
+   "source": "model",
+   "source_id": "rag_heads_v1:exudation",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "exudation",
+   "advice_level": "T"
+  },
+  "hemorrhage": {
+   "value": "开发集常见标签：无出血（固定基线，不是本次检出结果，不能排除出血）",
+   "class_id": 0,
+   "source": "fixed_dev_baseline",
+   "source_id": "dev186_mode:hemorrhage",
+   "confidence_flag": "not_applicable",
+   "validation_card_id": "hemorrhage",
+   "advice_level": "E"
+  },
+  "subpapillary_venous_plexus": {
+   "value": "模型预测：可见",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "rag_heads_v1:subpapillary_venous_plexus",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "subpapillary_venous_plexus",
+   "advice_level": "T"
+  },
+  "papilla": {
+   "value": "模型预测：浅波纹状",
+   "class_id": 1,
+   "source": "model",
+   "source_id": "a0_supplement_v1:papilla",
+   "confidence_flag": "uncalibrated",
+   "validation_card_id": "papilla",
+   "advice_level": "T"
+  },
+  "sweat_duct": {
+   "value": "开发集常见标签：较少档（固定基线，不是本次计数结果）",
+   "class_id": 0,
+   "source": "fixed_dev_baseline",
+   "source_id": "dev186_mode:sweat_duct",
+   "confidence_flag": "not_applicable",
+   "validation_card_id": "sweat_duct",
+   "advice_level": "E"
+  }
+ },
+ "scoring": {
+  "enabled": false,
+  "reason": "本产品不计算分数，也不做分级"
+ },
+ "summary": "本报告列出 20 项条目：15 项来自静态图像的分类或报告标签关联预测，1 项为两枝档位组合，4 项为明确标注的开发集固定基线。结果不给出分数和分级，不能替代医生判读。",
+ "advice": {
+  "opening": "感谢您完成这次甲襞图像检查。下面用通俗的话解释报告里的条目，方便您对照阅读。",
+  "capability": "本系统根据同一次检查的静态甲襞图像，输出 15 项报告条目的分类预测，另有 1 项两枝档位组合、4 项开发集固定基线，共 20 行。它不测量尺寸、条数、次数或流速，不给出分数，不做微循环分级，不能替代医生的判断，也不给个人治疗方案。模型只在同一来源的 186 例检查上训练，没有外部验证。",
+  "clarity_note": "本次图像被模型判为清晰，其余条目可以按各自的说明阅读。",
+  "terms": [
+   {
+    "field_id": "clarity",
+    "item": "清晰度",
+    "advice_level": "Q",
+    "text": "清晰度：清晰度指图像中能否清楚看到管袢的形状。室温、皮肤角质化、皮肤粗糙、手指移动和对焦都会影响清晰度，所以它首先是拍摄质量的提示。"
+   },
+   {
+    "field_id": "capillary_count",
+    "item": "管袢数",
+    "advice_level": "T",
+    "text": "管袢数：管袢数是在第一排管袢的计数区内数到的管袢条数。报告单按条数分档；本系统只给出所属档位的模型预测，不给出条数。"
+   },
+   {
+    "field_id": "afferent_diameter",
+    "item": "输入枝管径",
+    "advice_level": "T",
+    "text": "输入枝管径：输入枝是发夹形管袢中血液流入的一支，管径在管袢中部测量。报告单按测量值分为低于、处于、高于参考范围三档；本系统只给出档位预测，不给出尺寸。"
+   },
+   {
+    "field_id": "efferent_diameter",
+    "item": "输出枝管径",
+    "advice_level": "T",
+    "text": "输出枝管径：输出枝是发夹形管袢中血液流出的一支，通常比输入枝略粗。本系统只给出三档中的档位预测，不给出尺寸。"
+   },
+   {
+    "field_id": "output_input_ratio",
+    "item": "输出/输入枝关系",
+    "advice_level": "T",
+    "text": "输出/输入枝关系：报告单中的输出/输入枝比是两枝测量值相除得到的数。本系统没有测量值，因此只并列显示两枝各自的预测档位，不计算比值。"
+   },
+   {
+    "field_id": "apex_diameter",
+    "item": "袢顶直径",
+    "advice_level": "T",
+    "text": "袢顶直径：袢顶是管袢由输入枝转向输出枝的弯曲顶端。本系统只给出三档中的档位预测，不给出尺寸。"
+   },
+   {
+    "field_id": "loop_length",
+    "item": "管袢长",
+    "advice_level": "T",
+    "text": "管袢长：管袢长指管袢从基部到袢顶的长度。本系统只预测它是否超过报告单参考范围的上界档，不给出长度。"
+   },
+   {
+    "field_id": "crossing_ratio",
+    "item": "交叉管袢",
+    "advice_level": "T",
+    "text": "交叉管袢：交叉管袢指输入枝与输出枝相互交叉的管袢。报告单按交叉管袢所占比例分档；本系统只预测是否超过报告阈值档。"
+   },
+   {
+    "field_id": "malformation_ratio",
+    "item": "畸形管袢",
+    "advice_level": "T",
+    "text": "畸形管袢：畸形管袢指形态偏离典型发夹形的管袢。报告单按所占比例分档；本系统只预测是否超过报告阈值档。"
+   },
+   {
+    "field_id": "flow_state",
+    "item": "流态",
+    "advice_level": "E",
+    "text": "流态：流态描述管袢内血液流动的样子，从线流、线粒流到粒流、停滞分为多个等级，需要观察动态画面。本系统使用静态图像，只给出与报告标签组的关联预测。"
+   },
+   {
+    "field_id": "vasomotion",
+    "item": "血管运动性",
+    "advice_level": "E",
+    "text": "血管运动性：血管运动性指管袢自发地变宽变细或流速快慢交替的现象，需要按时间观察。静态图像无法提供这一信息，本行显示开发集中最常见的标签。"
+   },
+   {
+    "field_id": "rbc_aggregation",
+    "item": "红细胞聚集",
+    "advice_level": "E",
+    "text": "红细胞聚集：红细胞聚集指血流中数个或数十个红细胞集合成团块，报告单分为无、轻、中、重。本系统把有聚集的各级合并为一类，不区分程度。"
+   },
+   {
+    "field_id": "wbc_count",
+    "item": "白细胞数",
+    "advice_level": "E",
+    "text": "白细胞数：白细胞数指一段时间内沿管壁翻滚通过的白细胞个数，需要按时间计数。静态图像无法提供这一信息，本行显示开发集中最常见的标签。"
+   },
+   {
+    "field_id": "microthrombus",
+    "item": "白微栓",
+    "advice_level": "E",
+    "text": "白微栓：白微栓指血流中漂过的白色不规则团块，需要在动态画面中辨认。本系统使用静态图像，只给出与报告标签的关联预测，不能检出或排除。"
+   },
+   {
+    "field_id": "blood_color",
+    "item": "血色",
+    "advice_level": "T",
+    "text": "血色：血色指管袢内血液的颜色，报告单区分淡红、浅红、暗红、暗紫。本系统合并为两组给出预测。颜色也受光源、设备和拍摄条件影响。"
+   },
+   {
+    "field_id": "exudation",
+    "item": "渗出",
+    "advice_level": "T",
+    "text": "渗出：渗出指管袢周围间隙变大、发亮，管袢影像变模糊的表现。本系统预测报告单上是否记为有渗出。"
+   },
+   {
+    "field_id": "hemorrhage",
+    "item": "出血",
+    "advice_level": "E",
+    "text": "出血：出血指红细胞出到管袢外的现象，外伤等局部因素也会造成。本行不使用图像，显示开发集中最常见的标签，不能用来排除出血。"
+   },
+   {
+    "field_id": "subpapillary_venous_plexus",
+    "item": "乳头下静脉丛",
+    "advice_level": "T",
+    "text": "乳头下静脉丛：乳头下静脉丛是多个管袢汇入的细静脉网，位于管袢下方，部分人群可以看到。本系统预测报告单上记为可见或不见。"
+   },
+   {
+    "field_id": "papilla",
+    "item": "乳头",
+    "advice_level": "T",
+    "text": "乳头：乳头指甲襞皮肤的真皮乳头轮廓，报告单分为波纹状、浅波纹状、平坦。本系统给出三类中的预测。"
+   },
+   {
+    "field_id": "sweat_duct",
+    "item": "汗腺导管",
+    "advice_level": "E",
+    "text": "汗腺导管：汗腺导管在管袢之间表现为白色线条或螺旋线条。报告单按个数分档；本行不使用图像，显示开发集中最常见的标签。"
+   }
+  ],
+  "education": [
+   {
+    "card_id": "general_activity",
+    "title": "日常活动",
+    "text": "在身体条件允许的范围内，减少长时间连续坐着，把活动安排进日常生活里。任何活动都比不活动好，所有活动都算数。WHO 对成年人的参考是每周至少 150 分钟中等强度活动；具体安排请结合自己的年龄和身体情况，已有医生制定的计划时以该计划为准。",
+    "source": "WHO Physical activity fact sheet",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+   },
+   {
+    "card_id": "general_diet",
+    "title": "日常饮食",
+    "text": "多吃蔬菜和水果（WHO 建议每天至少 400 克），主食多选全谷物和豆类；成年人每天食盐少于 5 克，少吃添加糖和含反式脂肪的加工食品。有慢性病饮食要求的，请按医生或营养师的安排执行。",
+    "source": "WHO Healthy diet fact sheet (2026-01-26)",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+   }
+  ],
+  "closing": "以上内容是图像条目的解释和一般生活方式信息，不针对您个人的身体状况。如果您本身有正在接受的治疗或医嘱，请以医生的安排为准；有任何不适或疑问，也欢迎随时咨询医生。",
+  "clinical_action_allowed": false,
+  "generated_by": "template"
+ },
+ "education_card_ids": [
+  "general_activity",
+  "general_diet"
+ ],
+ "warnings": []
+}

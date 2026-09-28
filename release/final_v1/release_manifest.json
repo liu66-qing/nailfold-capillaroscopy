@@ -1,0 +1,61 @@
+{
+ "release_id": "expert-router-final",
+ "schema_version": "nailfold-report/2.0",
+ "model_assets": {
+  "artifacts/models/expert_router_v1/bundle.joblib": "04ee6b80a88bb2e1ff2370906262dddf46e1e27d2f889f8c745be4bb41b17241",
+  "artifacts/models/expert_router_v1/seg_s0.pt": "08103c92b937c0e94086d735c973da7deab069591af62dc3f677ed6cc66838bb",
+  "artifacts/models/expert_router_v1/det_capillary.pt": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
+  "weights/dinov2/b/model.safetensors": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+ },
+ "also_loaded": [
+  "artifacts/models/rag_heads_v1/bundle.joblib (encoder config only)"
+ ],
+ "release_files": {
+  "examples/example_1.json": "652e3c8eed1806b4ebbc02e785109c565ade1b76a1720a920b5ef7fbad24c0ec",
+  "examples/example_2.json": "b2c1f2ba1760d1177664a86589d2243eb5f36cf4b06160d89e79d792f5a9725e",
+  "examples/example_3.json": "1649604f5c8a61ea14375d5b9f18b982bc1225bc5fd365ad783443115fd0f218",
+  "examples/example_4.json": "0c7f55df59f72c0c951d7a31cd6f049e604f8bfc3be74f99e8a55a74976b136f",
+  "examples/example_5.json": "84cfb1c2529d72e5071b22b942f9868ba145b7e27eeab2eed7d442ba86ceb12e",
+  "examples/example_6.json": "38855136588bc0d183a69684d0a563bd91e7d539004bbb8a56b1686aec4ff54f",
+  "examples/example_7.json": "d2202b663393378cef46e9d261de9d37c084bd7d03b3b09750e763ae3bfede0f",
+  "examples/example_8.json": "e383ae6bc688b4507c4e3365495b8b4105e2ac6c2fa42fa8ec170d2a285e5005",
+  "schemas/report.schema.json": "9862829832a0bbc38a2a275a53bd0e8fae235baa327774f925728c378a24b23d",
+  "validation.json": "ed39f9682db8e02aaccf971d100caabf061f94b92ba1d8289aae725554b34cae"
+ },
+ "forbidden_phrases": [
+  "未评估",
+  "μm",
+  "um",
+  "条/mm",
+  "次/min",
+  "个/15s",
+  "个/min",
+  "积分",
+  "总分",
+  "重度异常",
+  "中度异常",
+  "轻度异常",
+  "诊断为",
+  "确诊",
+  "疏通",
+  "抗栓",
+  "溶栓",
+  "保健品",
+  "服用",
+  "药物",
+  "参考范围",
+  "把握",
+  "仅供参考",
+  "模型",
+  "档位"
+ ],
+ "code": [
+  "src/nailfold_report/final_registry.py",
+  "src/nailfold_report/final_inference.py",
+  "src/nailfold_report/expert_features.py",
+  "src/nailfold_report/final_advice.py",
+  "src/nailfold_report/final_render.py",
+  "src/nailfold_report/final_api.py"
+ ],
+ "superseded": "_superseded_v1_static/（上一版 v1-static-final，已不使用）"
+}

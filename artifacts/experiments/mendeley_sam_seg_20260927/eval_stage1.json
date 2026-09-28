@@ -1,0 +1,107 @@
+{
+  "sign_test": {
+    "S0_c005": {
+      "rho": -0.2486,
+      "p": 0.000361,
+      "n": 202,
+      "grad": {
+        "0": 0.5602,
+        "1": 0.5313,
+        "2": 0.4941,
+        "3": 0.4668
+      }
+    },
+    "UNET": {
+      "rho": -0.3248,
+      "p": 2.41e-06,
+      "n": 202,
+      "grad": {
+        "0": 0.5967,
+        "1": 0.5594,
+        "2": 0.4975,
+        "3": 0.4692
+      },
+      "delta_vs_S0_c005": [
+        -0.1347,
+        -0.0755,
+        -0.0148
+      ],
+      "G3_pass": false
+    }
+  },
+  "loao": {
+    "S0_c005": {
+      "malformation_ratio": {
+        "n": 201,
+        "ba_a0": 0.5889,
+        "ba_treat": 0.6245,
+        "delta_ci": [
+          0.0051,
+          0.0356,
+          0.0694
+        ],
+        "G4_pass": true
+      },
+      "crossing_ratio": {
+        "n": 222,
+        "ba_a0": 0.5115,
+        "ba_treat": 0.5215,
+        "delta_ci": [
+          -0.0042,
+          0.0096,
+          0.0294
+        ],
+        "G4_pass": false
+      }
+    },
+    "UNET": {
+      "malformation_ratio": {
+        "n": 201,
+        "ba_a0": 0.5889,
+        "ba_treat": 0.6255,
+        "delta_ci": [
+          0.0034,
+          0.0367,
+          0.0724
+        ],
+        "G4_pass": true
+      },
+      "crossing_ratio": {
+        "n": 222,
+        "ba_a0": 0.5115,
+        "ba_treat": 0.5284,
+        "delta_ci": [
+          0.0032,
+          0.0161,
+          0.035
+        ],
+        "G4_pass": true
+      }
+    },
+    "RESNET18": {
+      "malformation_ratio": {
+        "n": 201,
+        "ba_a0": 0.5889,
+        "ba_treat": 0.5925,
+        "delta_ci": [
+          -0.013,
+          0.0042,
+          0.0204
+        ],
+        "G4_pass": false
+      },
+      "crossing_ratio": {
+        "n": 222,
+        "ba_a0": 0.5115,
+        "ba_treat": 0.4955,
+        "delta_ci": [
+          -0.0458,
+          -0.0158,
+          0.0089
+        ],
+        "G4_pass": false
+      }
+    }
+  },
+  "note": "233 labelled cases incl. consumed locked-47 (training data, not a test set); segmenters were trained on vascular-dataset crops, some of which come from our dev images (vessel polygons only, no clinical labels) -- same for every arm"
+}

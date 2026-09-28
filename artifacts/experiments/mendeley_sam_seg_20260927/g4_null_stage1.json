@@ -1,0 +1,66 @@
+{
+  "S0_c005": {
+    "malformation_ratio": {
+      "real_median": 0.0356,
+      "real_lo": 0.0051,
+      "const_route": [
+        0.0,
+        0.0044,
+        0.0149
+      ],
+      "perm_median_dist": [
+        -0.0062,
+        0.0138,
+        0.0332
+      ],
+      "perm_frac_ge_real": 0.0
+    },
+    "crossing_ratio": {
+      "real_median": 0.0096,
+      "real_lo": -0.0042,
+      "const_route": [
+        -0.0438,
+        -0.0125,
+        0.0132
+      ],
+      "perm_median_dist": [
+        -0.0321,
+        -0.019,
+        -0.0061
+      ],
+      "perm_frac_ge_real": 0.0
+    }
+  },
+  "UNET": {
+    "malformation_ratio": {
+      "real_median": 0.0367,
+      "real_lo": 0.0034,
+      "const_route": [
+        0.0,
+        0.0044,
+        0.0149
+      ],
+      "perm_median_dist": [
+        0.0003,
+        0.02,
+        0.0384
+      ],
+      "perm_frac_ge_real": 0.1
+    },
+    "crossing_ratio": {
+      "real_median": 0.0161,
+      "real_lo": 0.0032,
+      "const_route": [
+        -0.0438,
+        -0.0125,
+        0.0132
+      ],
+      "perm_median_dist": [
+        -0.0283,
+        -0.0155,
+        0.0014
+      ],
+      "perm_frac_ge_real": 0.0
+    }
+  }
+}

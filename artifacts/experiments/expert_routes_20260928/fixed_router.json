@@ -1,0 +1,651 @@
+{
+ "binary": {
+  "afferent_hi": {
+   "n": 209,
+   "pos": 45,
+   "mode_acc": 0.7847,
+   "ba": 0.7223,
+   "auroc": 0.761,
+   "acc": 0.7033,
+   "recall": [
+    0.689,
+    0.7556
+   ],
+   "vs_a0_same_rule": [
+    0.0061,
+    0.0845,
+    0.1651
+   ],
+   "vs_a0_shipped_rule": [
+    0.1052,
+    0.1829,
+    0.26
+   ],
+   "a0_shipped_ba": 0.5403,
+   "archive_ba": [
+    0.6871,
+    0.7709,
+    0.6944
+   ],
+   "locked_subset_ba": 0.7121
+  },
+  "afferent_lo": {
+   "n": 209,
+   "pos": 68,
+   "mode_acc": 0.6746,
+   "ba": 0.6746,
+   "auroc": 0.6629,
+   "acc": 0.6842,
+   "recall": [
+    0.7021,
+    0.6471
+   ],
+   "vs_a0_same_rule": [
+    0.0218,
+    0.0799,
+    0.1457
+   ],
+   "vs_a0_shipped_rule": [
+    0.0349,
+    0.103,
+    0.1722
+   ],
+   "a0_shipped_ba": 0.571,
+   "archive_ba": [
+    0.659,
+    0.6509,
+    0.7409
+   ],
+   "locked_subset_ba": 0.6771
+  },
+  "efferent_hi": {
+   "n": 208,
+   "pos": 55,
+   "mode_acc": 0.7356,
+   "ba": 0.6755,
+   "auroc": 0.7463,
+   "acc": 0.6683,
+   "recall": [
+    0.6601,
+    0.6909
+   ],
+   "vs_a0_same_rule": [
+    -0.0902,
+    -0.0198,
+    0.0512
+   ],
+   "vs_a0_shipped_rule": [
+    0.0143,
+    0.091,
+    0.1681
+   ],
+   "a0_shipped_ba": 0.5862,
+   "archive_ba": [
+    0.619,
+    0.7309,
+    0.673
+   ],
+   "locked_subset_ba": 0.8164
+  },
+  "efferent_lo": {
+   "n": 208,
+   "pos": 33,
+   "mode_acc": 0.8413,
+   "ba": 0.5756,
+   "auroc": 0.6237,
+   "acc": 0.5962,
+   "recall": [
+    0.6057,
+    0.5455
+   ],
+   "vs_a0_same_rule": [
+    -0.066,
+    0.0216,
+    0.1093
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0185,
+    0.0755,
+    0.1694
+   ],
+   "a0_shipped_ba": 0.5,
+   "archive_ba": [
+    0.5997,
+    0.5779,
+    0.5445
+   ],
+   "locked_subset_ba": 0.6088
+  },
+  "apex_hi": {
+   "n": 213,
+   "pos": 90,
+   "mode_acc": 0.5775,
+   "ba": 0.6722,
+   "auroc": 0.7176,
+   "acc": 0.6714,
+   "recall": [
+    0.6667,
+    0.6778
+   ],
+   "vs_a0_same_rule": [
+    -0.0505,
+    0.0081,
+    0.0669
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0222,
+    0.0354,
+    0.097
+   ],
+   "a0_shipped_ba": 0.6366,
+   "archive_ba": [
+    0.6795,
+    0.6933,
+    0.6382
+   ],
+   "locked_subset_ba": 0.7457
+  },
+  "apex_lo": {
+   "n": 213,
+   "pos": 31,
+   "mode_acc": 0.8545,
+   "ba": 0.655,
+   "auroc": 0.6794,
+   "acc": 0.662,
+   "recall": [
+    0.6648,
+    0.6452
+   ],
+   "vs_a0_same_rule": [
+    -0.0878,
+    -0.033,
+    0.0211
+   ],
+   "vs_a0_shipped_rule": [
+    0.0606,
+    0.1559,
+    0.2427
+   ],
+   "a0_shipped_ba": 0.5,
+   "archive_ba": [
+    0.6407,
+    0.7326,
+    0.5959
+   ],
+   "locked_subset_ba": 0.7982
+  },
+  "loop_hi": {
+   "n": 221,
+   "pos": 112,
+   "mode_acc": 0.5068,
+   "ba": 0.7459,
+   "auroc": 0.8096,
+   "acc": 0.7466,
+   "recall": [
+    0.6972,
+    0.7946
+   ],
+   "vs_a0_same_rule": [
+    -0.013,
+    0.0225,
+    0.0588
+   ],
+   "vs_a0_shipped_rule": [
+    -0.019,
+    0.0181,
+    0.0547
+   ],
+   "a0_shipped_ba": 0.7278,
+   "archive_ba": [
+    0.8214,
+    0.7,
+    0.7308
+   ],
+   "locked_subset_ba": 0.7302
+  },
+  "loop_lo": {
+   "n": 221,
+   "pos": 42,
+   "mode_acc": 0.81,
+   "ba": 0.7287,
+   "auroc": 0.7866,
+   "acc": 0.7376,
+   "recall": [
+    0.743,
+    0.7143
+   ],
+   "vs_a0_same_rule": [
+    -0.0293,
+    0.0231,
+    0.0809
+   ],
+   "vs_a0_shipped_rule": [
+    0.1209,
+    0.1999,
+    0.2747
+   ],
+   "a0_shipped_ba": 0.5281,
+   "archive_ba": [
+    0.7346,
+    0.6722,
+    0.81
+   ],
+   "locked_subset_ba": 0.7786
+  },
+  "capillary_lo": {
+   "n": 228,
+   "pos": 72,
+   "mode_acc": 0.6842,
+   "ba": 0.6795,
+   "auroc": 0.7361,
+   "acc": 0.6842,
+   "recall": [
+    0.6923,
+    0.6667
+   ],
+   "vs_a0_same_rule": [
+    -0.0294,
+    0.0166,
+    0.0607
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0198,
+    0.0438,
+    0.109
+   ],
+   "a0_shipped_ba": 0.6357,
+   "archive_ba": [
+    0.5843,
+    0.6984,
+    0.7613
+   ],
+   "locked_subset_ba": 0.6387
+  },
+  "papilla_flat": {
+   "n": 231,
+   "pos": 55,
+   "mode_acc": 0.7619,
+   "ba": 0.6858,
+   "auroc": 0.7479,
+   "acc": 0.6926,
+   "recall": [
+    0.6989,
+    0.6727
+   ],
+   "vs_a0_same_rule": [
+    -0.0508,
+    0.0142,
+    0.0819
+   ],
+   "vs_a0_shipped_rule": [
+    0.0921,
+    0.1665,
+    0.2381
+   ],
+   "a0_shipped_ba": 0.5199,
+   "archive_ba": [
+    0.669,
+    0.6521,
+    0.7731
+   ],
+   "locked_subset_ba": 0.7249
+  },
+  "papilla_wavy": {
+   "n": 231,
+   "pos": 80,
+   "mode_acc": 0.6537,
+   "ba": 0.6193,
+   "auroc": 0.6206,
+   "acc": 0.6061,
+   "recall": [
+    0.5762,
+    0.6625
+   ],
+   "vs_a0_same_rule": [
+    -0.03,
+    0.0324,
+    0.0969
+   ],
+   "vs_a0_shipped_rule": [
+    0.0001,
+    0.0697,
+    0.136
+   ],
+   "a0_shipped_ba": 0.5507,
+   "archive_ba": [
+    0.6183,
+    0.5972,
+    0.6435
+   ],
+   "locked_subset_ba": 0.7411
+  },
+  "crossing": {
+   "n": 222,
+   "pos": 76,
+   "mode_acc": 0.6577,
+   "ba": 0.6517,
+   "auroc": 0.6532,
+   "acc": 0.6622,
+   "recall": [
+    0.6849,
+    0.6184
+   ],
+   "vs_a0_same_rule": [
+    -0.0128,
+    0.0454,
+    0.1068
+   ],
+   "vs_a0_shipped_rule": [
+    0.0556,
+    0.1307,
+    0.1992
+   ],
+   "a0_shipped_ba": 0.5213,
+   "archive_ba": [
+    0.6848,
+    0.5897,
+    0.7158
+   ],
+   "locked_subset_ba": 0.8061
+  },
+  "clarity": {
+   "n": 231,
+   "pos": 110,
+   "mode_acc": 0.5238,
+   "ba": 0.819,
+   "auroc": 0.8708,
+   "acc": 0.8182,
+   "recall": [
+    0.8017,
+    0.8364
+   ],
+   "vs_a0_same_rule": [
+    -0.0357,
+    0.0026,
+    0.04
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0215,
+    0.0177,
+    0.0571
+   ],
+   "a0_shipped_ba": 0.8012,
+   "archive_ba": [
+    0.8297,
+    0.7957,
+    0.8613
+   ],
+   "locked_subset_ba": 0.775
+  },
+  "subpapillary_venous_plexus": {
+   "n": 231,
+   "pos": 136,
+   "mode_acc": 0.5887,
+   "ba": 0.7624,
+   "auroc": 0.8232,
+   "acc": 0.7576,
+   "recall": [
+    0.7895,
+    0.7353
+   ],
+   "vs_a0_same_rule": [
+    -0.0811,
+    -0.0402,
+    0.0
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0908,
+    -0.0462,
+    -0.0057
+   ],
+   "a0_shipped_ba": 0.8091,
+   "archive_ba": [
+    0.7682,
+    0.7506,
+    0.7626
+   ],
+   "locked_subset_ba": 0.7147
+  },
+  "exudation": {
+   "n": 230,
+   "pos": 115,
+   "mode_acc": 0.5,
+   "ba": 0.7522,
+   "auroc": 0.7871,
+   "acc": 0.7522,
+   "recall": [
+    0.7478,
+    0.7565
+   ],
+   "vs_a0_same_rule": [
+    0.008,
+    0.0559,
+    0.1065
+   ],
+   "vs_a0_shipped_rule": [
+    0.0073,
+    0.0558,
+    0.1046
+   ],
+   "a0_shipped_ba": 0.6957,
+   "archive_ba": [
+    0.7337,
+    0.763,
+    0.7581
+   ],
+   "locked_subset_ba": 0.6209
+  },
+  "blood_color": {
+   "n": 225,
+   "pos": 102,
+   "mode_acc": 0.5467,
+   "ba": 0.7629,
+   "auroc": 0.834,
+   "acc": 0.76,
+   "recall": [
+    0.7317,
+    0.7941
+   ],
+   "vs_a0_same_rule": [
+    0.0029,
+    0.0588,
+    0.1135
+   ],
+   "vs_a0_shipped_rule": [
+    0.0161,
+    0.0693,
+    0.1261
+   ],
+   "a0_shipped_ba": 0.6937,
+   "archive_ba": [
+    0.6773,
+    0.8231,
+    0.7701
+   ],
+   "locked_subset_ba": 0.7919
+  },
+  "microthrombus": {
+   "n": 228,
+   "pos": 90,
+   "mode_acc": 0.6053,
+   "ba": 0.7019,
+   "auroc": 0.7711,
+   "acc": 0.693,
+   "recall": [
+    0.6594,
+    0.7444
+   ],
+   "vs_a0_same_rule": [
+    -0.0309,
+    0.0191,
+    0.0707
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0217,
+    0.0351,
+    0.0981
+   ],
+   "a0_shipped_ba": 0.6655,
+   "archive_ba": [
+    0.8061,
+    0.6734,
+    0.626
+   ],
+   "locked_subset_ba": 0.6083
+  },
+  "malformation": {
+   "n": 201,
+   "pos": 91,
+   "mode_acc": 0.5473,
+   "ba": 0.6742,
+   "auroc": 0.7226,
+   "acc": 0.6766,
+   "recall": [
+    0.7,
+    0.6484
+   ],
+   "vs_a0_same_rule": [
+    -0.028,
+    0.0191,
+    0.068
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0015,
+    0.0463,
+    0.0926
+   ],
+   "a0_shipped_ba": 0.6283,
+   "archive_ba": [
+    0.6129,
+    0.7256,
+    0.6742
+   ],
+   "locked_subset_ba": 0.6548
+  },
+  "flow_state": {
+   "n": 225,
+   "pos": 178,
+   "mode_acc": 0.7911,
+   "ba": 0.5358,
+   "auroc": 0.5409,
+   "acc": 0.6,
+   "recall": [
+    0.4255,
+    0.6461
+   ],
+   "vs_a0_same_rule": [
+    -0.0871,
+    -0.0038,
+    0.0844
+   ],
+   "vs_a0_shipped_rule": [
+    -0.0349,
+    0.0387,
+    0.114
+   ],
+   "a0_shipped_ba": 0.4972,
+   "archive_ba": [
+    0.5264,
+    0.5172,
+    0.5711
+   ],
+   "locked_subset_ba": 0.7167
+  },
+  "rbc_aggregation": {
+   "n": 228,
+   "pos": 194,
+   "mode_acc": 0.8509,
+   "ba": 0.6957,
+   "auroc": 0.7157,
+   "acc": 0.6886,
+   "recall": [
+    0.7059,
+    0.6856
+   ],
+   "vs_a0_same_rule": [
+    -0.0263,
+    0.0606,
+    0.1448
+   ],
+   "vs_a0_shipped_rule": [
+    0.1158,
+    0.2001,
+    0.2814
+   ],
+   "a0_shipped_ba": 0.4974,
+   "archive_ba": [
+    0.5881,
+    0.7655,
+    0.7963
+   ],
+   "locked_subset_ba": 0.6742
+  }
+ },
+ "composed_3band": {
+  "afferent": {
+   "n": 209,
+   "counts": [
+    68,
+    96,
+    45
+   ],
+   "ba3": 0.5709,
+   "recall3": [
+    0.6029,
+    0.3542,
+    0.7556
+   ],
+   "acc": 0.5215,
+   "mode_acc": 0.4593
+  },
+  "efferent": {
+   "n": 208,
+   "counts": [
+    33,
+    120,
+    55
+   ],
+   "ba3": 0.4692,
+   "recall3": [
+    0.4848,
+    0.25,
+    0.6727
+   ],
+   "acc": 0.399,
+   "mode_acc": 0.5769
+  },
+  "apex": {
+   "n": 213,
+   "counts": [
+    31,
+    92,
+    90
+   ],
+   "ba3": 0.5169,
+   "recall3": [
+    0.6129,
+    0.3043,
+    0.6333
+   ],
+   "acc": 0.4883,
+   "mode_acc": 0.4319
+  },
+  "loop": {
+   "n": 221,
+   "counts": [
+    42,
+    67,
+    112
+   ],
+   "ba3": 0.5498,
+   "recall3": [
+    0.7143,
+    0.1493,
+    0.7857
+   ],
+   "acc": 0.5792,
+   "mode_acc": 0.5068
+  }
+ },
+ "protocol": "Fixed router: every field gets the same four-expert average, no selection.\n\np = mean(A0, COL, SEG, DET) probabilities; decision: p1 > training prevalence.\nFive-fold OOF over all labelled cases of the 233 (development_fold / fold).\nPaired bootstrap BA(ALL) - BA(A0 same threshold) and BA(ALL) - BA(A0 at p>=0.5,\nthe shipped rule). The measurement 3-band row is composed from the two one-sided\nheads: hi -> 偏大, else lo -> 偏小, else 参考; if both fire, the larger margin wins.\n\n    python scripts/eval_fixed_router.py\n"
+}

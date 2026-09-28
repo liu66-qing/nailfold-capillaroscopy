@@ -1,0 +1,143 @@
+{
+ "release_id": "v1-static-final",
+ "levels": {
+  "Q": "仅清晰度：解释条目；模型预测不清时可建议按规范重新采集，这是唯一允许的行动提示",
+  "T": "解释条目和预测档位在报告单上的含义",
+  "E": "解释术语，并说明静态图像不能观测该项"
+ },
+ "per_field": {
+  "clarity": {
+   "advice_level": "Q",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": true
+  },
+  "capillary_count": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "afferent_diameter": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "efferent_diameter": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "output_input_ratio": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "apex_diameter": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "loop_length": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "crossing_ratio": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "malformation_ratio": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "flow_state": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "vasomotion": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "rbc_aggregation": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "wbc_count": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "microthrombus": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "blood_color": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "exudation": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "hemorrhage": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "subpapillary_venous_plexus": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "papilla": {
+   "advice_level": "T",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  },
+  "sweat_duct": {
+   "advice_level": "E",
+   "clinical_action_allowed": false,
+   "capture_action_allowed": false
+  }
+ },
+ "education": "所有人相同的 WHO 一般生活方式卡片，不随任何字段取值变化",
+ "forbidden_phrases": [
+  "本版本未评估",
+  "未评估",
+  "μm",
+  "um",
+  "条/mm",
+  "次/min",
+  "个/15s",
+  "个/min",
+  "积分",
+  "总分",
+  "重度异常",
+  "中度异常",
+  "轻度异常",
+  "大致正常",
+  "诊断",
+  "疏通",
+  "抗栓",
+  "溶栓",
+  "保健品",
+  "药物"
+ ],
+ "never": [
+  "把字段取值与疾病、风险或治疗关联",
+  "建议就医或用药作为某个字段的结果",
+  "输出积分、总分或五级分层",
+  "输出尺寸、计数、频次等带单位的数值"
+ ],
+ "excluded_sources": [
+  "未经核对的 OCR 文本",
+  "培训资料中的疾病关联段落"
+ ]
+}

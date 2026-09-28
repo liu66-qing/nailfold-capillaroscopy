@@ -1,0 +1,222 @@
+{
+ "clarity": {
+  "item": "清晰度",
+  "kind": "binary",
+  "n": 231,
+  "accuracy": 0.8139,
+  "always_common_answer": 0.5238,
+  "gain_ci95": [
+   0.2078,
+   0.368
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "capillary_count": {
+  "item": "管袢数",
+  "kind": "binary",
+  "n": 228,
+  "accuracy": 0.7412,
+  "always_common_answer": 0.6842,
+  "gain_ci95": [
+   0.0044,
+   0.114
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "afferent_diameter": {
+  "item": "输入枝管径",
+  "kind": "band3",
+  "n": 209,
+  "accuracy": 0.4976,
+  "always_common_answer": 0.4593,
+  "gain_ci95": [
+   -0.0287,
+   0.1053
+  ],
+  "beats_common_answer": false,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "efferent_diameter": {
+  "item": "输出枝管径",
+  "kind": "band3",
+  "n": 208,
+  "accuracy": 0.6298,
+  "always_common_answer": 0.5769,
+  "gain_ci95": [
+   0.0048,
+   0.1058
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "output_input_ratio": {
+  "item": "输出/输入枝",
+  "kind": "derived",
+  "evidence": "由两枝档位组合"
+ },
+ "apex_diameter": {
+  "item": "袢顶管径",
+  "kind": "band3",
+  "n": 213,
+  "accuracy": 0.5493,
+  "always_common_answer": 0.4131,
+  "gain_ci95": [
+   0.0516,
+   0.216
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "loop_length": {
+  "item": "管袢长度",
+  "kind": "band3",
+  "n": 221,
+  "accuracy": 0.5747,
+  "always_common_answer": 0.5068,
+  "gain_ci95": [
+   0.0045,
+   0.1312
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "crossing_ratio": {
+  "item": "交叉管袢",
+  "kind": "binary",
+  "n": 222,
+  "accuracy": 0.6486,
+  "always_common_answer": 0.6577,
+  "gain_ci95": [
+   -0.045,
+   0.027
+  ],
+  "beats_common_answer": false,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "malformation_ratio": {
+  "item": "不规则管袢",
+  "kind": "binary",
+  "n": 201,
+  "accuracy": 0.6567,
+  "always_common_answer": 0.5473,
+  "gain_ci95": [
+   0.0249,
+   0.199
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "flow_state": {
+  "item": "流态",
+  "kind": "binary",
+  "n": 225,
+  "accuracy": 0.7911,
+  "always_common_answer": 0.7911,
+  "gain_ci95": [
+   0.0,
+   0.0
+  ],
+  "beats_common_answer": false,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "vasomotion": {
+  "item": "血管运动性",
+  "kind": "fixed",
+  "evidence": "固定答案，不使用图像"
+ },
+ "rbc_aggregation": {
+  "item": "红细胞聚集",
+  "kind": "binary",
+  "n": 228,
+  "accuracy": 0.8509,
+  "always_common_answer": 0.8509,
+  "gain_ci95": [
+   0.0,
+   0.0
+  ],
+  "beats_common_answer": false,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "wbc_count": {
+  "item": "白细胞",
+  "kind": "fixed",
+  "evidence": "固定答案，不使用图像"
+ },
+ "microthrombus": {
+  "item": "白色微粒样片段",
+  "kind": "binary",
+  "n": 228,
+  "accuracy": 0.7149,
+  "always_common_answer": 0.6053,
+  "gain_ci95": [
+   0.0395,
+   0.1798
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "blood_color": {
+  "item": "血色",
+  "kind": "binary",
+  "n": 225,
+  "accuracy": 0.7511,
+  "always_common_answer": 0.5467,
+  "gain_ci95": [
+   0.1289,
+   0.2889
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "exudation": {
+  "item": "渗出",
+  "kind": "binary",
+  "n": 230,
+  "accuracy": 0.7522,
+  "always_common_answer": 0.4739,
+  "gain_ci95": [
+   0.1957,
+   0.3609
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "hemorrhage": {
+  "item": "出血",
+  "kind": "fixed",
+  "evidence": "固定答案，不使用图像"
+ },
+ "subpapillary_venous_plexus": {
+  "item": "乳头下静脉丛",
+  "kind": "binary",
+  "n": 231,
+  "accuracy": 0.7749,
+  "always_common_answer": 0.5887,
+  "gain_ci95": [
+   0.1126,
+   0.2597
+  ],
+  "beats_common_answer": true,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "papilla": {
+  "item": "乳头",
+  "kind": "papilla",
+  "n": 231,
+  "accuracy": 0.4589,
+  "always_common_answer": 0.4156,
+  "gain_ci95": [
+   -0.026,
+   0.1126
+  ],
+  "beats_common_answer": false,
+  "protocol": "233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）"
+ },
+ "sweat_duct": {
+  "item": "汗腺导管",
+  "kind": "fixed",
+  "evidence": "固定答案，不使用图像"
+ }
+}

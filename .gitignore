@@ -87,3 +87,12 @@ artifacts/experiments/.folds_done
 artifacts/experiments/*/detectors/_tree_*/
 # vendored third-party model metadata (tokeniser, preprocessor, config)
 weights/*/
+
+# vendored external repos and dataset downloads (ANFC: non-commercial agreement)
+third_party/
+_tmp_*/
+.tmp_*
+# local assistant settings
+.claude/
+# the one image shipped with the README (a rendered example, no patient data)
+!docs/report_example.png

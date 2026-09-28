@@ -1,0 +1,195 @@
+{
+ "release_id": "v1-static-final",
+ "fields": [
+  {
+   "field_id": "clarity",
+   "item": "清晰度",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：清晰",
+    "模型预测：不清或模糊"
+   ],
+   "advice_level": "Q"
+  },
+  {
+   "field_id": "capillary_count",
+   "item": "管袢数",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：管袢数量参考档",
+    "模型预测：管袢数量偏少档",
+    "模型预测：管袢数量更少档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "afferent_diameter",
+   "item": "输入枝管径",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：偏细档",
+    "模型预测：参考档",
+    "模型预测：偏粗档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "efferent_diameter",
+   "item": "输出枝管径",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：偏细档",
+    "模型预测：参考档",
+    "模型预测：偏粗档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "output_input_ratio",
+   "item": "输出/输入枝关系",
+   "source": "derived",
+   "wording": null,
+   "advice_level": "T"
+  },
+  {
+   "field_id": "apex_diameter",
+   "item": "袢顶直径",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：偏细档",
+    "模型预测：参考档",
+    "模型预测：偏粗档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "loop_length",
+   "item": "管袢长",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：未超过长度上界档",
+    "模型预测：超过长度上界档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "crossing_ratio",
+   "item": "交叉管袢",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：交叉比例未超过报告阈值档",
+    "模型预测：交叉比例超过报告阈值档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "malformation_ratio",
+   "item": "畸形管袢",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：畸形比例未超过报告阈值档",
+    "模型预测：畸形比例超过报告阈值档"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "flow_state",
+   "item": "流态",
+   "source": "model_supp",
+   "wording": [
+    "静态关联预测：线流或线粒流标签组（不代表观察到流动）",
+    "静态关联预测：粒线流等其余流态标签组（不代表观察到流动）"
+   ],
+   "advice_level": "E"
+  },
+  {
+   "field_id": "vasomotion",
+   "item": "血管运动性",
+   "source": "fixed_baseline",
+   "wording": "静态图像不提供运动频次；开发集常见标签：较低频次档（固定基线，不是本次观测）",
+   "advice_level": "E"
+  },
+  {
+   "field_id": "rbc_aggregation",
+   "item": "红细胞聚集",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：无聚集标签",
+    "模型预测：有聚集标签（不区分程度）"
+   ],
+   "advice_level": "E"
+  },
+  {
+   "field_id": "wbc_count",
+   "item": "白细胞数",
+   "source": "fixed_baseline",
+   "wording": "静态图像不提供时段计数；开发集常见标签：未超过计数阈值档（固定基线，不是本次观测）",
+   "advice_level": "E"
+  },
+  {
+   "field_id": "microthrombus",
+   "item": "白微栓",
+   "source": "model_v1",
+   "wording": [
+    "静态关联预测：无白微栓报告标签（不代表动态检出或排除）",
+    "静态关联预测：有白微栓报告标签（不代表动态检出或排除）"
+   ],
+   "advice_level": "E"
+  },
+  {
+   "field_id": "blood_color",
+   "item": "血色",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：浅红或淡红",
+    "模型预测：暗红或暗紫"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "exudation",
+   "item": "渗出",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：无渗出标签",
+    "模型预测：有渗出标签"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "hemorrhage",
+   "item": "出血",
+   "source": "fixed_baseline",
+   "wording": "开发集常见标签：无出血（固定基线，不是本次检出结果，不能排除出血）",
+   "advice_level": "E"
+  },
+  {
+   "field_id": "subpapillary_venous_plexus",
+   "item": "乳头下静脉丛",
+   "source": "model_v1",
+   "wording": [
+    "模型预测：不见",
+    "模型预测：可见"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "papilla",
+   "item": "乳头",
+   "source": "model_supp",
+   "wording": [
+    "模型预测：波纹状",
+    "模型预测：浅波纹状",
+    "模型预测：平坦"
+   ],
+   "advice_level": "T"
+  },
+  {
+   "field_id": "sweat_duct",
+   "item": "汗腺导管",
+   "source": "fixed_baseline",
+   "wording": "开发集常见标签：较少档（固定基线，不是本次计数结果）",
+   "advice_level": "E"
+  }
+ ]
+}
