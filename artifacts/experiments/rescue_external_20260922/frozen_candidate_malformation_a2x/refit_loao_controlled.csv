@@ -1,7 +1,0 @@
-﻿held_out_archive,n,arm,training_majority_baseline,own_majority_baseline,accuracy,balanced_accuracy,auroc,recall_0,recall_1,collapsed,ba_gain_a2x_minus_a0,ba_ci
-recovered_archive1,51,A0,0.549,0.549,0.6078,0.5924,0.646,0.75,0.4348,False,,
-recovered_archive1,51,A2x,0.549,0.549,0.7451,0.7368,0.7438,0.8214,0.6522,False,0.1444,"[0.0333, 0.2647]"
-recovered_archive2,70,A0,0.5571,0.5571,0.6429,0.6232,0.6964,0.7949,0.4516,False,,
-recovered_archive2,70,A2x,0.5571,0.5571,0.7143,0.7072,0.7452,0.7692,0.6452,False,0.084,"[-0.025, 0.1918]"
-recovered_archive3,41,A0,0.6098,0.6098,0.561,0.5388,0.675,0.64,0.4375,False,,
-recovered_archive3,41,A2x,0.6098,0.6098,0.7317,0.7238,0.775,0.76,0.6875,False,0.185,"[0.0226, 0.3439]"

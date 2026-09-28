@@ -1,1 +1,0 @@
-put artifacts/labels/multisource_confidence_v3.csv /root/autodl-tmp/nailfold/code_latest/artifacts/labels/multisource_confidence_v3.csv

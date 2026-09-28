@@ -95,7 +95,8 @@ def main() -> None:
         code=["src/nailfold_report/" + m for m in
               ("final_registry.py", "final_inference.py", "expert_features.py",
                "final_advice.py", "final_render.py", "final_api.py")],
-        superseded="_superseded_v1_static/（上一版 v1-static-final，已不使用）"))
+        download=("https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/"
+                  + RELEASE_ID)))
     print("wrote", len(files) + 1, "files")
 
 

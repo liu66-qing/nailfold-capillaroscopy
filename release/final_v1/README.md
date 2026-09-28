@@ -58,7 +58,7 @@ uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 
 ## 文件
 
-- `artifacts/models/expert_router_v1/`：bundle.joblib、seg_s0.pt、det_capillary.pt、metadata.json
+- `artifacts/models/expert_router_v1/`：bundle.joblib、seg_s0.pt、det_capillary.pt、metadata.json。二进制从 GitHub Release `expert-router-final` 下载，放置方法见根目录 README §1.0
 - `validation.json`：逐行准确率、常见答案基线、增益置信区间
 - `examples/`：8 例开发集病例的 JSON（HTML 本地生成，不入库）。生成时校验了实时推理与训练特征表的一致性，|Δq| ≤ 0.0028
 - `release_manifest.json`：发布文件的 sha256

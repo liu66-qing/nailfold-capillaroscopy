@@ -1,5 +1,0 @@
-reget /root/autodl-tmp/nailfold/artifacts/windows_model_v3/vision.delta artifacts/windows_model_v3/vision.delta
-reget /root/autodl-tmp/nailfold/artifacts/windows_model_v3/case_head.onnx.data artifacts/windows_model_v3/case_head.onnx.data
-get /root/autodl-tmp/nailfold/artifacts/windows_model_v3/case_head.onnx artifacts/windows_model_v3/case_head.onnx
-get /root/autodl-tmp/nailfold/artifacts/windows_model_v3/siglip2_vision.onnx artifacts/windows_model_v3/siglip2_vision.onnx
-get /root/autodl-tmp/nailfold/artifacts/windows_model_v3/model_metadata.json artifacts/windows_model_v3/model_metadata.json

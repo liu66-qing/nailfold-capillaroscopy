@@ -1,9 +1,0 @@
-exam_case_id,field,values,files
-recovered_archive2/152,afferent_diameter,"[0.2, 1.2]","['recovered_archive2\\152\\rep.jpg.jpg', 'recovered_archive2\\152\\rep_1910290.jpg.jpg', 'recovered_archive2\\152\\rep_1910291.jpg.jpg', 'recovered_archive2\\152\\rep_左手.jpg.jpg']"
-recovered_archive2/176,afferent_diameter,"[0.0, 1.2]","['recovered_archive2\\176\\rep.jpg.jpg', 'recovered_archive2\\176\\rep_2012100.jpg.jpg', 'recovered_archive2\\176\\rep_2012101.jpg.jpg', 'recovered_archive2\\176\\rep_双手无名指.jpg.jpg']"
-recovered_archive2/179,exudation,"[0.0, 1.5]","['recovered_archive2\\179\\rep.jpg.jpg', 'recovered_archive2\\179\\rep_1903120.jpg.jpg', 'recovered_archive2\\179\\rep_1903121.jpg.jpg', 'recovered_archive2\\179\\rep_左手.jpg.jpg']"
-recovered_archive2/179,subpapillary_venous_plexus,"[0.4, 1.0]","['recovered_archive2\\179\\rep.jpg.jpg', 'recovered_archive2\\179\\rep_1903120.jpg.jpg', 'recovered_archive2\\179\\rep_1903121.jpg.jpg', 'recovered_archive2\\179\\rep_左手.jpg.jpg']"
-recovered_archive3/218,afferent_diameter,"[0.0, 0.8]","['recovered_archive3\\218\\rep.jpg.jpg', 'recovered_archive3\\218\\rep_2001090.jpg.jpg', 'recovered_archive3\\218\\rep_2001091.jpg.jpg', 'recovered_archive3\\218\\rep_左手.jpg.jpg']"
-recovered_archive3/229,afferent_diameter,"[0.2, 1.2]","['recovered_archive3\\229\\rep.jpg.jpg', 'recovered_archive3\\229\\rep_2012100.jpg.jpg', 'recovered_archive3\\229\\rep_2012101.jpg.jpg', 'recovered_archive3\\229\\rep_双手无名指.jpg.jpg']"
-recovered_archive3/262,afferent_diameter,"[0.0, 0.2]","['recovered_archive3\\262\\rep.jpg.jpg', 'recovered_archive3\\262\\rep_1.jpg.jpg', 'recovered_archive3\\262\\rep_1905281.jpg.jpg', 'recovered_archive3\\262\\rep_左手.jpg.jpg']"
-recovered_archive3/262,efferent_diameter,"[0.0, 0.4]","['recovered_archive3\\262\\rep.jpg.jpg', 'recovered_archive3\\262\\rep_1.jpg.jpg', 'recovered_archive3\\262\\rep_1905281.jpg.jpg', 'recovered_archive3\\262\\rep_左手.jpg.jpg']"

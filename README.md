@@ -23,17 +23,31 @@ pip install -e .
 
 scikit-learn 必须是 1.9.0，因为分类头是 pickle 的 sklearn 管线，换版本加载会失败或结果漂移。
 
-模型二进制不在 git 里（体积大）。把下面 5 个文件放到对应路径即可，加载时会逐个校验 sha256，不匹配直接报 `AssetMismatch`：
+### 1.0 下载模型文件
 
-| 路径 | 大小 | sha256 |
-|---|---|---|
-| `artifacts/models/expert_router_v1/bundle.joblib` | 19.8 MB | `04ee6b80…b17241` |
-| `artifacts/models/expert_router_v1/seg_s0.pt` | 43.1 MB | `08103c92…66838bb` |
-| `artifacts/models/expert_router_v1/det_capillary.pt` | 18.3 MB | `0ca4c3bb…823888f` |
-| `weights/dinov2/b/model.safetensors` | 330 MB | `55cbb5d8…35886d8c7b` |
-| `artifacts/models/rag_heads_v1/bundle.joblib` | 7.4 MB | 只读取其中的编码器预处理配置 |
+模型二进制放在 GitHub Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final) 的附件里，不进 git 历史（DINOv2 权重 330 MB，超过 git 单文件 100 MB 上限）。下载后按下表放到对应路径。加载时会逐个校验 sha256，不匹配直接报 `AssetMismatch`：
 
-完整 sha256 见 [release/final_v1/release_manifest.json](release/final_v1/release_manifest.json)。文件请向项目负责人索取。
+| Release 附件名 | 放到仓库内的路径 | 大小 | sha256（前 8 位） |
+|---|---|---|---|
+| `bundle.joblib` | `artifacts/models/expert_router_v1/bundle.joblib` | 19.8 MB | `04ee6b80` |
+| `seg_s0.pt` | `artifacts/models/expert_router_v1/seg_s0.pt` | 43.1 MB | `08103c92` |
+| `det_capillary.pt` | `artifacts/models/expert_router_v1/det_capillary.pt` | 18.3 MB | `0ca4c3bb` |
+| `dinov2_b_model.safetensors` | `weights/dinov2/b/model.safetensors` | 330 MB | `55cbb5d8` |
+| `rag_heads_v1_bundle.joblib` | `artifacts/models/rag_heads_v1/bundle.joblib` | 7.4 MB | `8c66fbb9`（只读取其中的编码器预处理配置） |
+
+完整 sha256 见 Release 里的 `SHA256SUMS.txt` 和 [release/final_v1/release_manifest.json](release/final_v1/release_manifest.json)。
+
+一键下载（需要装好 [gh](https://cli.github.com/)）：
+
+```bash
+gh release download expert-router-final -R liu66-qing/nailfold-capillaroscopy -D _assets
+```
+
+```bash
+mkdir -p artifacts/models/expert_router_v1 artifacts/models/rag_heads_v1 weights/dinov2/b && cp _assets/bundle.joblib _assets/seg_s0.pt _assets/det_capillary.pt artifacts/models/expert_router_v1/ && cp _assets/rag_heads_v1_bundle.joblib artifacts/models/rag_heads_v1/bundle.joblib && cp _assets/dinov2_b_model.safetensors weights/dinov2/b/model.safetensors
+```
+
+编码器用 `timm` 按 `rag_heads_v1/bundle.joblib` 里记录的结构创建，再加载这份 safetensors，不需要联网下载，也不需要额外的 config 文件。
 
 ### 1.1 Python 调用
 
@@ -113,12 +127,27 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
    20 行观察（二分类 / 三档 / 乳头 / 固定 / 派生） → 模板建议 → JSON / HTML
 ```
 
-- 同一套路由用于所有字段，没有逐字段挑模型。逐字段挑选在实验里是负收益，详见 §5。
+- 同一套路由用于所有字段，没有逐字段挑模型。逐字段挑选在实验里是负收益（固定配置在全部字段上都不差于折内逐字段挑选）。
 - 三档行（输入枝、输出枝、袢顶管径、管袢长度）由"偏低"和"偏高"两个单侧头组合：P(适中) = 1 − P(低) − P(高)，取 argmax。
 - 乳头由"平坦""波纹状"两个头组合，得到平坦 / 浅波纹状 / 波纹状三档。
 - 4 行固定输出：血管运动性、白细胞、出血、汗腺导管。开发集中 85~97% 的病例是同一个答案，这几行不看图，直接输出该答案。
 - 1 行派生：输出/输入枝，由两枝的档位组合出措辞，不做除法。
 - 输出不含任何尺寸、计数、频次、积分或严重度分级。
+
+### 各组件在什么数据上训练
+
+| 组件 | 结构 | 训练数据 | 规模 | 许可 | 脚本 / 记录 |
+|---|---|---|---|---|---|
+| A0 图像特征 | DINOv2 ViT-B/14，权重冻结不训练 | Meta 官方预训练权重（LVD-142M 自然图像）；本项目只做 5 种池化 + PCA64 | — | Apache-2.0 | `src/nailfold_report/rag_inference.py` |
+| COL 颜色/清晰度 | 手工统计量，无可训练参数 | 不需要训练 | — | — | `scripts/extract_color_quality_all233.py`、`extract_roi_quality_background_features.py` |
+| SEG 分割器 S0 | YOLO11m-seg，imgsz 1024，40 epoch，seed 20260927 | ① 自家血管数据集：医生用 LabelMe 勾画的单根血管多边形，2332 张裁图，按原尺度拼到 1024 画布上；与 locked 测试病例重叠的已剔除 ② ANFC-THU 的 Roboflow coco 导出版，train 257 张（6 类合并为 vessel） | 训练：裁图中文件号 %10≠0 的部分 + ANFC 257 张；验证：文件号 %10=0 的裁图 + ANFC valid | 自家数据；ANFC Roboflow 导出页标注 CC BY 4.0 | `scripts/mendeley_seg_build_base.py`、`mendeley_seg_train.py`；训练集清单在 `artifacts/derived/vascular_dataset_governance_20260830/train_ready/` |
+| DET 形态检测器 | YOLO11s，imgsz 640，30 epoch，seed 20260917 | 公开数据集 [HanaNguyen/Capillary-Dataset](https://huggingface.co/datasets/HanaNguyen/Capillary-Dataset) 的 Morphology_detection 人工框，4 类 bushy / crossing / hairpin / tortuous | 1298 张图、7206 个框、103 人；按人分组留出 18 人 198 张做验证，mAP50 0.768 | Apache-2.0 | `scripts/train_morph_detector_folds.py`；[per_class.json](artifacts/experiments/rescue_external_20260922/detectors/external_pretrain/per_class.json) |
+| 13 个分类头 + 校准 | 每路一个 LogisticRegression（C=0.03）+ Platt 校准 | 自家 233 例有医生报告的检查（3 个数据档案，2110 张图），标签是医生报告单上手填的各项结果 | 每个目标 n = 201~231 | 自家数据 | `scripts/fit_expert_router_final.py`；[metadata.json](artifacts/models/expert_router_v1/metadata.json) |
+
+说明：
+- SEG 和 DET 只负责产出几何、计数这类中间特征，它们自己的类别（vessel、bushy 等）不是报告字段。报告字段全部由最后一层分类头在自家标签上学出来。
+- 训练 SEG / DET 时没有用到任何病例的报告标签，也没有用到 locked 测试病例的图像。
+- 目录名里的 `mendeley_` 是历史命名。最终 S0 没有使用 Mendeley 数据集（该数据集图像全部带设备叠加标记，不适合做外观训练）。
 
 ### 建议是怎么生成的（模板检索，非 LLM）
 
@@ -225,11 +254,59 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 
 这 5 行照常输出，但不参与触发建议。
 
-需要如实告知接入方的局限：
+### 4.1 跨域测试：换一批数据、换一种成像条件
+
+做了两组跨域测试，结论是主要字段在不同数据档案之间、在常见成像变化下，效果变化不大。
+
+**(1) 留一档案外测（跨数据档案）**
+
+233 例来自 3 个独立整理的数据档案（72 / 97 / 63 例，采集批次不同）。每次拿两个档案训练，在第三个档案上测，三个档案轮流。脚本 `scripts/eval_router_loao.py`，结果 [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv)（`arm=ALL` 即交付路由）。
+
+| 目标 | 档案1 AUROC | 档案2 | 档案3 | 最差档案 | 5 折 CV AUROC |
+|---|---|---|---|---|---|
+| 清晰度 | 0.839 | 0.824 | 0.892 | 0.824 | 0.874 |
+| 血色 | 0.807 | 0.855 | 0.792 | 0.792 | 0.831 |
+| 乳头下静脉丛 | 0.825 | 0.773 | 0.859 | 0.773 | 0.818 |
+| 渗出 | 0.750 | 0.782 | 0.817 | 0.750 | 0.786 |
+| 乳头·平坦 | 0.836 | 0.732 | 0.832 | 0.732 | — |
+| 管袢长度·偏长 | 0.819 | 0.719 | 0.853 | 0.719 | — |
+| 输出枝·偏粗 | 0.712 | 0.773 | 0.755 | 0.712 | — |
+| 白色微粒样片段 | 0.859 | 0.699 | 0.710 | 0.699 | 0.770 |
+| 不规则管袢 | 0.694 | 0.769 | 0.753 | 0.694 | 0.719 |
+
+清晰度、血色、乳头下静脉丛、渗出 4 项在没见过的档案上 AUROC 都 ≥ 0.75，和混合交叉验证只差 0.02~0.05。流态在留出档案上 AUROC 0.445~0.665，本来就没有信号，所以它不触发建议。
+
+**(2) 模拟设备 / 成像条件偏移**
+
+在开发集 186 例、1708 张图上，对每张图做 9 种变换后重新提特征，训练好的头不动，直接测。脚本 `scripts/device_shift_features.py`（生成）和 `scripts/eval_device_shift.py`（评估），结果在 [device_shift_20260926/](artifacts/experiments/device_shift_20260926/)。
+
+9 种变换：分辨率减半、JPEG 质量 30、偏暖白平衡、偏冷白平衡、饱和度减半、整体变暗（γ1.4）、整体变亮（γ0.7）、高斯模糊 σ1.5，以及一个模拟另一台设备的组合（降分辨率 + 去饱和 + 偏色 + γ）。
+
+"扛住"的标准是：平衡准确率下降 ≤ 0.05，且两类召回都 ≥ 0.5。
+
+| 字段 | 9 种里扛住 | 最大平衡准确率下降 | 与原图答案不同的病例（最多） |
+|---|---|---|---|
+| 清晰度 | 9/9 | 0.033 | 7.6% |
+| 乳头下静脉丛 | 9/9 | 0.013 | 6.5% |
+| 渗出 | 9/9 | 0.024 | 13.1% |
+| 白色微粒样片段 | 8/9 | 0.016 | 27.5% |
+| 血色 | 7/9 | 0.021 | 21.5% |
+| 不规则管袢 | 5/9 | 0.019 | 16.0% |
+
+另外，管袢长度"是否偏长"在 9 种变换下平衡准确率保持在 0.722~0.756，答案翻转 ≤ 6%。
+
+没扛住的情况不是准确率掉了（下降都 ≤ 0.021），而是某一类召回掉到 0.5 以下。例如血色在去饱和、模拟设备两种条件下，"偏暗"的召回降到 0.43~0.49。颜色类字段对设备的色彩还原最敏感。
+
+**接入方需要知道的边界**
+- 3 个档案来自同一家机构、同一型号设备，这是跨批次，不是跨医院的外部验证。
+- 模拟偏移测的是 DINOv2 图像特征这一路（A0），不是完整四路路由。
+- 用一台真实外部设备的公开图像（无标签，60 人 480 张）检查过：它和我们设备在特征空间的距离，比最重的模拟变换大约 2.8 倍。未经处理时，血色有 93% 的图给出同一个答案。按设备把特征均值和方差对齐到开发集后（"逐设备重定心"，需要先积累一批该设备的图），输出分布恢复正常。但这批图没有标签，只能证明输出不再塌缩，不能证明答对。
+- 上线新设备前，建议先收 30~50 人带医生结果的数据做一次核对。
+
+需要如实告知接入方的其他局限：
 1. 只有内部交叉验证，没有外部验证。这批数据此前做过多轮探索，数字偏乐观。
-2. 数据只来自一家机构、一种设备，换设备后表现未知。已有模拟实验表明，逐设备重新定心可以缓解偏移，见 `artifacts/experiments/device_shift_20260926/`。
-3. 流态、白色微粒样片段在医生原报告里依赖动态视频观察。本系统只从静态图给出关联判断。
-4. 固定行不随图像变化，不能用它排除出血等异常。
+2. 流态、白色微粒样片段在医生原报告里依赖动态视频观察。本系统只从静态图给出关联判断。
+3. 固定行不随图像变化，不能用它排除出血等异常。
 
 ---
 
@@ -247,28 +324,41 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | `src/nailfold_report/final_api.py` | FastAPI 服务 |
 | **发布物** | |
 | `release/final_v1/` | 发布说明、requirements、schema、`validation.json`（逐行指标）、`release_manifest.json`（sha256）、`examples/` |
-| `release/final_v1/_superseded_v1_static/` | 上一版静态发布，已不使用，仅存档 |
-| `artifacts/models/expert_router_v1/metadata.json` | 训练元数据：每个目标的样本数、校准系数、特征配方（二进制不入库） |
-| **训练与评估脚本** | |
+| `artifacts/models/expert_router_v1/metadata.json` | 训练元数据：每个目标的样本数、校准系数、特征配方（二进制在 Release 附件里） |
+| **最终路由：训练与评估** | |
 | `scripts/eval_fixed_router.py` | 固定四专家路由的 5 折 OOF 概率 |
 | `scripts/eval_calibrated_router.py` | 嵌套校准 + 判定规则，产出 §4 的数字 |
-| `scripts/eval_router_loao.py` | 留一档案外测（按 3 个数据档案轮流留出） |
-| `scripts/eval_ordinal_experts.py` | 三档有序头的对照实验（结论：0/15 行有提升） |
+| `scripts/eval_router_loao.py` | 留一档案外测，产出 §4.1(1) |
+| `scripts/eval_ordinal_experts.py` | 三档有序头的对照实验（结论：没有行因此提升，所以交付用单侧头组合） |
 | `scripts/fit_expert_router_final.py` | 在全部 233 例上拟合最终 bundle |
 | `scripts/make_final_examples.py` | 端到端核对：实时推理与训练特征表的 \|Δq\| < 0.01；生成示例 |
 | `scripts/build_final_release_meta.py` | 重算 `validation.json`、`release_manifest.json` |
-| `scripts/extract_*.py` | COL / SEG / DET 特征的原始提取实现，`expert_features.py` 调用它们 |
-| **实验记录** | |
+| `scripts/eval_field_experts.py`、`compare_v1_v2_training.py`、`run_field_matrix_three_arms.py`、`build_field_matrix.py`、`pipeline.py` | 上面几个脚本共用的数据加载、标签清洗和评估函数 |
 | `artifacts/experiments/expert_routes_20260928/` | 最终路由的全部评估输出：OOF、校准、三档、LOAO、有序头对照 |
-| `artifacts/experiments/` 其余子目录 | 历次实验结果（json/csv），目录名带日期 |
+| `artifacts/experiments/v1_vs_v2_training_20260928/`、`locked_consumed_20260924/features_locked/`、`medical_encoder_transfer_20260921/features/anchor_dinov2b_deployed/` | 训练用的 A0 特征索引与元数据（特征矩阵 .npy 体积大，不入库） |
+| **四路特征的来源** | |
+| `scripts/extract_color_quality_all233.py`、`extract_roi_quality_background_features.py` | COL |
+| `scripts/extract_instance_geometry.py` | SEG 几何与拓扑特征 |
+| `scripts/extract_detector_local_features.py` | DET 计数与比例特征 |
+| `scripts/mendeley_seg_build_base.py`、`mendeley_seg_train.py` | SEG 分割器 S0 的训练集构建与训练 |
+| `scripts/train_morph_detector_folds.py` | DET 检测器训练 |
+| `scripts/extract_medical_encoders.py`、`fit_rag_heads.py` | A0 编码器加载与预处理配置（`rag_heads_v1/bundle.joblib` 由后者生成） |
+| `artifacts/derived/vascular_dataset_governance_20260830/train_ready/` | SEG 训练用的自家血管标注（LabelMe json，不含图像） |
+| `artifacts/experiments/rescue_external_20260922/` | DET 训练记录（`detectors/external_pretrain/`）、外部数据池清单（`frozen/`）、DET 特征表 |
+| **跨域测试** | |
+| `scripts/device_shift_features.py`、`eval_device_shift.py`、`artifacts/experiments/device_shift_20260926/` | §4.1(2) 模拟设备偏移 |
+| `artifacts/experiments/loop_length_audit_20260928/` | 管袢长度"是否偏长"的留一档案与偏移审计 |
+| **前瞻评估（独立进行中，不要改动）** | |
+| `artifacts/prospective_eval_v2/`、`scripts/score_prospective_v2.py`、`artifacts/models/rag_heads_v2/fit_report.json` | 预注册的前瞻评估：冻结的 `rag_heads_v2` 影子路径，等新采集病例到齐后按预注册打分 |
 | **测试** | |
 | `tests/test_final_release.py` | 发布契约：20 行齐全、禁词、建议差异化、页面不像病例、低变化行不相邻、API、sha256 |
-| `tests/` 其余文件 | 标签解析、前瞻评估脚本、旧版接口 |
+| `tests/test_score_prospective.py`、`test_rag_inference.py` | 前瞻评估打分脚本、A0 编码器加载 |
 | **其他** | |
 | `docs/report_example.png` | README 效果图 |
-| 根目录零散 `.py` / `.md` | 早期探索脚本和阶段报告，与交付无关，保留作历史 |
 
-跑测试。`tests/test_final_release.py` 需要模型二进制和本地训练特征表，只能在有数据的机器上跑；其余测试不依赖数据：
+`main` 分支只保留当前交付和它直接依赖的代码与记录。早期探索、已放弃的方案和阶段报告都已从 `main` 移出，完整保留在 [`archive/research-history`](https://github.com/liu66-qing/nailfold-capillaroscopy/tree/archive/research-history) 分支，需要追溯时再看，接入时不需要。
+
+跑测试。`tests/test_final_release.py` 需要 Release 里的模型文件和本地训练特征表，缺文件时自动跳过；`test_score_prospective.py` 用合成数据，不依赖数据：
 
 ```bash
 PYTHONPATH=src python -m pytest tests -q
@@ -293,9 +383,9 @@ python scripts/build_final_release_meta.py
   - 含真实姓名映射的 `*.local.csv` 不入库。
   - `.env` 里的 API key 不入库。
 - 实验 csv 里的 `exam_case_id` 是脱敏编号（形如 `recovered_archive1/23`），不含个人信息。
-- 第三方数据的使用情况（商用前需法务确认）：
-  - SEG 分割器 S0 的训练集 = 自家血管数据集单血管裁图 + ANFC-THU 的 Roboflow coco 导出版 257 张（`scripts/mendeley_seg_build_base.py`）。
-  - ANFC 官方版需签协议且禁止商用；Roboflow 导出版的许可条款需要单独核实。
-  - `third_party/`（含 ANFC 官方仓库与协议）不入库。
-- DET 检测器在公开的 Capillary-Dataset 人工框上训练（apache-2.0）。
+- 第三方数据与权重（各组件训练数据见 §2 的表；商用前需法务确认）：
+  - SEG 分割器用到 ANFC-THU 的 Roboflow coco 导出版 257 张，导出页标注 CC BY 4.0。ANFC 官方版需签协议且禁止商用，本项目没有使用官方版；两者关系需法务核实。
+  - DET 检测器用 HanaNguyen/Capillary-Dataset（Apache-2.0）。
+  - DINOv2 权重来自 Meta（Apache-2.0）。
+- Release 附件里的模型文件随仓库公开。模型文件里只有网络参数和 sklearn 管线，不含病例图像或姓名。
 - 前瞻评估另走冻结的 `rag_heads_v2` 影子路径，按预注册执行，本发布不改动它。

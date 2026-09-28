@@ -1,9 +1,0 @@
-{
-  "source_path": "/root/autodl-tmp/nailfold/artifacts/experiments/model-upgrade-20260831/instance_cls_auxiliary.csv",
-  "target_path": "artifacts/annotations/instance_cls_auxiliary_manifest.json",
-  "rows": 2207,
-  "sha256": "ae3a2ac8aec86f0fb81b307fd8bd0d6a31dde712afaf8badc2409f80fca0b8dd",
-  "annotation_type": "auxiliary_pseudo_label",
-  "locked_used": false,
-  "status": "candidate_only"
-}

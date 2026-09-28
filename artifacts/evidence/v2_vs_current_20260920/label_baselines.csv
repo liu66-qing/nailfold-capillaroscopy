@@ -1,6 +1,0 @@
-field,reviewed_n_valid,current_n,n_matches,reviewed_pos_rate,reviewed_majority_baseline,current_majority_baseline,baseline_shift,same_target
-clarity,185,185,True,0.5081,0.5081,0.5081,0.0,True
-blood_color,181,181,True,0.5525,0.5525,0.5525,0.0,True
-exudation,183,183,True,0.4918,0.5082,0.5082,0.0,True
-subpapillary_venous_plexus,184,184,True,0.5707,0.5707,0.5707,0.0,True
-papilla,185,185,True,0.773,0.773,0.4162,0.3568,False
