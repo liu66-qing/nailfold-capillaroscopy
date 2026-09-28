@@ -12,7 +12,7 @@
 
 上图是开发集一例的实际输出，姓名、年龄为示例值。其余 8 例的 JSON 见 [release/final_v1/examples/](release/final_v1/examples/)。
 
-> **模型文件在哪：** 仓库代码里不含模型文件。5 个模型文件（共约 420 MB）都放在 GitHub Release **[expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)** 的附件里。克隆仓库后，先按 [§1.0](#10-下载模型文件) 下载，并放到指定路径，否则程序无法运行。
+> 模型文件不在代码里，在 GitHub Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)。克隆后先按 [§1.0](#10-下载模型文件) 下载，否则无法运行。
 
 ---
 
@@ -27,46 +27,30 @@ scikit-learn 必须是 1.9.0，因为分类头是 pickle 的 sklearn 管线，�
 
 ### 1.0 下载模型文件
 
-模型二进制放在 GitHub Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final) 的附件里，不进 git 历史（DINOv2 权重 330 MB，超过 git 单文件 100 MB 上限）。下载后按下表放到对应路径。加载时会逐个校验 sha256，不匹配直接报 `AssetMismatch`：
+5 个文件共约 420 MB，放在 Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)。其中 DINOv2 权重超过 git 单文件 100 MB 的上限，所以不进仓库。按下表放到仓库内对应路径，点击文件名可以直接下载：
 
-| Release 附件名 | 放到仓库内的路径 | 大小 | sha256（前 8 位） |
-|---|---|---|---|
-| `bundle.joblib` | `artifacts/models/expert_router_v1/bundle.joblib` | 19.8 MB | `04ee6b80` |
-| `seg_s0.pt` | `artifacts/models/expert_router_v1/seg_s0.pt` | 43.1 MB | `08103c92` |
-| `det_capillary.pt` | `artifacts/models/expert_router_v1/det_capillary.pt` | 18.3 MB | `0ca4c3bb` |
-| `dinov2_b_model.safetensors` | `weights/dinov2/b/model.safetensors` | 330 MB | `55cbb5d8` |
-| `rag_heads_v1_bundle.joblib` | `artifacts/models/rag_heads_v1/bundle.joblib` | 7.4 MB | `8c66fbb9`（只读取其中的编码器预处理配置） |
+| 文件 | 放到 | 大小 |
+|---|---|---|
+| [bundle.joblib](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/bundle.joblib) | `artifacts/models/expert_router_v1/bundle.joblib` | 19.8 MB |
+| [seg_s0.pt](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/seg_s0.pt) | `artifacts/models/expert_router_v1/seg_s0.pt` | 43.1 MB |
+| [det_capillary.pt](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/det_capillary.pt) | `artifacts/models/expert_router_v1/det_capillary.pt` | 18.3 MB |
+| [dinov2_b_model.safetensors](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/dinov2_b_model.safetensors) | `weights/dinov2/b/model.safetensors` | 330 MB |
+| [rag_heads_v1_bundle.joblib](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/rag_heads_v1_bundle.joblib) | `artifacts/models/rag_heads_v1/bundle.joblib` | 7.4 MB |
 
-完整 sha256 见 Release 里的 `SHA256SUMS.txt` 和 [release/final_v1/release_manifest.json](release/final_v1/release_manifest.json)。
-
-下载方式任选一种，文件都放进仓库根目录下的 `_assets/`：
-
-- 浏览器：打开 [Release 页面](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)，在 Assets 里逐个点击下载。
-- [gh](https://cli.github.com/)：
+也可以在仓库根目录用命令一次下好，文件会直接落到上表的路径：
 
 ```bash
-gh release download expert-router-final -R liu66-qing/nailfold-capillaroscopy -D _assets
+B=https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final
+curl -fL --create-dirs -o artifacts/models/expert_router_v1/bundle.joblib    $B/bundle.joblib
+curl -fL --create-dirs -o artifacts/models/expert_router_v1/seg_s0.pt        $B/seg_s0.pt
+curl -fL --create-dirs -o artifacts/models/expert_router_v1/det_capillary.pt $B/det_capillary.pt
+curl -fL --create-dirs -o weights/dinov2/b/model.safetensors                 $B/dinov2_b_model.safetensors
+curl -fL --create-dirs -o artifacts/models/rag_heads_v1/bundle.joblib        $B/rag_heads_v1_bundle.joblib
 ```
 
-- curl：
-
-```bash
-mkdir -p _assets && for f in bundle.joblib seg_s0.pt det_capillary.pt rag_heads_v1_bundle.joblib dinov2_b_model.safetensors SHA256SUMS.txt; do curl -L -o "_assets/$f" "https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/$f"; done
-```
-
-校验（可选；加载时也会再校验一次）：
-
-```bash
-cd _assets && sha256sum -c SHA256SUMS.txt && cd ..
-```
-
-放到对应路径：
-
-```bash
-mkdir -p artifacts/models/expert_router_v1 artifacts/models/rag_heads_v1 weights/dinov2/b && cp _assets/bundle.joblib _assets/seg_s0.pt _assets/det_capillary.pt artifacts/models/expert_router_v1/ && cp _assets/rag_heads_v1_bundle.joblib artifacts/models/rag_heads_v1/bundle.joblib && cp _assets/dinov2_b_model.safetensors weights/dinov2/b/model.safetensors
-```
-
-编码器用 `timm` 按 `rag_heads_v1/bundle.joblib` 里记录的结构创建，再加载这份 safetensors，不需要联网下载，也不需要额外的 config 文件。
+说明：
+- 加载时会逐个校验 sha256，不匹配就报 `AssetMismatch`，所以不需要手动校验。完整哈希在 Release 的 `SHA256SUMS.txt` 和 [release_manifest.json](release/final_v1/release_manifest.json) 里。
+- `rag_heads_v1/bundle.joblib` 里只读取编码器结构和预处理配置。DINOv2 由 `timm` 离线加载，不联网，也不需要 config 文件。
 
 ### 1.1 Python 调用
 
