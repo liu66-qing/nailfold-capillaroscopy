@@ -1,6 +1,4 @@
-# 甲襞微循环图像分析 · expert-router-final
-
-> 当前发布版交付证据：[版本、逐字段内部交叉验证指标及缺失项](release/final_v1/evidence/README.md)。独立锁定集成绩缺失；现有 LOAO 与发布阈值规则不同。
+# 甲襞微循环图像分析
 
 
 输入：同一次检查拍摄的若干张静态甲襞显微图像（jpg/png/bmp/tif）。
@@ -16,6 +14,28 @@
 上图是开发集一例的实际输出，姓名、年龄为示例值。其余 8 例的 JSON 见 [release/final_v1/examples/](release/final_v1/examples/)。
 
 > 模型文件不在代码里，在 GitHub Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)。克隆后先按 [§1.0](#10-下载模型文件) 下载，否则无法运行。
+
+---
+
+## 交接清单
+
+本仓库当前内容即最终交付版本。代码、模型和接口沿用现有结构；接入时从下表查找对应内容。`expert-router-final` 是模型附件的固定标识，`release/final_v1` 是已有资源目录。
+
+| 交接项 | 入口 | 用途 |
+|---|---|---|
+| 推理代码 | [final_inference.py](src/nailfold_report/final_inference.py) | `FinalReportPredictor`，一次检查多张图输入，输出结构化报告 |
+| HTTP 接口 | [final_api.py](src/nailfold_report/final_api.py) | `POST /v1/reports`；运行方法见下方快速开始 |
+| 建议和页面 | [final_advice.py](src/nailfold_report/final_advice.py)、[final_render.py](src/nailfold_report/final_render.py) | 建议规则及健康观察卡 |
+| 模型下载 | [Release 附件](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final) | 5个必需文件，具体落盘路径见下方下载表 |
+| 依赖 | [requirements.txt](release/final_v1/requirements.txt) | 安装运行环境 |
+| 输出定义 | [字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](release/final_v1/schemas/report.schema.json)、[示例](release/final_v1/examples/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
+| 模型校验 | [release_manifest.json](release/final_v1/release_manifest.json) | 核心权重SHA256，推理加载时自动检查 |
+| 全量内部交叉验证 | [逐字段表](release/final_v1/evidence/README.md)、[完整指标](release/final_v1/evidence/metrics.json) | 有效n、ACC、BA、AUROC、召回、混淆矩阵及指标口径 |
+| 47例子集评估 | [指标表](release/final_v1/evidence/subset_47/README.md)、[完整指标](release/final_v1/evidence/subset_47/metrics.json) | 内部交叉验证折外结果 |
+| 47例原图与标签 | [下载数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)、[校验信息](release/final_v1/evidence/subset_47/data_download.json) | 47例、402张原图、21字段；`labels.csv`按病例，`images.csv`关联图像 |
+| 留一档案评估 | [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv) | 使用原始概率与训练阳性率的阈值；与发布端校准阈值不同 |
+
+接入顺序：安装依赖 → 下载5个模型文件 → 调用Python或启动HTTP服务 → 用47例包核对输入和标签 → 用同事持有的数据开展独立测试。已有47例指标按上表所列内部验证口径使用。
 
 ---
 
@@ -148,7 +168,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | COL 颜色/清晰度 | 手工统计量，无可训练参数 | 不需要训练 | — | — | `scripts/extract_color_quality_all233.py`、`extract_roi_quality_background_features.py` |
 | SEG 分割器 S0 | YOLO11m-seg，imgsz 1024，40 epoch，seed 20260927 | ① 自家血管数据集：医生用 LabelMe 勾画的单根血管多边形，2332 张裁图，按原尺度拼到 1024 画布上；与 locked 测试病例重叠的已剔除 ② ANFC-THU 的 Roboflow coco 导出版，train 257 张（6 类合并为 vessel） | 训练：裁图中文件号 %10≠0 的部分 + ANFC 257 张；验证：文件号 %10=0 的裁图 + ANFC valid | 自家数据；ANFC Roboflow 导出页标注 CC BY 4.0 | `scripts/mendeley_seg_build_base.py`、`mendeley_seg_train.py`；训练集清单在 `artifacts/derived/vascular_dataset_governance_20260830/train_ready/` |
 | DET 形态检测器 | YOLO11s，imgsz 640，30 epoch，seed 20260917 | 公开数据集 [HanaNguyen/Capillary-Dataset](https://huggingface.co/datasets/HanaNguyen/Capillary-Dataset) 的 Morphology_detection 人工框，4 类 bushy / crossing / hairpin / tortuous | 1298 张图、7206 个框、103 人；按人分组留出 18 人 198 张做验证，mAP50 0.768 | Apache-2.0 | `scripts/train_morph_detector_folds.py`；[per_class.json](artifacts/experiments/rescue_external_20260922/detectors/external_pretrain/per_class.json) |
-| 13 个分类头 + 校准 | 每路一个 LogisticRegression（C=0.03）+ Platt 校准 | 自家 233 例有医生报告的检查（3 个数据档案，2110 张图），标签是医生报告单上手填的各项结果 | 每个目标 n = 201~231 | 自家数据 | `scripts/fit_expert_router_final.py`；[metadata.json](artifacts/models/expert_router_v1/metadata.json) |
+| 20 个二分类目标 + 校准 | 每路一个 LogisticRegression（C=0.03）+ Platt 校准 | 自家 233 例有医生报告的检查（3 个数据档案，2110 张图），标签是医生报告单上手填的各项结果 | 每个目标 n = 201~231 | 自家数据 | `scripts/fit_expert_router_final.py`；[metadata.json](artifacts/models/expert_router_v1/metadata.json) |
 
 说明：
 - SEG 和 DET 只负责产出几何、计数这类中间特征，它们自己的类别（vessel、bushy 等）不是报告字段。报告字段全部由最后一层分类头在自家标签上学出来。
