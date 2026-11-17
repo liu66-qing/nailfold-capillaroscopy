@@ -1,0 +1,255 @@
+{
+ "reference_standard": "report-derived labels",
+ "missing_policy": "blank, invalid or unmapped labels excluded; see clean_column and target in scripts/run_field_matrix_three_arms.py",
+ "fields": {
+  "clarity": {
+   "name": "清晰度",
+   "kind": "binary",
+   "output_class_labels": [
+    "清晰",
+    "欠清晰"
+   ],
+   "raw_value_to_class": {
+    "清晰": 0,
+    "不清": 1,
+    "模糊": 1
+   }
+  },
+  "capillary_count": {
+   "name": "管袢数",
+   "kind": "binary",
+   "output_class_labels": [
+    "适中",
+    "偏少"
+   ],
+   "raw_value_to_class": {
+    ">=7": 0,
+    "5--6": 1,
+    "3--4": 1,
+    "1--2": 1,
+    "<1": 1
+   }
+  },
+  "afferent_diameter": {
+   "name": "输入枝管径",
+   "kind": "band3",
+   "output_class_labels": [
+    "偏细",
+    "适中",
+    "偏粗"
+   ],
+   "report_label_bounds": [
+    9.0,
+    13.0
+   ],
+   "rule": "0 if value < lower; 2 if value > upper; else 1; inclusive reference band",
+   "is_physical_measurement": false
+  },
+  "efferent_diameter": {
+   "name": "输出枝管径",
+   "kind": "band3",
+   "output_class_labels": [
+    "偏细",
+    "适中",
+    "偏粗"
+   ],
+   "report_label_bounds": [
+    11.0,
+    17.0
+   ],
+   "rule": "0 if value < lower; 2 if value > upper; else 1; inclusive reference band",
+   "is_physical_measurement": false
+  },
+  "output_input_ratio": {
+   "name": "输出/输入枝",
+   "kind": "derived",
+   "components": [
+    "afferent_diameter",
+    "efferent_diameter"
+   ],
+   "rule_source": "src/nailfold_report/final_registry.py:derived_ratio"
+  },
+  "apex_diameter": {
+   "name": "袢顶管径",
+   "kind": "band3",
+   "output_class_labels": [
+    "偏细",
+    "适中",
+    "偏粗"
+   ],
+   "report_label_bounds": [
+    12.0,
+    18.0
+   ],
+   "rule": "0 if value < lower; 2 if value > upper; else 1; inclusive reference band",
+   "is_physical_measurement": false
+  },
+  "loop_length": {
+   "name": "管袢长度",
+   "kind": "band3",
+   "output_class_labels": [
+    "偏短",
+    "适中",
+    "偏长"
+   ],
+   "report_label_bounds": [
+    150.0,
+    250.0
+   ],
+   "rule": "0 if value < lower; 2 if value > upper; else 1; inclusive reference band",
+   "is_physical_measurement": false
+  },
+  "crossing_ratio": {
+   "name": "交叉管袢",
+   "kind": "binary",
+   "output_class_labels": [
+    "比例不高",
+    "比例较高"
+   ],
+   "raw_value_to_class": {
+    "<=30%": 0,
+    "30--60%": 1,
+    "60--80%": 1,
+    ">80%": 1
+   }
+  },
+  "malformation_ratio": {
+   "name": "不规则管袢",
+   "kind": "binary",
+   "output_class_labels": [
+    "比例不高",
+    "比例较高"
+   ],
+   "raw_value_to_class": {
+    "<=10%": 0,
+    "10--30%": 1,
+    "30--60%": 1,
+    ">60%": 1
+   }
+  },
+  "flow_state": {
+   "name": "流态",
+   "kind": "binary",
+   "output_class_labels": [
+    "线流/线粒流",
+    "粒线流/粒流"
+   ],
+   "raw_value_to_class": {
+    "线流": 0,
+    "线粒流": 0,
+    "粒线流": 1,
+    "粒流": 1,
+    "粒缓流": 1,
+    "粒摆流": 1,
+    "全停": 1
+   }
+  },
+  "vasomotion": {
+   "name": "血管运动性",
+   "kind": "fixed",
+   "fixed_value": "低频",
+   "uses_image": false
+  },
+  "rbc_aggregation": {
+   "name": "红细胞聚集",
+   "kind": "binary",
+   "output_class_labels": [
+    "无",
+    "有"
+   ],
+   "raw_value_to_class": {
+    "无": 0,
+    "轻度": 1,
+    "中度": 1,
+    "重度": 1
+   }
+  },
+  "wbc_count": {
+   "name": "白细胞",
+   "kind": "fixed",
+   "fixed_value": "未见增多",
+   "uses_image": false
+  },
+  "microthrombus": {
+   "name": "白色微粒样片段",
+   "kind": "binary",
+   "output_class_labels": [
+    "未见",
+    "可见"
+   ],
+   "raw_value_to_class": {
+    "无": 0,
+    "1--2": 1,
+    ">2": 1
+   }
+  },
+  "blood_color": {
+   "name": "血色",
+   "kind": "binary",
+   "output_class_labels": [
+    "淡红/浅红",
+    "暗红/暗紫"
+   ],
+   "raw_value_to_class": {
+    "浅红": 0,
+    "淡红": 0,
+    "暗红": 1,
+    "暗紫": 1
+   }
+  },
+  "exudation": {
+   "name": "渗出",
+   "kind": "binary",
+   "output_class_labels": [
+    "无",
+    "有"
+   ],
+   "raw_value_to_class": {
+    "无": 0,
+    "+": 1,
+    "++": 1,
+    "+++": 1
+   }
+  },
+  "hemorrhage": {
+   "name": "出血",
+   "kind": "fixed",
+   "fixed_value": "无",
+   "uses_image": false
+  },
+  "subpapillary_venous_plexus": {
+   "name": "乳头下静脉丛",
+   "kind": "binary",
+   "output_class_labels": [
+    "未见",
+    "可见"
+   ],
+   "raw_value_to_class": {
+    "不见": 0,
+    "可见1排": 1,
+    "可见2排": 1,
+    ">2排,扩张": 1
+   }
+  },
+  "papilla": {
+   "name": "乳头",
+   "kind": "papilla",
+   "output_class_labels": [
+    "波纹状",
+    "浅波纹状",
+    "平坦"
+   ],
+   "raw_value_to_class": {
+    "波纹状": 0,
+    "浅波纹状": 1,
+    "平坦": 2
+   }
+  },
+  "sweat_duct": {
+   "name": "汗腺导管",
+   "kind": "fixed",
+   "fixed_value": "少",
+   "uses_image": false
+  }
+ }
+}

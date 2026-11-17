@@ -7,7 +7,7 @@
 - 一份 20 项结构化观察（JSON）。
 - 一页面向用户的健康观察卡（HTML）。卡片里有按识别结果组合的差异化生活建议。
 
-本地运行即可，不依赖大模型，不需要联网。定位是日常健康管理，不是医疗器械，不做疾病诊断。
+本地运行即可，不依赖大模型，不需要联网。项目定位是日常健康管理图像观察；未提供临床有效性或医疗器械资质验证，不做疾病诊断。
 
 ![最终输出报告效果图](docs/report_example.png)
 
@@ -28,7 +28,7 @@
 | 建议和页面 | [final_advice.py](src/nailfold_report/final_advice.py)、[final_render.py](src/nailfold_report/final_render.py) | 建议规则及健康观察卡 |
 | 模型下载 | [Release 附件](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final) | 5个必需文件，具体落盘路径见下方下载表 |
 | 依赖 | [requirements.txt](requirements.txt) | 安装运行环境 |
-| 输出定义 | [字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](schemas/report.schema.json)、[示例](examples/reports/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
+| 输出定义 | [标签映射](schemas/label_mapping.json)、[字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](schemas/report.schema.json)、[示例](examples/reports/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
 | 模型校验 | [manifest.json](artifacts/models/expert_router_v1/manifest.json) | 核心权重SHA256，推理加载时自动检查 |
 | 全量内部交叉验证 | [逐字段表](evaluation/README.md)、[完整指标](evaluation/metrics.json) | 有效n、ACC、BA、AUROC、召回、混淆矩阵及指标口径 |
 | 47例评估子集 | [指标表](evaluation/subset_47/README.md)、[完整指标](evaluation/subset_47/metrics.json) | 内部交叉验证折外结果 |
@@ -48,11 +48,15 @@
 | `2c4ee7e` | 新增47例原图与标签包下载信息 `data_download.json`、打包脚本 `scripts/package_subset47_public.py`；Release附件上传 `subset47_public_v1.zip`（47例、402张原图、21字段标签、图像索引和校验值） |
 | `31ab3df` | 更新首页交接清单，统一列出代码、权重、运行方式、评估指标及数据下载入口 |
 | `66314f2` | 新增上传材料记录；更新Release附件的逐项说明 |
-| 本次目录整理 | 依赖归根目录，Schema归schemas，示例归examples/reports，指标归evaluation，校验清单归模型目录；同步迁移接口、测试及生成脚本的路径 |
+| `eb8ebe9` | 依赖归根目录，Schema归schemas，示例归examples/reports，指标归evaluation，校验清单归模型目录；同步迁移接口、测试及生成脚本的路径 |
 
 目录迁移后的材料位置见下方目录对照；运行代码、脚本及测试均使用新路径。
 
+本次交接排查补充：修正目标数量、校准折数、建议触发范围、模拟扰动适用模型、数据附件说明；补齐PowerShell下载、运行资产校验、测试前置条件及训练复现范围。详细检查范围见[交接检查](docs/handoff_checks.md)。
+
 ## 1. 快速开始
+
+先克隆本仓库`main`并在仓库根目录运行命令。使用独立Python环境；固定版本以 `requirements.txt` 为准。`pyproject.toml` 的基础依赖不覆盖完整推理环境，单独 `pip install -e .` 不足以运行。
 
 ```bash
 pip install -r requirements.txt
@@ -73,7 +77,7 @@ scikit-learn 必须是 1.9.0，因为分类头是 pickle 的 sklearn 管线，�
 | [dinov2_b_model.safetensors](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/dinov2_b_model.safetensors) | `weights/dinov2/b/model.safetensors` | 330 MB |
 | [rag_heads_v1_bundle.joblib](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/rag_heads_v1_bundle.joblib) | `artifacts/models/rag_heads_v1/bundle.joblib` | 7.4 MB |
 
-也可以在仓库根目录用命令一次下好，文件会直接落到上表的路径：
+下面是Bash命令（Git Bash / Linux / macOS）；Windows PowerShell请使用本节后附命令。也可以在仓库根目录用命令一次下好，文件会直接落到上表的路径：
 
 ```bash
 B=https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final
@@ -84,8 +88,26 @@ curl -fL --create-dirs -o weights/dinov2/b/model.safetensors                 $B/
 curl -fL --create-dirs -o artifacts/models/rag_heads_v1/bundle.joblib        $B/rag_heads_v1_bundle.joblib
 ```
 
+Windows PowerShell（根目录运行）：
+
+```powershell
+$baseUrl = 'https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final'
+$files = @{
+  'bundle.joblib' = 'artifacts/models/expert_router_v1/bundle.joblib'
+  'seg_s0.pt' = 'artifacts/models/expert_router_v1/seg_s0.pt'
+  'det_capillary.pt' = 'artifacts/models/expert_router_v1/det_capillary.pt'
+  'dinov2_b_model.safetensors' = 'weights/dinov2/b/model.safetensors'
+  'rag_heads_v1_bundle.joblib' = 'artifacts/models/rag_heads_v1/bundle.joblib'
+}
+foreach ($name in $files.Keys) {
+  New-Item -ItemType Directory -Force -Path (Split-Path $files[$name]) | Out-Null
+  Invoke-WebRequest -Uri "$baseUrl/$name" -OutFile $files[$name]
+}
+python scripts/verify_handoff.py --check-models
+```
+
 说明：
-- 加载时会逐个校验 sha256，不匹配就报 `AssetMismatch`，所以不需要手动校验。完整哈希在 Release 的 `SHA256SUMS.txt` 和 [manifest.json](artifacts/models/expert_router_v1/manifest.json) 里。
+- 加载时会逐个校验 sha256，不匹配就报 `AssetMismatch`，所以不需要手动校验。四个核心权重在加载时校验；配置包也有独立哈希。五个附件可统一用 `python scripts/verify_handoff.py --check-models` 核验，清单见 [manifest.json](artifacts/models/expert_router_v1/manifest.json)。
 - `rag_heads_v1/bundle.joblib` 里只读取编码器结构和预处理配置。DINOv2 由 `timm` 离线加载，不联网，也不需要 config 文件。
 
 ### 1.1 Python 调用
@@ -158,7 +180,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
        └─ DET Capillary-Dataset 检测器 → bushy/crossing/hairpin/tortuous 计数与比例
                  │ 每路按病例取均值
                  ▼
-   13 个二分类目标 × 4 个 LogReg 头（C=0.03）
+   20 个二分类目标 × 4 路专家（A0含5种池化头）（C=0.03）
                  │ 四个概率取平均 p
                  ▼
    Platt 校准 q = σ(a·logit p + b)，判定 q > 0.5
@@ -167,9 +189,9 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 ```
 
 - 同一套路由用于所有字段，没有逐字段挑模型。逐字段挑选在实验里是负收益（固定配置在全部字段上都不差于折内逐字段挑选）。
-- 三档行（输入枝、输出枝、袢顶管径、管袢长度）由"偏低"和"偏高"两个单侧头组合：P(适中) = 1 − P(低) − P(高)，取 argmax。
+- 三档行（输入枝、输出枝、袢顶管径、管袢长度）由"偏低"和"偏高"两个单侧头组合：P(适中) = max(0, 1 − P(低) − P(高))，三项归一化后取 argmax。
 - 乳头由"平坦""波纹状"两个头组合，得到平坦 / 浅波纹状 / 波纹状三档。
-- 4 行固定输出：血管运动性、白细胞、出血、汗腺导管。开发集中 85~97% 的病例是同一个答案，这几行不看图，直接输出该答案。
+- 4 行固定输出：血管运动性、白细胞、出血、汗腺导管。这些行不看图，直接输出注册表中的固定措辞；不能把固定措辞当作本病例的图像发现。
 - 1 行派生：输出/输入枝，由两枝的档位组合出措辞，不做除法。
 - 输出不含任何尺寸、计数、频次、积分或严重度分级。
 
@@ -248,6 +270,8 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 
 `clarity, capillary_count, afferent_diameter, efferent_diameter, output_input_ratio, apex_diameter, loop_length, crossing_ratio, malformation_ratio, flow_state, vasomotion, rbc_aggregation, wbc_count, microthrombus, blood_color, exudation, hemorrhage, subpapillary_venous_plexus, papilla, sweat_duct`
 
+原始报告标签到输出类别的对应见[标签映射](schemas/label_mapping.json)。同事用自己的数据评估时，应先按相同标签规则转换；未匹配的值应单列，不可默认为阴性。21个原始标签含flow_speed_um_s，该字段没有模型输出；其余20项中含固定和派生项。
+
 每个字段的中文名、可能取值和常见答案定义在 `src/nailfold_report/final_registry.py` 的 `FIELDS` 里。
 
 接入时的注意点：
@@ -259,7 +283,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 ## 4. 效果
 
 口径：
-- 233 例有标签病例，病人级 5 折交叉验证。校准器在每个外层训练集内部再做 5 折 OOF 拟合，外层测试折不参与任何拟合。
+- 233例检查病例级5折交叉验证；病人身份未核实。校准器使用外层训练集内部剩余4折的折外预测拟合，外层测试折不参与分类头及校准器拟合。上游分割器是否对每个外层折隔离尚未完成独立审计，因此不宣称端到端全流程无泄漏。
 - 对照组是"每例都答训练集最常见答案"。
 - Δ 是准确率差的配对 bootstrap 95% 置信区间。
 
@@ -291,15 +315,15 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 - 输入枝、乳头、交叉 3 行和常见答案打平。
 - 流态、红细胞聚集 2 行塌缩成常见答案。
 
-这 5 行照常输出，但不参与触发建议。
+这些行照常输出。流态和红细胞聚集不触发建议；输入枝、乳头和交叉是否触发，应以 `final_advice.py` 的实际规则和置信等级为准，不能将置信等级理解为已通过性能验收。
 
-### 4.1 跨域测试：换一批数据、换一种成像条件
+### 4.1 跨档案与成像扰动实验（范围不同）
 
-做了两组跨域测试，结论是主要字段在不同数据档案之间、在常见成像变化下，效果变化不大。
+以下两组实验的模型和评估口径不同：LOAO使用四路原始融合分数；模拟成像扰动仅评估历史A0路线。它们都不能代替当前完整发布流程的独立测试。
 
 **(1) 留一档案外测（跨数据档案）**
 
-233 例来自 3 个独立整理的数据档案（72 / 97 / 63 例，采集批次不同）。每次拿两个档案训练，在第三个档案上测，三个档案轮流。脚本 `scripts/eval_router_loao.py`，结果 [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv)（`arm=ALL` 即交付路由）。
+233例来自3个整理档案；各目标按有效标签分别计数，例如清晰度共231例（72 / 97 / 62）。档案分组不等于已核实不同患者、采集设备或独立医院。每次拿两个档案训练，在第三个档案上测，三个档案轮流。脚本 `scripts/eval_router_loao.py`，结果 [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv)（`arm=ALL` 为四路原始概率平均，不含发布端Platt校准与q>0.5规则；表中为原始分数AUROC，不作为发布版BA）。
 
 | 目标 | 档案1 AUROC | 档案2 | 档案3 | 最差档案 | 5 折 CV AUROC |
 |---|---|---|---|---|---|
@@ -313,7 +337,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | 白色微粒样片段 | 0.859 | 0.699 | 0.710 | 0.699 | 0.770 |
 | 不规则管袢 | 0.694 | 0.769 | 0.753 | 0.694 | 0.719 |
 
-清晰度、血色、乳头下静脉丛、渗出 4 项在没见过的档案上 AUROC 都 ≥ 0.75，和混合交叉验证只差 0.02~0.05。流态在留出档案上 AUROC 0.445~0.665，本来就没有信号，所以它不触发建议。
+清晰度、血色、乳头下静脉丛、渗出 4 项在没见过的档案上 AUROC 都 ≥ 0.75，和混合交叉验证只差 0.02~0.05。流态在留出档案上 AUROC 0.445~0.665，不能据此认定有效，因此当前建议规则不使用它。
 
 **(2) 模拟设备 / 成像条件偏移**
 
@@ -376,7 +400,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | `scripts/eval_ordinal_experts.py` | 三档有序头的对照实验（结论：没有行因此提升，所以交付用单侧头组合） |
 | `scripts/fit_expert_router_final.py` | 在全部 233 例上拟合最终 bundle |
 | `scripts/make_final_examples.py` | 端到端核对：实时推理与训练特征表的 \|Δq\| < 0.01；生成示例 |
-| `scripts/build_final_release_meta.py` | 重算 `validation.json`、`release_manifest.json` |
+| `scripts/build_final_release_meta.py` | 重算 `evaluation/validation.json`、`artifacts/models/expert_router_v1/manifest.json` |
 | `scripts/eval_field_experts.py`、`compare_v1_v2_training.py`、`run_field_matrix_three_arms.py`、`build_field_matrix.py`、`pipeline.py` | 上面几个脚本共用的数据加载、标签清洗和评估函数 |
 | `artifacts/experiments/expert_routes_20260928/` | 最终路由的全部评估输出：OOF、校准、三档、LOAO、有序头对照 |
 | `artifacts/experiments/v1_vs_v2_training_20260928/`、`locked_consumed_20260924/features_locked/`、`medical_encoder_transfer_20260921/features/anchor_dinov2b_deployed/` | 训练用的 A0 特征索引与元数据（特征矩阵 .npy 体积大，不入库） |
@@ -392,21 +416,30 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | **跨域测试** | |
 | `scripts/device_shift_features.py`、`eval_device_shift.py`、`artifacts/experiments/device_shift_20260926/` | §4.1(2) 模拟设备偏移 |
 | `artifacts/experiments/loop_length_audit_20260928/` | 管袢长度"是否偏长"的留一档案与偏移审计 |
-| **前瞻评估（独立进行中，不要改动）** | |
-| `artifacts/prospective_eval_v2/`、`scripts/score_prospective_v2.py`、`artifacts/models/rag_heads_v2/fit_report.json` | 预注册的前瞻评估：冻结的 `rag_heads_v2` 影子路径，等新采集病例到齐后按预注册打分 |
+| **前瞻评估（另一条冻结路线）** | |
+| `artifacts/prospective_eval_v2/`、`scripts/score_prospective_v2.py`、`artifacts/models/rag_heads_v2/fit_report.json` | 预注册的前瞻评估：冻结的 `rag_heads_v2` 影子路径，仅适用于其冻结的rag_heads_v2路线，不验证当前四路发布模型；是否已有新增病例需另查记录 |
 | **测试** | |
 | `tests/test_final_release.py` | 发布契约：20 行齐全、禁词、建议差异化、页面不像病例、低变化行不相邻、API、sha256 |
 | `tests/test_score_prospective.py`、`test_rag_inference.py` | 前瞻评估打分脚本、A0 编码器加载 |
 | **其他** | |
 | `docs/report_example.png` | README 效果图 |
 
-`main` 分支只保留当前交付和它直接依赖的代码与记录。早期探索、已放弃的方案和阶段报告都已从 `main` 移出，完整保留在 [`archive/research-history`](https://github.com/liu66-qing/nailfold-capillaroscopy/tree/archive/research-history) 分支，需要追溯时再看，接入时不需要。
+`main`分支包含当前交付、其依赖及支持评估的研究记录。更多早期探索历史保留在 [`archive/research-history`](https://github.com/liu66-qing/nailfold-capillaroscopy/tree/archive/research-history) 分支，需要追溯时再看，接入时不需要。
 
-跑测试。`tests/test_final_release.py` 需要 Release 里的模型文件和本地训练特征表，缺文件时自动跳过；`test_score_prospective.py` 用合成数据，不依赖数据：
+核验和测试（根目录运行）：
 
 ```bash
-PYTHONPATH=src python -m pytest tests -q
+python scripts/verify_handoff.py
+python scripts/verify_handoff.py --check-models
+python -m pip install pytest httpx
+python -m pytest tests/test_final_release.py -q
 ```
+
+- 第一个命令只需Python标准库，检查交接文件、文档链接、指标结构、保存预测及资源哈希。
+- `--check-models`另外核对本地5个模型文件，缺失会明确报错。
+- 最终版测试涉及分类头、特征表和API；有本地模型及训练特征时可运行全部测试，缺少这些资产的测试会显示SKIPPED。跳过不等于通过。历史rag_heads_v2测试与当前模型分开解释。
+- 纯接入无需下载训练原图或重训，也无需运行 `make_final_examples.py`。已有JSON示例可直接阅读。`/examples/{n}`依赖本地生成HTML，干净克隆默认404；上传推理接口不受影响。
+- 完整训练数据、私有标签源及特征矩阵未随代码发布。仓库包含保存的OOF预测和汇总；可核验这些指标，但仅凭克隆仓库和47例包不能重建233例训练或重新得到完整OOF。
 
 重新训练需要原始数据，数据不在仓库里，顺序如下：
 
@@ -422,7 +455,7 @@ python scripts/build_final_release_meta.py
 
 ## 6. 数据与合规
 
-- 仓库不含任何病例图像、病例报告、姓名或原始标签。
+- Git源码不存放病例原图；GitHub Release另含经授权公开的47例402张原图和逐病例标签。数据包字段和校验见 `evaluation/subset_47/data_download.json`。未公开姓名或源目录映射。
   - `.gitignore` 按扩展名排除所有图像、视频、文档和模型文件。
   - 含真实姓名映射的 `*.local.csv` 不入库。
   - `.env` 里的 API key 不入库。
@@ -431,5 +464,5 @@ python scripts/build_final_release_meta.py
   - SEG 分割器用到 ANFC-THU 的 Roboflow coco 导出版 257 张，导出页标注 CC BY 4.0。ANFC 官方版需签协议且禁止商用，本项目没有使用官方版；两者关系需法务核实。
   - DET 检测器用 HanaNguyen/Capillary-Dataset（Apache-2.0）。
   - DINOv2 权重来自 Meta（Apache-2.0）。
-- Release 附件里的模型文件随仓库公开。模型文件里只有网络参数和 sklearn 管线，不含病例图像或姓名。
+- Release附件含5个模型文件、模型校验表和47例数据包；模型附件与数据附件应分别识别。
 - 前瞻评估另走冻结的 `rag_heads_v2` 影子路径，按预注册执行，本发布不改动它。

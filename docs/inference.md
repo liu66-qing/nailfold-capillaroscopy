@@ -1,6 +1,6 @@
 # 甲襞微循环图像检查报告 · expert-router-final
 
-输入同一次检查的若干张静态甲襞图像，输出一页健康观察卡（非医疗器械，版式不做成病例）。20 项观察每项都有值，按主题分组；解读与建议按识别结果组合成主题卡（看到了 / 这意味着 / 可以这样做），不同结果给不同建议。页面不显示参考列、置信标记。不依赖大模型，不需要联网。
+输入同一次检查的若干张静态甲襞图像，输出一页健康观察卡（健康观察卡版式）。20 项观察每项都有值，按主题分组；解读与建议按识别结果组合成主题卡（看到了 / 这意味着 / 可以这样做），不同结果给不同建议。页面不显示参考列、置信标记。不依赖大模型，不需要联网。
 
 ## 模型结构
 
@@ -12,9 +12,9 @@
   - COL：颜色和清晰度统计。
   - SEG：S0 分割器几何特征。
   - DET：在 Capillary-Dataset 人工框上训练的 YOLO 检测器（bushy/crossing/hairpin/tortuous），输出病例级计数和比例。
-- 每个目标取四个头的平均概率，再用 5 折 OOF 拟合的 Platt 校准。置信等级（JSON 的 `confidence`，页面不显示）按校准后概率划分。
+- 每个目标先平均A0五个池化头的概率，再与COL、SEG、DET等权平均，再用 5 折 OOF 拟合的 Platt 校准。置信等级（JSON 的 `confidence`，页面不显示）按校准后概率划分。
 - 训练使用全部 233 例有标签病例。
-- 4 行固定输出（血管运动、白细胞、出血、汗腺导管）：开发集里 85~97% 是同一个答案，直接输出该答案。页面上这几行与其他行穿插排列。
+- 4 行固定输出（血管运动、白细胞、出血、汗腺导管）：直接输出注册表中的固定措辞，不代表本病例的图像发现。页面上这几行与其他行穿插排列。
 - 输入/输出枝比例由两枝档位推出，不做除法。
 - 输出不含尺寸、计数、频次、积分或五级分层。
 
@@ -33,17 +33,21 @@
 ## 使用
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
 scikit-learn 必须同版本，因为头是 pickle 的 sklearn 管线。
 
 ```python
 from nailfold_report.final_inference import FinalReportPredictor
-from nailfold_report.final_render import render_html
+from pathlib import Path
+from nailfold_report.final_render import render_html, thumbnail_bytes
+ROOT = Path.cwd()
+paths = sorted(Path("某次检查").glob("*.jpg"))
 p = FinalReportPredictor(ROOT, device="cpu")   # 加载时校验 bundle/编码器/分割器/检测器四个 sha256
 r = p.predict(paths, exam_id="E001", device_id="unknown")
-render_html(r, "report.html", patient={"name": "…", "sex": "女", "age": "52"}, images=paths)
+render_html(r, "report.html", patient={"name": "…", "sex": "女", "age": "52"}, images=thumbnail_bytes(paths))
 ```
 
 在 CPU 上每张图约需 5~10 秒。HTTP 接口没有鉴权，只能绑定在 localhost，或放在平台网关后面：
@@ -53,7 +57,7 @@ uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 ```
 
 - `POST /v1/reports`：multipart 上传 exam_id、device_id 和 images。加 `?format=html` 返回打印页。
-- `GET /examples/1`：查看示例。
+- `GET /examples/1`：仅在本地生成对应HTML后可用；仓库JSON示例在 `examples/reports/`。
 - JSON 结构见 `schemas/report.schema.json`。
 
 ## 文件
@@ -74,3 +78,7 @@ uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 ```bash
 python -m pytest tests/test_final_release.py
 ```
+
+## 接手前核验
+
+从仓库根目录运行 `python scripts/verify_handoff.py --check-models`。测试和训练复现前置条件见[首页](../README.md)。`expert_features.py`会调用`scripts/`中的特征函数，因此需要完整克隆并使用editable安装；只复制`src/`或只安装wheel不构成完整推理包。`rag_heads_v2`影子路线、历史A0扰动实验和当前四路模型应分别解读。

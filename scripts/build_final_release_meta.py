@@ -6,6 +6,7 @@ schemas/report.schema.json and release_manifest.json (sha256 of every asset).
 """
 from __future__ import annotations
 
+import ast
 import hashlib
 import json
 import sys
@@ -79,15 +80,51 @@ def schema() -> dict:
                               ("score", "total_score", "grade", "severity", "diagnosis")]}}
 
 
+def label_mapping() -> dict:
+    tree = ast.parse((ROOT / "scripts/build_field_matrix.py").read_text(encoding="utf-8"))
+    values = {}
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id in ("ADMISSIBLE", "NORMAL_RANGE"):
+                    values[target.id] = ast.literal_eval(node.value)
+    rows = {}
+    for field, name, kind, spec, _ in FIELDS:
+        row = dict(name=name, kind=kind)
+        if kind == "binary":
+            row["output_class_labels"] = list(spec[1])
+        elif kind in ("band3", "papilla"):
+            row["output_class_labels"] = list(spec[2])
+        if field in values["NORMAL_RANGE"]:
+            row["report_label_bounds"] = values["NORMAL_RANGE"][field]
+            row["rule"] = "0 if value < lower; 2 if value > upper; else 1; inclusive reference band"
+            row["is_physical_measurement"] = False
+        elif kind not in ("fixed", "derived"):
+            mapping = values["ADMISSIBLE"][field][1]
+            row["raw_value_to_class"] = {v: int(k > 0) if field == "capillary_count" else k
+                                        for k, vs in mapping.items() for v in vs}
+        elif kind == "fixed":
+            row["fixed_value"] = spec
+            row["uses_image"] = False
+        else:
+            row["components"] = ["afferent_diameter", "efferent_diameter"]
+            row["rule_source"] = "src/nailfold_report/final_registry.py:derived_ratio"
+        rows[field] = row
+    return dict(reference_standard="report-derived labels", missing_policy="blank, invalid or unmapped labels excluded; see clean_column and target in scripts/run_field_matrix_three_arms.py", fields=rows)
+
+
 def main() -> None:
     dump(EVAL / "validation.json", validation())
     dump(ROOT / "schemas/report.schema.json", schema())
+    dump(ROOT / "schemas/label_mapping.json", label_mapping())
     assets = {MD + "bundle.joblib": BUNDLE_SHA256, MD + "seg_s0.pt": SEG_SHA256,
               MD + "det_capillary.pt": DET_SHA256,
-              "weights/dinov2/b/model.safetensors": ENCODER_SHA256}
+              "weights/dinov2/b/model.safetensors": ENCODER_SHA256,
+              "artifacts/models/rag_heads_v1/bundle.joblib":
+                  "8c66fbb940217697ae3cb3b1b4473c384edf178428450e33add8d1665e3dae72"}
     for rel, want in assets.items():
         assert sha(ROOT / rel) == want, rel
-    resources = [ROOT / "requirements.txt", ROOT / "schemas/report.schema.json", EVAL / "validation.json"]
+    resources = [ROOT / "requirements.txt", ROOT / "schemas/report.schema.json", ROOT / "schemas/label_mapping.json", EVAL / "validation.json"]
     resources += sorted((ROOT / "examples/reports").glob("*.json"))
     files = {p.relative_to(ROOT).as_posix(): sha(p) for p in resources}
     dump(MANIFEST, dict(

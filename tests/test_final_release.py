@@ -21,6 +21,8 @@ pytestmark = pytest.mark.skipif(not MANIFEST.exists(),
 @pytest.fixture(scope="module")
 def bundle():
     from nailfold_report.final_inference import load_bundle
+    if not (ROOT / "artifacts/models/expert_router_v1/bundle.joblib").exists():
+        pytest.skip("download model bundle from GitHub Release first")
     return load_bundle(ROOT)
 
 
@@ -28,6 +30,12 @@ def bundle():
 def cases():
     import compare_v1_v2_training as C
     import eval_field_experts as E
+    import run_field_matrix_three_arms as R
+    required = [R.LABELS, C.LOCKED_FEAT / "features_cls.npy",
+                R.EXP / "features" / R.ANCHOR / "features_cls.npy"]
+    missing = [str(p.relative_to(ROOT)) for p in required if not p.exists()]
+    if missing:
+        pytest.skip("local training assets required: " + ", ".join(missing))
     _man, ixa, Fa, source, _ = C.load()
     routes = E.load_case_routes(ixa)
     ids = ixa.exam_case_id.to_numpy()

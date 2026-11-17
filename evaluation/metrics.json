@@ -8,7 +8,8 @@
     "artifacts/models/expert_router_v1/bundle.joblib": "04ee6b80a88bb2e1ff2370906262dddf46e1e27d2f889f8c745be4bb41b17241",
     "artifacts/models/expert_router_v1/seg_s0.pt": "08103c92b937c0e94086d735c973da7deab069591af62dc3f677ed6cc66838bb",
     "artifacts/models/expert_router_v1/det_capillary.pt": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
-    "weights/dinov2/b/model.safetensors": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+    "weights/dinov2/b/model.safetensors": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b",
+    "artifacts/models/rag_heads_v1/bundle.joblib": "8c66fbb940217697ae3cb3b1b4473c384edf178428450e33add8d1665e3dae72"
   },
   "source_sha256": {
     "src/nailfold_report/final_registry.py": "096c00040bfd09c2ad83f4206d51edf585332ca2a3feada242a7808aa9fa9f15",
