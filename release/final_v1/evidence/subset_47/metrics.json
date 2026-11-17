@@ -1,0 +1,525 @@
+{
+  "title": "47例子集评估",
+  "release_id": "expert-router-final",
+  "evaluation_type": "internal_cross_validation_out_of_fold_subset",
+  "subset_exams": 47,
+  "source": "artifacts/experiments/expert_routes_20260928",
+  "subset_index_sha256": "82547de34670a832c5f27c22378180d78bab956d02734dae64ffea0388766e7b",
+  "fields": [
+    {
+      "field": "clarity",
+      "name": "清晰度",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 46,
+      "missing_labels": 1,
+      "accuracy": 0.8043478260869565,
+      "balanced_accuracy": 0.7916666666666667,
+      "auroc": 0.8083333333333333,
+      "class_labels": [
+        "清晰",
+        "欠清晰"
+      ],
+      "recall": [
+        0.8333333333333334,
+        0.75
+      ],
+      "confusion_matrix": [
+        [
+          25,
+          5
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "field": "capillary_count",
+      "name": "管袢数",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 46,
+      "missing_labels": 1,
+      "accuracy": 0.717391304347826,
+      "balanced_accuracy": 0.635483870967742,
+      "auroc": 0.6924731182795699,
+      "class_labels": [
+        "适中",
+        "偏少"
+      ],
+      "recall": [
+        0.8709677419354839,
+        0.4
+      ],
+      "confusion_matrix": [
+        [
+          27,
+          4
+        ],
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "field": "afferent_diameter",
+      "name": "输入枝管径",
+      "kind": "band3",
+      "status": "evaluated",
+      "n": 44,
+      "missing_labels": 3,
+      "accuracy": 0.4772727272727273,
+      "balanced_accuracy": 0.4004329004329004,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.16666666666666666,
+        0.7619047619047619,
+        0.2727272727272727
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          8,
+          2
+        ],
+        [
+          3,
+          16,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "field": "efferent_diameter",
+      "name": "输出枝管径",
+      "kind": "band3",
+      "status": "evaluated",
+      "n": 44,
+      "missing_labels": 3,
+      "accuracy": 0.5909090909090909,
+      "balanced_accuracy": 0.47130647130647124,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.0,
+        0.9523809523809523,
+        0.46153846153846156
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          20,
+          1
+        ],
+        [
+          0,
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "field": "output_input_ratio",
+      "name": "输出/输入枝",
+      "kind": "derived",
+      "status": "not_evaluated",
+      "n": null
+    },
+    {
+      "field": "apex_diameter",
+      "name": "袢顶管径",
+      "kind": "band3",
+      "status": "evaluated",
+      "n": 44,
+      "missing_labels": 3,
+      "accuracy": 0.5681818181818182,
+      "balanced_accuracy": 0.4388888888888889,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.0,
+        0.65,
+        0.6666666666666666
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          6,
+          0
+        ],
+        [
+          2,
+          13,
+          5
+        ],
+        [
+          0,
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "field": "loop_length",
+      "name": "管袢长度",
+      "kind": "band3",
+      "status": "evaluated",
+      "n": 45,
+      "missing_labels": 2,
+      "accuracy": 0.6444444444444445,
+      "balanced_accuracy": 0.5599033816425121,
+      "auroc": null,
+      "class_labels": [
+        "偏短",
+        "适中",
+        "偏长"
+      ],
+      "recall": [
+        0.6,
+        0.16666666666666666,
+        0.9130434782608695
+      ],
+      "confusion_matrix": [
+        [
+          6,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          0,
+          2,
+          21
+        ]
+      ]
+    },
+    {
+      "field": "crossing_ratio",
+      "name": "交叉管袢",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 45,
+      "missing_labels": 2,
+      "accuracy": 0.7555555555555555,
+      "balanced_accuracy": 0.5614973262032086,
+      "auroc": 0.7700534759358288,
+      "class_labels": [
+        "比例不高",
+        "比例较高"
+      ],
+      "recall": [
+        0.9411764705882353,
+        0.18181818181818182
+      ],
+      "confusion_matrix": [
+        [
+          32,
+          2
+        ],
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "field": "malformation_ratio",
+      "name": "不规则管袢",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 39,
+      "missing_labels": 8,
+      "accuracy": 0.6153846153846154,
+      "balanced_accuracy": 0.6309523809523809,
+      "auroc": 0.7063492063492064,
+      "class_labels": [
+        "比例不高",
+        "比例较高"
+      ],
+      "recall": [
+        0.8333333333333334,
+        0.42857142857142855
+      ],
+      "confusion_matrix": [
+        [
+          15,
+          3
+        ],
+        [
+          12,
+          9
+        ]
+      ]
+    },
+    {
+      "field": "flow_state",
+      "name": "流态",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 46,
+      "missing_labels": 1,
+      "accuracy": 0.8695652173913043,
+      "balanced_accuracy": 0.5,
+      "auroc": 0.28750000000000003,
+      "class_labels": [
+        "线流/线粒流",
+        "粒线流/粒流"
+      ],
+      "recall": [
+        0.0,
+        1.0
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          40
+        ]
+      ]
+    },
+    {
+      "field": "vasomotion",
+      "name": "血管运动性",
+      "kind": "fixed",
+      "status": "not_evaluated",
+      "n": null
+    },
+    {
+      "field": "rbc_aggregation",
+      "name": "红细胞聚集",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 47,
+      "missing_labels": 0,
+      "accuracy": 0.9361702127659575,
+      "balanced_accuracy": 0.5,
+      "auroc": 0.5984848484848484,
+      "class_labels": [
+        "无",
+        "有"
+      ],
+      "recall": [
+        0.0,
+        1.0
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          44
+        ]
+      ]
+    },
+    {
+      "field": "wbc_count",
+      "name": "白细胞",
+      "kind": "fixed",
+      "status": "not_evaluated",
+      "n": null
+    },
+    {
+      "field": "microthrombus",
+      "name": "白色微粒样片段",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 46,
+      "missing_labels": 1,
+      "accuracy": 0.6304347826086957,
+      "balanced_accuracy": 0.5854166666666667,
+      "auroc": 0.6125,
+      "class_labels": [
+        "未见",
+        "可见"
+      ],
+      "recall": [
+        0.7333333333333333,
+        0.4375
+      ],
+      "confusion_matrix": [
+        [
+          22,
+          8
+        ],
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "field": "blood_color",
+      "name": "血色",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 44,
+      "missing_labels": 3,
+      "accuracy": 0.7954545454545454,
+      "balanced_accuracy": 0.7919254658385093,
+      "auroc": 0.8737060041407867,
+      "class_labels": [
+        "淡红/浅红",
+        "暗红/暗紫"
+      ],
+      "recall": [
+        0.8695652173913043,
+        0.7142857142857143
+      ],
+      "confusion_matrix": [
+        [
+          20,
+          3
+        ],
+        [
+          6,
+          15
+        ]
+      ]
+    },
+    {
+      "field": "exudation",
+      "name": "渗出",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 47,
+      "missing_labels": 0,
+      "accuracy": 0.6382978723404256,
+      "balanced_accuracy": 0.6436363636363637,
+      "auroc": 0.6036363636363636,
+      "class_labels": [
+        "无",
+        "有"
+      ],
+      "recall": [
+        0.7272727272727273,
+        0.56
+      ],
+      "confusion_matrix": [
+        [
+          16,
+          6
+        ],
+        [
+          11,
+          14
+        ]
+      ]
+    },
+    {
+      "field": "hemorrhage",
+      "name": "出血",
+      "kind": "fixed",
+      "status": "not_evaluated",
+      "n": null
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "name": "乳头下静脉丛",
+      "kind": "binary",
+      "status": "evaluated",
+      "n": 47,
+      "missing_labels": 0,
+      "accuracy": 0.7659574468085106,
+      "balanced_accuracy": 0.7469758064516129,
+      "auroc": 0.7479838709677418,
+      "class_labels": [
+        "未见",
+        "可见"
+      ],
+      "recall": [
+        0.6875,
+        0.8064516129032258
+      ],
+      "confusion_matrix": [
+        [
+          11,
+          5
+        ],
+        [
+          6,
+          25
+        ]
+      ]
+    },
+    {
+      "field": "papilla",
+      "name": "乳头",
+      "kind": "papilla",
+      "status": "evaluated",
+      "n": 46,
+      "missing_labels": 1,
+      "accuracy": 0.391304347826087,
+      "balanced_accuracy": 0.3526122999807211,
+      "auroc": null,
+      "class_labels": [
+        "波纹状",
+        "浅波纹状",
+        "平坦"
+      ],
+      "recall": [
+        0.14285714285714285,
+        0.6842105263157895,
+        0.23076923076923078
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          12,
+          0
+        ],
+        [
+          2,
+          13,
+          4
+        ],
+        [
+          1,
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "field": "sweat_duct",
+      "name": "汗腺导管",
+      "kind": "fixed",
+      "status": "not_evaluated",
+      "n": null
+    }
+  ]
+}
