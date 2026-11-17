@@ -39,6 +39,18 @@
 
 ---
 
+## 上传材料记录
+
+| 提交 | 上传或修改的材料 |
+|---|---|
+| `948be83` | 新增交付证据表 `evidence/README.md`、完整指标 `evidence/metrics.json`、复算脚本 `scripts/build_delivery_evidence.py`；首页增加入口 |
+| `c52db4f` | 新增47例子集指标表、完整指标JSON、复算脚本 `scripts/build_subset47_evidence.py` |
+| `2c4ee7e` | 新增47例原图与标签包下载信息 `data_download.json`、打包脚本 `scripts/package_subset47_public.py`；Release附件上传 `subset47_public_v1.zip`（47例、402张原图、21字段标签、图像索引和校验值） |
+| `31ab3df` | 更新首页交接清单，统一列出代码、权重、运行方式、评估指标及数据下载入口 |
+| 本次补充 | 新增本材料记录；更新Release附件说明，逐项列出模型、校验文件、47例图像与标签包；保留运行所需资源目录 |
+
+`release/final_v1/` 保存运行依赖、输出schema、接口示例、权重校验清单和评估文件，接口及测试仍引用它，属于当前交付所需材料。
+
 ## 1. 快速开始
 
 ```bash
