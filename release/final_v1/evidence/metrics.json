@@ -1,0 +1,678 @@
+{
+  "release_id": "expert-router-final",
+  "inference_code_commit": "6b070bc36071ce85797d0563b0aec13a3b39cc07",
+  "training_exams": 233,
+  "binary_head_targets": 20,
+  "output_rows": 20,
+  "model_sha256": {
+    "artifacts/models/expert_router_v1/bundle.joblib": "04ee6b80a88bb2e1ff2370906262dddf46e1e27d2f889f8c745be4bb41b17241",
+    "artifacts/models/expert_router_v1/seg_s0.pt": "08103c92b937c0e94086d735c973da7deab069591af62dc3f677ed6cc66838bb",
+    "artifacts/models/expert_router_v1/det_capillary.pt": "0ca4c3bb952f3a8779f25ef8bcbd852745ea24bce29cd2d66e0f17906823888f",
+    "weights/dinov2/b/model.safetensors": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+  },
+  "source_sha256": {
+    "src/nailfold_report/final_registry.py": "096c00040bfd09c2ad83f4206d51edf585332ca2a3feada242a7808aa9fa9f15",
+    "src/nailfold_report/final_inference.py": "1a5e1a5a0c51ef878d09a1f9b6f88b0dfc489fb5a87777c669e32e5c97173de1",
+    "scripts/eval_calibrated_router.py": "9689998f959d12e7a1c0419d541e81ac086ba4c9e34cf57e5eb541e402e48acc",
+    "scripts/eval_router_loao.py": "39cc16cea51ab395678eca529b0c663a545ec801e0126f8fb3f299c8738f67a1",
+    "artifacts/experiments/expert_routes_20260928/calibrated_router.json": "3c8a32fe3f2dd5dfd8f739a53cc8984e30545be3b2dfbcc94d562382ed7d3d7f",
+    "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv": "9bd5d6c6b144b40e4de15c09a40ba02c7c04058f8825feed53a4ef06ffc95142",
+    "artifacts/experiments/expert_routes_20260928/router_loao.csv": "3cd42049ee90d3d2fe87bdccb792a20a7f62c7e3d41dd040ebb7e38797c373f7",
+    "artifacts/experiments/expert_routes_20260928/calibrated_3band_afferent.csv": "381c7efd33f101c252c6cc50b664a248814955758e6a5308db90f59169df22bf",
+    "artifacts/experiments/expert_routes_20260928/calibrated_3band_apex.csv": "fc4027e4feab0ecb3a0a9b515cd10cc2ad892b50e52f64fd4f33a6373edbaa93",
+    "artifacts/experiments/expert_routes_20260928/calibrated_3band_efferent.csv": "f5f2bc3bea893d5058406ea99dd48f3dfae178674dc15add7178c0f2d396366c",
+    "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv": "21e07eac223cb9b04641663e57b79f1aecd63ac232d400b1855316262f4c5dfe",
+    "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv": "8d681196d64245f6b8fc749db36d9130ff58b1e2c78700deca93f7e8e47c47a9"
+  },
+  "independent_holdout_status": "unavailable_original_47_in_training",
+  "external_validation_status": "unavailable",
+  "evaluation_unit": "exam_case_patient_identity_not_verified",
+  "uncertainty": "Existing CIs cover accuracy gain over training-fold majority only; no new BA/AUC CI computed.",
+  "fields": [
+    {
+      "field": "clarity",
+      "name": "清晰度",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 231,
+      "accuracy": 0.8138528138528138,
+      "balanced_accuracy": 0.8136363636363637,
+      "auroc": 0.8734785875281742,
+      "class_labels": [
+        "清晰",
+        "欠清晰"
+      ],
+      "recall": [
+        0.8181818181818182,
+        0.8090909090909091
+      ],
+      "confusion_matrix": [
+        [
+          99,
+          22
+        ],
+        [
+          21,
+          89
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5238,
+      "accuracy_gain_ci95": [
+        0.2078,
+        0.368
+      ],
+      "historical_locked_subset_oof_accuracy": 0.8043,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "capillary_count",
+      "name": "管袢数",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 228,
+      "accuracy": 0.7412280701754386,
+      "balanced_accuracy": 0.6426282051282051,
+      "auroc": 0.7348646723646725,
+      "class_labels": [
+        "适中",
+        "偏少"
+      ],
+      "recall": [
+        0.9102564102564102,
+        0.375
+      ],
+      "confusion_matrix": [
+        [
+          142,
+          14
+        ],
+        [
+          45,
+          27
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.6842,
+      "accuracy_gain_ci95": [
+        0.0044,
+        0.114
+      ],
+      "historical_locked_subset_oof_accuracy": 0.7174,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "afferent_diameter",
+      "name": "输入枝管径",
+      "kind": "band3",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 209,
+      "accuracy": 0.49760765550239233,
+      "balanced_accuracy": 0.4405092592592592,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.25,
+        0.7604166666666666,
+        0.3111111111111111
+      ],
+      "confusion_matrix": [
+        [
+          17,
+          47,
+          4
+        ],
+        [
+          15,
+          73,
+          8
+        ],
+        [
+          3,
+          28,
+          14
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.4593,
+      "accuracy_gain_ci95": [
+        -0.0287,
+        0.1053
+      ],
+      "historical_locked_subset_oof_accuracy": 0.4773,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_afferent.csv"
+    },
+    {
+      "field": "efferent_diameter",
+      "name": "输出枝管径",
+      "kind": "band3",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 208,
+      "accuracy": 0.6298076923076923,
+      "balanced_accuracy": 0.4328282828282828,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.0,
+        0.9166666666666666,
+        0.38181818181818183
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          32,
+          1
+        ],
+        [
+          0,
+          110,
+          10
+        ],
+        [
+          0,
+          34,
+          21
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5769,
+      "accuracy_gain_ci95": [
+        0.0048,
+        0.1058
+      ],
+      "historical_locked_subset_oof_accuracy": 0.5909,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_efferent.csv"
+    },
+    {
+      "field": "output_input_ratio",
+      "name": "输出/输入枝",
+      "kind": "derived",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "derived_not_independently_evaluated",
+      "value": null
+    },
+    {
+      "field": "apex_diameter",
+      "name": "袢顶管径",
+      "kind": "band3",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 213,
+      "accuracy": 0.5492957746478874,
+      "balanced_accuracy": 0.42834138486312395,
+      "auroc": null,
+      "class_labels": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "recall": [
+        0.0,
+        0.6739130434782609,
+        0.6111111111111112
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          23,
+          8
+        ],
+        [
+          3,
+          62,
+          27
+        ],
+        [
+          0,
+          35,
+          55
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.4131,
+      "accuracy_gain_ci95": [
+        0.0516,
+        0.216
+      ],
+      "historical_locked_subset_oof_accuracy": 0.5682,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_apex.csv"
+    },
+    {
+      "field": "loop_length",
+      "name": "管袢长度",
+      "kind": "band3",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 221,
+      "accuracy": 0.5746606334841629,
+      "balanced_accuracy": 0.48739931295901445,
+      "auroc": null,
+      "class_labels": [
+        "偏短",
+        "适中",
+        "偏长"
+      ],
+      "recall": [
+        0.3333333333333333,
+        0.29850746268656714,
+        0.8303571428571429
+      ],
+      "confusion_matrix": [
+        [
+          14,
+          17,
+          11
+        ],
+        [
+          16,
+          20,
+          31
+        ],
+        [
+          1,
+          18,
+          93
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5068,
+      "accuracy_gain_ci95": [
+        0.0045,
+        0.1312
+      ],
+      "historical_locked_subset_oof_accuracy": 0.6444,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv"
+    },
+    {
+      "field": "crossing_ratio",
+      "name": "交叉管袢",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 222,
+      "accuracy": 0.6486486486486487,
+      "balanced_accuracy": 0.5183850036049027,
+      "auroc": 0.6458183129055515,
+      "class_labels": [
+        "比例不高",
+        "比例较高"
+      ],
+      "recall": [
+        0.9315068493150684,
+        0.10526315789473684
+      ],
+      "confusion_matrix": [
+        [
+          136,
+          10
+        ],
+        [
+          68,
+          8
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.6577,
+      "accuracy_gain_ci95": [
+        -0.045,
+        0.027
+      ],
+      "historical_locked_subset_oof_accuracy": 0.7556,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "malformation_ratio",
+      "name": "不规则管袢",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 201,
+      "accuracy": 0.6567164179104478,
+      "balanced_accuracy": 0.6493506493506493,
+      "auroc": 0.7184815184815185,
+      "class_labels": [
+        "比例不高",
+        "比例较高"
+      ],
+      "recall": [
+        0.7272727272727273,
+        0.5714285714285714
+      ],
+      "confusion_matrix": [
+        [
+          80,
+          30
+        ],
+        [
+          39,
+          52
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5473,
+      "accuracy_gain_ci95": [
+        0.0249,
+        0.199
+      ],
+      "historical_locked_subset_oof_accuracy": 0.6154,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "flow_state",
+      "name": "流态",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 225,
+      "accuracy": 0.7911111111111111,
+      "balanced_accuracy": 0.5,
+      "auroc": 0.4219459717905809,
+      "class_labels": [
+        "线流/线粒流",
+        "粒线流/粒流"
+      ],
+      "recall": [
+        0.0,
+        1.0
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          47
+        ],
+        [
+          0,
+          178
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.7911,
+      "accuracy_gain_ci95": [
+        0.0,
+        0.0
+      ],
+      "historical_locked_subset_oof_accuracy": 0.8696,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "vasomotion",
+      "name": "血管运动性",
+      "kind": "fixed",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "not_image_prediction",
+      "value": "低频"
+    },
+    {
+      "field": "rbc_aggregation",
+      "name": "红细胞聚集",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 228,
+      "accuracy": 0.8508771929824561,
+      "balanced_accuracy": 0.5,
+      "auroc": 0.7114918132201334,
+      "class_labels": [
+        "无",
+        "有"
+      ],
+      "recall": [
+        0.0,
+        1.0
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          34
+        ],
+        [
+          0,
+          194
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.8509,
+      "accuracy_gain_ci95": [
+        0.0,
+        0.0
+      ],
+      "historical_locked_subset_oof_accuracy": 0.9362,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "wbc_count",
+      "name": "白细胞",
+      "kind": "fixed",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "not_image_prediction",
+      "value": "未见增多"
+    },
+    {
+      "field": "microthrombus",
+      "name": "白色微粒样片段",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 228,
+      "accuracy": 0.7149122807017544,
+      "balanced_accuracy": 0.6871980676328502,
+      "auroc": 0.7699677938808374,
+      "class_labels": [
+        "未见",
+        "可见"
+      ],
+      "recall": [
+        0.8188405797101449,
+        0.5555555555555556
+      ],
+      "confusion_matrix": [
+        [
+          113,
+          25
+        ],
+        [
+          40,
+          50
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.6053,
+      "accuracy_gain_ci95": [
+        0.0395,
+        0.1798
+      ],
+      "historical_locked_subset_oof_accuracy": 0.6304,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "blood_color",
+      "name": "血色",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 225,
+      "accuracy": 0.7511111111111111,
+      "balanced_accuracy": 0.7472501195600192,
+      "auroc": 0.8306233062330624,
+      "class_labels": [
+        "淡红/浅红",
+        "暗红/暗紫"
+      ],
+      "recall": [
+        0.7886178861788617,
+        0.7058823529411765
+      ],
+      "confusion_matrix": [
+        [
+          97,
+          26
+        ],
+        [
+          30,
+          72
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5467,
+      "accuracy_gain_ci95": [
+        0.1289,
+        0.2889
+      ],
+      "historical_locked_subset_oof_accuracy": 0.7955,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "exudation",
+      "name": "渗出",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 230,
+      "accuracy": 0.7521739130434782,
+      "balanced_accuracy": 0.7521739130434782,
+      "auroc": 0.7856332703213611,
+      "class_labels": [
+        "无",
+        "有"
+      ],
+      "recall": [
+        0.7565217391304347,
+        0.7478260869565218
+      ],
+      "confusion_matrix": [
+        [
+          87,
+          28
+        ],
+        [
+          29,
+          86
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.4739,
+      "accuracy_gain_ci95": [
+        0.1957,
+        0.3609
+      ],
+      "historical_locked_subset_oof_accuracy": 0.6383,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "hemorrhage",
+      "name": "出血",
+      "kind": "fixed",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "not_image_prediction",
+      "value": "无"
+    },
+    {
+      "field": "subpapillary_venous_plexus",
+      "name": "乳头下静脉丛",
+      "kind": "binary",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 231,
+      "accuracy": 0.7748917748917749,
+      "balanced_accuracy": 0.7628095975232199,
+      "auroc": 0.8184210526315789,
+      "class_labels": [
+        "未见",
+        "可见"
+      ],
+      "recall": [
+        0.6947368421052632,
+        0.8308823529411765
+      ],
+      "confusion_matrix": [
+        [
+          66,
+          29
+        ],
+        [
+          23,
+          113
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.5887,
+      "accuracy_gain_ci95": [
+        0.1126,
+        0.2597
+      ],
+      "historical_locked_subset_oof_accuracy": 0.766,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+    },
+    {
+      "field": "papilla",
+      "name": "乳头",
+      "kind": "papilla",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "exploratory_internal_cv",
+      "n": 231,
+      "accuracy": 0.4588744588744589,
+      "balanced_accuracy": 0.4316287878787879,
+      "auroc": null,
+      "class_labels": [
+        "波纹状",
+        "浅波纹状",
+        "平坦"
+      ],
+      "recall": [
+        0.2125,
+        0.71875,
+        0.36363636363636365
+      ],
+      "confusion_matrix": [
+        [
+          17,
+          56,
+          7
+        ],
+        [
+          13,
+          69,
+          14
+        ],
+        [
+          8,
+          27,
+          20
+        ]
+      ],
+      "training_fold_mode_accuracy": 0.4156,
+      "accuracy_gain_ci95": [
+        -0.026,
+        0.1126
+      ],
+      "historical_locked_subset_oof_accuracy": 0.3913,
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv"
+    },
+    {
+      "field": "sweat_duct",
+      "name": "汗腺导管",
+      "kind": "fixed",
+      "independent_holdout": null,
+      "release_matched_loao": null,
+      "status": "not_image_prediction",
+      "value": "少"
+    }
+  ]
+}

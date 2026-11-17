@@ -1,5 +1,8 @@
 # 甲襞微循环图像分析 · expert-router-final
 
+> 当前发布版交付证据：[版本、逐字段内部交叉验证指标及缺失项](release/final_v1/evidence/README.md)。独立锁定集成绩缺失；现有 LOAO 与发布阈值规则不同。
+
+
 输入：同一次检查拍摄的若干张静态甲襞显微图像（jpg/png/bmp/tif）。
 
 输出：
