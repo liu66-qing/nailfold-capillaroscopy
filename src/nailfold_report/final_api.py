@@ -3,7 +3,7 @@
     uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 
 POST /v1/reports  multipart: exam_id, device_id (optional), images (1..n files)
-    -> report JSON (schema release/final_v1/schemas/report.schema.json);
+    -> report JSON (schema schemas/report.schema.json);
        ?format=html returns the printable page instead
 GET  /v1/health   -> release id and asset sha256
 
@@ -71,7 +71,7 @@ def upload_page() -> str:
 
 @app.get("/examples/{n}", response_class=HTMLResponse)
 def example(n: int) -> str:
-    f = ROOT / "release/final_v1/examples" / ("example_%d.html" % n)
+    f = ROOT / "examples/reports" / ("example_%d.html" % n)
     if not 1 <= n <= 9 or not f.exists():
         raise HTTPException(404, "no such example")
     return f.read_text(encoding="utf-8")

@@ -8,7 +8,7 @@ sys.path.insert(0,str(R/'src'))
 from nailfold_report.final_registry import FIELDS,RELEASE_ID
 E=R/'artifacts/experiments/expert_routes_20260928'
 I=R/'artifacts/experiments/locked_consumed_20260924/features_locked/index.csv'
-D=R/'release/final_v1/evidence/subset_47';D.mkdir(parents=True,exist_ok=True)
+D=R/'evaluation/subset_47';D.mkdir(parents=True,exist_ok=True)
 def rows(p):
     with p.open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 ids={r['exam_case_id'] for r in rows(I)}
@@ -39,5 +39,6 @@ for a in out:
     auc='—' if a['auroc'] is None else f"{a['auroc']:.4f}"
     s.append(f"|{a['name']}|{a['n']}|{a['accuracy']:.4f}|{a['balanced_accuracy']:.4f}|{auc}|"+'/'.join(f'{v:.3f}' for v in a['recall'])+'|')
 s+=['','完整类别顺序和混淆矩阵见 [metrics.json](metrics.json)。三分类AUROC未计算。','', '复现：`python scripts/build_subset47_evidence.py`。仅汇总已保存预测，不重新运行模型；15个预测字段的ACC均与既有子集统计核对一致。']
+s += ['', '原图与逐病例标签：[下载47例数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)。47例、402张原图、21字段；校验值见 [data_download.json](data_download.json)。']
 (D/'README.md').write_text('\n'.join(s)+'\n',encoding='utf-8')
 print('Verified 47 exam IDs and 15 field accuracies; exported aggregate metrics only.')

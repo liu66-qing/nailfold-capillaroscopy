@@ -1,4 +1,4 @@
-"""Write release/final_v1/ metadata for expert_router_v1:
+"""Write model manifest, schema and evaluation metadata for expert_router_v1:
 validation.json (internal CV numbers per printed row, from the saved OOF),
 schemas/report.schema.json and release_manifest.json (sha256 of every asset).
 
@@ -18,7 +18,8 @@ from nailfold_report.final_registry import (BUNDLE_SHA256, DET_SHA256,  # noqa: 
                                             FORBIDDEN, RELEASE_ID, SCHEMA_VERSION,
                                             SEG_SHA256)
 
-OUT = ROOT / "release" / "final_v1"
+EVAL = ROOT / "evaluation"
+MANIFEST = ROOT / "artifacts/models/expert_router_v1/manifest.json"
 EXP = ROOT / "artifacts/experiments/expert_routes_20260928"
 MD = "artifacts/models/expert_router_v1/"
 
@@ -47,7 +48,7 @@ def validation() -> dict:
         out[f] = dict(item=name, kind=kind, n=s["n"], accuracy=s["acc"],
                       always_common_answer=s["mode_acc"], gain_ci95=[lo, hi],
                       beats_common_answer=bool(lo > 0),
-                      protocol="233 例病人级 5 折交叉验证（反复探索后的内部估计，无外部验证）")
+                      protocol="233 例检查病例级 5 折交叉验证（反复探索后的内部估计，无外部验证）")
     out["output_input_ratio"] = dict(item="输出/输入枝", kind="derived",
                                      evidence="由两枝档位组合")
     return out
@@ -79,16 +80,17 @@ def schema() -> dict:
 
 
 def main() -> None:
-    dump(OUT / "validation.json", validation())
-    dump(OUT / "schemas" / "report.schema.json", schema())
+    dump(EVAL / "validation.json", validation())
+    dump(ROOT / "schemas/report.schema.json", schema())
     assets = {MD + "bundle.joblib": BUNDLE_SHA256, MD + "seg_s0.pt": SEG_SHA256,
               MD + "det_capillary.pt": DET_SHA256,
               "weights/dinov2/b/model.safetensors": ENCODER_SHA256}
     for rel, want in assets.items():
         assert sha(ROOT / rel) == want, rel
-    files = {p.relative_to(OUT).as_posix(): sha(p) for p in sorted(OUT.rglob("*.json"))
-             if p.name != "release_manifest.json" and "_superseded" not in p.as_posix()}
-    dump(OUT / "release_manifest.json", dict(
+    resources = [ROOT / "requirements.txt", ROOT / "schemas/report.schema.json", EVAL / "validation.json"]
+    resources += sorted((ROOT / "examples/reports").glob("*.json"))
+    files = {p.relative_to(ROOT).as_posix(): sha(p) for p in resources}
+    dump(MANIFEST, dict(
         release_id=RELEASE_ID, schema_version=SCHEMA_VERSION, model_assets=assets,
         also_loaded=["artifacts/models/rag_heads_v1/bundle.joblib (encoder config only)"],
         release_files=files, forbidden_phrases=list(FORBIDDEN),

@@ -4,7 +4,7 @@
 
 ## 模型结构
 
-- 字段分组：13 个二分类目标，每个目标各有一组头。
+- 字段分组：20 个二分类目标，每个目标各有一组头。
   - 测量类字段（管径、管袢长）由"偏低"和"偏高"两个单侧头组成三档。
   - 乳头由"波纹状"和"平坦"两个头组成三档。
 - 四个特征来源，所有目标共享：
@@ -18,9 +18,9 @@
 - 输入/输出枝比例由两枝档位推出，不做除法。
 - 输出不含尺寸、计数、频次、积分或五级分层。
 
-## 验证（validation.json）
+## 验证（evaluation/validation.json）
 
-口径：233 例病人级 5 折内部交叉验证，对照"每例都答最常见答案"，给出增益 95% bootstrap 置信区间。这批数据此前做过多轮探索和几十次配置比较，所以数字偏乐观。没有外部验证，也不是临床验证。
+口径：233 例检查病例级 5 折内部交叉验证，对照"每例都答最常见答案"，给出增益 95% bootstrap 置信区间。这批数据此前做过多轮探索和几十次配置比较，所以数字偏乐观。没有外部验证，也不是临床验证。
 
 - 置信区间排除 0、优于常见答案：
   - 清晰度、渗出、血色、乳头下静脉丛、白微栓、畸形、管袢数。
@@ -33,7 +33,7 @@
 ## 使用
 
 ```bash
-pip install -r release/final_v1/requirements.txt
+pip install -r requirements.txt
 ```
 
 scikit-learn 必须同版本，因为头是 pickle 的 sklearn 管线。
@@ -59,9 +59,9 @@ uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 ## 文件
 
 - `artifacts/models/expert_router_v1/`：bundle.joblib、seg_s0.pt、det_capillary.pt、metadata.json。二进制从 GitHub Release `expert-router-final` 下载，放置方法见根目录 README §1.0
-- `validation.json`：逐行准确率、常见答案基线、增益置信区间
-- `examples/`：8 例开发集病例的 JSON（HTML 本地生成，不入库）。生成时校验了实时推理与训练特征表的一致性，|Δq| ≤ 0.0028
-- `release_manifest.json`：发布文件的 sha256
+- `evaluation/validation.json`：逐行准确率、常见答案基线、增益置信区间
+- `examples/reports/`：8 例开发集病例的 JSON（HTML 本地生成，不入库）。生成时校验了实时推理与训练特征表的一致性，|Δq| ≤ 0.0028
+- `artifacts/models/expert_router_v1/manifest.json`：发布文件的 sha256
 
 ## 局限
 

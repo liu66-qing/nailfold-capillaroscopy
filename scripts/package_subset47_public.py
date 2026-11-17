@@ -32,5 +32,5 @@ with zipfile.ZipFile(zipout,'w',zipfile.ZIP_DEFLATED) as z:
         if p.is_file():z.write(p,p.relative_to(D).as_posix())
 with zipfile.ZipFile(zipout) as z:assert z.testzip() is None
 meta={'cases':47,'images':len(images),'zip_bytes':zipout.stat().st_size,'zip_sha256':hashlib.sha256(zipout.read_bytes()).hexdigest(),'url':'https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip'}
-(R/'release/final_v1/evidence/subset_47/data_download.json').write_text(json.dumps(meta,indent=2)+'\n',encoding='utf-8')
+(R/'evaluation/subset_47/data_download.json').write_text(json.dumps(meta,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(meta))

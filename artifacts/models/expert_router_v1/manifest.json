@@ -11,16 +11,17 @@
   "artifacts/models/rag_heads_v1/bundle.joblib (encoder config only)"
  ],
  "release_files": {
-  "examples/example_1.json": "652e3c8eed1806b4ebbc02e785109c565ade1b76a1720a920b5ef7fbad24c0ec",
-  "examples/example_2.json": "b2c1f2ba1760d1177664a86589d2243eb5f36cf4b06160d89e79d792f5a9725e",
-  "examples/example_3.json": "1649604f5c8a61ea14375d5b9f18b982bc1225bc5fd365ad783443115fd0f218",
-  "examples/example_4.json": "0c7f55df59f72c0c951d7a31cd6f049e604f8bfc3be74f99e8a55a74976b136f",
-  "examples/example_5.json": "84cfb1c2529d72e5071b22b942f9868ba145b7e27eeab2eed7d442ba86ceb12e",
-  "examples/example_6.json": "38855136588bc0d183a69684d0a563bd91e7d539004bbb8a56b1686aec4ff54f",
-  "examples/example_7.json": "d2202b663393378cef46e9d261de9d37c084bd7d03b3b09750e763ae3bfede0f",
-  "examples/example_8.json": "e383ae6bc688b4507c4e3365495b8b4105e2ac6c2fa42fa8ec170d2a285e5005",
+  "requirements.txt": "c10b2f26cb9f949c2886ababc84796596498f26f1977f9cb46afc09f9aa42f5f",
   "schemas/report.schema.json": "9862829832a0bbc38a2a275a53bd0e8fae235baa327774f925728c378a24b23d",
-  "validation.json": "ed39f9682db8e02aaccf971d100caabf061f94b92ba1d8289aae725554b34cae"
+  "evaluation/validation.json": "8c9ac8b65d3ee1e499bc8fa809e4f923a1e4106ad42f5b6b082cd2304a97cd8e",
+  "examples/reports/example_1.json": "652e3c8eed1806b4ebbc02e785109c565ade1b76a1720a920b5ef7fbad24c0ec",
+  "examples/reports/example_2.json": "b2c1f2ba1760d1177664a86589d2243eb5f36cf4b06160d89e79d792f5a9725e",
+  "examples/reports/example_3.json": "1649604f5c8a61ea14375d5b9f18b982bc1225bc5fd365ad783443115fd0f218",
+  "examples/reports/example_4.json": "0c7f55df59f72c0c951d7a31cd6f049e604f8bfc3be74f99e8a55a74976b136f",
+  "examples/reports/example_5.json": "84cfb1c2529d72e5071b22b942f9868ba145b7e27eeab2eed7d442ba86ceb12e",
+  "examples/reports/example_6.json": "38855136588bc0d183a69684d0a563bd91e7d539004bbb8a56b1686aec4ff54f",
+  "examples/reports/example_7.json": "d2202b663393378cef46e9d261de9d37c084bd7d03b3b09750e763ae3bfede0f",
+  "examples/reports/example_8.json": "e383ae6bc688b4507c4e3365495b8b4105e2ac6c2fa42fa8ec170d2a285e5005"
  },
  "forbidden_phrases": [
   "未评估",

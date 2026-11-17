@@ -1,6 +1,6 @@
 {
   "release_id": "expert-router-final",
-  "inference_code_commit": "6b070bc36071ce85797d0563b0aec13a3b39cc07",
+  "inference_code_commit": "66314f2457ef207fbc7e6073c6a181c32eaa0101",
   "training_exams": 233,
   "binary_head_targets": 20,
   "output_rows": 20,

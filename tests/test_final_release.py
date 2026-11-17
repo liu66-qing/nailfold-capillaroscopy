@@ -1,4 +1,4 @@
-"""Acceptance tests for the final release (expert_router_v1, release/final_v1).
+"""Acceptance tests for the final release (expert_router_v1).
 
 Features come from the saved training tables, so the tests need no GPU and no
 image decoding; the live-image path is checked by scripts/make_final_examples.py.
@@ -11,10 +11,10 @@ import numpy as np
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-REL = ROOT / "release" / "final_v1"
+MANIFEST = ROOT / "artifacts/models/expert_router_v1/manifest.json"
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "src"))
-pytestmark = pytest.mark.skipif(not (REL / "release_manifest.json").exists(),
+pytestmark = pytest.mark.skipif(not MANIFEST.exists(),
                                 reason="release not built")
 
 
@@ -52,7 +52,7 @@ def _report(bundle, feats, exam="t1", n=None):
 def test_twenty_rows_all_non_empty_and_schema_valid(bundle, cases):
     import jsonschema
     from nailfold_report.final_registry import FIELD_IDS
-    schema = json.loads((REL / "schemas/report.schema.json").read_text(encoding="utf-8"))
+    schema = json.loads((ROOT / "schemas/report.schema.json").read_text(encoding="utf-8"))
     for f in cases.values():
         r = _report(bundle, f)
         jsonschema.validate(r, schema)
@@ -195,7 +195,7 @@ def test_low_variation_rows_are_not_adjacent_on_page():
 
 def test_validation_card_for_every_row():
     from nailfold_report.final_registry import FIELD_IDS
-    v = json.loads((REL / "validation.json").read_text(encoding="utf-8"))
+    v = json.loads((ROOT / "evaluation/validation.json").read_text(encoding="utf-8"))
     assert set(v) == set(FIELD_IDS)
 
 
@@ -209,9 +209,9 @@ def test_asset_hash_mismatch_is_refused(tmp_path):
 
 def test_manifest_hashes_match_files():
     import hashlib
-    m = json.loads((REL / "release_manifest.json").read_text(encoding="utf-8"))
+    m = json.loads(MANIFEST.read_text(encoding="utf-8"))
     for rel, want in m["release_files"].items():
-        assert hashlib.sha256((REL / rel).read_bytes()).hexdigest() == want, rel
+        assert hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == want, rel
 
 
 def test_api_contract_with_stub_predictor(bundle, cases, monkeypatch):

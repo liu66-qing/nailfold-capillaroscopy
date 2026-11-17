@@ -11,7 +11,7 @@
 
 ![最终输出报告效果图](docs/report_example.png)
 
-上图是开发集一例的实际输出，姓名、年龄为示例值。其余 8 例的 JSON 见 [release/final_v1/examples/](release/final_v1/examples/)。
+上图是开发集一例的实际输出，姓名、年龄为示例值。其余 8 例的 JSON 见 [examples/reports/](examples/reports/)。
 
 > 模型文件不在代码里，在 GitHub Release [expert-router-final](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final)。克隆后先按 [§1.0](#10-下载模型文件) 下载，否则无法运行。
 
@@ -19,7 +19,7 @@
 
 ## 交接清单
 
-本仓库当前内容即最终交付版本。代码、模型和接口沿用现有结构；接入时从下表查找对应内容。`expert-router-final` 是模型附件的固定标识，`release/final_v1` 是已有资源目录。
+本仓库当前内容即最终交付版本。代码、模型和接口沿用现有结构；接入时从下表查找对应内容。`expert-router-final` 是模型附件的固定标识。目录按代码、模型、示例、输出定义和评估材料划分。
 
 | 交接项 | 入口 | 用途 |
 |---|---|---|
@@ -27,12 +27,12 @@
 | HTTP 接口 | [final_api.py](src/nailfold_report/final_api.py) | `POST /v1/reports`；运行方法见下方快速开始 |
 | 建议和页面 | [final_advice.py](src/nailfold_report/final_advice.py)、[final_render.py](src/nailfold_report/final_render.py) | 建议规则及健康观察卡 |
 | 模型下载 | [Release 附件](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/tag/expert-router-final) | 5个必需文件，具体落盘路径见下方下载表 |
-| 依赖 | [requirements.txt](release/final_v1/requirements.txt) | 安装运行环境 |
-| 输出定义 | [字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](release/final_v1/schemas/report.schema.json)、[示例](release/final_v1/examples/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
-| 模型校验 | [release_manifest.json](release/final_v1/release_manifest.json) | 核心权重SHA256，推理加载时自动检查 |
-| 全量内部交叉验证 | [逐字段表](release/final_v1/evidence/README.md)、[完整指标](release/final_v1/evidence/metrics.json) | 有效n、ACC、BA、AUROC、召回、混淆矩阵及指标口径 |
-| 47例子集评估 | [指标表](release/final_v1/evidence/subset_47/README.md)、[完整指标](release/final_v1/evidence/subset_47/metrics.json) | 内部交叉验证折外结果 |
-| 47例原图与标签 | [下载数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)、[校验信息](release/final_v1/evidence/subset_47/data_download.json) | 47例、402张原图、21字段；`labels.csv`按病例，`images.csv`关联图像 |
+| 依赖 | [requirements.txt](requirements.txt) | 安装运行环境 |
+| 输出定义 | [字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](schemas/report.schema.json)、[示例](examples/reports/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
+| 模型校验 | [manifest.json](artifacts/models/expert_router_v1/manifest.json) | 核心权重SHA256，推理加载时自动检查 |
+| 全量内部交叉验证 | [逐字段表](evaluation/README.md)、[完整指标](evaluation/metrics.json) | 有效n、ACC、BA、AUROC、召回、混淆矩阵及指标口径 |
+| 47例子集评估 | [指标表](evaluation/subset_47/README.md)、[完整指标](evaluation/subset_47/metrics.json) | 内部交叉验证折外结果 |
+| 47例原图与标签 | [下载数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)、[校验信息](evaluation/subset_47/data_download.json) | 47例、402张原图、21字段；`labels.csv`按病例，`images.csv`关联图像 |
 | 留一档案评估 | [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv) | 使用原始概率与训练阳性率的阈值；与发布端校准阈值不同 |
 
 接入顺序：安装依赖 → 下载5个模型文件 → 调用Python或启动HTTP服务 → 用47例包核对输入和标签 → 用同事持有的数据开展独立测试。已有47例指标按上表所列内部验证口径使用。
@@ -47,14 +47,15 @@
 | `c52db4f` | 新增47例子集指标表、完整指标JSON、复算脚本 `scripts/build_subset47_evidence.py` |
 | `2c4ee7e` | 新增47例原图与标签包下载信息 `data_download.json`、打包脚本 `scripts/package_subset47_public.py`；Release附件上传 `subset47_public_v1.zip`（47例、402张原图、21字段标签、图像索引和校验值） |
 | `31ab3df` | 更新首页交接清单，统一列出代码、权重、运行方式、评估指标及数据下载入口 |
-| 本次补充 | 新增本材料记录；更新Release附件说明，逐项列出模型、校验文件、47例图像与标签包；保留运行所需资源目录 |
+| `66314f2` | 新增上传材料记录；更新Release附件的逐项说明 |
+| 本次目录整理 | 依赖归根目录，Schema归schemas，示例归examples/reports，指标归evaluation，校验清单归模型目录；同步迁移接口、测试及生成脚本的路径 |
 
-`release/final_v1/` 保存运行依赖、输出schema、接口示例、权重校验清单和评估文件，接口及测试仍引用它，属于当前交付所需材料。
+目录迁移后的材料位置见下方目录对照；运行代码、脚本及测试均使用新路径。
 
 ## 1. 快速开始
 
 ```bash
-pip install -r release/final_v1/requirements.txt
+pip install -r requirements.txt
 pip install -e .
 ```
 
@@ -84,7 +85,7 @@ curl -fL --create-dirs -o artifacts/models/rag_heads_v1/bundle.joblib        $B/
 ```
 
 说明：
-- 加载时会逐个校验 sha256，不匹配就报 `AssetMismatch`，所以不需要手动校验。完整哈希在 Release 的 `SHA256SUMS.txt` 和 [release_manifest.json](release/final_v1/release_manifest.json) 里。
+- 加载时会逐个校验 sha256，不匹配就报 `AssetMismatch`，所以不需要手动校验。完整哈希在 Release 的 `SHA256SUMS.txt` 和 [manifest.json](artifacts/models/expert_router_v1/manifest.json) 里。
 - `rag_heads_v1/bundle.joblib` 里只读取编码器结构和预处理配置。DINOv2 由 `timm` 离线加载，不联网，也不需要 config 文件。
 
 ### 1.1 Python 调用
@@ -213,7 +214,7 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 
 ## 3. 输出 JSON
 
-完整 schema 见 [release/final_v1/schemas/report.schema.json](release/final_v1/schemas/report.schema.json)。
+完整 schema 见 [schemas/report.schema.json](schemas/report.schema.json)。
 
 ```jsonc
 {
@@ -361,7 +362,12 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 | `src/nailfold_report/final_render.py` | 健康观察卡 HTML：显示顺序、小贴士、缩略图 |
 | `src/nailfold_report/final_api.py` | FastAPI 服务 |
 | **发布物** | |
-| `release/final_v1/` | 发布说明、requirements、schema、`validation.json`（逐行指标）、`release_manifest.json`（sha256）、`examples/` |
+| `requirements.txt` | 推理环境的固定依赖版本 |
+| `schemas/` | 报告 JSON Schema |
+| `examples/reports/` | 示例 JSON；生成的 HTML 也写入此处 |
+| `evaluation/` | 内部验证总表、完整指标、47例子集指标与下载信息 |
+| `docs/inference.md` | 推理结构和接入补充说明 |
+| `artifacts/models/expert_router_v1/manifest.json` | 权重和交付资源校验清单，资源路径相对仓库根目录 |
 | `artifacts/models/expert_router_v1/metadata.json` | 训练元数据：每个目标的样本数、校准系数、特征配方（二进制在 Release 附件里） |
 | **最终路由：训练与评估** | |
 | `scripts/eval_fixed_router.py` | 固定四专家路由的 5 折 OOF 概率 |

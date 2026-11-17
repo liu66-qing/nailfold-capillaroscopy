@@ -3,7 +3,7 @@
 1. runs FinalReportPredictor on the raw images of a few cases and checks that
    the live q of every target matches q computed from the saved training
    feature tables (|dq| < 0.01);
-2. writes example report JSON + printable HTML to release/final_v1/examples/.
+2. writes example report JSON + printable HTML to examples/reports/.
 Example cases are drawn from development cases only (no locked-47 image is
 rendered into a shipped file).
 
@@ -25,7 +25,7 @@ import eval_field_experts as E  # noqa: E402
 from nailfold_report.final_inference import FinalReportPredictor, target_probs  # noqa: E402
 from nailfold_report.final_render import render_html, thumbnail_bytes  # noqa: E402
 
-OUT = ROOT / "release/final_v1/examples"
+OUT = ROOT / "examples/reports"
 PATIENTS = ({"name": "示例一", "sex": "女", "age": "52"},
             {"name": "示例二", "sex": "男", "age": "38"},
             {"name": "示例三", "sex": "女", "age": "61"},
