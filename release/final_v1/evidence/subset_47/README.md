@@ -28,3 +28,5 @@
 完整类别顺序和混淆矩阵见 [metrics.json](metrics.json)。三分类AUROC未计算。
 
 复现：`python scripts/build_subset47_evidence.py`。仅汇总已保存预测，不重新运行模型；15个预测字段的ACC均与既有子集统计核对一致。
+
+原图与逐病例标签：[下载47例数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)。47例、402张原图、21字段；校验值见 [data_download.json](data_download.json)。
