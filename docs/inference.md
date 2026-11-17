@@ -73,7 +73,6 @@ uvicorn nailfold_report.final_api:app --host 127.0.0.1 --port 8000
 2. 流态和白微栓在原报告中来自动态观察。本系统只从静态图像给出关联预测。
 3. 固定行不随图像变化，不能用于排除出血等异常。
 4. 置信等级是内部交叉验证上校准的概率，换人群后需要重新校准。
-5. 前瞻评估另走 rag_heads_v2 影子路径，按预注册执行，本发布不改动它。
 
 ```bash
 python -m pytest tests/test_final_release.py
@@ -81,4 +80,4 @@ python -m pytest tests/test_final_release.py
 
 ## 接手前核验
 
-从仓库根目录运行 `python scripts/verify_handoff.py --check-models`。测试和训练复现前置条件见[首页](../README.md)。`expert_features.py`会调用`scripts/`中的特征函数，因此需要完整克隆并使用editable安装；只复制`src/`或只安装wheel不构成完整推理包。`rag_heads_v2`影子路线、历史A0扰动实验和当前四路模型应分别解读。
+从仓库根目录运行 `python scripts/verify_handoff.py --check-models`。测试和训练复现前置条件见[首页](../README.md)。`expert_features.py`会调用`scripts/`中的特征函数，因此需要完整克隆并使用editable安装；只复制`src/`或只安装wheel不构成完整推理包。当前接入使用 `FinalReportPredictor`，模型文件按首页下载表放置。
