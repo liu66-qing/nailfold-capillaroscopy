@@ -1,6 +1,6 @@
 {
   "release_id": "expert-router-final",
-  "inference_code_commit": "66314f2457ef207fbc7e6073c6a181c32eaa0101",
+  "inference_code_commit": "eb8ebe9019f49143bd081ef3d4e620ff1365262e",
   "training_exams": 233,
   "binary_head_targets": 20,
   "output_rows": 20,
@@ -64,7 +64,18 @@
         0.368
       ],
       "subset47_oof_accuracy": 0.8043,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        121,
+        110
+      ],
+      "predicted_class_counts": [
+        120,
+        111
+      ],
+      "missing_labels": 2,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "capillary_count",
@@ -101,7 +112,18 @@
         0.114
       ],
       "subset47_oof_accuracy": 0.7174,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        156,
+        72
+      ],
+      "predicted_class_counts": [
+        187,
+        41
+      ],
+      "missing_labels": 5,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "afferent_diameter",
@@ -147,7 +169,20 @@
         0.1053
       ],
       "subset47_oof_accuracy": 0.4773,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_afferent.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_afferent.csv",
+      "class_counts": [
+        68,
+        96,
+        45
+      ],
+      "predicted_class_counts": [
+        35,
+        148,
+        26
+      ],
+      "missing_labels": 24,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "efferent_diameter",
@@ -193,7 +228,20 @@
         0.1058
       ],
       "subset47_oof_accuracy": 0.5909,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_efferent.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_efferent.csv",
+      "class_counts": [
+        33,
+        120,
+        55
+      ],
+      "predicted_class_counts": [
+        0,
+        176,
+        32
+      ],
+      "missing_labels": 25,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "output_input_ratio",
@@ -248,7 +296,20 @@
         0.216
       ],
       "subset47_oof_accuracy": 0.5682,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_apex.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_apex.csv",
+      "class_counts": [
+        31,
+        92,
+        90
+      ],
+      "predicted_class_counts": [
+        3,
+        120,
+        90
+      ],
+      "missing_labels": 20,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "loop_length",
@@ -294,7 +355,20 @@
         0.1312
       ],
       "subset47_oof_accuracy": 0.6444,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv",
+      "class_counts": [
+        42,
+        67,
+        112
+      ],
+      "predicted_class_counts": [
+        31,
+        55,
+        135
+      ],
+      "missing_labels": 12,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "crossing_ratio",
@@ -331,7 +405,18 @@
         0.027
       ],
       "subset47_oof_accuracy": 0.7556,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        146,
+        76
+      ],
+      "predicted_class_counts": [
+        204,
+        18
+      ],
+      "missing_labels": 11,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "malformation_ratio",
@@ -368,7 +453,18 @@
         0.199
       ],
       "subset47_oof_accuracy": 0.6154,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        110,
+        91
+      ],
+      "predicted_class_counts": [
+        119,
+        82
+      ],
+      "missing_labels": 32,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "flow_state",
@@ -405,7 +501,18 @@
         0.0
       ],
       "subset47_oof_accuracy": 0.8696,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        47,
+        178
+      ],
+      "predicted_class_counts": [
+        0,
+        225
+      ],
+      "missing_labels": 8,
+      "coverage": 1.0,
+      "single_class_prediction": true
     },
     {
       "field": "vasomotion",
@@ -451,7 +558,18 @@
         0.0
       ],
       "subset47_oof_accuracy": 0.9362,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        34,
+        194
+      ],
+      "predicted_class_counts": [
+        0,
+        228
+      ],
+      "missing_labels": 5,
+      "coverage": 1.0,
+      "single_class_prediction": true
     },
     {
       "field": "wbc_count",
@@ -497,7 +615,18 @@
         0.1798
       ],
       "subset47_oof_accuracy": 0.6304,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        138,
+        90
+      ],
+      "predicted_class_counts": [
+        153,
+        75
+      ],
+      "missing_labels": 5,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "blood_color",
@@ -534,7 +663,18 @@
         0.2889
       ],
       "subset47_oof_accuracy": 0.7955,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        123,
+        102
+      ],
+      "predicted_class_counts": [
+        127,
+        98
+      ],
+      "missing_labels": 8,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "exudation",
@@ -571,7 +711,18 @@
         0.3609
       ],
       "subset47_oof_accuracy": 0.6383,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        115,
+        115
+      ],
+      "predicted_class_counts": [
+        116,
+        114
+      ],
+      "missing_labels": 3,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "hemorrhage",
@@ -617,7 +768,18 @@
         0.2597
       ],
       "subset47_oof_accuracy": 0.766,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv",
+      "class_counts": [
+        95,
+        136
+      ],
+      "predicted_class_counts": [
+        89,
+        142
+      ],
+      "missing_labels": 2,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "papilla",
@@ -663,7 +825,20 @@
         0.1126
       ],
       "subset47_oof_accuracy": 0.3913,
-      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv"
+      "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv",
+      "class_counts": [
+        80,
+        96,
+        55
+      ],
+      "predicted_class_counts": [
+        38,
+        152,
+        41
+      ],
+      "missing_labels": 2,
+      "coverage": 1.0,
+      "single_class_prediction": false
     },
     {
       "field": "sweat_duct",
@@ -674,5 +849,35 @@
       "status": "not_image_prediction",
       "value": "少"
     }
-  ]
+  ],
+  "evaluation_protocol": {
+    "type": "internal_cross_validation",
+    "outer_folds": 5,
+    "calibration": "inner out-of-fold Platt calibration within each outer training fold",
+    "evaluation_unit": "exam_case",
+    "reference_standard": "existing report-derived field labels",
+    "decision_rule": {
+      "binary": "q > 0.5",
+      "three_class": "argmax(p_lo, max(0, 1-p_lo-p_hi), p_hi)"
+    },
+    "abstention": false,
+    "missing_labels": "excluded per field; see n and missing_labels",
+    "subset47_metrics": "evaluation/subset_47/metrics.json",
+    "loao": "available source uses a different threshold rule; release_matched_loao remains null"
+  },
+  "metric_definitions": {
+    "accuracy": "fraction of correct predictions",
+    "balanced_accuracy": "mean recall over observed true classes",
+    "auroc": "binary calibrated-score AUROC; null for three-class fields",
+    "confusion_matrix": "rows=true class; columns=predicted class; order=class_labels",
+    "recall": "same class order as class_labels",
+    "accuracy_gain_ci95": "existing paired bootstrap 95% interval of accuracy minus training-fold majority accuracy; not an interval for accuracy or BA",
+    "coverage": "fraction of labelled evaluation cases receiving an answer; fixed and derived rows are not scored",
+    "subset47_oof_accuracy": "OOF accuracy on the designated 47-exam subset; full metrics are in subset47_metrics"
+  },
+  "reproduction": {
+    "command": "python scripts/build_delivery_evidence.py",
+    "metrics_recomputed_from_saved_oof": true,
+    "model_retrained": false
+  }
 }
