@@ -31,7 +31,7 @@
 | 输出定义 | [字段注册表](src/nailfold_report/final_registry.py)、[JSON schema](schemas/report.schema.json)、[示例](examples/reports/) | 20项输出及取值；20个二分类目标组合出预测字段，另有固定项和派生项 |
 | 模型校验 | [manifest.json](artifacts/models/expert_router_v1/manifest.json) | 核心权重SHA256，推理加载时自动检查 |
 | 全量内部交叉验证 | [逐字段表](evaluation/README.md)、[完整指标](evaluation/metrics.json) | 有效n、ACC、BA、AUROC、召回、混淆矩阵及指标口径 |
-| 47例子集评估 | [指标表](evaluation/subset_47/README.md)、[完整指标](evaluation/subset_47/metrics.json) | 内部交叉验证折外结果 |
+| 47例评估子集 | [指标表](evaluation/subset_47/README.md)、[完整指标](evaluation/subset_47/metrics.json) | 内部交叉验证折外结果 |
 | 47例原图与标签 | [下载数据包](https://github.com/liu66-qing/nailfold-capillaroscopy/releases/download/expert-router-final/subset47_public_v1.zip)、[校验信息](evaluation/subset_47/data_download.json) | 47例、402张原图、21字段；`labels.csv`按病例，`images.csv`关联图像 |
 | 留一档案评估 | [router_loao.csv](artifacts/experiments/expert_routes_20260928/router_loao.csv) | 使用原始概率与训练阳性率的阈值；与发布端校准阈值不同 |
 
@@ -179,13 +179,13 @@ curl -F exam_id=E001 -F images=@1.jpg -F images=@2.jpg http://127.0.0.1:8000/v1/
 |---|---|---|---|---|---|
 | A0 图像特征 | DINOv2 ViT-B/14，权重冻结不训练 | Meta 官方预训练权重（LVD-142M 自然图像）；本项目只做 5 种池化 + PCA64 | — | Apache-2.0 | `src/nailfold_report/rag_inference.py` |
 | COL 颜色/清晰度 | 手工统计量，无可训练参数 | 不需要训练 | — | — | `scripts/extract_color_quality_all233.py`、`extract_roi_quality_background_features.py` |
-| SEG 分割器 S0 | YOLO11m-seg，imgsz 1024，40 epoch，seed 20260927 | ① 自家血管数据集：医生用 LabelMe 勾画的单根血管多边形，2332 张裁图，按原尺度拼到 1024 画布上；与 locked 测试病例重叠的已剔除 ② ANFC-THU 的 Roboflow coco 导出版，train 257 张（6 类合并为 vessel） | 训练：裁图中文件号 %10≠0 的部分 + ANFC 257 张；验证：文件号 %10=0 的裁图 + ANFC valid | 自家数据；ANFC Roboflow 导出页标注 CC BY 4.0 | `scripts/mendeley_seg_build_base.py`、`mendeley_seg_train.py`；训练集清单在 `artifacts/derived/vascular_dataset_governance_20260830/train_ready/` |
+| SEG 分割器 S0 | YOLO11m-seg，imgsz 1024，40 epoch，seed 20260927 | ① 自家血管数据集：医生用 LabelMe 勾画的单根血管多边形，2332 张裁图，按原尺度拼到 1024 画布上；与 47例评估子集病例重叠的已剔除 ② ANFC-THU 的 Roboflow coco 导出版，train 257 张（6 类合并为 vessel） | 训练：裁图中文件号 %10≠0 的部分 + ANFC 257 张；验证：文件号 %10=0 的裁图 + ANFC valid | 自家数据；ANFC Roboflow 导出页标注 CC BY 4.0 | `scripts/mendeley_seg_build_base.py`、`mendeley_seg_train.py`；训练集清单在 `artifacts/derived/vascular_dataset_governance_20260830/train_ready/` |
 | DET 形态检测器 | YOLO11s，imgsz 640，30 epoch，seed 20260917 | 公开数据集 [HanaNguyen/Capillary-Dataset](https://huggingface.co/datasets/HanaNguyen/Capillary-Dataset) 的 Morphology_detection 人工框，4 类 bushy / crossing / hairpin / tortuous | 1298 张图、7206 个框、103 人；按人分组留出 18 人 198 张做验证，mAP50 0.768 | Apache-2.0 | `scripts/train_morph_detector_folds.py`；[per_class.json](artifacts/experiments/rescue_external_20260922/detectors/external_pretrain/per_class.json) |
 | 20 个二分类目标 + 校准 | 每路一个 LogisticRegression（C=0.03）+ Platt 校准 | 自家 233 例有医生报告的检查（3 个数据档案，2110 张图），标签是医生报告单上手填的各项结果 | 每个目标 n = 201~231 | 自家数据 | `scripts/fit_expert_router_final.py`；[metadata.json](artifacts/models/expert_router_v1/metadata.json) |
 
 说明：
 - SEG 和 DET 只负责产出几何、计数这类中间特征，它们自己的类别（vessel、bushy 等）不是报告字段。报告字段全部由最后一层分类头在自家标签上学出来。
-- 训练 SEG / DET 时没有用到任何病例的报告标签，也没有用到 locked 测试病例的图像。
+- 训练 SEG / DET 时没有用到任何病例的报告标签，也没有用到 47例评估子集病例的图像。
 - 目录名里的 `mendeley_` 是历史命名。最终 S0 没有使用 Mendeley 数据集（该数据集图像全部带设备叠加标记，不适合做外观训练）。
 
 ### 建议是怎么生成的（模板检索，非 LLM）

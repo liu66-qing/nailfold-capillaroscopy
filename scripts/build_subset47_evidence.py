@@ -31,9 +31,9 @@ for field,name,kind,spec,_ in FIELDS:
     acc=float(accuracy_score(y,h));assert abs(acc-s['locked_acc'])<0.00006,field
     a.update(status='evaluated',n=len(y),missing_labels=47-len(y),accuracy=acc,balanced_accuracy=float(balanced_accuracy_score(y,h)),auroc=auc,class_labels=labels,recall=recall_score(y,h,labels=list(range(len(labels))),average=None,zero_division=0).tolist(),confusion_matrix=confusion_matrix(y,h,labels=list(range(len(labels)))).tolist())
     out.append(a)
-obj=dict(title='47例子集评估',release_id=RELEASE_ID,evaluation_type='internal_cross_validation_out_of_fold_subset',subset_exams=47,source='artifacts/experiments/expert_routes_20260928',subset_index_sha256=hashlib.sha256(I.read_bytes()).hexdigest(),fields=out)
+obj=dict(title='47例评估子集',release_id=RELEASE_ID,evaluation_type='internal_cross_validation_out_of_fold_subset',subset_exams=47,source='artifacts/experiments/expert_routes_20260928',subset_index_sha256=hashlib.sha256(I.read_bytes()).hexdigest(),fields=out)
 (D/'metrics.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-s=['# 47例子集评估','','版本：`expert-router-final`。评估类型：**内部交叉验证折外结果**。各字段按有效标签数统计。','', '|字段|有效n|ACC|BA|AUROC|各类召回|','|---|---:|---:|---:|---:|---|']
+s=['# 47例评估子集','','版本：`expert-router-final`。评估类型：**内部交叉验证折外结果**。各字段按有效标签数统计。','', '|字段|有效n|ACC|BA|AUROC|各类召回|','|---|---:|---:|---:|---:|---|']
 for a in out:
     if a['n'] is None:s.append(f"|{a['name']}|—|—|—|—|固定/派生项，不适用|");continue
     auc='—' if a['auroc'] is None else f"{a['auroc']:.4f}"

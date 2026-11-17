@@ -1,5 +1,5 @@
 {
-  "title": "47例子集评估",
+  "title": "47例评估子集",
   "release_id": "expert-router-final",
   "evaluation_type": "internal_cross_validation_out_of_fold_subset",
   "subset_exams": 47,

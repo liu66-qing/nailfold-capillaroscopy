@@ -24,7 +24,7 @@
     "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv": "21e07eac223cb9b04641663e57b79f1aecd63ac232d400b1855316262f4c5dfe",
     "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv": "8d681196d64245f6b8fc749db36d9130ff58b1e2c78700deca93f7e8e47c47a9"
   },
-  "independent_holdout_status": "unavailable_original_47_in_training",
+  "independent_holdout_status": "unavailable_training_data_only",
   "external_validation_status": "unavailable",
   "evaluation_unit": "exam_case_patient_identity_not_verified",
   "uncertainty": "Existing CIs cover accuracy gain over training-fold majority only; no new BA/AUC CI computed.",
@@ -63,7 +63,7 @@
         0.2078,
         0.368
       ],
-      "historical_locked_subset_oof_accuracy": 0.8043,
+      "subset47_oof_accuracy": 0.8043,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -100,7 +100,7 @@
         0.0044,
         0.114
       ],
-      "historical_locked_subset_oof_accuracy": 0.7174,
+      "subset47_oof_accuracy": 0.7174,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -146,7 +146,7 @@
         -0.0287,
         0.1053
       ],
-      "historical_locked_subset_oof_accuracy": 0.4773,
+      "subset47_oof_accuracy": 0.4773,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_afferent.csv"
     },
     {
@@ -192,7 +192,7 @@
         0.0048,
         0.1058
       ],
-      "historical_locked_subset_oof_accuracy": 0.5909,
+      "subset47_oof_accuracy": 0.5909,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_efferent.csv"
     },
     {
@@ -247,7 +247,7 @@
         0.0516,
         0.216
       ],
-      "historical_locked_subset_oof_accuracy": 0.5682,
+      "subset47_oof_accuracy": 0.5682,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_apex.csv"
     },
     {
@@ -293,7 +293,7 @@
         0.0045,
         0.1312
       ],
-      "historical_locked_subset_oof_accuracy": 0.6444,
+      "subset47_oof_accuracy": 0.6444,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_loop.csv"
     },
     {
@@ -330,7 +330,7 @@
         -0.045,
         0.027
       ],
-      "historical_locked_subset_oof_accuracy": 0.7556,
+      "subset47_oof_accuracy": 0.7556,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -367,7 +367,7 @@
         0.0249,
         0.199
       ],
-      "historical_locked_subset_oof_accuracy": 0.6154,
+      "subset47_oof_accuracy": 0.6154,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -404,7 +404,7 @@
         0.0,
         0.0
       ],
-      "historical_locked_subset_oof_accuracy": 0.8696,
+      "subset47_oof_accuracy": 0.8696,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -450,7 +450,7 @@
         0.0,
         0.0
       ],
-      "historical_locked_subset_oof_accuracy": 0.9362,
+      "subset47_oof_accuracy": 0.9362,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -496,7 +496,7 @@
         0.0395,
         0.1798
       ],
-      "historical_locked_subset_oof_accuracy": 0.6304,
+      "subset47_oof_accuracy": 0.6304,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -533,7 +533,7 @@
         0.1289,
         0.2889
       ],
-      "historical_locked_subset_oof_accuracy": 0.7955,
+      "subset47_oof_accuracy": 0.7955,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -570,7 +570,7 @@
         0.1957,
         0.3609
       ],
-      "historical_locked_subset_oof_accuracy": 0.6383,
+      "subset47_oof_accuracy": 0.6383,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -616,7 +616,7 @@
         0.1126,
         0.2597
       ],
-      "historical_locked_subset_oof_accuracy": 0.766,
+      "subset47_oof_accuracy": 0.766,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_oof.csv"
     },
     {
@@ -662,7 +662,7 @@
         -0.026,
         0.1126
       ],
-      "historical_locked_subset_oof_accuracy": 0.3913,
+      "subset47_oof_accuracy": 0.3913,
       "source": "artifacts/experiments/expert_routes_20260928/calibrated_3band_papilla.csv"
     },
     {
